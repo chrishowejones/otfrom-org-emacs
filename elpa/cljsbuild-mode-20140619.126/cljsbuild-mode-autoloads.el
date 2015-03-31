@@ -1,10 +1,10 @@
 ;;; cljsbuild-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (cljsbuild-start cljsbuild-mode) "cljsbuild-mode"
-;;;;;;  "cljsbuild-mode.el" (21415 16097 524322 676000))
+;;;### (autoloads nil "cljsbuild-mode" "cljsbuild-mode.el" (21676
+;;;;;;  7042 0 0))
 ;;; Generated autoloads from cljsbuild-mode.el
 
 (autoload 'cljsbuild-mode "cljsbuild-mode" "\
@@ -19,16 +19,9 @@ Runs cljsbuild.
 
 ;;;***
 
-;;;### (autoloads nil nil ("cljsbuild-mode-pkg.el") (21415 16097
-;;;;;;  533383 831000))
-
-;;;***
-
-(provide 'cljsbuild-mode-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; cljsbuild-mode-autoloads.el ends here

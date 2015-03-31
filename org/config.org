@@ -27,7 +27,9 @@
    Things in browse-url land seem a bit flaky atm.
 
    #+BEGIN_SRC emacs-lisp
-     (setq browse-url-browser-function 'browse-url-firefox)
+      (setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium-browser")
+;;     (setq browse-url-browser-function 'browse-url-chrome)
    #+END_SRC
 
 ** Hippie Expand
@@ -249,7 +251,7 @@
     use it (please don't tell emacs).
 
     #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'noctilux-theme)
+      (maybe-install-and-require 'noctilux-theme)
     #+END_SRC
 
 *** grandshell
@@ -259,7 +261,7 @@
     for a while.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'grandshell-theme)
+;;      (maybe-install-and-require 'grandshell-theme)
     #+END_SRC
 
 *** cyberpunk, I still love you
@@ -272,7 +274,7 @@
     I'm not using it at the moment as I'm trying out other themes.
 
     #+BEGIN_SRC emacs-lisp
-      ;; (load-theme 'emacslive-cyberpunk t)
+;;       (maybe-install-and-require 'cyberpunk-theme)
     #+END_SRC
 
 ** fonts
@@ -398,7 +400,7 @@
    use helm for cheatsheets and other things
 
    #+BEGIN_SRC emacs-lisp
-     (ido-mode 1)
+;;     (helm-mode 1)
    #+END_SRC
 
 *** ido flex matching
@@ -614,6 +616,17 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'helm-ag)
+   #+END_SRC
+
+** guide key
+
+   I want to try out guide key as it looks cool and I'm terrible for
+   remembering keybindings (sign of getting old)
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'guide-key)
+     (setq guide-key/guide-key-sequence '("C-x" "C-c"))
+     (guide-key-mode 1)
    #+END_SRC
 
 * Text Modes
@@ -1372,7 +1385,8 @@
 
    #+BEGIN_SRC emacs-lisp
      (setq twittering-initial-timeline-spec-string
-           '("otfrom/people-i-know"
+           '(":home"
+             "chrishowejones/Friends"
              ":replies"
              ":direct_messages"))
    #+END_SRC
@@ -1384,7 +1398,7 @@
      (setq twittering-timer-interval (* 60 30))
    #+END_SRC
 
-*** Tweet Button
+`*** Tweet Button
 
     Sometimes I just want to scream. Twitter lets me do that.
 
@@ -1401,7 +1415,7 @@
     #+BEGIN_SRC emacs-lisp
       (defun tweeps-i-know ()
         (interactive)
-        (let* ((p-i-k "otfrom/people-i-know")
+        (let* ((p-i-k "chrishowejones/friends")
                (twoot (get-buffer p-i-k)))
           (if twoot
               (switch-to-buffer twoot)
@@ -1516,7 +1530,7 @@
     like #ukodi and ##cleanweb. And ones for Mastodon C like #kixi.
 
     #+BEGIN_SRC emacs-lisp
-      (setq erc-autojoin-channels-alist '(("freenode.net" "##cleanweb" "#kixi" "#theodi" "#ldnclj" "#clojure-emacs")))
+      (setq erc-autojoin-channels-alist '(("freenode.net" "##cleanweb" "#ldnclj" "#clojure-emacs" "##virtualJUG")))
     #+END_SRC
 
 *** Credentials
@@ -1612,25 +1626,25 @@
        (maybe-install-and-require 'gnus-alias)
        ;; Define two identities, "home" and "work"
        (setq gnus-alias-identity-alist
-             '(("otfrom"
-                nil ;; Does not refer to any other identity
-                "Bruce Durling <bld@otfrom.com>" ;; Sender address
-                "otfrom" ;; No organization header
-                (("Fcc" . "/home/bld/maildir/otfrom/sent"))
+             '(("gmail"
+                "Chris Howe-Jones <chris.howejones@gmail.com>" ;; Sender address
+                nil
+                "Chris Howe-Jones <chris.howejones@gmail.com>"
+                (("Fcc" . "/home/bld/maildir/gmail/sent"))
                 nil ;; No extra body text
                 "~/.signature")
-               ("mastodonc"
+               ("DevCycle"
                 nil
-                "Bruce Durling <bruce@mastodonc.com>"
-                "Mastodon C Ltd"
-                (("Fcc" . "/home/bld/maildir/mastodonc/sent"))
+                "Chris Howe-Jones <chris.howejones.com>" ;; Sender address
+                "DevCycle Ltd"
+                (("Fcc" . "/home/bld/maildir/devcycle/sent"))
                 nil
                 "~/.signature.work")))
        ;; Use "home" identity by default
-       (setq gnus-alias-default-identity "otfrom")
+       (setq gnus-alias-default-identity "gmail")
        ;; Define rules to match work identity
        (setq gnus-alias-identity-rules
-             '(("mastodonc" ("to" ".*@mastodonc.com" both) "mastodonc")))
+             '(("DevCycle" ("to" ".*devcycle.com" both) "DevCycle")))
      #+END_SRC
 
 *** email with mu and mu4e
@@ -1646,7 +1660,7 @@
     #+BEGIN_SRC emacs-lisp
       (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
       (require 'mu4e)
-      (setq mu4e-user-mail-address-list (list "bld@otfrom.com" "bruce@mastodonc.com"))
+      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com" "chris@devcycle.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -1681,8 +1695,8 @@
 
      #+BEGIN_SRC emacs-lisp
        (setq mu4e-maildir-shortcuts
-             '(("/mastodonc/INBOX" . ?w)
-               ("/otfrom/INBOX" . ?p)))
+             '(("/devcycle/INBOX" . ?w)
+               ("/gmail/INBOX" . ?p)))
      #+END_SRC
 
 **** Multiple Accounts
@@ -1697,13 +1711,13 @@
       about my personal account.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-refile-folder "/mastodonc/all"
-              mu4e-sent-folder "/mastodonc/sent"
-              mu4e-drafts-folder "/mastodonc/drafts"
-              mu4e-trash-folder "/mastodonc/trash"
-              user-mail-address "bruce@mastodonc.com"
-              message-signature-file "/home/bld/.signature.work"
-              user-mail-address "bruce@mastodonc.com")
+        (setq mu4e-refile-folder "/devcycle/all"
+              mu4e-sent-folder "/devcycle/sent"
+              mu4e-drafts-folder "/devcycle/drafts"
+              mu4e-trash-folder "/devcycle/trash"
+              user-mail-address "chris@devcycle.com"
+              message-signature-file "/home/chrishowe-jones/.signature.work"
+              user-mail-address "chris@devcycle.com")
       #+END_SRC
 
 ***** The account switching
@@ -1723,20 +1737,20 @@
 
       #+BEGIN_SRC emacs-lisp
         (defvar my-mu4e-account-alist
-          '(("mastodonc"
-             (mu4e-refile-folder "/mastodonc/all")
-             (mu4e-sent-folder "/mastodonc/sent")
-             (mu4e-drafts-folder "/mastodonc/drafts")
-             (mu4e-trash-folder "/mastodonc/trash")
-             (user-mail-address "bruce@mastodonc.com")
-             (message-signature-file "/home/bld/.signature.work"))
-            ("otfrom"
-             (mu4e-refile-folder "/otfrom/all")
-             (mu4e-sent-folder "/otfrom/sent")
-             (mu4e-drafts-folder "/otfrom/drafts")
-             (mu4e-trash-folder "/otfrom/trash")
-             (user-mail-address "bld@otfrom.com")
-             (message-signature-file "/home/bld/.signature"))))
+          '(("devcycle"
+             (mu4e-refile-folder "/devcycle/all")
+             (mu4e-sent-folder "/devcycle/sent")
+             (mu4e-drafts-folder "/devcycle/drafts")
+             (mu4e-trash-folder "/devcycle/trash")
+             (user-mail-address "chris@devcycle.com")
+             (message-signature-file "/home/chrishowe-jones/.signature.work"))
+            ("gmail"
+             (mu4e-refile-folder "/gmail/all")
+             (mu4e-sent-folder "/gmail/sent")
+             (mu4e-drafts-folder "/gmail/drafts")
+             (mu4e-trash-folder "/gmail/trash")
+             (user-mail-address "chris.howejones@gmail.com")
+             (message-signature-file "/home/chrishowe-jones/.signature"))))
       #+END_SRC
 
 ***** Add a switch function to the hook
@@ -1848,11 +1862,12 @@
     while shall we?
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'w3m)
-      (setq browse-url-browser-function 'w3m-browse-url)
+;;      (maybe-install-and-require 'w3m)
+;;      (setq browse-url-browser-function 'browse-url-generic)
       (global-set-key "\C-xm" 'browse-url-at-point)
       (setq w3m-use-cookies t)
     #+END_SRC
+
 
 ** Hailing Frequencies or comms
 
@@ -1889,13 +1904,11 @@
 
              ;; twitter on the left
              (window-number-select 1)
-             (switch-to-buffer "otfrom/people-i-know")
+             (switch-to-buffer "chrishowejones/people-i-know")
              (window-number-select 2)
              (switch-to-buffer ":replies")
 
              ;; erc and jabber on the right
-             (window-number-select 3)
-             (switch-to-buffer "#kixi")
              (window-number-select 4)
              (switch-to-buffer "#ldnclj")
              (window-number-select 5)
@@ -1938,7 +1951,7 @@
 
            ;; set up the buffers as we want
            (window-number-select 1)
-           (switch-to-buffer "otfrom/people-i-know")
+           (switch-to-buffer "chrishowejones/people-i-know")
            (window-number-select 2)
            (switch-to-buffer ":replies")
            (window-number-select 3)
@@ -1951,10 +1964,6 @@
                (switch-to-buffer "*-jabber-roster-*"))
            (window-number-select 7)
            (switch-to-buffer "#ldnclj")
-           (window-number-select 8)
-           (switch-to-buffer "#kixi")
-           (window-number-select 9)
-           (switch-to-buffer "#theodi")
 
            ;; dump the middle window
            (window-number-select 5)
@@ -1965,6 +1974,12 @@
    #+END_SRC
 
 * Programming Modes
+** shell
+
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key [C-M-return] 'shell)
+   #+END_SRC
+
 ** prog-mode
 
    prog-mode and the prog-mode-hook are at the basis of most of the
@@ -2336,6 +2351,11 @@
 
      #+BEGIN_SRC emacs-lisp
        (maybe-install-and-require 'clj-refactor)
+       (add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "C-c C-m rm")
+                               ))
+
      #+END_SRC
 
 **** clojurescript
@@ -2356,6 +2376,7 @@
        (defun helm-clojure-headlines ()
          "Display headlines for the current Clojure file."
          (interactive)
+         (helm-mode t)
          (helm :sources '(((name . "Clojure Headlines")
                            (volatile)
                            (headline "^[;(]")))))
@@ -2375,7 +2396,7 @@
      #+BEGIN_SRC emacs-lisp
        (maybe-install-and-require 'clojure-cheatsheet)
        (add-hook 'clojure-mode-hook
-                 (lambda () (local-set-key [s-f1] 'clojure-cheatsheet)))
+                 (lambda () (local-set-key [s-f9] 'clojure-cheatsheet)))
      #+END_SRC
 
 **** sw1nn-cider-perspective or Engineering
@@ -2402,6 +2423,33 @@
      #+END_SRC
 
 ** python
+
+     #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'elpy)
+       (elpy-enable)
+       (maybe-install-and-require 'python)
+;;       (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;;       (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;;       (add-hook 'python-mode-hook 'guess-style-guess-tabs-mode)
+;;       (add-hook 'python-mode-hook (lambda ()
+;;                                      (when indent-tabs-mode
+;;                                        (guess-style-guess-tab-width)))
+
+     #+END_SRC
+
+*** alter paredit to suit python style
+
+   I don't want leading spaces for open parentheses in python mode
+   as it just looks weird.
+
+
+     (defun paredit-space-for-delimiter-p (endp delimiter)
+       (and (not (if endp (eobp) (bobp)))
+            (memq (char-syntax (if endp (char-after) (char-before)))
+                  (list ?\"
+                        (let ((matching (matching-paren delimiter)))
+                          (and matching (char-syntax matching)))))))
+
 
 ** javascript
 
@@ -2489,14 +2537,14 @@
     And a control-meta to start everything off.
 
     #+BEGIN_SRC emacs-lisp
-      (global-set-key (kbd "<f8>") 'emms-previous)
+      (global-set-key (kbd "<f7>") 'emms-previous)
 
-      (global-set-key (kbd "<f9>") 'emms-pause)
-      (global-set-key (kbd "C-<f9>") 'emms-play-playlist)
-      (global-set-key (kbd "M-<f9>") 'emms-play-dired)
-      (global-set-key (kbd "s-<f9>") 'emms-stop)
+      (global-set-key (kbd "<f8>") 'emms-pause)
+      (global-set-key (kbd "C-<f8>") 'emms-play-playlist)
+      (global-set-key (kbd "M-<f8>") 'emms-play-dired)
+      (global-set-key (kbd "s-<f8>") 'emms-stop)
 
-      (global-set-key (kbd "<f10>") 'emms-next)
+      (global-set-key (kbd "<f9>") 'emms-next)
     #+END_SRC
 
 *** Turn off emms-mode-line
@@ -2548,7 +2596,7 @@
     know when I get @replies and DMs though.
 
     #+BEGIN_SRC emacs-lisp
-      (setq sauron-prio-twittering-new-tweets 4)
+;;      (setq sauron-prio-twittering-new-tweets 4)
     #+END_SRC
 
 * Local Config

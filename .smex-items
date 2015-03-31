@@ -1,0 +1,43 @@
+
+;; ----- smex-history -----
+(
+ cider-quit
+ magit-status
+ dired
+ load-library
+ eval-buffer
+ list-packages
+ find-grep-dired
+)
+
+;; ----- smex-data -----
+(
+ (ensime . 6)
+ (ensime-quit-connection-at-point . 1)
+ (cider-quit . 47)
+ (cider . 5)
+ (cider-read-and-eval . 1)
+ (ensime-config-gen . 1)
+ (eval-region . 1)
+ (dired . 29)
+ (tree-mode . 1)
+ (dirtree . 2)
+ (eval-print-last-sexp . 3)
+ (menu-bar-mode . 2)
+ (eval-buffer . 6)
+ (apropos-variable . 1)
+ (eval-last-sexp . 1)
+ (package-install . 2)
+ (load-theme . 1)
+ (package-list-packages . 3)
+ (cider-restart . 54)
+ (magit-status . 23)
+ (magit-quit-window . 5)
+ (shell . 4)
+ (cider-popup-buffer-quit . 1)
+ (cider-jack-in . 1)
+ (doctor . 1)
+ (find-grep-dired . 4)
+ (list-packages . 1)
+ (load-library . 3)
+)
