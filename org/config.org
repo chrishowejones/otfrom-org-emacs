@@ -22,6 +22,13 @@
 
 * Globals
 
+** Set initial framesize
+
+   #+BEGIN_SRC emacs-lisp
+     (setq initial-frame-alist '((top . 0) (left . 0) (width . 140)
+     (height . 45)))
+   #+END_SRC
+
 ** Which browser
 
    Things in browse-url land seem a bit flaky atm.
@@ -251,7 +258,7 @@
     use it (please don't tell emacs).
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'noctilux-theme)
+;;      (maybe-install-and-require 'noctilux-theme)
     #+END_SRC
 
 *** grandshell
@@ -274,7 +281,7 @@
     I'm not using it at the moment as I'm trying out other themes.
 
     #+BEGIN_SRC emacs-lisp
-;;       (maybe-install-and-require 'cyberpunk-theme)
+       (maybe-install-and-require 'cyberpunk-theme)
     #+END_SRC
 
 ** fonts
@@ -341,7 +348,7 @@
        (let ((param (cadr (frame-parameter nil 'alpha))))
          (if (and param (/= param 100))
              (set-frame-parameter nil 'alpha '(100 100))
-           (set-frame-parameter nil 'alpha '(85 50)))))
+           (set-frame-parameter nil 'alpha '(50 50)))))
      (global-set-key (kbd "C-c t") 'toggle-transparency)
    #+END_SRC
 
@@ -500,6 +507,7 @@
      (maybe-install-and-require 'ace-jump-mode)
      (global-set-key (kbd "C-c j") 'ace-jump-mode)
      (global-set-key (kbd "C-c k") 'ace-jump-mode-pop-mark)
+     (global-set-key (kbd "C-c l") 'ace-jump-line-mode)
    #+END_SRC
 
 ** Mouse Avoidance
@@ -625,8 +633,30 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'guide-key)
-     (setq guide-key/guide-key-sequence '("C-x" "C-c"))
+     (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-c C-y" "C-x c"))
      (guide-key-mode 1)
+   #+END_SRC
+
+** expand region
+
+   Use expand region to widen marked text
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'expand-region)
+     (global-set-key (kbd "C-=") 'er/expand-region)
+   #+END_SRC
+
+** Jump to top or bottom of window
+
+   Set up move-to-window-line 0 and move-to-window-line -
+
+   #+BEGIN_SRC emacs-lisp
+     (defun top-of-window
+       (move-to-window-line "0"))
+     (global-set-key (kbd "C-s-t") 'top-of-window)
+     (defun bottom-of-window
+       (move-to-window-line "-"))
+     (global-set-key (kbd "C-s-b") 'bottom-of-window)
    #+END_SRC
 
 * Text Modes
@@ -636,6 +666,7 @@
    If we are in a text mode we want flyspell and auto-fill-mode.
 
    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'flyspell)
      (add-hook 'text-mode-hook
                (lambda ()
                        (flyspell-mode 1)
@@ -1134,7 +1165,7 @@
      C-M-f12.
 
      #+BEGIN_SRC emacs-lisp
-       (global-set-key [f12] 'org-capture)
+       (global-set-key [C-M-f12] 'org-capture)
      #+END_SRC
 
 **** Capture Templates
@@ -1530,7 +1561,7 @@
     like #ukodi and ##cleanweb. And ones for Mastodon C like #kixi.
 
     #+BEGIN_SRC emacs-lisp
-      (setq erc-autojoin-channels-alist '(("freenode.net" "##cleanweb" "#ldnclj" "#clojure-emacs" "##virtualJUG")))
+      (setq erc-autojoin-channels-alist '(("freenode.net" "#clojurewerkz" "#ldnclj" "#clojure-emacs" "##virtualJUG")))
     #+END_SRC
 
 *** Credentials
@@ -1879,7 +1910,6 @@
      (defun comms-up ()
        (interactive)
        (twittering-mode)
-       (jabber-connect-all)
        (erc))
 
      (defun comms ()
@@ -1951,7 +1981,7 @@
 
            ;; set up the buffers as we want
            (window-number-select 1)
-           (switch-to-buffer "chrishowejones/people-i-know")
+           (switch-to-buffer "chrishowejones/Friends")
            (window-number-select 2)
            (switch-to-buffer ":replies")
            (window-number-select 3)
@@ -2045,6 +2075,14 @@
       (add-hook 'prog-mode-hook 'highlight-symbol-mode)
     #+END_SRC
 
+*** flycheck
+
+    Flycheck should give on the fly syntax checking.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'flycheck)
+
+    #+END_SRC
 *** color-identifiers-mode
 
     This is a suggestion from @sw1nn.
@@ -2353,8 +2391,7 @@
        (maybe-install-and-require 'clj-refactor)
        (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c C-m rm")
-                               ))
+                               (cljr-add-keybindings-with-prefix "C-c RET")))
 
      #+END_SRC
 
@@ -2422,6 +2459,29 @@
          (pop-to-buffer (cider-find-or-create-repl-buffer)))
      #+END_SRC
 
+**** My initial windows setup
+
+      Want to open four windows and sw1nn-cider-perspective in one key
+      sequence.
+
+       #+BEGIN_SRC emacs-lisp
+        (defun chj-clojure-perspective ()
+         (interactive)
+         (delete-other-windows)
+         (progn
+               ;; create our 2 columns
+               (split-window-right)
+
+                ;; split 1st column vertically
+               (split-window-below)
+
+               ;; move to the rightmost and split into 2 vertically
+               (window-number-select 3)
+               (split-window-below))
+        (balance-windows)
+        )
+        (global-set-key (kbd "s-<f11>") 'chj-clojure-perspective)
+       #+END_SRC
 ** python
 
      #+BEGIN_SRC emacs-lisp
@@ -2497,6 +2557,14 @@
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'refheap)
     #+END_SRC
+
+** restclient
+
+   Added in rest client to allow for manual testing of restful client.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'restclient)
+   #+END_SRC
 
 * Data Modes
 
