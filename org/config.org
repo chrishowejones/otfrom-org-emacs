@@ -281,7 +281,13 @@
     I'm not using it at the moment as I'm trying out other themes.
 
     #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'cyberpunk-theme)
+;;       (maybe-install-and-require 'cyberpunk-theme)
+    #+END_SRC
+
+*** flatland, I am learning to love you
+
+    #+BEGIN_SRC emacs-lisp
+       (load-theme 'flatland)
     #+END_SRC
 
 *** solarized
@@ -289,7 +295,7 @@
     Solarized looks quite cool. Using the port from [[https://github.com/sellout][Greg Pfeil]].
 
     #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'solarized)
+;;       (maybe-install-and-require 'solarizeda-theme)
     #+END_SRC
 
 ** fonts

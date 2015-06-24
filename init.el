@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This is the minimal config needed to get org-mode from melpa and
+;; This a is the minimal config needed to get org-mode from melpa and
 ;; get it up and running so that we can load our emacs config from a
 ;; .org file in a literate manner. The basis for this can be found
 ;; here:
