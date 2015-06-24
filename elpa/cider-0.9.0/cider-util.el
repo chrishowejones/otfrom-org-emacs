@@ -34,25 +34,6 @@
 (require 'cl-lib)
 (require 'clojure-mode)
 
-;;; Compatibility
-(eval-and-compile
-  ;; `defvar-local' for Emacs 24.2 and below
-  (unless (fboundp 'defvar-local)
-    (defmacro defvar-local (var val &optional docstring)
-      "Define VAR as a buffer-local variable with default value VAL.
-Like `defvar' but additionally marks the variable as being automatically
-buffer-local wherever it is set."
-      (declare (debug defvar) (doc-string 3))
-      `(progn
-         (defvar ,var ,val ,docstring)
-         (make-variable-buffer-local ',var))))
-
-  ;; `setq-local' for Emacs 24.2 and below
-  (unless (fboundp 'setq-local)
-    (defmacro setq-local (var val)
-      "Set variable VAR to value VAL in current buffer."
-      `(set (make-local-variable ',var) ,val))))
-
 (defun cider-util--hash-keys (hashtable)
   "Return a list of keys in HASHTABLE."
   (let ((keys '()))
@@ -134,7 +115,7 @@ Unless you specify a BUFFER it will default to the current one."
          (scaled-rgb (mapcar (lambda (n)
                                (format "%04x" (round (+ n (* scale 65535)))))
                              rgb)))
-    (apply 'concat "#" scaled-rgb)))
+    (apply #'concat "#" scaled-rgb)))
 
 (defun cider-scale-background-color ()
   "Scale the current background color to get a slighted muted version."
@@ -154,7 +135,7 @@ Unless you specify a BUFFER it will default to the current one."
 
 (defun cider-string-join (strings &optional separator)
   "Join all STRINGS using SEPARATOR."
-  (mapconcat 'identity strings separator))
+  (mapconcat #'identity strings separator))
 
 (defun cider-join-into-alist (candidates &optional separator)
   "Make an alist from CANDIDATES.

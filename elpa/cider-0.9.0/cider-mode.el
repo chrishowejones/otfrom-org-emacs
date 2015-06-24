@@ -33,9 +33,22 @@
 (require 'cider-interaction)
 (require 'cider-eldoc)
 
+(defun cider--modeline-info ()
+  "Return info for the `cider-mode' modeline.
+
+Info contains project name and host:port endpoint."
+  (let ((current-connection (nrepl-current-connection-buffer t)))
+    (if current-connection
+        (with-current-buffer current-connection
+          (format "%s@%s:%s"
+                  (or (nrepl--project-name nrepl-project-dir) "<no project>")
+                  (car nrepl-endpoint)
+                  (cadr nrepl-endpoint)))
+      "not connected")))
+
 ;;;###autoload
 (defcustom cider-mode-line
-  '(:eval (format " cider[%s]" (cider-current-ns)))
+  '(:eval (format " cider[%s]" (cider--modeline-info)))
   "Mode line lighter for `cider-mode'.
 
 The value of this variable is a mode line template as in
@@ -43,7 +56,7 @@ The value of this variable is a mode line template as in
 details about mode line templates.
 
 Customize this variable to change how `cider-mode' displays its
-status in the mode line.  The default value displays the current ns.
+status in the mode line.  The default value displays the current connection.
 Set this variable to nil to disable the mode line
 entirely."
   :group 'cider
@@ -54,9 +67,10 @@ entirely."
 (defvar cider-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c C-d") #'cider-doc-map)
-    (define-key map (kbd "M-.") #'cider-jump-to-var)
+    (define-key map (kbd "M-.") #'cider-find-var)
+    (define-key map (kbd "C-c C-.") #'cider-find-ns)
     (define-key map (kbd "M-,") #'cider-jump-back)
-    (define-key map (kbd "C-c M-.") #'cider-jump-to-resource)
+    (define-key map (kbd "C-c M-.") #'cider-find-resource)
     (define-key map (kbd "M-TAB") #'complete-symbol)
     (define-key map (kbd "C-M-x")   #'cider-eval-defun-at-point)
     (define-key map (kbd "C-c C-c") #'cider-eval-defun-at-point)
@@ -98,31 +112,36 @@ entirely."
         "--"
         ,cider-doc-menu
         "--"
-        ["Eval top-level sexp at point" cider-eval-defun-at-point]
-        ["Eval last sexp" cider-eval-last-sexp]
-        ["Eval last sexp in popup buffer" cider-pprint-eval-last-sexp]
-        ["Eval last sexp to REPL buffer" cider-eval-last-sexp-to-repl]
-        ["Eval last sexp and replace" cider-eval-last-sexp-and-replace]
-        ["Eval region" cider-eval-region]
-        ["Eval ns form" cider-eval-ns-form]
-        ["Insert last sexp in REPL" cider-insert-last-sexp-in-repl]
-        "--"
-        ["Load (eval) buffer" cider-load-buffer]
-        ["Load (eval) file" cider-load-file]
-        "--"
-        ["Macroexpand-1" cider-macroexpand-1]
-        ["Macroexpand-all" cider-macroexpand-all]
-        "--"
-        ["Jump to source" cider-jump-to-var]
-        ["Jump to resource" cider-jump-to-resource]
-        ["Jump back" cider-jump-back]
-        "--"
-        ["Run test" cider-test-run-test]
-        ["Run all tests" cider-test-run-tests]
-        ["Rerun failed/erring tests" cider-test-rerun-tests]
-        ["Show test report" cider-test-show-report]
+        ("Eval"
+         ["Eval top-level sexp at point" cider-eval-defun-at-point]
+         ["Eval last sexp" cider-eval-last-sexp]
+         ["Eval last sexp in popup buffer" cider-pprint-eval-last-sexp]
+         ["Eval last sexp to REPL buffer" cider-eval-last-sexp-to-repl]
+         ["Eval last sexp and replace" cider-eval-last-sexp-and-replace]
+         ["Eval region" cider-eval-region]
+         ["Eval ns form" cider-eval-ns-form]
+         ["Insert last sexp in REPL" cider-insert-last-sexp-in-repl]
+         "--"
+         ["Load (eval) buffer" cider-load-buffer]
+         ["Load (eval) file" cider-load-file])
+        ("Macroexpand"
+         ["Macroexpand-1" cider-macroexpand-1]
+         ["Macroexpand-all" cider-macroexpand-all])
+        ("Find"
+         ["Find definition" cider-find-var]
+         ["Find resource" cider-find-resource]
+         ["Jump back" cider-jump-back])
+        ("Test"
+         ["Run test" cider-test-run-test]
+         ["Run all tests" cider-test-run-tests]
+         ["Rerun failed/erring tests" cider-test-rerun-tests]
+         ["Show test report" cider-test-show-report])
         "--"
         ["Inspect" cider-inspect]
+        ["Toggle var tracing" cider-toggle-trace-var]
+        ["Toggle ns tracing" cider-toggle-trace-ns]
+        ["Refresh loaded code" cider-refresh]
+        "--"
         ["Debug top-level form" cider-debug-defun-at-point]
         "--"
         ["Set ns" cider-repl-set-ns]
@@ -130,15 +149,17 @@ entirely."
         ["Switch to Relevant REPL" cider-switch-to-relevant-repl-buffer]
         ["Toggle REPL Pretty Print" cider-repl-toggle-pretty-printing]
         ["Clear REPL" cider-find-and-clear-repl-buffer]
-        ["Refresh loaded code" cider-refresh]
+        "--"
+        ("nREPL"
+         ["Describe session" cider-describe-nrepl-session]
+         ["Close session" cider-close-nrepl-session]
+         ["Connection info" cider-display-current-connection-info]
+         ["Rotate connection" cider-rotate-connection])
+        "--"
         ["Interrupt evaluation" cider-interrupt]
+        "--"
         ["Quit" cider-quit]
         ["Restart" cider-restart]
-        "--"
-        ["Describe nREPL session" cider-describe-nrepl-session]
-        ["Close nREPL session" cider-close-nrepl-session]
-        ["Display nREPL connection" cider-display-current-connection-info]
-        ["Rotate nREPL connection" cider-rotate-connection]
         "--"
         ["Version info" cider-version]))
     map))
@@ -154,7 +175,8 @@ entirely."
   (cider-eldoc-setup)
   (make-local-variable 'completion-at-point-functions)
   (add-to-list 'completion-at-point-functions
-               #'cider-complete-at-point))
+               #'cider-complete-at-point)
+  (setq next-error-function #'cider-jump-to-compilation-error))
 
 (provide 'cider-mode)
 

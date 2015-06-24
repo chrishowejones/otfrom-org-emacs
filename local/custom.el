@@ -14,9 +14,7 @@
  '(fci-rule-color "#383838")
  '(foreground-color "#cccccc")
  '(helm-mode t)
- '(org-agenda-files
-   (quote
-    ("~/org/refile.org" "~/org/work.org" "~/org/mc-cal.org" "~/org/otfrom-cal.org" "~/org/ldnclj-cal.org"))))
+ '(org-agenda-files (quote ("~/org/refile.org" "~/org/work.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

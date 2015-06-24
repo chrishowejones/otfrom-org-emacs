@@ -41,15 +41,15 @@
 (defvar cider-inspector-mode-map
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map cider-popup-buffer-mode-map)
-    (define-key map [return] 'cider-inspector-operate-on-point)
-    (define-key map "\C-m"   'cider-inspector-operate-on-point)
-    (define-key map [mouse-1] 'cider-inspector-operate-on-click)
-    (define-key map "l" 'cider-inspector-pop)
-    (define-key map "g" 'cider-inspector-refresh)
-    (define-key map [tab] 'cider-inspector-next-inspectable-object)
-    (define-key map "\C-i" 'cider-inspector-next-inspectable-object)
-    (define-key map [(shift tab)] 'cider-inspector-previous-inspectable-object) ; Emacs translates S-TAB
-    (define-key map [backtab] 'cider-inspector-previous-inspectable-object) ; to BACKTAB on X.
+    (define-key map [return] #'cider-inspector-operate-on-point)
+    (define-key map "\C-m"   #'cider-inspector-operate-on-point)
+    (define-key map [mouse-1] #'cider-inspector-operate-on-click)
+    (define-key map "l" #'cider-inspector-pop)
+    (define-key map "g" #'cider-inspector-refresh)
+    (define-key map [tab] #'cider-inspector-next-inspectable-object)
+    (define-key map "\C-i" #'cider-inspector-next-inspectable-object)
+    (define-key map [(shift tab)] #'cider-inspector-previous-inspectable-object) ; Emacs translates S-TAB
+    (define-key map [backtab] #'cider-inspector-previous-inspectable-object) ; to BACKTAB on X.
     map))
 
 (define-derived-mode cider-inspector-mode fundamental-mode "Inspector"
@@ -70,14 +70,14 @@
   (cider-inspect-expr expression (cider-current-ns)))
 
 ;; Operations
-(defun cider-inspector--value-handler (buffer value)
+(defun cider-inspector--value-handler (_buffer value)
   (cider-make-popup-buffer cider-inspector-buffer 'cider-inspector-mode)
   (cider-irender cider-inspector-buffer value))
 
-(defun cider-inspector--out-handler (buffer value)
+(defun cider-inspector--out-handler (_buffer value)
   (cider-emit-interactive-eval-output value))
 
-(defun cider-inspector--err-handler (buffer err)
+(defun cider-inspector--err-handler (_buffer err)
   (cider-emit-interactive-eval-err-output err))
 
 (defun cider-inspector--done-handler (buffer)

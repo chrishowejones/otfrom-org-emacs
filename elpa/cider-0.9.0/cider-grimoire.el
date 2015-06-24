@@ -26,6 +26,7 @@
 ;;; Code:
 
 (require 'cider-interaction)
+(require 'url-vars)
 
 (defconst cider-grimoire-url "http://conj.io/")
 
@@ -99,7 +100,7 @@ the value of `cider-prompt-for-symbol'. With prefix arg ARG, does the
 opposite of what that option dictates."
   (interactive "P")
   (funcall (cider-prompt-for-symbol-function arg)
-           "Grimoire doc for:"
+           "Grimoire doc for: "
            #'cider-grimoire-lookup))
 
 (provide 'cider-grimoire)

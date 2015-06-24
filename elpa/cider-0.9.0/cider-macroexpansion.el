@@ -57,6 +57,12 @@ Possible values are:
   'cider-macroexpansion-display-namespaces
   "0.8.0")
 
+(defcustom cider-macroexpansion-print-metadata nil
+  "Determines if metadata is included in macroexpansion results."
+  :type 'boolean
+  :group 'cider
+  :package-version '(cider . "0.9.0"))
+
 (defun cider-sync-request:macroexpand (expander expr &optional display-namespaces)
   "Macroexpand, using EXPANDER, the given EXPR.
 The default for DISPLAY-NAMESPACES is taken from
@@ -69,6 +75,8 @@ The default for DISPLAY-NAMESPACES is taken from
             "display-namespaces"
             (or display-namespaces
                 (symbol-name cider-macroexpansion-display-namespaces)))
+      (append (when cider-macroexpansion-print-metadata
+                (list "print-meta" "true")))
       (nrepl-send-sync-request)
       (nrepl-dict-get "expansion")))
 
@@ -159,34 +167,34 @@ and point is placed after the expanded form."
   "Create a new macroexpansion buffer."
   (with-current-buffer (cider-popup-buffer cider-macroexpansion-buffer t)
     (clojure-mode)
-    (clojure-disable-cider)
+    (cider-mode -1)
     (cider-macroexpansion-mode 1)
     (current-buffer)))
 
 (defvar cider-macroexpansion-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "g") 'cider-macroexpand-again)
-    (define-key map (kbd "q") 'cider-popup-buffer-quit-function)
-    (define-key map (kbd "d") 'cider-doc)
-    (define-key map (kbd "j") 'cider-javadoc)
-    (define-key map (kbd ".") 'cider-jump-to-var)
+    (define-key map (kbd "g") #'cider-macroexpand-again)
+    (define-key map (kbd "q") #'cider-popup-buffer-quit-function)
+    (define-key map (kbd "d") #'cider-doc)
+    (define-key map (kbd "j") #'cider-javadoc)
+    (define-key map (kbd ".") #'cider-find-var)
     (easy-menu-define cider-macroexpansion-mode-menu map
       "Menu for CIDER's doc mode"
       '("Macroexpansion"
         ["Restart expansion" cider-macroexpand-again]
         ["Macroexpand-1" cider-macroexpand-1-inplace]
         ["Macroexpand-all" cider-macroexpand-all-inplace]
-        ["Go to source" cider-jump-to-var]
+        ["Go to source" cider-find-var]
         ["Go to doc" cider-doc]
         ["Go to Javadoc" cider-docview-javadoc]
         ["Quit" cider-popup-buffer-quit-function]))
     (cl-labels ((redefine-key (from to)
                               (dolist (mapping (where-is-internal from cider-mode-map))
                                 (define-key map mapping to))))
-      (redefine-key 'cider-macroexpand-1 'cider-macroexpand-1-inplace)
-      (redefine-key 'cider-macroexpand-all 'cider-macroexpand-all-inplace)
-      (redefine-key 'advertised-undo 'cider-macroexpand-undo)
-      (redefine-key 'undo 'cider-macroexpand-undo))
+      (redefine-key 'cider-macroexpand-1 #'cider-macroexpand-1-inplace)
+      (redefine-key 'cider-macroexpand-all #'cider-macroexpand-all-inplace)
+      (redefine-key 'advertised-undo #'cider-macroexpand-undo)
+      (redefine-key 'undo #'cider-macroexpand-undo))
     map))
 
 (define-minor-mode cider-macroexpansion-mode

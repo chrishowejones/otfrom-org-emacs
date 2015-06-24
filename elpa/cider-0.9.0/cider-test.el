@@ -103,18 +103,18 @@
 
 (defvar cider-test-report-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c ,") 'cider-test-run-tests)
-    (define-key map (kbd "C-c C-,") 'cider-test-rerun-tests)
-    (define-key map (kbd "C-c M-,") 'cider-test-run-test)
-    (define-key map (kbd "M-p") 'cider-test-previous-result)
-    (define-key map (kbd "M-n") 'cider-test-next-result)
-    (define-key map (kbd "M-.") 'cider-test-jump)
-    (define-key map (kbd "t") 'cider-test-jump)
-    (define-key map (kbd "d") 'cider-test-ediff)
-    (define-key map (kbd "e") 'cider-test-stacktrace)
-    (define-key map "q" 'cider-popup-buffer-quit-function)
-    (define-key map (kbd "<backtab>") 'backward-button)
-    (define-key map (kbd "TAB") 'forward-button)
+    (define-key map (kbd "C-c ,") #'cider-test-run-tests)
+    (define-key map (kbd "C-c C-,") #'cider-test-rerun-tests)
+    (define-key map (kbd "C-c M-,") #'cider-test-run-test)
+    (define-key map (kbd "M-p") #'cider-test-previous-result)
+    (define-key map (kbd "M-n") #'cider-test-next-result)
+    (define-key map (kbd "M-.") #'cider-test-jump)
+    (define-key map (kbd "t") #'cider-test-jump)
+    (define-key map (kbd "d") #'cider-test-ediff)
+    (define-key map (kbd "e") #'cider-test-stacktrace)
+    (define-key map "q" #'cider-popup-buffer-quit-function)
+    (define-key map (kbd "<backtab>") #'backward-button)
+    (define-key map (kbd "TAB") #'forward-button)
     (easy-menu-define cider-test-report-mode-menu map
       "Menu for CIDER's test result mode"
       '("Test-Report"
@@ -162,15 +162,14 @@
       (goto-char pos))))
 
 (defun cider-test-jump (&optional arg)
-  "Like `cider-jump-to-var', but uses the test at point's definition, if available."
+  "Like `cider-find-var', but uses the test at point's definition, if available."
   (interactive "P")
   (let ((ns   (get-text-property (point) 'ns))
         (var  (get-text-property (point) 'var))
         (line (get-text-property (point) 'line)))
     (if (and ns var)
-        (cider-jump-to-var arg (concat ns "/" var) line)
-      (cider-jump-to-var arg))))
-
+        (cider-find-var arg (concat ns "/" var) line)
+      (cider-find-var arg))))
 
 ;;; Error stacktraces
 
@@ -194,8 +193,8 @@
                                               cider-auto-select-error-buffer)
                           (reverse causes))))))))))
 
-(defun cider-test-stacktrace (&optional button)
-  "Display stacktrace for the erring test at point, optionally from BUTTON."
+(defun cider-test-stacktrace ()
+  "Display stacktrace for the erring test at point."
   (interactive)
   (let ((ns    (get-text-property (point) 'ns))
         (var   (get-text-property (point) 'var))
@@ -290,7 +289,7 @@ With the actual value, the outermost '(not ...)' s-expression is removed."
                   (progn (insert-text-button
                           error
                           'follow-link t
-                          'action 'cider-test-stacktrace
+                          'action '(lambda (_button) (cider-test-stacktrace))
                           'help-echo "View causes and stacktrace")
                          (newline))
                 (insert (cider-font-lock-as-clojure actual)))))
@@ -308,7 +307,7 @@ With the actual value, the outermost '(not ...)' s-expression is removed."
         (unless (zerop (+ fail error))
           (cider-insert "Results" 'bold t "\n")
           (nrepl-dict-map
-           (lambda (var tests)
+           (lambda (_var tests)
              (dolist (test tests)
                (nrepl-dbind-response test (type)
                  (unless (equal "pass" type)
@@ -402,7 +401,7 @@ This uses the Leiningen convention of appending '-test' to the namespace name."
   (when ns
     (let ((suffix "-test"))
       ;; string-suffix-p is only available in Emacs 24.4+
-      (if (string-match (rx-to-string `(: ,suffix eos) t) ns)
+      (if (string-match-p (rx-to-string `(: ,suffix eos) t) ns)
           ns
         (concat ns suffix)))))
 
@@ -470,7 +469,7 @@ is searched."
         (cider-test-execute ns nil (list var))
       (let ((ns  (clojure-find-ns))
             (def (clojure-find-def)))
-        (if (and ns (member (first def) '("deftest" "defspec")))
+        (if (and ns (member (car def) '("deftest" "defspec")))
             (cider-test-execute ns nil (rest def))
           (message "No test at point"))))))
 

@@ -48,8 +48,8 @@
     (define-key cider-doc-map (kbd "A") #'cider-apropos-documentation)
     (define-key cider-doc-map (kbd "d") #'cider-doc)
     (define-key cider-doc-map (kbd "C-d") #'cider-doc)
-    (define-key cider-doc-map (kbd "g") #'cider-grimoire)
-    (define-key cider-doc-map (kbd "C-g") #'cider-grimoire)
+    (define-key cider-doc-map (kbd "r") #'cider-grimoire)
+    (define-key cider-doc-map (kbd "C-r") #'cider-grimoire)
     (define-key cider-doc-map (kbd "h") #'cider-grimoire-web)
     (define-key cider-doc-map (kbd "j") #'cider-javadoc)
     (define-key cider-doc-map (kbd "C-j") #'cider-javadoc)
@@ -297,7 +297,8 @@ Tables are marked to be ignored by line wrap."
          (special (nrepl-dict-get info "special-form"))
          (forms   (nrepl-dict-get info "forms-str"))
          (args    (nrepl-dict-get info "arglists-str"))
-         (doc     (nrepl-dict-get info "doc"))
+         (doc     (or (nrepl-dict-get info "doc")
+                      "Not documented."))
          (url     (nrepl-dict-get info "url"))
          (class   (nrepl-dict-get info "class"))
          (member  (nrepl-dict-get info "member"))
@@ -329,10 +330,9 @@ Tables are marked to be ignored by line wrap."
           (emit (concat "Added in " added) 'font-lock-comment-face))
         (when depr
           (emit (concat "Deprecated in " depr) 'font-lock-comment-face))
-        (when doc
-          (if class
-              (cider-docview-render-java-doc (current-buffer) doc)
-            (emit (concat "  " doc))))
+        (if class
+            (cider-docview-render-java-doc (current-buffer) doc)
+          (emit (concat "  " doc)))
         (when url
           (newline)
           (insert "  Please see ")
@@ -353,6 +353,11 @@ Tables are marked to be ignored by line wrap."
                                         (browse-url (button-get x 'url))))
           (insert ".")
           (newline))
+        (newline)
+        (insert-text-button "[source]"
+                            'follow-link t
+                            'action (lambda (_x)
+                                      (cider-docview-source)))
         (let ((beg (point-min))
               (end (point-max)))
           (nrepl-dict-map (lambda (k v)

@@ -191,10 +191,10 @@ ENDPOINT is a plist as returned by `nrepl-connect'."
 (defun cider-repl-require-repl-utils ()
   "Require standard REPL util functions into the current REPL."
   (interactive)
-  (cider-eval
+  (nrepl-request:eval
    "(when (clojure.core/resolve 'clojure.main/repl-requires)
       (clojure.core/map clojure.core/require clojure.main/repl-requires))"
-   (lambda (response) nil)))
+   (lambda (_response) nil)))
 
 (defun cider-repl-set-initial-ns (buffer)
   "Set the REPL BUFFER's initial namespace (by altering `cider-buffer-ns').
@@ -297,7 +297,7 @@ If BACKWARD is non-nil search backward."
 
 (defun cider-end-of-proprange-p (property)
   "Return t if at the the end of a property range for PROPERTY."
-  (and (get-char-property (max 1 (1- (point))) property)
+  (and (get-char-property (max (point-min) (1- (point))) property)
        (not (get-char-property (point) property))))
 
 (defun cider-repl--mark-input-start ()
@@ -513,7 +513,7 @@ the symbol."
   "Return t if the region from START to END is a complete sexp."
   (save-excursion
     (goto-char start)
-    (cond ((looking-at "\\s *[@'`#]?[(\"]")
+    (cond ((looking-at-p "\\s *[@'`#]?[(\"]")
            (ignore-errors
              (save-restriction
                (narrow-to-region start end)
@@ -571,7 +571,7 @@ If NEWLINE is true then add a newline at the end of the input."
     (goto-char (point-max))
     (cider-repl--mark-input-start)
     (cider-repl--mark-output-start)
-    (if (and (not (string-match "\\`[ \t\r\n]*\\'" input))
+    (if (and (not (string-match-p "\\`[ \t\r\n]*\\'" input))
              cider-repl-use-pretty-printing)
         (nrepl-request:pprint-eval
          input
@@ -691,7 +691,7 @@ text property `cider-old-input'."
 (defun cider-repl-switch-ns-handler (buffer)
   "Make a nREPL evaluation handler for the REPL BUFFER's ns switching."
   (nrepl-make-response-handler buffer
-                               (lambda (buffer value))
+                               (lambda (_buffer _value))
                                (lambda (buffer out)
                                  (cider-repl-emit-output buffer out))
                                (lambda (buffer err)
@@ -755,7 +755,7 @@ Empty strings and duplicates are ignored."
 Search in DIRECTION for REGEXP.
 Return -1 resp the length of the history if no item matches."
   ;; Loop through the history list looking for a matching line
-  (let* ((step (ecase direction
+  (let* ((step (cl-ecase direction
                  (forward -1)
                  (backward 1)))
          (history cider-repl-input-history)
@@ -763,7 +763,7 @@ Return -1 resp the length of the history if no item matches."
     (cl-loop for pos = (+ start-pos step) then (+ pos step)
              if (< pos 0) return -1
              if (<= len pos) return len
-             if (string-match regexp (nth pos history)) return pos)))
+             if (string-match-p regexp (nth pos history)) return pos)))
 
 (defun cider-repl--history-replace (direction &optional regexp)
   "Replace the current input with the next line in DIRECTION.
@@ -846,7 +846,7 @@ If USE-CURRENT-INPUT is non-nil, use the current input."
         (use-current-input
          (assert (<= cider-repl-input-start-mark (point)))
          (let ((str (cider-repl--current-input t)))
-           (cond ((string-match "^[ \n]*$" str) nil)
+           (cond ((string-match-p "^[ \n]*$" str) nil)
                  (t (concat "^" (regexp-quote str))))))
         (t nil)))
 
@@ -1001,43 +1001,43 @@ constructs."
 (defvar cider-repl-mode-map
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map clojure-mode-map)
-    (define-key map (kbd "C-c C-d") 'cider-doc-map)
-    (define-key map (kbd "M-.") 'cider-jump-to-var)
-    (define-key map (kbd "M-,") 'cider-jump-back)
-    (define-key map (kbd "C-c M-.") 'cider-jump-to-resource)
-    (define-key map (kbd "RET") 'cider-repl-return)
-    (define-key map (kbd "TAB") 'cider-repl-tab)
-    (define-key map (kbd "C-<return>") 'cider-repl-closing-return)
-    (define-key map (kbd "C-j") 'cider-repl-newline-and-indent)
-    (define-key map (kbd "C-c C-o") 'cider-repl-clear-output)
-    (define-key map (kbd "C-c M-o") 'cider-repl-clear-buffer)
-    (define-key map (kbd "C-c M-n") 'cider-repl-set-ns)
-    (define-key map (kbd "C-c C-u") 'cider-repl-kill-input)
-    (define-key map (kbd "C-S-a") 'cider-repl-bol-mark)
-    (define-key map [S-home] 'cider-repl-bol-mark)
-    (define-key map (kbd "C-<up>") 'cider-repl-backward-input)
-    (define-key map (kbd "C-<down>") 'cider-repl-forward-input)
-    (define-key map (kbd "M-p") 'cider-repl-previous-input)
-    (define-key map (kbd "M-n") 'cider-repl-next-input)
-    (define-key map (kbd "M-r") 'cider-repl-previous-matching-input)
-    (define-key map (kbd "M-s") 'cider-repl-next-matching-input)
-    (define-key map (kbd "C-c C-n") 'cider-repl-next-prompt)
-    (define-key map (kbd "C-c C-p") 'cider-repl-previous-prompt)
-    (define-key map (kbd "C-c C-b") 'cider-interrupt)
-    (define-key map (kbd "C-c C-c") 'cider-interrupt)
-    (define-key map (kbd "C-c C-m") 'cider-macroexpand-1)
-    (define-key map (kbd "C-c M-m") 'cider-macroexpand-all)
-    (define-key map (kbd "C-c C-z") 'cider-switch-to-last-clojure-buffer)
-    (define-key map (kbd "C-c M-s") 'cider-selector)
-    (define-key map (kbd "C-c M-f") 'cider-load-fn-into-repl-buffer)
-    (define-key map (kbd "C-c C-q") 'cider-quit)
-    (define-key map (kbd "C-c M-i") 'cider-inspect)
-    (define-key map (kbd "C-c M-t v") 'cider-toggle-trace-var)
-    (define-key map (kbd "C-c M-t n") 'cider-toggle-trace-ns)
-    (define-key map (kbd "C-c C-x") 'cider-refresh)
-    (define-key map (kbd "C-x C-e") 'cider-eval-last-sexp)
-    (define-key map (kbd "C-c C-r") 'cider-eval-region)
-    (define-key map (string cider-repl-shortcut-dispatch-char) 'cider-repl-handle-shortcut)
+    (define-key map (kbd "C-c C-d") #'cider-doc-map)
+    (define-key map (kbd "M-.") #'cider-find-var)
+    (define-key map (kbd "C-c C-.") #'cider-find-ns)
+    (define-key map (kbd "M-,") #'cider-jump-back)
+    (define-key map (kbd "C-c M-.") #'cider-find-resource)
+    (define-key map (kbd "RET") #'cider-repl-return)
+    (define-key map (kbd "TAB") #'cider-repl-tab)
+    (define-key map (kbd "C-<return>") #'cider-repl-closing-return)
+    (define-key map (kbd "C-j") #'cider-repl-newline-and-indent)
+    (define-key map (kbd "C-c C-o") #'cider-repl-clear-output)
+    (define-key map (kbd "C-c M-o") #'cider-repl-clear-buffer)
+    (define-key map (kbd "C-c M-n") #'cider-repl-set-ns)
+    (define-key map (kbd "C-c C-u") #'cider-repl-kill-input)
+    (define-key map (kbd "C-S-a") #'cider-repl-bol-mark)
+    (define-key map [S-home] #'cider-repl-bol-mark)
+    (define-key map (kbd "C-<up>") #'cider-repl-backward-input)
+    (define-key map (kbd "C-<down>") #'cider-repl-forward-input)
+    (define-key map (kbd "M-p") #'cider-repl-previous-input)
+    (define-key map (kbd "M-n") #'cider-repl-next-input)
+    (define-key map (kbd "M-r") #'cider-repl-previous-matching-input)
+    (define-key map (kbd "M-s") #'cider-repl-next-matching-input)
+    (define-key map (kbd "C-c C-n") #'cider-repl-next-prompt)
+    (define-key map (kbd "C-c C-p") #'cider-repl-previous-prompt)
+    (define-key map (kbd "C-c C-b") #'cider-interrupt)
+    (define-key map (kbd "C-c C-c") #'cider-interrupt)
+    (define-key map (kbd "C-c C-m") #'cider-macroexpand-1)
+    (define-key map (kbd "C-c M-m") #'cider-macroexpand-all)
+    (define-key map (kbd "C-c C-z") #'cider-switch-to-last-clojure-buffer)
+    (define-key map (kbd "C-c M-s") #'cider-selector)
+    (define-key map (kbd "C-c C-q") #'cider-quit)
+    (define-key map (kbd "C-c M-i") #'cider-inspect)
+    (define-key map (kbd "C-c M-t v") #'cider-toggle-trace-var)
+    (define-key map (kbd "C-c M-t n") #'cider-toggle-trace-ns)
+    (define-key map (kbd "C-c C-x") #'cider-refresh)
+    (define-key map (kbd "C-x C-e") #'cider-eval-last-sexp)
+    (define-key map (kbd "C-c C-r") #'cider-eval-region)
+    (define-key map (string cider-repl-shortcut-dispatch-char) #'cider-repl-handle-shortcut)
     (easy-menu-define cider-repl-mode-menu map
       "Menu for CIDER's REPL mode"
       `("REPL"
@@ -1045,17 +1045,21 @@ constructs."
         "--"
         ,cider-doc-menu
         "--"
-        ["Jump to source" cider-jump-to-var]
-        ["Jump to resource" cider-jump-to-resource]
-        ["Jump back" cider-jump-back]
+        ("Find"
+         ["Find definition" cider-find-var]
+         ["Find resource" cider-find-resource]
+         ["Jump back" cider-jump-back])
+        "--"
         ["Switch to Clojure buffer" cider-switch-to-last-clojure-buffer]
         "--"
+        ("Macroexpand"
+         ["Macroexpand-1" cider-macroexpand-1]
+         ["Macroexpand-all" cider-macroexpand-all])
+        "--"
         ["Inspect" cider-inspect]
-        ["Macroexpand" cider-macroexpand-1]
-        ["Macroexpand all" cider-macroexpand-all]
-        ["Refresh loaded code" cider-refresh]
         ["Toggle var tracing" cider-toggle-trace-var]
         ["Toggle ns tracing" cider-toggle-trace-ns]
+        ["Refresh loaded code" cider-refresh]
         "--"
         ["Set REPL ns" cider-repl-set-ns]
         ["Toggle pretty printing" cider-repl-toggle-pretty-printing]
@@ -1065,6 +1069,7 @@ constructs."
         ["Clear output" cider-repl-clear-output]
         ["Clear buffer" cider-repl-clear-buffer]
         ["Kill input" cider-repl-kill-input]
+        "--"
         ["Interrupt evaluation" cider-interrupt]
         "--"
         ["Quit" cider-quit]

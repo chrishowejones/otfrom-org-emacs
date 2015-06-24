@@ -284,6 +284,14 @@
        (maybe-install-and-require 'cyberpunk-theme)
     #+END_SRC
 
+*** solarized
+
+    Solarized looks quite cool. Using the port from [[https://github.com/sellout][Greg Pfeil]].
+
+    #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'solarized)
+    #+END_SRC
+
 ** fonts
 
    Ah, the joys of playing with different monospaced fonts on
@@ -1608,6 +1616,16 @@
       (add-to-list 'erc-modules 'notifications)
     #+END_SRC
 
+*** set up erc for slack - clojurians
+
+    want to use erc to communicate in slack
+
+    #+BEGIN_SRC emacs-lisp
+      (defun erc-clojurians ()
+        (interactive)
+         (erc-tls :server "clojurians.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "drokkit1"))
+    #+END_SRC
+
 ** email
 
 *** Sending Mail with msmtp
@@ -1664,18 +1682,12 @@
                 (("Fcc" . "/home/bld/maildir/gmail/sent"))
                 nil ;; No extra body text
                 "~/.signature")
-               ("DevCycle"
-                nil
-                "Chris Howe-Jones <chris.howejones.com>" ;; Sender address
-                "DevCycle Ltd"
-                (("Fcc" . "/home/bld/maildir/devcycle/sent"))
-                nil
-                "~/.signature.work")))
+                ))
        ;; Use "home" identity by default
        (setq gnus-alias-default-identity "gmail")
        ;; Define rules to match work identity
-       (setq gnus-alias-identity-rules
-             '(("DevCycle" ("to" ".*devcycle.com" both) "DevCycle")))
+;;       (setq gnus-alias-identity-rules
+;;             '(("DevCycle" ("to" ".*devcycle.com" both) "DevCycle")))
      #+END_SRC
 
 *** email with mu and mu4e
@@ -1691,7 +1703,7 @@
     #+BEGIN_SRC emacs-lisp
       (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
       (require 'mu4e)
-      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com" "chris@devcycle.com"))
+      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -1726,8 +1738,7 @@
 
      #+BEGIN_SRC emacs-lisp
        (setq mu4e-maildir-shortcuts
-             '(("/devcycle/INBOX" . ?w)
-               ("/gmail/INBOX" . ?p)))
+             '(("/gmail/INBOX" . ?p)))
      #+END_SRC
 
 **** Multiple Accounts
@@ -1742,13 +1753,13 @@
       about my personal account.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-refile-folder "/devcycle/all"
-              mu4e-sent-folder "/devcycle/sent"
-              mu4e-drafts-folder "/devcycle/drafts"
-              mu4e-trash-folder "/devcycle/trash"
-              user-mail-address "chris@devcycle.com"
-              message-signature-file "/home/chrishowe-jones/.signature.work"
-              user-mail-address "chris@devcycle.com")
+        (setq mu4e-refile-folder "/gmail/all"
+              mu4e-sent-folder "/gmail/sent"
+              mu4e-drafts-folder "/gmail/drafts"
+              mu4e-trash-folder "/gmail/trash"
+              user-mail-address "chris.howejones@gmail.com"
+              message-signature-file "/home/chrishowe-jones/.signature"
+              user-mail-address "chris.howejones@gmail.com")
       #+END_SRC
 
 ***** The account switching
@@ -2207,10 +2218,14 @@
       the binding in cider/nrepl that I'm used to. We'll probably do
       this in other modes as well so we'll make it a local keybinding
       and then it will more or less [[http://en.wikipedia.org/wiki/DWIM][dwim]].
+      Let's use C-c C-k (like cider does) to run eval buffer in
+      emacs-lisp mode.
+
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'emacs-lisp-mode-hook
-                  (lambda () (local-set-key (kbd "C-c C-d") 'describe-thing-in-popup)))
+                  (lambda () (local-set-key (kbd "C-c C-d") 'describe-thing-in-popup)
+                             (local-set-key (kbd "C-c C-k") 'eval-buffer)))
       #+END_SRC
 
 *** clojure
@@ -2338,7 +2353,7 @@
       print by default.
 
       #+BEGIN_SRC emacs-lisp
-        ;; (setq cider-repl-use-pretty-printing t)
+        (setq cider-repl-use-pretty-printing t)
       #+END_SRC
 
 ***** A few repl tweaks
@@ -2348,7 +2363,7 @@
 
       #+BEGIN_SRC emacs-lisp
         (setq cider-repl-use-clojure-font-lock t)
-;;        (add-hook 'cider-repl-mode-hook 'paredit-mode)
+        (add-hook 'cider-repl-mode-hook 'paredit-mode)
         (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
       #+END_SRC
 

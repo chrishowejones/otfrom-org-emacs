@@ -1,4 +1,3 @@
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This is the minimal config needed to get org-mode from melpa and
 ;; get it up and running so that we can load our emacs config from a
@@ -10,8 +9,9 @@
 (setq package-archives '(;; ("gnu" . "http://elpa.gnu.org/packages/")
 			 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
-                         ("melpa" . "http://melpa.org/packages/")
+                         ("melpa-stable" . "http://stable.melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
 ;; This means we prefer things from ~/.emacs.d/elpa over the standard packages.
 (package-initialize)
