@@ -281,13 +281,13 @@
     I'm not using it at the moment as I'm trying out other themes.
 
     #+BEGIN_SRC emacs-lisp
-;;       (maybe-install-and-require 'cyberpunk-theme)
+       (maybe-install-and-require 'cyberpunk-theme)
     #+END_SRC
 
 *** flatland, I am learning to love you
 
     #+BEGIN_SRC emacs-lisp
-       (load-theme 'flatland)
+;;       (load-theme 'flatland)
     #+END_SRC
 
 *** solarized
@@ -480,16 +480,6 @@
 
     #+BEGIN_SRC emacs-lisp
       (diminish 'git-gutter+-mode)
-    #+END_SRC
-
-*** magit-auto-revert
-
-    I like that I get an auto-revert when magit changes files based on
-    a pull or merge. I don't need to see it cluttering up my mode-line
-    though.
-
-    #+BEGIN_SRC emacs-lisp
-      (diminish 'magit-auto-revert-mode)
     #+END_SRC
 
 *** git-messenger
@@ -2727,14 +2717,6 @@
     With newer version of emacs new minor modes get turned on by
     default and clutter up my mode line. I'd like to turn them off.
 
-**** auto-revert
-
-     OK. I get it. auto-revert mode is on.
-
-     #+BEGIN_SRC emacs-lisp
-       (diminish 'auto-revert-mode)
-     #+END_SRC
-
 ** passwords and encrypted things
 
    It is good to store your passwords and things in an encrypted
@@ -2779,5 +2761,5 @@
    Therefore, let's sign off as so...
 
    #+BEGIN_SRC emacs-lisp
-     (message "Cogito ergo sum.")
+     (message "TTFN.")
    #+END_SRC
