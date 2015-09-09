@@ -1517,6 +1517,15 @@
    Internet Relay Chat is a great way of talking to lots of
    interesting people in what feels a bit like a pub.
 
+*** Set up tls
+
+    need to set up tls for irc.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'tls)
+
+
+    #+end_SRC
 *** Connect to freenode
 
     According to the [[http://freenode.net/irc_servers.shtml][freenode]] site we should be connecting to
@@ -1619,8 +1628,17 @@
     #+BEGIN_SRC emacs-lisp
       (defun erc-clojurians ()
         (interactive)
-         (erc-tls :server "clojurians.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "drokkit1"))
+         (erc-tls :server "clojurians.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "clojurians.XjjXy2eisasXhgD951G4"))
     #+END_SRC
+
+*** set up erc for slack -DevCycle
+
+    #+BEGIN_SRC emacs-lisp
+      (defun erc-devcycle ()
+        (interactive)
+         (erc-tls :server "devcycle.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "devcycle.i7luSiJiKIPRBy2BYfDr"))
+    #+END_SRC
+
 
 ** email
 
@@ -1941,7 +1959,7 @@
 
              ;; twitter on the left
              (window-number-select 1)
-             (switch-to-buffer "chrishowejones/people-i-know")
+             (switch-to-buffer "agile_geek/friends")
              (window-number-select 2)
              (switch-to-buffer ":replies")
 
