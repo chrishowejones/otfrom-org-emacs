@@ -268,7 +268,7 @@
     for a while.
 
     #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'grandshell-theme)
+      (maybe-install-and-require 'grandshell-theme)
     #+END_SRC
 
 *** cyberpunk, I still love you
@@ -281,7 +281,7 @@
     I'm not using it at the moment as I'm trying out other themes.
 
     #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'cyberpunk-theme)
+;;       (maybe-install-and-require 'cyberpunk-theme)
     #+END_SRC
 
 *** flatland, I am learning to love you
@@ -316,6 +316,10 @@
     tired.
 
     #+BEGIN_SRC emacs-lisp
+      (defun presentation-font ()
+        (interactive)
+        (set-default-font "Inconsolata-18"))
+
       (defun bigger-font ()
         (interactive)
         (set-default-font "Inconsolata-12"))
@@ -364,6 +368,16 @@
              (set-frame-parameter nil 'alpha '(100 100))
            (set-frame-parameter nil 'alpha '(50 50)))))
      (global-set-key (kbd "C-c t") 'toggle-transparency)
+   #+END_SRC
+
+** Golden ratio
+
+   I quite liked this when I spotted it in spacemacs. Couldn't get on
+   with spacemacs itself but I'm stealing the best bits.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'golden-ratio)
+     (golden-ratio-mode 1)
    #+END_SRC
 
 * Tool Configuration
@@ -637,7 +651,10 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'guide-key)
-     (setq guide-key/guide-key-sequence '("C-x" "C-c" "C-c C-y" "C-x c"))
+     (setq guide-key/guide-key-sequence t)
+     (setq guide-key/recursive-key-sequence-flag t)
+     (setq guide-key/idle-delay 0.5)
+     (setq guide-key/popup-window-position "bottom")
      (guide-key-mode 1)
    #+END_SRC
 
