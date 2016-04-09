@@ -34,8 +34,7 @@
    Things in browse-url land seem a bit flaky atm.
 
    #+BEGIN_SRC emacs-lisp
-      (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium-browser")
+       (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 ;;     (setq browse-url-browser-function 'browse-url-chrome)
    #+END_SRC
 
@@ -318,7 +317,7 @@
     #+BEGIN_SRC emacs-lisp
       (defun presentation-font ()
         (interactive)
-        (set-default-font "Inconsolata-18"))
+        (set-default-font "Inconsolata-20"))
 
       (defun bigger-font ()
         (interactive)
@@ -412,6 +411,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (setq dired-listing-switches "-alh")
+     (global-set-key (kbd "C-x C-j") 'dired-jump)
    #+END_SRC
 
 ** helm-mode
@@ -575,7 +575,13 @@
       (global-set-key (kbd "s-=") 'shrink-window)
       (global-set-key (kbd "s-+") 'enlarge-window)
     #+END_SRC
+*** fullscreen
 
+    Want to toggle fulscreen on a keybinding M-f9
+
+    #+BEGIN_SRC emacs-lisp
+      (global-set-key (kbd "<M-f9>") 'toggle-frame-fullscreen)
+    #+END_SRC
 ** backup directories
 
    I'm fed up of having to put *~ into my .gitignore everywhere and
@@ -654,7 +660,7 @@
      (setq guide-key/guide-key-sequence t)
      (setq guide-key/recursive-key-sequence-flag t)
      (setq guide-key/idle-delay 0.5)
-     (setq guide-key/popup-window-position "bottom")
+     (setq guide-key/popup-window-position :bottom)
      (guide-key-mode 1)
    #+END_SRC
 
@@ -1387,6 +1393,15 @@
                 (lambda () (local-set-key (kbd "s-h") 'helm-markdown-headlines)))
     #+END_SRC
 
+** adoc mode for asciidoc
+
+   I'm using adoc mode for asciidoc files
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'adoc-mode)
+     (add-to-list 'auto-mode-alist (cons "\\.asciidoc\\'" 'adoc-mode))
+   #+END_SRC
+
 * Communication Modes
 
 ** twittering-mode
@@ -1450,7 +1465,7 @@
      (setq twittering-timer-interval (* 60 30))
    #+END_SRC
 
-`*** Tweet Button
+** Tweet Button
 
     Sometimes I just want to scream. Twitter lets me do that.
 
@@ -2259,6 +2274,16 @@
                              (local-set-key (kbd "C-c C-k") 'eval-buffer)))
       #+END_SRC
 
+***** auto complete bash style in shell
+
+      I found the autocompletion for shell wasn't working properly
+      and didn't work like bash
+
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'bash-completion)
+        (bash-completion-setup)
+      #+END_SRC
+
 *** clojure
 
     I do *love* coding in clojure. The tool chain has been evolving
@@ -2311,8 +2336,8 @@
       mode and the cider interaction buffer.
 
       #+BEGIN_SRC emacs-lisp
-        (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-        (add-hook 'cider-interaction-mode-hook 'cider-turn-on-eldoc-mode)
+;;        (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+;;        (add-hook 'cider-interaction-mode-hook 'cider-turn-on-eldoc-mode)
       #+END_SRC
 
 ***** Save cider history
@@ -2352,8 +2377,9 @@
       correctly. There are some instructions for fixing that [[https://github.com/weavejester/compojure/wiki/Emacs-indentation][here]].
 
       #+BEGIN_SRC emacs-lisp
-        (define-clojure-indent
-          (defroutes 'defun))
+;;        (define-clojure-indent
+;;          (defroutes 'defun)
+;;          (mlet 1))
       #+END_SRC
 
 ***** component
@@ -2377,7 +2403,7 @@
       worse and infinite sequence. This should stop that.
 
       #+BEGIN_SRC emacs-lisp
-        (setq cider-repl-print-length 100)
+        ;;(setq cider-repl-print-length 100)
       #+END_SRC
 
       And seeing as we are limiting what we print, we should pretty
@@ -2387,13 +2413,50 @@
         (setq cider-repl-use-pretty-printing t)
       #+END_SRC
 
+***** Customisations in CIDER
+
+      Supress auto-display of the REPL buffer in separate window and
+      make 'C-c C-z' switch to the CIDER REPL in the current window
+
+      #+BEGIN_SRC emacs-lisp
+        (setq cider-repl-pop-to-buffer-on-connect nil)
+        (setq cider-repl-display-in-current-window t)
+      #+END_SRC
+
+***** Start clj and cljs repls with figwheel-sidecar
+
+      Stole this from [[https://github.com/oliyh/spa-skeleton#clojure-and-clojurescript-side-by-side][oliyh]]
+
+      #+BEGIN_SRC emacs-lisp
+;;        (custom-set-variables
+;;         '(cider-cljs-lein-repl
+;;           "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))"))
+      #+END_SRC
+
+***** Start figwheel-sidecar shortcuts
+
+      From the Using Figwheel REPL within nREPL page.
+
+      #+BEGIN_SRC emacs-lisp
+         (defun cider-figwheel-repl ()
+           (interactive)
+           (save-some-buffers)
+           (with-current-buffer (cider-current-repl-buffer)
+             (goto-char (point-max))
+             (insert "(require 'figwheel-sidecar.repl-api)
+                     (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
+                     (figwheel-sidecar.repl-api/cljs-repl)")
+             (cider-repl-return)))
+          (global-set-key (kbd "C-c C-f") #'cider-figwheel-repl)
+      #+END_SRC
+
 ***** A few repl tweaks
 
       I want paredit, rainbow delimiters and clojure-mode highlighting
       in my repl buffer.
 
       #+BEGIN_SRC emacs-lisp
-        (setq cider-repl-use-clojure-font-lock t)
+        ;;(setq cider-repl-use-clojure-font-lock t)
         (add-hook 'cider-repl-mode-hook 'paredit-mode)
         (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
       #+END_SRC
@@ -2435,10 +2498,13 @@
 
      #+BEGIN_SRC emacs-lisp
        (maybe-install-and-require 'clj-refactor)
-       (add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c RET")))
-
+       (defun my-clojure-mode-hook ()
+         (clj-refactor-mode 1)
+         (yas-minor-mode 1) ; for adding require/use/import statements
+         ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+         (cljr-add-keybindings-with-prefix "C-c C-m"))
+         (add-hook
+           'clojure-mode-hook #'my-clojure-mode-hook)
      #+END_SRC
 
 **** clojurescript
@@ -2528,6 +2594,15 @@
         )
         (global-set-key (kbd "s-<f11>") 'chj-clojure-perspective)
        #+END_SRC
+
+**** Expectations mode
+
+     Expectations mode to run tests in expectations.
+
+     #+BEGIN_SRC emacs-lisp
+;;       (require 'expectations-mode)
+     #+END_SRC
+
 ** python
 
      #+BEGIN_SRC emacs-lisp
@@ -2611,6 +2686,25 @@
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'restclient)
    #+END_SRC
+
+** Haskell
+
+*** Haskell mode
+
+    Require Haskell mode
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'haskell-mode)
+    #+END_SRC
+
+*** hindent
+
+    Add indentation for Haskell
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'hindent)
+      (add-hook 'haskell-mode-hook #'hindent-mode)
+    #+END_SRC
 
 * Data Modes
 
@@ -2736,6 +2830,40 @@
 
    #+BEGIN_SRC emacs-lisp
      (global-set-key (kbd "s-<return>") 'join-line)
+   #+END_SRC
+
+* Misc
+
+  Miscellaneous stuff.
+
+** clojure cookbook next recipe
+
+   This is a fn to 'turn the page' to the next recipe in the Clojure
+   Cookbook
+
+   #+BEGIN_SRC emacs-lisp
+     (defun increment-clojure-cookbook ()
+       "When reading the Clojure cookbook, find the next section, and
+       close the buffer. If the next section is a sub-directory or in
+       the next chapter, open Dired so you can find it manually."
+       (interactive)
+       (let* ((cur (buffer-name))
+              (split-cur (split-string cur "[-_]"))
+              (chap (car split-cur))
+              (rec (car (cdr split-cur)))
+              (rec-num (string-to-number rec))
+              (next-rec-num (1+ rec-num))
+              (next-rec-s (number-to-string next-rec-num))
+              (next-rec (if (< next-rec-num 10)
+                            (concat "0" next-rec-s)
+                          next-rec-s))
+              (target (file-name-completion (concat chap "-" next-rec) "")))
+         (progn
+           (if (equal target nil)
+               (dired (file-name-directory (buffer-file-name)))
+             (find-file target))
+           (kill-buffer cur))))
+      (define-key adoc-mode-map (kbd "C->") 'increment-clojure-cookbook)
    #+END_SRC
 
 * Finishing

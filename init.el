@@ -6,10 +6,10 @@
 ;;
 ;; http://orgmode.org/worg/org-contrib/babel/intro.html
 (require 'package)
-(setq package-archives '(;; ("gnu" . "http://elpa.gnu.org/packages/")
-			 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+(setq package-archives '(;;("marmalade" . "http://marmalade-repo.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("melpa-stable" . "http://stable.melpa.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
