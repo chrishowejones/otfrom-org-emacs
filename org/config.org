@@ -408,16 +408,6 @@
      (diminish 'company-mode "CA")
    #+END_SRC
 
-** Easy PG
-
-   Use Easy PG for opening and encrypting files using
-   GPG.
-
-   #+BEGIN_SRC emacs-lisp
-;;     (maybe-install-and-require 'epa-file)
-;;     (epa-file-enable)
-   #+END_SRC
-
 * directories, navigation, searching, movement
 ** dired
 
@@ -1675,23 +1665,6 @@
       (add-to-list 'erc-modules 'notifications)
     #+END_SRC
 
-*** set up erc for slack - clojurians
-
-    want to use erc to communicate in slack
-
-    #+BEGIN_SRC emacs-lisp
-      (defun erc-clojurians ()
-        (interactive)
-         (erc-tls :server "clojurians.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "clojurians.XjjXy2eisasXhgD951G4"))
-    #+END_SRC
-
-*** set up erc for slack -DevCycle
-
-    #+BEGIN_SRC emacs-lisp
-      (defun erc-devcycle ()
-        (interactive)
-         (erc-tls :server "devcycleteam.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "devcycleteam.AyIa29itQixGtfTUgh6N"))
-    #+END_SRC
 
 ** email
 
