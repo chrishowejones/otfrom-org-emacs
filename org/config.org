@@ -34,8 +34,8 @@
    Things in browse-url land seem a bit flaky atm.
 
    #+BEGIN_SRC emacs-lisp
-       (setq browse-url-browser-function 'browse-url-default-macosx-browser)
-;;     (setq browse-url-browser-function 'browse-url-chrome)
+     (setq browse-url-browser-function 'browse-url-generic
+           browse-url-generic-program "google-chrome")
    #+END_SRC
 
 ** Hippie Expand
@@ -137,6 +137,12 @@
      (maybe-install-and-require 'keyfreq)
      (keyfreq-mode 1)
      (keyfreq-autosave-mode 1)
+   #+END_SRC
+
+** Add /usr/bin to path
+
+   #+BEGIN_SRC emacs-lisp
+     (setq exec-path (append exec-path '("/usr/bin")))
    #+END_SRC
 
 * non-elpa and work arounds
@@ -303,9 +309,9 @@
    emacs. Menlo seems to be the one I'm happiest with on my MBA.
 
    #+BEGIN_SRC emacs-lisp
-     (if (memq window-system '(mac ns))
-         (set-default-font "-apple-Menlo-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-       (set-default-font "Inconsolata-10"))
+;;     (if (memq window-system '(mac ns))
+;;         (set-default-font "-apple-Menlo-medium-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+;;       (set-default-font "Inconsolata-10"))
    #+END_SRC
 
 *** Font Switching
@@ -315,31 +321,30 @@
     tired.
 
     #+BEGIN_SRC emacs-lisp
-      (defun presentation-font ()
-        (interactive)
-        (set-default-font "Inconsolata-20"))
+;;      (defun presentation-font ()
+;;        (interactive)
+;;        (set-default-font "Inconsolata-20"))
 
-      (defun bigger-font ()
-        (interactive)
-        (set-default-font "Inconsolata-12"))
+;;      (defun bigger-font ()
+;;        (interactive)
+;;        (set-default-font "Inconsolata-12"))
 
-      (defun smaller-font ()
-        (interactive)
-        (set-default-font "Inconsolata-10"))
+;;      (defun smaller-font ()
+;;        (interactive)
+;;        (set-default-font "Inconsolata-10"))
     #+END_SRC
 
 ** bars, menus and numbers
 
    I like no scroll bars, no toolbars and line and column numbers in
-   the mode-line. I like having the menus, unless I"m in a terminal as
-   I sometimes discover keybindings or functions I wasn't aware of
-   before.
+   the mode-line.
 
    #+BEGIN_SRC emacs-lisp
      (tool-bar-mode -1)
      (scroll-bar-mode -1)
      (line-number-mode 1)
      (column-number-mode 1)
+     (menu-bar-mode 1)
    #+END_SRC
 
 ** Startup Screen
@@ -401,6 +406,16 @@
      (maybe-install-and-require 'company)
      (add-hook 'after-init-hook 'global-company-mode)
      (diminish 'company-mode "CA")
+   #+END_SRC
+
+** Easy PG
+
+   Use Easy PG for opening and encrypting files using
+   GPG.
+
+   #+BEGIN_SRC emacs-lisp
+;;     (maybe-install-and-require 'epa-file)
+;;     (epa-file-enable)
    #+END_SRC
 
 * directories, navigation, searching, movement
@@ -577,10 +592,17 @@
     #+END_SRC
 *** fullscreen
 
-    Want to toggle fulscreen on a keybinding M-f9
+    Want to toggle fullscreen on a keybinding M-f9
 
     #+BEGIN_SRC emacs-lisp
       (global-set-key (kbd "<M-f9>") 'toggle-frame-fullscreen)
+    #+END_SRC
+*** maximise frame
+
+    Want to toggle maximize frame on a keybinding M-f10
+
+    #+BEGIN_SRC emacs-lisp
+      (global-set-key (kbd "<M-f10>") 'toggle-frame-maximized)
     #+END_SRC
 ** backup directories
 
@@ -1453,7 +1475,7 @@
    #+BEGIN_SRC emacs-lisp
      (setq twittering-initial-timeline-spec-string
            '(":home"
-             "chrishowejones/Friends"
+             "agile_geek/Friends"
              ":replies"
              ":direct_messages"))
    #+END_SRC
@@ -1487,9 +1509,9 @@
           (if twoot
               (switch-to-buffer twoot)
             (twittering-visit-timeline p-i-k))))
-
       (global-set-key [C-f11] 'tweeps-i-know)
     #+END_SRC
+
 
 ** jabber.el for gtalk and other jabber servers
 
@@ -1668,9 +1690,8 @@
     #+BEGIN_SRC emacs-lisp
       (defun erc-devcycle ()
         (interactive)
-         (erc-tls :server "devcycle.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "devcycle.i7luSiJiKIPRBy2BYfDr"))
+         (erc-tls :server "devcycleteam.irc.slack.com" :full-name "Chris Howe-Jones" :nick "agile_geek" :password "devcycleteam.AyIa29itQixGtfTUgh6N"))
     #+END_SRC
-
 
 ** email
 
@@ -1747,9 +1768,9 @@
     files in /usr/local/share/emacs/site-lisp/mu4e/.
 
     #+BEGIN_SRC emacs-lisp
-      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
-      (require 'mu4e)
-      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
+;;      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+;;      (require 'mu4e)
+;;      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -1764,7 +1785,7 @@
      much even with that.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-hide-index-messages 1)
+;;       (setq mu4e-hide-index-messages 1)
      #+END_SRC
 
 **** Fetching mail
@@ -1773,8 +1794,8 @@
      minutes, just to be lucky.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-get-mail-command "offlineimap")
-       (setq mu4e-update-interval (* 32 60))
+;;       (setq mu4e-get-mail-command "offlineimap")
+;;       (setq mu4e-update-interval (* 32 60))
      #+END_SRC
 
 **** Shortcuts
@@ -1783,8 +1804,8 @@
      interested in.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-maildir-shortcuts
-             '(("/gmail/INBOX" . ?p)))
+;;       (setq mu4e-maildir-shortcuts
+;;             '(("/gmail/INBOX" . ?p)))
      #+END_SRC
 
 **** Multiple Accounts
@@ -1799,13 +1820,13 @@
       about my personal account.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-refile-folder "/gmail/all"
-              mu4e-sent-folder "/gmail/sent"
-              mu4e-drafts-folder "/gmail/drafts"
-              mu4e-trash-folder "/gmail/trash"
-              user-mail-address "chris.howejones@gmail.com"
-              message-signature-file "/home/chrishowe-jones/.signature"
-              user-mail-address "chris.howejones@gmail.com")
+;;        (setq mu4e-refile-folder "/gmail/all"
+;;              mu4e-sent-folder "/gmail/sent"
+;;              mu4e-drafts-folder "/gmail/drafts"
+;;              mu4e-trash-folder "/gmail/trash"
+;;              user-mail-address "chris.howejones@gmail.com"
+;;              message-signature-file "/home/chrishowe-jones/.signature"
+;;              user-mail-address "chris.howejones@gmail.com")
       #+END_SRC
 
 ***** The account switching
@@ -1824,21 +1845,21 @@
       #+END_QUOTE
 
       #+BEGIN_SRC emacs-lisp
-        (defvar my-mu4e-account-alist
-          '(("devcycle"
-             (mu4e-refile-folder "/devcycle/all")
-             (mu4e-sent-folder "/devcycle/sent")
-             (mu4e-drafts-folder "/devcycle/drafts")
-             (mu4e-trash-folder "/devcycle/trash")
-             (user-mail-address "chris@devcycle.com")
-             (message-signature-file "/home/chrishowe-jones/.signature.work"))
-            ("gmail"
-             (mu4e-refile-folder "/gmail/all")
-             (mu4e-sent-folder "/gmail/sent")
-             (mu4e-drafts-folder "/gmail/drafts")
-             (mu4e-trash-folder "/gmail/trash")
-             (user-mail-address "chris.howejones@gmail.com")
-             (message-signature-file "/home/chrishowe-jones/.signature"))))
+;;        (defvar my-mu4e-account-alist
+;;          '(("devcycle"
+;;             (mu4e-refile-folder "/devcycle/all")
+;;             (mu4e-sent-folder "/devcycle/sent")
+;;             (mu4e-drafts-folder "/devcycle/drafts")
+;;             (mu4e-trash-folder "/devcycle/trash")
+;;             (user-mail-address "chris@devcycle.com")
+;;             (message-signature-file "/home/chrishowe-jones/.signature.work"))
+;;            ("gmail"
+;;             (mu4e-refile-folder "/gmail/all")
+;;             (mu4e-sent-folder "/gmail/sent")
+;;             (mu4e-drafts-folder "/gmail/drafts")
+;;             (mu4e-trash-folder "/gmail/trash")
+;;             (user-mail-address "chris.howejones@gmail.com")
+;;             (message-signature-file "/home/chrishowe-jones/.signature"))))
       #+END_SRC
 
 ***** Add a switch function to the hook
@@ -1848,25 +1869,25 @@
       that you can just turn on.
 
       #+BEGIN_SRC emacs-lisp
-         (defun my-mu4e-set-account ()
-               "Set the account for composing a message."
-               (let* ((account
-                       (if mu4e-compose-parent-message
-                           (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                             (string-match "/\\(.*?\\)/" maildir)
-                             (match-string 1 maildir))
-                         (completing-read (format "Compose with account: (%s) "
-                                                  (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
-                                          (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-                                          nil t nil nil (caar my-mu4e-account-alist))))
-                      (account-vars (cdr (assoc account my-mu4e-account-alist))))
-                 (if account-vars
-                     (mapc #'(lambda (var)
-                               (set (car var) (cadr var)))
-                           account-vars)
-                   (error "No email account found"))))
+;;         (defun my-mu4e-set-account ()
+;;               "Set the account for composing a message."
+;;               (let* ((account
+;;                       (if mu4e-compose-parent-message
+;;                           (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+;;                             (string-match "/\\(.*?\\)/" maildir)
+;;                             (match-string 1 maildir))
+;;                         (completing-read (format "Compose with account: (%s) "
+;;                                                  (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
+;;                                          (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+;;                                          nil t nil nil (caar my-mu4e-account-alist))))
+;;                      (account-vars (cdr (assoc account my-mu4e-account-alist))))
+;;                 (if account-vars
+;;                     (mapc #'(lambda (var)
+;;                               (set (car var) (cadr var)))
+;;                           account-vars)
+;;                   (error "No email account found"))))
 
-        (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+;;        (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
       #+END_SRC
 
 **** Unicode
@@ -1875,7 +1896,7 @@
 
      #+BEGIN_SRC emacs-lisp
        ;; Use fancy chars
-       (setq mu4e-use-fancy-chars t)
+;;       (setq mu4e-use-fancy-chars t)
      #+END_SRC
 
 **** Gmail quirks and feature simulations
@@ -1886,7 +1907,7 @@
       when I'm looking at messages in my inbox.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-headers-include-related t)
+;;        (setq mu4e-headers-include-related t)
       #+END_SRC
 
 ***** Skip duplicates
@@ -1896,7 +1917,7 @@
       to skip the duplicates.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-headers-skip-duplicates t)
+;;        (setq mu4e-headers-skip-duplicates t)
       #+END_SRC
 
 **** View html only emails in the browser
@@ -1905,8 +1926,8 @@
      hitting aV.
 
      #+BEGIN_SRC emacs-lisp
-       (add-to-list 'mu4e-view-actions
-                    '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+;;       (add-to-list 'mu4e-view-actions
+;;                    '("ViewInBrowser" . mu4e-action-view-in-browser) t)
      #+END_SRC
 
 **** mu4e and org-mode capturing
@@ -1915,7 +1936,7 @@
      of the reason for having email in emacs anyway.
 
      #+BEGIN_SRC emacs-lisp
-       (require 'org-mu4e)
+;;       (require 'org-mu4e)
      #+END_SRC
 
 **** mu4e and org-contacts
@@ -1923,13 +1944,13 @@
      I want to use org-contacts rather than bbdb.
 
      #+BEGIN_SRC emacs-lisp
-       (require 'org-contacts)
-       (setq org-contacts-files (quote ("~/org/contacts.org")))
-       (setq mu4e-org-contacts-file  "~/org/contacts.org")
-       (add-to-list 'mu4e-headers-actions
-                    '("org-contact-add" . mu4e-action-add-org-contact) t)
-       (add-to-list 'mu4e-view-actions
-                    '("org-contact-add" . mu4e-action-add-org-contact) t)
+;;       (require 'org-contacts)
+;;       (setq org-contacts-files (quote ("~/org/contacts.org")))
+;;       (setq mu4e-org-contacts-file  "~/org/contacts.org")
+;;       (add-to-list 'mu4e-headers-actions
+;;                    '("org-contact-add" . mu4e-action-add-org-contact) t)
+;;       (add-to-list 'mu4e-view-actions
+;;                    '("org-contact-add" . mu4e-action-add-org-contact) t)
      #+END_SRC
 
 **** And a hot key
@@ -1938,7 +1959,7 @@
      to be the hot key.
 
      #+BEGIN_SRC emacs-lisp
-       (global-set-key [f11] 'mu4e)
+;;       (global-set-key [f11] 'mu4e)
      #+END_SRC
 
 ** Web Browsing
@@ -2706,6 +2727,56 @@
       (add-hook 'haskell-mode-hook #'hindent-mode)
     #+END_SRC
 
+** Scala
+
+*** ensime
+
+    I am going to try ensime for Scala.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'ensime)
+      (add-hook 'scala-mode-hook 'ensime-mode)
+      (add-hook 'scala-mode-hook
+        (local-set-key (kbd "<M-;>") 'comment-or-uncomment-region))
+    #+END_SRC
+
+** Docker
+
+   I thought I'd try using the docker modes for emacs as I'm going to
+   be playing aorund with setting up a Dockerised development
+   workflow.
+
+*** Docker mode
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'docker)
+    #+END_SRC
+
+*** Docker file mode
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'dockerfile-mode)
+    #+END_SRC
+
+** Misc
+
+*** Langs where paredit space before paren not required
+
+    For most of the C based languages I don't want paredit adding a
+    space in front of a parens.
+
+    #+BEGIN_SRC emacs-lisp
+      ;; Enable paredit for a couple for non lisp modes; tweak
+      ;; paredit-space-for-delimiter-predicates to avoid inserting spaces
+      ;; before open parens.
+      (dolist (mode '(ruby python scala java javascript))
+        (add-hook (intern (format "%s-mode-hook" mode))
+                  '(lambda ()
+                     (add-to-list (make-local-variable 'paredit-space-for-delimiter-predicates)
+                                  (lambda (_ _) nil))
+                     (enable-paredit-mode))))
+    #+END_SRC
+
 * Data Modes
 
   Some things aren't really text and aren't really source code
@@ -2761,19 +2832,8 @@
     add more.
 
     #+BEGIN_SRC emacs-lisp
-      (require 'emms-mode-line)
-      (emms-mode-line 0)
-    #+END_SRC
-
-*** A bit of white noise
-
-    Sometimes I just need a thunderstorm to keep out the noise. I
-    find them restful.
-
-    #+BEGIN_SRC emacs-lisp
-      (defun make-it-rain ()
-        (interactive)
-        (emms-play-file (concat user-emacs-directory "resources/16480__martin-lightning__severe-thunderstorm.mp3")))
+;;      (require 'emms-mode-line)
+;;      (emms-mode-line 0)
     #+END_SRC
 
 * Notification Systems
