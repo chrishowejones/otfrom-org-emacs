@@ -38,6 +38,15 @@
            browse-url-generic-program "google-chrome")
    #+END_SRC
 
+** Run edit server
+
+   Run an edit server so I can use chrome's Edit with Emacs.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'edit-server)
+     (edit-server-start)
+   #+END_SRC
+
 ** Hippie Expand
 
    I have a soft spot for hippie-expand. There might be better ways to
@@ -837,11 +846,11 @@
      though, so I'm still using per file keywords.
 
      #+BEGIN_SRC emacs-lisp
-       (setq org-todo-keywords
-             '((sequence "TODO(t)" "CCC(c!)" "DOING(g!)" "|" "DONE(d!)")
-               (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "|")
-               (sequence "PROJECT(p!)" "|" "COMPLETE(m!)")
-               (sequence "|"  "CANCELLED(n@/!)" "PHONE" "MEETING" "DECISION" "NOTE" "EMAIL")))
+       ;;       (setq org-todo-keywords
+                    ;; '((sequence "TODO(t)" "CCC(c!)" "DOING(g!)" "|" "DONE(d!)")
+                    ;;   (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "|")
+                    ;;   (sequence "PROJECT(p!)" "|" "COMPLETE(m!)")
+                    ;;   (sequence "|"  "CANCELLED(n@/!)" "PHONE" "MEETING" "DECISION" "NOTE" "EMAIL")))
      #+END_SRC
 
 **** Log when things are done
@@ -889,15 +898,15 @@
       where to file it yet which is why refile is in here.
 
       #+BEGIN_SRC emacs-lisp
-        (setq org-agenda-files
-              '("~/org/refile.org"
-                "~/org/work/world-domination.org"
-                "~/org/work.org"
-                "~/org/community.org"
-                "~/org/personal.org"
-                "~/org/mc-cal.org"
-                "~/org/otfrom-cal.org"
-                "~/org/ldnclj-cal.org"))
+        ;; (setq org-agenda-files
+        ;;       '("~/org/refile.org"
+        ;;         "~/org/work/world-domination.org"
+        ;;         "~/org/work.org"
+        ;;         "~/org/community.org"
+        ;;         "~/org/personal.org"
+        ;;         "~/org/mc-cal.org"
+        ;;         "~/org/otfrom-cal.org"
+        ;;         "~/org/ldnclj-cal.org"))
       #+END_SRC
 
 ***** Agenda Sorting
@@ -1259,6 +1268,17 @@
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'org-pomodoro)
+      (add-hook 'org-mode-hook
+                (lambda () (local-set-key (kbd "M-s-p") 'org-pomodoro)))
+    #+END_SRC
+
+*** redtick for pomodoro
+
+    Bruce recommended redtick for pomodoro's outside of org mode so
+    going to give it a go.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'redtick)
     #+END_SRC
 
 **** A hotkey in Org Agenda
@@ -1712,22 +1732,22 @@
      at a real maildir directory.
 
      #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'gnus-alias)
-       ;; Define two identities, "home" and "work"
-       (setq gnus-alias-identity-alist
-             '(("gmail"
-                "Chris Howe-Jones <chris.howejones@gmail.com>" ;; Sender address
-                nil
-                "Chris Howe-Jones <chris.howejones@gmail.com>"
-                (("Fcc" . "/home/bld/maildir/gmail/sent"))
-                nil ;; No extra body text
-                "~/.signature")
-                ))
-       ;; Use "home" identity by default
-       (setq gnus-alias-default-identity "gmail")
-       ;; Define rules to match work identity
-;;       (setq gnus-alias-identity-rules
-;;             '(("DevCycle" ("to" ".*devcycle.com" both) "DevCycle")))
+              ;; (maybe-install-and-require 'gnus-alias)
+              ;; ;; Define two identities, "home" and "work"
+              ;; (setq gnus-alias-identity-alist
+              ;;       '(("gmail"
+              ;;          "Chris Howe-Jones <chris.howejones@gmail.com>" ;; Sender address
+              ;;          nil
+              ;;          "Chris Howe-Jones <chris.howejones@gmail.com>"
+              ;;          (("Fcc" . "/home/bld/maildir/gmail/sent"))
+              ;;          nil ;; No extra body text
+              ;;          "~/.signature")
+              ;;          ))
+              ;; ;; Use "home" identity by default
+              ;; (setq gnus-alias-default-identity "gmail")
+              ;; Define rules to match work identity
+       ;;       (setq gnus-alias-identity-rules
+       ;;             '(("DevCycle" ("to" ".*devcycle.com" both) "DevCycle")))
      #+END_SRC
 
 *** email with mu and mu4e
@@ -2474,7 +2494,7 @@
       the same way as Neale Swinnerton.
 
       #+BEGIN_SRC emacs-lisp
-        (maybe-install-and-require 'align-cljlet)
+;;        (maybe-install-and-require 'align-cljlet)
       #+END_SRC
 
 ***** Indentation Override
@@ -2483,7 +2503,7 @@
       bit of overriding we do.
 
       #+BEGIN_SRC emacs-lisp
-        (put-clojure-indent 'go-loop 'defun)
+;;        (put-clojure-indent 'go-loop 'defun)
       #+END_SRC
 
 **** clj-refactor
@@ -2542,59 +2562,24 @@
                  (lambda () (local-set-key [s-f9] 'clojure-cheatsheet)))
      #+END_SRC
 
-**** sw1nn-cider-perspective or Engineering
+**** Squiggly clojure
 
-     I really like what Neale has done to set up a quick cider
-     perspective. I just don't like what he called it. ;-)
+     Saw this mentioned in Bat's CIDER manual so thought I'd give it a
+     shot
 
      #+BEGIN_SRC emacs-lisp
-       (defun sw1nn-nrepl-current-server-buffer ()
-         (let ((nrepl-server-buf (replace-regexp-in-string "connection" "server" (nrepl-current-connection-buffer))))
-           (when nrepl-server-buf
-             (get-buffer nrepl-server-buf))))
-
-       (defun sw1nn-cider-perspective ()
-         (interactive)
-         (delete-other-windows)
-         (split-window-below)
-         (windmove-down)
-         (shrink-window 25)
-         (switch-to-buffer (sw1nn-nrepl-current-server-buffer))
-         (end-of-buffer)
-         (windmove-up)
-         (pop-to-buffer (cider-find-or-create-repl-buffer)))
+       (eval-after-load 'flycheck '(flycheck-clojure-setup))
+       (add-hook 'after-init-hook #'global-flycheck-mode)
+       (eval-after-load 'flycheck
+         '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
      #+END_SRC
-
-**** My initial windows setup
-
-      Want to open four windows and sw1nn-cider-perspective in one key
-      sequence.
-
-       #+BEGIN_SRC emacs-lisp
-        (defun chj-clojure-perspective ()
-         (interactive)
-         (delete-other-windows)
-         (progn
-               ;; create our 2 columns
-               (split-window-right)
-
-                ;; split 1st column vertically
-               (split-window-below)
-
-               ;; move to the rightmost and split into 2 vertically
-               (window-number-select 3)
-               (split-window-below))
-        (balance-windows)
-        )
-        (global-set-key (kbd "s-<f11>") 'chj-clojure-perspective)
-       #+END_SRC
 
 **** Expectations mode
 
      Expectations mode to run tests in expectations.
 
      #+BEGIN_SRC emacs-lisp
-;;       (require 'expectations-mode)
+       (maybe-install-and-require 'expectations-mode)
      #+END_SRC
 
 ** python
@@ -2837,7 +2822,7 @@
     know when I get @replies and DMs though.
 
     #+BEGIN_SRC emacs-lisp
-;;      (setq sauron-prio-twittering-new-tweets 4)
+      (setq sauron-prio-twittering-new-tweets 4)
     #+END_SRC
 
 * Local Config

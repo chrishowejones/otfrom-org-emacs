@@ -1,3 +1,5 @@
+;;; package --- Summary
+;;; Commentary:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This a is the minimal config needed to get org-mode from melpa and
 ;; get it up and running so that we can load our emacs config from a
@@ -6,7 +8,9 @@
 ;;
 ;; http://orgmode.org/worg/org-contrib/babel/intro.html
 (require 'package)
-(setq package-archives '(;;("marmalade" . "http://marmalade-repo.org/packages/")
+
+;;; Code:
+(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("melpa-stable" . "http://stable.melpa.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")
@@ -22,6 +26,8 @@
 
 ;; This installs elpa packages if we haven't done that yet
 (defun maybe-install-and-require (p)
+  "Install elpa packages if not already installed.
+p (as P): package to be installed."
   (when (not (package-installed-p p))
     (package-install p))
   (require p))
@@ -32,3 +38,5 @@
 (require 'org)
 
 (org-babel-load-file (concat user-emacs-directory "org/config.org"))
+(provide 'init)
+;;; init.el ends here

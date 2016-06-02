@@ -4,7 +4,7 @@
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
 ;;;### (autoloads nil "expectations-mode" "expectations-mode.el"
-;;;;;;  (22117 62718 0 0))
+;;;;;;  (22351 3753 522580 490000))
 ;;; Generated autoloads from expectations-mode.el
 
 (autoload 'expectations-mode "expectations-mode" "\
