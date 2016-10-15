@@ -215,7 +215,7 @@ can be include."
 (defcustom org-reveal-keyboard t
   "Reveal use keyboard navigation."
   :group 'org-export-reveal
-  :type 'boolean)
+  :type 'string)
 
 (defcustom org-reveal-overview t
   "Reveal show overview."
@@ -317,7 +317,7 @@ holding contextual information."
    (t (format "fragment %s" frag))))
 
 (defun frag-class (frag info)
-  "Return proper HTML string description of fragment style. 
+  "Return proper HTML string description of fragment style.
 FRAG is the fragment style set on element, INFO is a plist
 holding contextual information."
   (and frag
@@ -405,7 +405,7 @@ holding contextual information."
               ;; Slide footer if any
               footer-div
               "</section>\n</section>\n")))))))
-  
+
 (defgroup org-export-reveal nil
   "Options for exporting Orgmode files to reveal.js HTML pressentations."
   :tag "Org Export Reveal"
@@ -474,7 +474,6 @@ history: %s,
 center: %s,
 slideNumber: %s,
 rollingLinks: %s,
-keyboard: %s,
 overview: %s,
 "
             (if (plist-get info :reveal-control) "true" "false")
@@ -483,8 +482,12 @@ overview: %s,
             (if (plist-get info :reveal-center) "true" "false")
             (if (plist-get info :reveal-slide-number) "true" "false")
             (if (plist-get info :reveal-rolling-links) "true" "false")
-            (if (plist-get info :reveal-keyboard) "true" "false")
+
             (if (plist-get info :reveal-overview) "true" "false"))
+
+     ;; keyboard
+     (let ((keyboard (plist-get info :reveal-keyboard)))
+       (if (string-empty-p keyboard) "" (format "keyboard: %s" keyboard)))
 
      ;; slide width
      (let ((width (plist-get info :reveal-width)))

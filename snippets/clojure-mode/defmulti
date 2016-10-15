@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: defmulti
+# key: defmulti
+# --
+
+(defmulti method
+  (fn [type params] type))
+
+(defmethod method :type [_ params]
+  params)
