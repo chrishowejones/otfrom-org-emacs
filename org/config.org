@@ -2449,31 +2449,21 @@
         (setq cider-repl-display-in-current-window t)
       #+END_SRC
 
-***** Start clj and cljs repls with figwheel-sidecar
-
-      Stole this from [[https://github.com/oliyh/spa-skeleton#clojure-and-clojurescript-side-by-side][oliyh]]
-
-      #+BEGIN_SRC emacs-lisp
-;;        (custom-set-variables
-;;         '(cider-cljs-lein-repl
-;;           "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))"))
-      #+END_SRC
-
 ***** Start figwheel-sidecar shortcuts
 
       From the Using Figwheel REPL within nREPL page.
 
       #+BEGIN_SRC emacs-lisp
-        ;; (defun cider-figwheel-repl ()
-        ;;   (interactive)
-        ;;   (save-some-buffers)
-        ;;   (with-current-buffer (cider-current-repl-buffer)
-        ;;     (goto-char (point-max))
-        ;;     (insert "(require 'figwheel-sidecar.repl-api)
-        ;;             (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
-        ;;             (figwheel-sidecar.repl-api/cljs-repl)")
-        ;;     (cider-repl-return)))
-        ;;  (global-set-key (kbd "C-c C-f") #'cider-figwheel-repl)
+        (defun cider-figwheel-repl ()
+          (interactive)
+          (save-some-buffers)
+          (with-current-buffer (cider-current-repl-buffer)
+            (goto-char (point-max))
+            (insert "(require 'figwheel-sidecar.repl-api)
+                    (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
+                    (figwheel-sidecar.repl-api/cljs-repl)")
+            (cider-repl-return)))
+         (global-set-key (kbd "C-c C-f") #'cider-figwheel-repl)
       #+END_SRC
 
 ***** A few repl tweaks
