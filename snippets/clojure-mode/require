@@ -1,5 +1,4 @@
-# -*- mode: snippet -*-
-# -*- coding: utf-8 -*-
-#name: require
+# name: require
+# key: require
 # --
-(:require [${1:namespace} :as ${2:symbol}])
+(:require [$1 :as $2])$>

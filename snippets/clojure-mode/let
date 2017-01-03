@@ -1,5 +1,7 @@
-# -*- mode: snippet -*-
 # -*- coding: utf-8 -*-
-#name: let
+# name: let
+# key: let
 # --
-(let [$0])
+(let [$1 $2]$>
+  $3)$>
+$0

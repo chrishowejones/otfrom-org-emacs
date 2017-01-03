@@ -1,5 +1,4 @@
-# -*- mode: snippet -*-
-# -*- coding: utf-8 -*-
-#name: import
+# name: import
+# key: import
 # --
-(:import [${1:package}])
+(:import ($1))$>
