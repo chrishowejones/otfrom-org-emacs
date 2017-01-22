@@ -57,6 +57,22 @@
      (global-set-key (kbd "M-RET") 'hippie-expand)
    #+END_SRC
 
+** Auto indent on newline
+
+   Again something lifted from
+   www.masteringemacs.org/article/beginners-guide-to-emacs
+
+   #+BEGIN_SRC emacs-lisp
+     (define-key global-map (kbd "RET") 'newline-and-indent)
+   #+END_SRC
+
+** Next line add newlines
+
+   Add new lines at end of buffer when navigating to next line.
+
+   #+BEGIN_SRC emacs-lisp
+     (setq next-line-add-newlines t)
+   #+END_SRC
 ** upcase and downcase region
 
    I like to be able to do this. I get lots of things that come in
@@ -181,6 +197,22 @@
       (global-set-key (kbd "C-M-o") 'loccur-current)
     #+END_SRC
 
+** Tooltips in echo area
+
+   Got this from www.masteringemacs.org
+
+   #+BEGIN_SRC emacs-lisp
+     (tooltip-mode -1)
+     (setq tooltip-use-echo-area t)
+   #+END_SRC
+
+** Y and N prompts
+
+   Change the yes and no prompts to y and n
+
+   #+BEGIN_SRC emacs-lisp
+    (fset 'yes-or-no-p 'y-or-n-p)
+   #+END_SRC
 * non-elpa and work arounds
 
   At the moment we don't have any workarounds. It looked like we might
@@ -337,6 +369,14 @@
 
     #+BEGIN_SRC emacs-lisp
 ;;       (maybe-install-and-require 'solarizeda-theme)
+    #+END_SRC
+
+*** Flatland Black theme
+
+    Flatland lack cos I prefer the higher contrast than flatland
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (maybe-install-and-require 'flatland-black-theme)
     #+END_SRC
 
 ** fonts
@@ -712,12 +752,22 @@
    remembering keybindings (sign of getting old)
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'guide-key)
-     (setq guide-key/guide-key-sequence t)
-     (setq guide-key/recursive-key-sequence-flag t)
-     (setq guide-key/idle-delay 0.5)
-     (setq guide-key/popup-window-position :bottom)
-     (guide-key-mode 1)
+     ;; (maybe-install-and-require 'guide-key)
+     ;; (setq guide-key/guide-key-sequence t)
+     ;; (setq guide-key/recursive-key-sequence-flag t)
+     ;; (setq guide-key/idle-delay 1)
+     ;; (setq guide-key/popup-window-position :bottom)
+     ;; (guide-key-mode 1)
+   #+END_SRC
+
+** which key
+
+   I like guide-key but thought I'd try which key
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'which-key)
+     (which-key-setup-minibuffer)
+     (which-key-mode 1)
    #+END_SRC
 
 ** expand region
@@ -740,6 +790,14 @@
      (defun bottom-of-window
        (move-to-window-line "-"))
      (global-set-key (kbd "C-s-b") 'bottom-of-window)
+   #+END_SRC
+
+** Imenu
+
+   Using imenu to navigate to a symbol
+
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "s-i") 'imenu)
    #+END_SRC
 
 * Text Modes
@@ -2486,11 +2544,13 @@
           (save-some-buffers)
           (with-current-buffer (cider-current-repl-buffer)
             (goto-char (point-max))
-            (insert "(require 'figwheel-sidecar.repl-api)
+            (insert
+                "(require 'figwheel-sidecar.repl-api)
                     (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
                     (figwheel-sidecar.repl-api/cljs-repl)")
-            (cider-repl-return)))
-         (global-set-key (kbd "C-c C-f") #'cider-figwheel-repl)
+            (cider-repl-return))
+          (local-set-key (kbd "C-c C-f") #'cider-figwheel-repl))
+        (add-hook 'cider-repl-mode 'cider-figwheel-repl)
       #+END_SRC
 
 ***** A few repl tweaks

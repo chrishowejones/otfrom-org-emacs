@@ -8,9 +8,9 @@
 ;;
 ;; http://orgmode.org/worg/org-contrib/babel/intro.html
 
-(add-to-list 'load-path "/home/chris/benchmark-init-el/")
-(require 'benchmark-init-loaddefs)
-(benchmark-init/activate)
+;;(add-to-list 'load-path "/home/chris/benchmark-init-el/")
+;;(require 'benchmark-init-loaddefs)
+;;(benchmark-init/activate)
 
 (require 'package)
 
