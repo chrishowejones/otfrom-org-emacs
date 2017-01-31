@@ -752,22 +752,12 @@
    remembering keybindings (sign of getting old)
 
    #+BEGIN_SRC emacs-lisp
-     ;; (maybe-install-and-require 'guide-key)
-     ;; (setq guide-key/guide-key-sequence t)
-     ;; (setq guide-key/recursive-key-sequence-flag t)
-     ;; (setq guide-key/idle-delay 1)
-     ;; (setq guide-key/popup-window-position :bottom)
-     ;; (guide-key-mode 1)
-   #+END_SRC
-
-** which key
-
-   I like guide-key but thought I'd try which key
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'which-key)
-     (which-key-setup-minibuffer)
-     (which-key-mode 1)
+     (maybe-install-and-require 'guide-key)
+     (setq guide-key/guide-key-sequence t)
+     (setq guide-key/recursive-key-sequence-flag t)
+     (setq guide-key/idle-delay 1)
+     (setq guide-key/popup-window-position :bottom)
+     (guide-key-mode 1)
    #+END_SRC
 
 ** expand region
