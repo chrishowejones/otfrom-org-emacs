@@ -489,7 +489,6 @@
 
    #+BEGIN_SRC emacs-lisp
      (setq dired-listing-switches "-alh")
-     (global-set-key (kbd "C-x C-j") 'dired-jump)
    #+END_SRC
 
 ** dirtree
@@ -785,11 +784,13 @@
    Set up move-to-window-line 0 and move-to-window-line -
 
    #+BEGIN_SRC emacs-lisp
-     (defun top-of-window
-       (move-to-window-line "0"))
+     (defun top-of-window ()
+       (interactive)
+       (move-to-window-line 0))
      (global-set-key (kbd "C-s-t") 'top-of-window)
-     (defun bottom-of-window
-       (move-to-window-line "-"))
+     (defun bottom-of-window ()
+       (interactive)
+       (move-to-window-line -1))
      (global-set-key (kbd "C-s-b") 'bottom-of-window)
    #+END_SRC
 
