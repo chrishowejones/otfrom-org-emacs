@@ -617,6 +617,17 @@
      (global-set-key (kbd "C-c l") 'ace-jump-line-mode)
    #+END_SRC
 
+** dumb-jump-mode
+
+   Jump to definitions. I know imenu can do this too but let's give it
+   a try.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'dumb-jump)
+     (global-set-key (kbd "C-s-g") 'dumb-jump-go)
+     (global-set-key (kbd "C-s-p") 'dumb-jump-back)
+     (global-set-key (kbd "C-s-q") 'dumb-jump-quick-look)
+   #+END_SRC
 ** Mouse Avoidance
 
    I don't want that pesky mouse hanging around in the middle of the
