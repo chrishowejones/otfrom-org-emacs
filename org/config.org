@@ -489,7 +489,6 @@
 
    #+BEGIN_SRC emacs-lisp
      (setq dired-listing-switches "-alh")
-     (global-set-key (kbd "C-x C-j") 'dired-jump)
    #+END_SRC
 
 ** dirtree
@@ -611,12 +610,25 @@
    there with C-c j and back to where we started with C-c k.
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'ace-jump-mode)
-     (global-set-key (kbd "C-c j") 'ace-jump-mode)
-     (global-set-key (kbd "C-c k") 'ace-jump-mode-pop-mark)
-     (global-set-key (kbd "C-c l") 'ace-jump-line-mode)
+;;     (maybe-install-and-require 'ace-jump-mode)
+;;     (global-set-key (kbd "C-c j") 'ace-jump-mode)
+;;     (global-set-key (kbd "C-c k") 'ace-jump-mode-pop-mark)
+;;     (global-set-key (kbd "C-c l") 'ace-jump-line-mode)
+;;     (global-set-key (kbd "C-c w") 'ace-jump-word-mode)
    #+END_SRC
 
+** avy-mode
+
+   This is supposed to be a replacement for ace-jump-mode so thought
+   I'd give it a whirl.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'avy)
+     (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
+     (global-set-key (kbd "M-g g") 'avy-goto-line)
+     (global-set-key (kbd "C-c k") 'avy-kill-region)
+     (global-set-key (kbd "C-c w") 'avy-goto-char-timer)
+   #+END_SRC
 ** dumb-jump-mode
 
    Jump to definitions. I know imenu can do this too but let's give it
@@ -628,6 +640,7 @@
      (global-set-key (kbd "C-s-p") 'dumb-jump-back)
      (global-set-key (kbd "C-s-q") 'dumb-jump-quick-look)
    #+END_SRC
+
 ** Mouse Avoidance
 
    I don't want that pesky mouse hanging around in the middle of the
@@ -785,11 +798,13 @@
    Set up move-to-window-line 0 and move-to-window-line -
 
    #+BEGIN_SRC emacs-lisp
-     (defun top-of-window
-       (move-to-window-line "0"))
+     (defun top-of-window ()
+       (interactive)
+       (move-to-window-line 0))
      (global-set-key (kbd "C-s-t") 'top-of-window)
-     (defun bottom-of-window
-       (move-to-window-line "-"))
+     (defun bottom-of-window ()
+       (interactive)
+       (move-to-window-line -1))
      (global-set-key (kbd "C-s-b") 'bottom-of-window)
    #+END_SRC
 
@@ -1152,21 +1167,6 @@
          (global-set-key (kbd "C-c a") 'org-agenda)
        #+END_SRC
 
-***** Ops
-
-      There are a few tricks and tweaks we need to do in order to make
-      org-column-mode look good on a big screen with a big font. The
-      column mode is an overlay so we can hack things by setting a new
-      default font before going to the column mode.
-
-      #+BEGIN_SRC emacs-lisp
-        (defun ops ()
-          (interactive)
-          (set-default-font "Inconsolata-16")
-          (org-agenda nil "Ct")
-          (delete-other-windows))
-      #+END_SRC
-
 **** Time Tracking and Estimates
 
      org-mode is huge. It does so much, but my reason for using it
@@ -1431,6 +1431,29 @@
 *** css
 
     I should probably look at adding more sugar to this.
+
+*** cleanup buffer
+
+    Borrowed from Magnars gist https://github.com/magnars/.emacs.d/blob/master/defuns/buffer-defuns.el
+
+    #+begin_src emacs-lisp
+      (defun untabify-buffer ()
+             (interactive)
+             (untabify (point-min) (point-max)))
+
+      (defun indent-buffer ()
+        (interactive)
+        (indent-region (point-min) (point-max)))
+
+      (defun cleanup-buffer ()
+        "Perform a bunch of operations on the whitespace content of a buffer.
+      Including indent-buffer, which should not be called automatically on save."
+        (interactive)
+        (untabify-buffer)
+        (delete-trailing-whitespace)
+        (indent-buffer))
+      (global-set-key (kbd "C-c n") 'cleanup-buffer)
+    #+end_src
 
 **** paredit
 
@@ -2446,10 +2469,7 @@
       mode and the cider interaction buffer.
 
       #+BEGIN_SRC emacs-lisp
-        ;; (setq cider-cljs-lein-repl
-        ;;       "(do (require 'figwheel-sidecar.repl-api)
-        ;;     (figwheel-sidecar.repl-api/start-figwheel!)
-        ;;     (figwheel-sidecar.repl-api/cljs-repl))")
+        (setq cider-cljs-lein-repl "")
       #+END_SRC
 
 ***** Save cider history
@@ -2547,8 +2567,8 @@
             (goto-char (point-max))
             (insert
                 "(require 'figwheel-sidecar.repl-api)
-                    (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
-                    (figwheel-sidecar.repl-api/cljs-repl)")
+                 (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
+                     (figwheel-sidecar.repl-api/cljs-repl)")
             (cider-repl-return))
           (local-set-key (kbd "C-c C-f") #'cider-figwheel-repl))
         (add-hook 'cider-repl-mode 'cider-figwheel-repl)
@@ -2563,6 +2583,7 @@
         ;;(setq cider-repl-use-clojure-font-lock t)
         (add-hook 'cider-repl-mode-hook 'paredit-mode)
         (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+        (add-hook 'cider-repl-mode-hook 'eldoc-mode)
       #+END_SRC
 
 **** Alignment Changes
@@ -2663,7 +2684,6 @@
        (with-eval-after-load 'flycheck
          (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
          (flycheck-pos-tip-mode 1))
-
      #+END_SRC
 
 **** Expectations support
