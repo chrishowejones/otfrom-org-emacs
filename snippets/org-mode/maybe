@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: maybe install and require
+# key: maybe_
+# --
+(maybe-install-and-require '$0)
