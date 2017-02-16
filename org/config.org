@@ -131,6 +131,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'multiple-cursors)
+     (multiple-cursors-mode 1)
      (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
      (global-set-key (kbd "C->") 'mc/mark-next-like-this)
      (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -195,6 +196,7 @@
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'loccur)
       (global-set-key (kbd "C-M-o") 'loccur-current)
+      (global-set-key (kbd "C-M-S-o") 'loccur)
     #+END_SRC
 
 ** Tooltips in echo area
