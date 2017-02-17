@@ -2630,6 +2630,7 @@
          (yas-minor-mode 1) ; for adding require/use/import statements
          ;; This choice of keybinding leaves cider-macroexpand-1 unbound
          (cljr-add-keybindings-with-prefix "C-c C-m"))
+         (setq cljr-favor-prefix-notation nil)
          (add-hook
            'clojure-mode-hook #'my-clojure-mode-hook)
      #+END_SRC
