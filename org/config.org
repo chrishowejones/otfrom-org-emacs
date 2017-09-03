@@ -333,7 +333,15 @@
     use it (please don't tell emacs).
 
     #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'noctilux-theme)
+;;     (maybe-install-and-require 'noctilux-theme)
+    #+END_SRC
+
+*** monokai
+
+    Saw this in someone's blog and thought I'd give it a looksie
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'monokai-theme)
     #+END_SRC
 
 *** grandshell
@@ -342,9 +350,9 @@
     and this [[https://github.com/steckerhalter/grandshell-theme][grandshell]] theme looks pretty good. I'm going to try it
     for a while.
 
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'grandshell-theme)
-    #+END_SRC
+;;    #+BEGIN_SRC emacs-lisp
+;;      (maybe-install-and-require 'grandshell-theme)
+;;    #+END_SRC
 
 *** cyberpunk, I still love you
 
@@ -378,7 +386,7 @@
     Flatland lack cos I prefer the higher contrast than flatland
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'flatland-black-theme)
+;;      (maybe-install-and-require 'flatland-black-theme)
     #+END_SRC
 
 ** fonts
@@ -605,7 +613,7 @@
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'github-browse-file)
     #+END_SRC
-
+,
 ** ace-jump-mode
 
    Move quickly anywhere in the buffer in 3 keystrokes. We can move
@@ -626,6 +634,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'avy)
+     (avy-setup-default)
      (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
      (global-set-key (kbd "M-g g") 'avy-goto-line)
      (global-set-key (kbd "C-c k") 'avy-kill-region)
@@ -757,6 +766,14 @@
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'helm-projectile)
       (global-set-key (kbd "s-t") 'helm-projectile)
+    #+END_SRC
+
+*** projectile indexing
+
+    Set native indexing for projectile (doesn't work for windows!)
+
+    #+BEGIN_SRC emacs-lisp
+      (setq projectile-indexing-method 'native)
     #+END_SRC
 
 ** Ag, the silver searcher with helm
@@ -1429,6 +1446,13 @@
     #+BEGIN_SRC emacs-lisp
       (tagedit-add-experimental-features)
     #+END_SRC
+
+*** Yaml
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'yaml-mode)
+    #+END_SRC
+
 
 *** css
 
@@ -2434,6 +2458,18 @@
 
     Most of the clojure emacs goodness if available in the github
     repo called [[https://github.com/clojure-emacs][clojure-emacs]].
+**** boot
+***** treat .boot files as clojure source
+
+      #+BEGIN_SRC emacs-lisp
+        (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+      #+END_SRC
+
+***** treat boot scripts files as clojure
+
+      #+BEGIN_SRC emacs-lisp
+        (add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
+      #+END_SRC
 
 **** cider
 
@@ -2682,11 +2718,13 @@
      shot
 
      #+BEGIN_SRC emacs-lisp
-       (eval-after-load 'flycheck '(flycheck-clojure-setup))
-       (add-hook 'after-init-hook #'global-flycheck-mode)
-       (with-eval-after-load 'flycheck
-         (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
-         (flycheck-pos-tip-mode 1))
+       (maybe-install-and-require 'flycheck-clojure)
+       (maybe-install-and-require 'flycheck-pos-tip)
+       ;; (eval-after-load 'flycheck '(flycheck-clojure-setup))
+       ;; (add-hook 'after-init-hook #'global-flycheck-mode)
+       ;; (with-eval-after-load 'flycheck
+       ;;   (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
+       ;;   (flycheck-pos-tip-mode 1))
      #+END_SRC
 
 **** Expectations support
@@ -2802,9 +2840,50 @@
     Add indentation for Haskell
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'hindent)
-      (add-hook 'haskell-mode-hook #'hindent-mode)
+      ;; (maybe-install-and-require 'hindent)
+      ;; (add-hook 'haskell-mode-hook #'hindent-mode)
     #+END_SRC
+
+*** intero - for Haskell
+
+    Going to try intero with Haskell projects.
+
+    #+BEGIN_SRC emacs-
+      (package-install 'intero)
+      (add-hook 'haskell-mode-hook #'intero-mode)
+    #+END_SRC
+
+*** stylish-haskell
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (custom-set-variables
+      ;;  '(haskell-stylish-on-save t))
+    #+END_SRC
+
+*** Interactive features
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (add-hook `haskell-mode-hook `interactive-haskell-mode)
+      ;; (custom-set-variables
+      ;;  '(haskell-process-suggest-remove-import-lines t)
+      ;;  '(haskell-process-auto-import-loaded-modules t)
+      ;;  '(haskell-process-log t)
+      ;;  '(haskell-process-type 'stack-ghci)
+      ;;  '(haskell-process-type 'chosen-process-type))
+      ;; (eval-after-load 'haskell-mode '(progn
+      ;;   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+      ;;   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+      ;;   (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+      ;;   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+      ;;   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+      ;;   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)))
+      ;; (eval-after-load 'haskell-cabal '(progn
+      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+    #+END_SRC
+
 
 ** Scala
 
@@ -2817,52 +2896,6 @@
       (add-hook 'scala-mode-hook 'ensime-mode)
       (add-hook 'scala-mode-hook
         (local-set-key (kbd "<M-;>") 'comment-or-uncomment-region))
-    #+END_SRC
-
-** Elm
-*** Elm mode
-
-    Add Elm mode for Elm.
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'elm-mode)
-    #+END_SRC
-
-** Docker
-
-   I thought I'd try using the docker modes for emacs as I'm going to
-   be playing aorund with setting up a Dockerised development
-   workflow.
-
-*** Docker mode
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'docker)
-    #+END_SRC
-
-*** Docker file mode
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'dockerfile-mode)
-    #+END_SRC
-
-** Misc
-
-*** Langs where paredit space before paren not required
-
-    For most of the C based languages I don't want paredit adding a
-    space in front of a parens.
-
-    #+BEGIN_SRC emacs-lisp
-      ;; Enable paredit for a couple for non lisp modes; tweak
-      ;; paredit-space-for-delimiter-predicates to avoid inserting spaces
-      ;; before open parens.
-      (dolist (mode '(ruby python scala java javascript))
-        (add-hook (intern (format "%s-mode-hook" mode))
-                  '(lambda ()
-                     (add-to-list (make-local-variable 'paredit-space-for-delimiter-predicates)
-                                  (lambda (_ _) nil))
-                     (enable-paredit-mode))))
     #+END_SRC
 
 * Data Modes
@@ -2891,7 +2924,10 @@
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'emms)
      (require 'emms-setup)
-     (emms-standard)
+     (require 'emms-player-simple)
+     (require 'emms-source-file)
+     (require 'emms-source-playlist)
+     (emms-all)
      (emms-default-players)
      (setq emms-source-file-default-directory (concat (getenv "HOME") "/Music/"))
    #+END_SRC
@@ -2952,7 +2988,7 @@
     know when I get @replies and DMs though.
 
     #+BEGIN_SRC emacs-lisp
-      (setq sauron-prio-twittering-new-tweets 4)
+;;      (setq sauron-prio-twittering-new-tweets 4)
     #+END_SRC
 
 * Local Config

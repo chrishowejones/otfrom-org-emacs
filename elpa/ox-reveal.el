@@ -49,7 +49,7 @@
     (:reveal-center nil "reveal_center" org-reveal-center t)
     (:reveal-rolling-links nil "reveal_rolling_links" org-reveal-rolling-links t)
     (:reveal-slide-number nil "reveal_slide_number" org-reveal-slide-number t)
-    (:reveal-keyboard nil "reveal_keyboard" org-reveal-keyboard t)
+    (:reveal-keyboard nil "reveal_keyboard" nil org-reveal-keyboard t)
     (:reveal-overview nil "reveal_overview" org-reveal-overview t)
     (:reveal-width nil "reveal_width" org-reveal-width t)
     (:reveal-height nil "reveal_height" org-reveal-height)

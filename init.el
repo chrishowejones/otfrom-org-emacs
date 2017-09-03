@@ -21,6 +21,9 @@
                          ("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(ensime . "melpa") t)
+(add-to-list 'package-pinned-packages '(ensime . "sbt-mode") t)
+(add-to-list 'package-pinned-packages '(ensime . "scala-mode") t)
 
 ;; This means we prefer things from ~/.emacs.d/elpa over the standard packages.
 (package-initialize)

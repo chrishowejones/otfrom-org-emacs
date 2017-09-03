@@ -2,11 +2,15 @@
 # name: testClass
 # key: tc
 # --
-import junit.framework.*;
-import junit.textui.*;
+import org.junit.Test;
 
-public class Test${1:Class} extends TestCase {
-       protected void setUp() {
-                 $0
-       }
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+public class ${1:Class}Test {
+
+   @Test
+   public void testStuff() {
+          $0
+   }
 }
