@@ -205,7 +205,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (tooltip-mode -1)
-     (setq tooltip-use-echo-area t)
+     (setq tooltip-use-echo-area nil)
    #+END_SRC
 
 ** Y and N prompts
@@ -215,6 +215,13 @@
    #+BEGIN_SRC emacs-lisp
     (fset 'yes-or-no-p 'y-or-n-p)
    #+END_SRC
+
+** Time in status
+
+   #+BEGIN_SRC emacs-lisp
+    (display-time-mode 1)
+   #+END_SRC
+
 * non-elpa and work arounds
 
   At the moment we don't have any workarounds. It looked like we might
@@ -1251,64 +1258,6 @@
        (setq org-enforce-todo-dependencies t)
      #+END_SRC
 
-**** Captain's chair
-
-     What's going on, who are we talking to. What is the ship's
-     status, where are we going.
-
-     #+BEGIN_SRC emacs-lisp
-       (defun captains-chair ()
-         (interactive)
-         (delete-other-windows)
-
-         (if (< (frame-width) 240)
-             ;; Small frame
-             (progn
-               ;; create our 2 columns
-               (split-window-right)
-
-               ;; split 1st column vertically
-               (split-window-below)
-
-               ;; move to the rightmost and split into 3 verticalally
-               (window-number-select 3)
-               (split-window-below)
-               (split-window-below))
-           ;; Big frame
-           (progn
-             ;; create our 3 columns
-             (split-window-right)
-             (split-window-right)
-
-             ;; move to the rightmost and split
-             (window-number-select 3)
-             (split-window-below)
-             (split-window-below)))
-
-         (balance-windows)
-
-         ;; set up the buffers as we want
-         (window-number-select 1)
-         (org-agenda nil "Cn")
-         (window-number-select 2)
-         ;;(switch-to-buffer (find-file (concat org-directory "/work/world-domination.org")))
-         (switch-to-buffer "#kixi")
-         ;;(mu4e)
-         (window-number-select 3)
-         (switch-to-buffer "#clojure-emacs")
-         (window-number-select 4)
-         (switch-to-buffer "#ldnclj")
-         (window-number-select 5)
-         (if (get-buffer boss-chat)
-           (switch-to-buffer boss-chat)
-         (switch-to-buffer "*-jabber-roster-*"))
-
-         ;; And go to window 1
-         (window-number-select 2))
-
-       (global-set-key [M-f12] 'captains-chair)
-     #+END_SRC
-
 *** Capturing, Templates and Refiling
 
 **** Default Notes File
@@ -1423,6 +1372,18 @@
         (interactive)
         (org-agenda nil "Cn"))
       (global-set-key [M-f11] 'default-agenda)
+    #+END_SRC
+
+*** Babel mode language load
+
+    #+BEGIN_SRC emacs-lisp
+      (org-babel-do-load-languages
+       'org-babel-load-languages
+       '((R . t)
+         (emacs-lisp . t)
+         (shell . t)
+         (clojure . t)
+         (java . t)))
     #+END_SRC
 
 ** html, sgml, xml
@@ -2358,6 +2319,26 @@
                 '(lambda () (smartscan-mode 1)))
     #+END_SRC
 
+**** paredit spaces for non s-expr langs
+
+     Need to stop insertion of spaces between symbols and parens for
+     non s-expr langs
+
+     #+BEGIN_SRC emacs-lisp
+     (defun paredit-space-for-delimiter-p (endp delimiter)
+       (and (not (if endp (eobp) (bobp)))
+            (memq (char-syntax (if endp (char-after) (char-before)))
+                  (list ?\"
+                        (let ((matching (matching-paren delimiter)))
+                          (and matching (char-syntax matching)))))))
+     (defun my-paredit-nonlisp ()
+     "Turn on paredit mode for non-lisps."
+     (interactive)
+     (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+       '((lambda (endp delimiter) nil)))
+       (paredit-mode 1))
+     #+END_SRC
+
 ** lisp modes
 
    emacs-lisp and clojure are the two that really go in here for now,
@@ -2747,6 +2728,7 @@
        (maybe-install-and-require 'elpy)
        (elpy-enable)
        (maybe-install-and-require 'python)
+       (add-hook 'python-mode-hook 'my-paredit-nonlisp)
 ;;       (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 ;;       (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 ;;       (add-hook 'python-mode-hook 'guess-style-guess-tabs-mode)
@@ -2756,18 +2738,6 @@
 
      #+END_SRC
 
-*** alter paredit to suit python style
-
-   I don't want leading spaces for open parentheses in python mode
-   as it just looks weird.
-
-
-     (defun paredit-space-for-delimiter-p (endp delimiter)
-       (and (not (if endp (eobp) (bobp)))
-            (memq (char-syntax (if endp (char-after) (char-before)))
-                  (list ?\"
-                        (let ((matching (matching-paren delimiter)))
-                          (and matching (char-syntax matching)))))))
 
 
 ** javascript
@@ -2895,8 +2865,65 @@
       (maybe-install-and-require 'ensime)
       (add-hook 'scala-mode-hook 'ensime-mode)
       (add-hook 'scala-mode-hook
-        (local-set-key (kbd "<M-;>") 'comment-or-uncomment-region))
+        (local-set-key (kbd "M-;") 'comment-or-uncomment-region))
     #+END_SRC
+
+*** Scala newlines in comments
+
+    #+BEGIN_SRC emacs-lisp
+        (defun scala-mode-newline-comments ()
+        "Custom newline appropriate for `scala-mode'."
+        ;; shouldn't this be in a post-insert hook?
+        (interactive)
+        (newline-and-indent)
+        (scala-indent:insert-asterisk-on-multiline-comment))
+
+      (define-key scala-mode-map (kbd "RET") 'scala-mode-newline-comments)
+    #+END_SRC
+
+*** Comment regions
+
+    #+BEGIN_SRC emacs-lisp
+     (setq comment-start "/* "
+	  comment-end " */"
+	  comment-style 'multi-line
+	  comment-empty-lines t)
+    #+END_SRC
+
+*** Fix paredit for scala
+
+    Don't want spaces between symbols and parens for Scala
+
+    #+BEGIN_SRC emacs-lisp
+     (add-hook 'scala-mode-hook 'my-paredit-nonlisp)
+    #+END_SRC
+
+*** Open and scale windows for use with Scala and Java
+
+    I like having my ensime sbt and scala console buffers at the
+    bottom of the frame a bit like something like Intellij or Eclipse.
+
+    #+BEGIN_SRC emacs-lisp
+       (defun ide-panes ()
+         (interactive)
+         (delete-other-windows)
+
+         (progn
+                ;; split 1st column vertically
+               (split-window-below)
+
+               ;; create our 2 columns
+               (window-number-select 1)
+               (split-window-right)
+
+               ;; expand top windows
+               (enlarge-window 20)))
+
+        (global-set-key [M-f12] 'ide-panes)
+     #+END_SRC
+
+     #+RESULTS:
+     : ide-panes
 
 * Data Modes
 
