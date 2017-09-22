@@ -222,6 +222,14 @@
     (display-time-mode 1)
    #+END_SRC
 
+** Key chord mode
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'key-chord)
+    (setq key-chord-two-keys-delay 0.1)
+    (setq key-chord-one-key-delay 0.2)
+    (key-chord-mode 1)
+   #+END_SRC
 * non-elpa and work arounds
 
   At the moment we don't have any workarounds. It looked like we might
@@ -2278,8 +2286,7 @@
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'yasnippet)
-
-;;      (global-set-key (kbd "TAB") 'yas-expand-from-trigger-key)
+      (key-chord-define-global "yy" 'yas-expand-from-trigger-key)
     #+END_SRC
 
 **** Snippet Directory
@@ -2909,12 +2916,12 @@
          (delete-other-windows)
 
          (progn
-                ;; split 1st column vertically
-               (split-window-below)
-
                ;; create our 2 columns
                (window-number-select 1)
                (split-window-right)
+
+                ;; split column vertically
+               (split-window-below)
 
                ;; expand top windows
                (enlarge-window 20)))
