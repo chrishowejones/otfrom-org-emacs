@@ -20,6 +20,15 @@
          (message (format "No %s file. So not loading one." file))))
    #+END_SRC
 
+** Install Try
+
+   Saw this in C'est la Z's youtube videos as a way to try out emacs
+   packages without installing them.
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'try)
+   #+END_SRC
+
 * Globals
 
 ** Set initial framesize
@@ -850,6 +859,17 @@
      (global-set-key (kbd "s-i") 'imenu)
    #+END_SRC
 
+** Swiper-Helm
+
+   I'm going to use Swiper Helm for search for a bit but I'm not sure
+   about suing ivy-mode completion and counsel as I'm kind of
+   comfortable with helm and company-mode for now.
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'swiper-helm)
+    (global-set-key (kbd "C-s") 'swiper)
+   #+END_SRC
+
 * Text Modes
 
 ** Text Mode Basics
@@ -942,6 +962,25 @@
 
     #+BEGIN_SRC emacs-lisp
       (setq org-feed-retrieve-method 'curl)
+    #+END_SRC
+
+*** palimpsest mode
+
+    I saw this in a presentation on using Emacs for writers where the
+    speaker was using this to send text to top or bottom of a text
+    file
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'palimpsest)
+     (add-hook 'text-mode-hook 'palimpsest-mode)
+    #+END_SRC
+
+*** Open text in adoc mode
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'adoc-mode)
+     (maybe-install-and-require 'markup-faces)
+     (add-to-list 'auto-mode-alist (cons "\\.txt\\'" 'adoc-mode))
     #+END_SRC
 
 **** The Blog Roll
@@ -2922,8 +2961,12 @@
 
                 ;; split column vertically
                (split-window-below)
+               (window-number-select 3)
+               (split-window-below)
 
                ;; expand top windows
+               (enlarge-window 20)
+               (window-number-select 1)
                (enlarge-window 20)))
 
         (global-set-key [M-f12] 'ide-panes)
@@ -2931,6 +2974,19 @@
 
      #+RESULTS:
      : ide-panes
+
+** Java
+
+   Add meghanada mode (no idea why this is not in here!)
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'meghanada)
+     (add-hook 'java-mode-hook
+        (lambda ()
+          (meghanada-mode t)
+          (setq c-basic-offset 4)
+          (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+   #+END_SRC
 
 * Data Modes
 

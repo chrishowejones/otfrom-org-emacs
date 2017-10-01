@@ -7,6 +7,7 @@
    ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
  '(background-color "#202020")
  '(background-mode dark)
+ '(c-basic-offset 8)
  '(cider-boot-parameters "cider repl -s wait")
  '(clojure-indent-style :always-align)
  '(cursor-color "#cccccc")
@@ -28,12 +29,12 @@
  '(menu-bar-mode nil)
  '(omnisharp-server-executable-path
    "/home/chris/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
- '(org-agenda-files nil)
+ '(org-agenda-files (quote ("~/Documents/devoxx.org")))
  '(org-hide-emphasis-markers nil)
  '(org-reveal-keyboard t)
  '(package-selected-packages
    (quote
-    (key-chord keychord org org-plus-contrib flycheck-cask-setup 4clojure java-snippets ensime yaml-mode intero meghanada xml-rpc stylish-haskell emms-info-mediainfo emms-player-mpv emms-state helm-emms monokai-theme omnisharp csharp-mode window-number which-key websocket web w3m twittering-mode tle tagedit sotlisp solarized-theme smartscan smartparens skewer-mode scala-mode2 sauron restclient refheap redtick rainbow-mode rainbow-delimiters python-mode pkgbuild-mode ox-reveal org-pomodoro org-magit org-gcal org-ehtml noctilux-theme markdown-mode loccur keyfreq jedi jabber iy-go-to-char iedit htmlize hindent highlight-symbol helm-projectile helm-orgcard helm-flyspell helm-css-scss helm-cider helm-ag haskell-mode guide-key grandshell-theme golden-ratio gnus-alias github-browse-file git-messenger git-gutter-fringe+ gist flycheck-pos-tip flatland-black-theme fakir expectations-mode expand-region exec-path-from-shell es-mode emms elpy elm-mode edit-server dumb-jump dockerfile-mode docker discover dirtree diminish db dash-functional cyberpunk-theme csv-mode css-eldoc creole color-identifiers-mode clojure-mode-extra-font-locking clojure-cheatsheet cljsbuild-mode clj-refactor cider-decompile buffer-move bash-completion avy align-cljlet ag adoc-mode ace-jump-mode ac-helm)))
+    (try ace-window palimpsest palimpsest-mode key-chord keychord org org-plus-contrib flycheck-cask-setup 4clojure java-snippets ensime yaml-mode intero meghanada xml-rpc stylish-haskell emms-info-mediainfo emms-player-mpv emms-state helm-emms monokai-theme omnisharp csharp-mode window-number which-key websocket web w3m twittering-mode tle tagedit sotlisp solarized-theme smartscan smartparens skewer-mode scala-mode2 sauron restclient refheap redtick rainbow-mode rainbow-delimiters python-mode pkgbuild-mode ox-reveal org-pomodoro org-magit org-gcal org-ehtml noctilux-theme markdown-mode loccur keyfreq jedi jabber iy-go-to-char iedit htmlize hindent highlight-symbol helm-projectile helm-orgcard helm-flyspell helm-css-scss helm-cider helm-ag haskell-mode guide-key grandshell-theme golden-ratio gnus-alias github-browse-file git-messenger git-gutter-fringe+ gist flycheck-pos-tip flatland-black-theme fakir expectations-mode expand-region exec-path-from-shell es-mode emms elpy elm-mode edit-server dumb-jump dockerfile-mode docker discover dirtree diminish db dash-functional cyberpunk-theme csv-mode css-eldoc creole color-identifiers-mode clojure-mode-extra-font-locking clojure-cheatsheet cljsbuild-mode clj-refactor cider-decompile buffer-move bash-completion avy align-cljlet ag adoc-mode ace-jump-mode ac-helm)))
  '(safe-local-variable-values (quote ((cider-boot-parameters . "cider repl -s wait"))))
  '(split-height-threshold 180)
  '(split-width-threshold 200))
