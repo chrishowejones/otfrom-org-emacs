@@ -56,14 +56,14 @@
      (edit-server-start)
    #+END_SRC
 
-** Hippie Expand
+** Undo tree
 
-   I have a soft spot for hippie-expand. There might be better ways to
-   do this though and I'm happy to take advice from anyone with a
-   strong opinion. :-D
+   Add undo tree for the few times I get confused about where I am in
+   the undo cycle.
 
    #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "M-RET") 'hippie-expand)
+    (maybe-install-and-require 'undo-tree)
+    (undo-tree-mode 1)
    #+END_SRC
 
 ** Auto indent on newline
@@ -2920,9 +2920,9 @@
         (defun scala-mode-newline-comments ()
         "Custom newline appropriate for `scala-mode'."
         ;; shouldn't this be in a post-insert hook?
-        (interactive)
-        (newline-and-indent)
-        (scala-indent:insert-asterisk-on-multiline-comment))
+          (interactive)
+          (newline-and-indent)
+          (scala-indent:insert-asterisk-on-multiline-comment))
 
       (define-key scala-mode-map (kbd "RET") 'scala-mode-newline-comments)
     #+END_SRC
@@ -2930,10 +2930,12 @@
 *** Comment regions
 
     #+BEGIN_SRC emacs-lisp
-     (setq comment-start "/* "
-	  comment-end " */"
-	  comment-style 'multi-line
-	  comment-empty-lines t)
+     (defun scala-comment-region ()
+          (setq comment-start "/* "
+                comment-end " */"
+                comment-style 'multi-line
+                comment-empty-lines t))
+      (add-hook 'scala-mode-hook 'scala-comment-region)
     #+END_SRC
 
 *** Fix paredit for scala
@@ -2977,6 +2979,8 @@
 
 ** Java
 
+** Meghanada
+
    Add meghanada mode (no idea why this is not in here!)
 
    #+BEGIN_SRC emacs-lisp
@@ -2986,6 +2990,20 @@
           (meghanada-mode t)
           (setq c-basic-offset 4)
           (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+   #+END_SRC
+
+** Eclim
+
+   Try out eclim mode for Java for a bit.
+
+   #+BEGIN_SRC emacs-lisp
+     ;; (maybe-install-and-require 'eclim)
+     ;; (setq eclimd-autostart t)
+     ;; (defun my-java-mode-hook ()
+     ;;   (eclim-mode t)
+     ;;   (custom-set-variables
+     ;;   '(eclim-eclipse-dirs '("~/IdeaProjects"))))
+     ;; (add-hook 'java-mode-hook 'my-java-mode-hook)
    #+END_SRC
 
 * Data Modes
