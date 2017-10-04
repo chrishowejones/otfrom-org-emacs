@@ -983,20 +983,6 @@
      (add-to-list 'auto-mode-alist (cons "\\.txt\\'" 'adoc-mode))
     #+END_SRC
 
-**** The Blog Roll
-
-     And this is my incomplete and silly blog roll. There are many
-     more things that I should read and I read very few on the ones
-     in here regularly. If I know you and you are in here, you
-     should really tweet about your new blog posts more.
-
-     If I'm honest, really this is how I keep up with various
-     webcomics.
-
-     #+BEGIN_SRC emacs-lisp
-       (load-if-exists (concat user-emacs-directory "local/blog-roll.el"))
-     #+END_SRC
-
 *** ox-reveal
 
     [[https://github.com/hakimel/reveal.js/][reveal.js]] is a great way of making pretty presentations,
@@ -1322,8 +1308,11 @@
      C-M-f12.
 
      #+BEGIN_SRC emacs-lisp
-       (global-set-key [C-M-f12] 'org-capture)
+       (global-set-key [s-M-f12] 'org-capture)
      #+END_SRC
+
+     #+RESULTS:
+     : org-capture
 
 **** Capture Templates
 
@@ -1351,8 +1340,6 @@
                 "* %?\n%U\n" :clock-in t :clock-resume t :empty-lines-after 1 :empty-lines-after 1)
                ("m" "Meeting" entry (file+datetree org-default-notes-file)
                 "* MEETING with %? :MEETING:\n%^{Owner}p\n%U" :clock-in t :clock-resume t :empty-lines-after 1)
-               ("s" "Sit Down" entry (file+datetree org-default-notes-file)
-                "* MEETING with Mastodon C :MEETING:\n%^{Owner}p\n%U\n" :clock-in t :clock-resume t :empty-lines-after 1)
                ("p" "Phone call" entry (file+datetree org-default-notes-file)
                 "* PHONE %? :PHONE:\n%^{Owner}p\n%U" :clock-in t :clock-resume t :empty-lines-after 1)))
      #+END_SRC
@@ -1433,8 +1420,33 @@
          (java . t)))
     #+END_SRC
 
+*** Org bullets
+
+    Make org mode bullets look a bit more like bullets and less like
+    asterisks.
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'org-bullets)
+     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    #+END_SRC
+
 ** html, sgml, xml
 
+*** web mode
+
+    Try out web mode.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'web-mode)
+      (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.hmtl?\\'" . web-mode))
+    #+END_SRC
 *** tagedit
 
     This gives us paredit like editing for html
