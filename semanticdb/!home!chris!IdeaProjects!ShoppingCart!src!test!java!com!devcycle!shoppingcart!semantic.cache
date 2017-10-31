@@ -3,74 +3,80 @@
 (semanticdb-project-database-file "semanticdb-project-database-file"
   :tables
   (list
-
-
     (semanticdb-table "semanticdb-table"
       :major-mode jdee-mode
       :tags 
         '( ("com.devcycle.shoppingcart" package nil nil [1 35])
-            ("org.junit.Rule" include nil nil [37 59])
-            ("org.junit.Test" include nil nil [60 82])
-            ("org.junit.rules.ExpectedException" include nil nil [83 124])
-            ("java.util.LinkedList" include nil nil [126 154])
-            ("java.util.List" include nil nil [155 177])
+            ("java.util.LinkedList" include nil nil [236 264])
+            ("java.util.List" include nil nil [265 287])
+            ("org.junit.Rule" include nil nil [288 310])
+            ("org.junit.Test" include nil nil [311 333])
+            ("org.junit.rules.ExpectedException" include nil nil [334 375])
             ("ShoppingCartTest" type
                (:typemodifiers ("public")
                 :members 
                   ( ("expectedException" variable
                        (:typemodifiers ("public")
                         :type "ExpectedException")
-                        (reparse-symbol class_member_declaration) [374 444])
+                        (reparse-symbol class_member_declaration) [418 488])
                     ("givenAppleInCartTotalIs60Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [456 631])
+                        (reparse-symbol class_member_declaration) [498 666])
                     ("givenAppleMixedCaseInCartTotalIs60Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [643 828])
+                        (reparse-symbol class_member_declaration) [676 853])
                     ("givenOrangeInCartTotalIs25Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [840 1017])
+                        (reparse-symbol class_member_declaration) [863 1033])
                     ("givenTwoApplesInCartTotalIs60Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [1029 1274])
+                        (reparse-symbol class_member_declaration) [1043 1277])
                     ("givenTwoOrangesInCartTotalIs50Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [1286 1492])
+                        (reparse-symbol class_member_declaration) [1287 1484])
                     ("givenThreeOrangesInCartTotalIs50Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [1504 1737])
+                        (reparse-symbol class_member_declaration) [1494 1716])
                     ("givenThreeOrangesAndAppleInCartTotalIs1Pound10nPence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [1749 2021])
+                        (reparse-symbol class_member_declaration) [1726 1985])
                     ("givenAppleAppleOrangeAppleInCartTotalIs1Pound45Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [2033 2345])
+                        (reparse-symbol class_member_declaration) [1995 2292])
                     ("givenNullInCartTotalIsZero" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [2357 2524])
+                        (reparse-symbol class_member_declaration) [2302 2462])
                     ("givenNullsAndApplesInCartTotalIs60Pence" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [2536 2762])
+                        (reparse-symbol class_member_declaration) [2472 2687])
                     ("givenPlumInCartThrowsIllegalStateException" function
                        (:typemodifiers ("public")
                         :type "void")
-                        (reparse-symbol class_member_declaration) [2774 3096]))                  
+                        (reparse-symbol class_member_declaration) [2697 3007])
+                    ("givenSomethingFail" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3017 3106])
+                    ("givenMyTestPass" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3116 3183]))                  
                 :type "class")
-                nil [333 3098]))          
+                nil [377 3185]))          
       :file "ShoppingCartTest.java"
-      :pointmax 3099
-      :fsize 3098
-      :lastmodtime '(22953 11769 927727 862000)
+      :pointmax 3186
+      :fsize 3185
+      :lastmodtime '(23029 64025 129845 50000)
       :unmatched-syntax nil))
   :file "!home!chris!IdeaProjects!ShoppingCart!src!test!java!com!devcycle!shoppingcart!semantic.cache"
   :semantic-tag-version "2.0"

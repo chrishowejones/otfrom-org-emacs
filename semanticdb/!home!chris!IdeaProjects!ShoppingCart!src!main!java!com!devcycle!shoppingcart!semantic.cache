@@ -3,31 +3,44 @@
 (semanticdb-project-database-file "semanticdb-project-database-file"
   :tables
   (list
-
-
     (semanticdb-table "semanticdb-table"
       :major-mode jdee-mode
       :tags 
         '( ("com.devcycle.shoppingcart" package nil nil [1 35])
-            ("java.util.List" include nil nil [87 109])
-            ("java.util.Map" include nil nil [110 131])
-            ("java.util.function.Function" include nil nil [132 167])
+            ("java.util.ArrayList" include nil nil [87 114])
+            ("java.util.List" include nil nil [115 137])
+            ("java.util.Map" include nil nil [138 159])
+            ("java.util.function.Function" include nil nil [160 195])
+            ("java.util.stream.Collectors" include nil nil [196 231])
             ("ShoppingCart" type
                (:typemodifiers ("public")
                 :members 
                   ( ("checkout" function
                        (:typemodifiers ("public" "static")
                         :arguments 
-                          ( ("" variable (:type "items") (reparse-symbol formal_parameters) [245 250]))                          
+                          ( ("" variable (:type "items") (reparse-symbol formal_parameters) [437 442]))                          
                         :type "double")
-                        (reparse-symbol class_member_declaration) [202 1315]))                  
+                        (reparse-symbol class_member_declaration) [394 1197])
+                    ("echo" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("stuff" variable (:type "String") (reparse-symbol formal_parameters) [1378 1390]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1354 1695])
+                    ("myName" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("name" variable (:type "String") (reparse-symbol formal_parameters) [1863 1874]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1837 1940]))                  
                 :type "class")
-                nil [169 1319]))          
+                nil [364 1943]))          
       :file "ShoppingCart.java"
-      :pointmax 1320
-      :fsize 1318
-      :lastmodtime '(22952 25108 0 0)
-      :unmatched-syntax '((GT 243 . 244) (IDENTIFIER 232 . 236) (LT 236 . 237) (IDENTIFIER 79 . 84) (DOT 78 . 79) (IDENTIFIER 68 . 78) (DOT 67 . 68) (IDENTIFIER 61 . 67) (DOT 60 . 61) (IDENTIFIER 56 . 60) (DOT 55 . 56) (IMPORT 37 . 43) (STATIC 44 . 50) (IDENTIFIER 51 . 55) (IDENTIFIER 79 . 84) (DOT 78 . 79) (IDENTIFIER 68 . 78) (DOT 67 . 68) (IDENTIFIER 61 . 67) (DOT 60 . 61) (IDENTIFIER 56 . 60) (DOT 55 . 56) (STATIC 44 . 50) (IDENTIFIER 51 . 55) (GT 243 . 244) (IDENTIFIER 232 . 236) (LT 236 . 237) (IDENTIFIER 161 . 166) (DOT 160 . 161) (IDENTIFIER 150 . 160) (DOT 149 . 150) (IDENTIFIER 143 . 149) (DOT 142 . 143) (IDENTIFIER 138 . 142) (DOT 137 . 138) (IMPORT 119 . 125) (STATIC 126 . 132) (IDENTIFIER 133 . 137) (GT 243 . 244) (IDENTIFIER 232 . 236) (LT 236 . 237) (IDENTIFIER 161 . 166) (DOT 160 . 161) (IDENTIFIER 150 . 160) (DOT 149 . 150) (IDENTIFIER 143 . 149) (DOT 142 . 143) (IDENTIFIER 138 . 142) (DOT 137 . 138) (IMPORT 119 . 125) (STATIC 126 . 132) (IDENTIFIER 133 . 137))))
+      :pointmax 1944
+      :fsize 1943
+      :lastmodtime '(23029 64196 312927 319000)
+      :unmatched-syntax nil)
+)
   :file "!home!chris!IdeaProjects!ShoppingCart!src!main!java!com!devcycle!shoppingcart!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

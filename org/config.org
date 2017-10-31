@@ -663,6 +663,7 @@
      (global-set-key (kbd "M-g g") 'avy-goto-line)
      (global-set-key (kbd "C-c k") 'avy-kill-region)
      (global-set-key (kbd "C-c w") 'avy-goto-char-timer)
+     (global-set-key (kbd "C-c c") 'avy-goto-char)
    #+END_SRC
 ** dumb-jump-mode
 
@@ -789,7 +790,7 @@
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'helm-projectile)
-      (global-set-key (kbd "s-t") 'helm-projectile)
+      (helm-projectile-on)
     #+END_SRC
 
 *** projectile indexing
@@ -1014,11 +1015,11 @@
      though, so I'm still using per file keywords.
 
      #+BEGIN_SRC emacs-lisp
-       ;;       (setq org-todo-keywords
-                    ;; '((sequence "TODO(t)" "CCC(c!)" "DOING(g!)" "|" "DONE(d!)")
-                    ;;   (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "|")
-                    ;;   (sequence "PROJECT(p!)" "|" "COMPLETE(m!)")
-                    ;;   (sequence "|"  "CANCELLED(n@/!)" "PHONE" "MEETING" "DECISION" "NOTE" "EMAIL")))
+             (setq org-todo-keywords
+                    '((sequence "TODO(t)" "CCC(c!)" "DOING(g!)" "|" "DONE(d!)")
+                      (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "|")
+                      (sequence "PROJECT(p!)" "|" "COMPLETE(m!)")
+                      (sequence "|"  "CANCELLED(n@/!)" "PHONE" "MEETING" "DECISION" "NOTE" "EMAIL")))
      #+END_SRC
 
 **** Log when things are done
@@ -1311,9 +1312,6 @@
        (global-set-key [s-M-f12] 'org-capture)
      #+END_SRC
 
-     #+RESULTS:
-     : org-capture
-
 **** Capture Templates
 
      To do, respond, notes, journals, meetings and phone calls. These
@@ -1328,7 +1326,7 @@
              '(("c" "Contacts" entry (file "~/org/contacts.org")
                 "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:PHONE:\n:ALIAS:\n:NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:LAST_READ_MAIL:\n:END:" :empty-lines-after 1)
                ("t" "Doing RIGHT NOW" entry (file+datetree org-default-notes-file)
-                "* DOING %?\n%^{Owner}p\n%U\n%a\n" :clock-in t :clock-resume t :empty-lines-after 1)
+                "* DOING %?\n%n\n%U\n%a\n" :clock-in t :clock-resume t :empty-lines-after 1)
                ("f" "Do in the Future" entry (file+datetree org-default-notes-file)
                 "* TODO %?\n%^{Owner}p\n%U\n%a\n" :empty-lines-after 1)
                ("r" "respond" entry (file+datetree org-default-notes-file)
@@ -1336,7 +1334,7 @@
                 :clock-in t :clock-resume t :empty-lines-after 1)
                ("n" "note" entry (file+datetree org-default-notes-file)
                 "* %? :NOTE:\n%U\n%a\n" :clock-resume t :empty-lines-after 1)
-               ("j" "Journal" entry (file+datetree (concat org-directory "/refile.org"))
+               ("j" "Journal" entry (file+datetree org-default-notes-file)
                 "* %?\n%U\n" :clock-in t :clock-resume t :empty-lines-after 1 :empty-lines-after 1)
                ("m" "Meeting" entry (file+datetree org-default-notes-file)
                 "* MEETING with %? :MEETING:\n%^{Owner}p\n%U" :clock-in t :clock-resume t :empty-lines-after 1)
@@ -1417,7 +1415,8 @@
          (emacs-lisp . t)
          (shell . t)
          (clojure . t)
-         (java . t)))
+         (java . t)
+         (scala . t)))
     #+END_SRC
 
 *** Org bullets
@@ -1769,24 +1768,15 @@
     https://www.alien.net.au/irc/irc2numerics.html
 
     #+BEGIN_SRC emacs-lisp
-      (erc-track-mode t)
-      (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
-                                       "324" "329" "332" "333" "353" "477"))
+      ;; (erc-track-mode t)
+      ;; (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
+      ;;                                  "324" "329" "332" "333" "353" "477"))
 
-      ;; don't show any of this
-      (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
+      ;; ;; don't show any of this
+      ;; (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
     #+END_SRC
 
-*** Scroll to Bottom
-
-    Typing happens at the bottom and we want as much history as
-    possible to be visible.
-
-    #+BEGIN_SRC emacs-lisp
-      (add-hook 'erc-mode-hook 'erc-add-scroll-to-bottom)
-    #+END_SRC
-
-*** Spell Checking
+***** Spell Checking
 
     And spell checking is good.
 
@@ -1850,7 +1840,6 @@
 
 
 ** email
-
 *** Sending Mail with msmtp
 
     We want to send mail with msmtpq, which sends the mail if the
@@ -1924,9 +1913,9 @@
     files in /usr/local/share/emacs/site-lisp/mu4e/.
 
     #+BEGIN_SRC emacs-lisp
-;;      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
-;;      (require 'mu4e)
-;;      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
+      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+      (require 'mu4e)
+      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -1950,8 +1939,8 @@
      minutes, just to be lucky.
 
      #+BEGIN_SRC emacs-lisp
-;;       (setq mu4e-get-mail-command "offlineimap")
-;;       (setq mu4e-update-interval (* 32 60))
+       (setq mu4e-get-mail-command "offlineimap")
+       (setq mu4e-update-interval (* 32 60))
      #+END_SRC
 
 **** Shortcuts
@@ -2383,18 +2372,12 @@
      non s-expr langs
 
      #+BEGIN_SRC emacs-lisp
-     (defun paredit-space-for-delimiter-p (endp delimiter)
-       (and (not (if endp (eobp) (bobp)))
-            (memq (char-syntax (if endp (char-after) (char-before)))
-                  (list ?\"
-                        (let ((matching (matching-paren delimiter)))
-                          (and matching (char-syntax matching)))))))
      (defun my-paredit-nonlisp ()
-     "Turn on paredit mode for non-lisps."
-     (interactive)
-     (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-       '((lambda (endp delimiter) nil)))
-       (paredit-mode 1))
+       "Turn on paredit mode for non-lisps."
+       (interactive)
+       (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+            '((lambda (endp delimiter) nil)))
+         (paredit-mode 1))
      #+END_SRC
 
 ** lisp modes
@@ -2990,33 +2973,52 @@
      : ide-panes
 
 ** Java
+*** Fix paredit for Java
 
-** Meghanada
+    Don't want spaces between symbols and parens for Java
 
-   Add meghanada mode (no idea why this is not in here!)
+    #+BEGIN_SRC emacs-lisp
+     (add-hook 'java-mode-hook 'my-paredit-nonlisp)
+    #+END_SRC
 
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'meghanada)
-     (add-hook 'java-mode-hook
-        (lambda ()
-          (meghanada-mode t)
-          (setq c-basic-offset 4)
-          (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
-   #+END_SRC
+*** Jdee
 
-** Eclim
+    Add in JDEE for Java.
 
-   Try out eclim mode for Java for a bit.
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'jdee)
+    #+END_SRC
 
-   #+BEGIN_SRC emacs-lisp
-     ;; (maybe-install-and-require 'eclim)
-     ;; (setq eclimd-autostart t)
-     ;; (defun my-java-mode-hook ()
-     ;;   (eclim-mode t)
-     ;;   (custom-set-variables
-     ;;   '(eclim-eclipse-dirs '("~/IdeaProjects"))))
-     ;; (add-hook 'java-mode-hook 'my-java-mode-hook)
-   #+END_SRC
+*** Meghanada
+
+    Add meghanada mode (no idea why this is not in here!)
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (maybe-install-and-require 'meghanada)
+      ;; (add-hook 'java-mode-hook
+      ;;    (lambda ()
+      ;;      (meghanada-mode t)
+      ;;      (setq c-basic-offset 4)
+      ;;      (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+    #+END_SRC
+
+*** Eclim
+
+    Try out eclim mode for Java for a bit.
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (maybe-install-and-require 'eclim)
+      ;; (setq eclimd-autostart t)
+      ;; (custom-set-variables
+      ;;   '(eclim-eclipse-dirs '("~/IdeaProjects"))
+      ;;   '(eclim-executable "~/eclipse/eclim"))
+      ;; (defun my-java-mode-hook ()
+      ;;   (eclim-mode t)
+      ;;   (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
+      ;; (add-hook 'java-mode-hook 'my-java-mode-hook)
+      ;; (maybe-install-and-require 'company-emacs-eclim)
+      ;; (company-emacs-eclim-setup)
+    #+END_SRC
 
 * Data Modes
 
@@ -3136,6 +3138,21 @@
      (global-set-key (kbd "s-<return>") 'join-line)
    #+END_SRC
 
+** Org mind map
+
+   Try out mind mapping in emacs.
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'org-mind-map)
+   #+END_SRC
+
+** Ox Freemind
+
+   Try out Org mode to FreeMind mapping
+
+   #+BEGIN_SRC emacs-lisp
+;;     (require 'ox-freemind)
+   #+END_SRC
 * Misc
 
   Miscellaneous stuff.
