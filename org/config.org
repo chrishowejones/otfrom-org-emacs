@@ -3082,6 +3082,14 @@
 ;;      (emms-mode-line 0)
     #+END_SRC
 
+** Image+ mode
+
+   Add image+ mode to support image zooming
+
+   #+BEGIN_SRC emacs-lisp
+   (maybe-install-and-require 'image+)
+   (eval-after-load 'image '(require 'image+))
+   #+END_SRC
 * Notification Systems
 
 ** The great eye of Sauron

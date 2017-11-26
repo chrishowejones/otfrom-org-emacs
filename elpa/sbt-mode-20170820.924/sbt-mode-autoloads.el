@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "sbt-mode" "sbt-mode.el" (22953 44156 187037
-;;;;;;  905000))
+;;;### (autoloads nil "sbt-mode" "sbt-mode.el" (23039 15323 444938
+;;;;;;  161000))
 ;;; Generated autoloads from sbt-mode.el
 
 (autoload 'sbt-start "sbt-mode" "\
@@ -42,8 +42,8 @@ sbt:default-command, if no other command has yet been run).
 
 ;;;***
 
-;;;### (autoloads nil "sbt-mode-buffer" "sbt-mode-buffer.el" (22953
-;;;;;;  44156 175038 578000))
+;;;### (autoloads nil "sbt-mode-buffer" "sbt-mode-buffer.el" (23039
+;;;;;;  15323 432938 42000))
 ;;; Generated autoloads from sbt-mode-buffer.el
 
 (autoload 'sbt-switch-to-active-sbt-buffer "sbt-mode-buffer" "\
@@ -58,8 +58,8 @@ When run in buffer with no scala project then based on number of sbt buffers thi
 
 ;;;***
 
-;;;### (autoloads nil "sbt-mode-hydra" "sbt-mode-hydra.el" (22953
-;;;;;;  44156 199037 234000))
+;;;### (autoloads nil "sbt-mode-hydra" "sbt-mode-hydra.el" (23039
+;;;;;;  15323 460938 319000))
 ;;; Generated autoloads from sbt-mode-hydra.el
 
 (autoload 'sbt-hydra "sbt-mode-hydra" "\
@@ -70,8 +70,8 @@ Sbt project it will create one.
 
 ;;;***
 
-;;;### (autoloads nil "sbt-mode-rgrep" "sbt-mode-rgrep.el" (22953
-;;;;;;  44156 195037 458000))
+;;;### (autoloads nil "sbt-mode-rgrep" "sbt-mode-rgrep.el" (23039
+;;;;;;  15323 456938 279000))
 ;;; Generated autoloads from sbt-mode-rgrep.el
 
 (autoload 'sbt-grep "sbt-mode-rgrep" "\
@@ -92,8 +92,8 @@ Recursively grep for definition of ID in scala files in the directory tree roote
 ;;;***
 
 ;;;### (autoloads nil nil ("sbt-mode-comint.el" "sbt-mode-pkg.el"
-;;;;;;  "sbt-mode-project.el" "sbt-mode-vars.el") (22953 44156 215036
-;;;;;;  338000))
+;;;;;;  "sbt-mode-project.el" "sbt-mode-vars.el") (23039 15323 472938
+;;;;;;  437000))
 
 ;;;***
 
