@@ -351,6 +351,14 @@
       (setq custom-theme-directory (concat user-emacs-directory "themes"))
     #+END_SRC
 
+
+*** leuven
+
+    Whiteboard theme.
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (load-theme 'whiteboard)
+    #+END_SRC
 *** noctilux
 
     [[http://www.lighttable.com/][LightTable]] is awfully pretty. And now that it is GPL I might even
@@ -1003,7 +1011,7 @@
     still b0rken. Yet another reason to go over to linux.
 
     #+BEGIN_SRC emacs-lisp
-      (setq org-reveal-root "file:///Users/chrishowe-jones/reveal.js-master/")
+      (setq org-reveal-root "file::///home/chris/reveal.js/")
     #+END_SRC
 
 *** Scheduling, Project Management, Time Keeping
@@ -2629,9 +2637,10 @@
                 "(require 'figwheel-sidecar.repl-api)
                  (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
                      (figwheel-sidecar.repl-api/cljs-repl)")
-            (cider-repl-return))
-          (local-set-key (kbd "C-c C-f") #'cider-figwheel-repl))
-        (add-hook 'cider-repl-mode 'cider-figwheel-repl)
+            (cider-repl-return)))
+;;        (global-set-key (kbd "C-c C-f") 'cider-figwheel-repl)
+          (add-hook 'cider-repl-mode-hook (lambda () (local-set-key (kbd "C-c C-f") 'cider-figwheel-repl)))
+;;        (add-hook 'cider-repl-mode-hook 'cider-figwheel-repl)
       #+END_SRC
 
 ***** A few repl tweaks
@@ -2855,11 +2864,11 @@
       ;; (add-hook 'haskell-mode-hook #'hindent-mode)
     #+END_SRC
 
-*** intero - for Haskell
+*** intero - for Haskella
 
     Going to try intero with Haskell projects.
 
-    #+BEGIN_SRC emacs-
+    #+BEGIN_SRC emacs-lisp
       (package-install 'intero)
       (add-hook 'haskell-mode-hook #'intero-mode)
     #+END_SRC
@@ -2994,12 +3003,12 @@
     Add meghanada mode (no idea why this is not in here!)
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'meghanada)
-      ;; (add-hook 'java-mode-hook
-      ;;    (lambda ()
-      ;;      (meghanada-mode t)
-      ;;      (setq c-basic-offset 4)
-      ;;      (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+      (maybe-install-and-require 'meghanada)
+      (add-hook 'java-mode-hook
+         (lambda ()
+           (meghanada-mode t)
+           (setq c-basic-offset 4)
+           (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
     #+END_SRC
 
 *** Eclim
@@ -3007,17 +3016,17 @@
     Try out eclim mode for Java for a bit.
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'eclim)
-      ;; (setq eclimd-autostart t)
-      ;; (custom-set-variables
-      ;;   '(eclim-eclipse-dirs '("~/IdeaProjects"))
-      ;;   '(eclim-executable "~/eclipse/eclim"))
-      ;; (defun my-java-mode-hook ()
-      ;;   (eclim-mode t)
-      ;;   (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
-      ;; (add-hook 'java-mode-hook 'my-java-mode-hook)
-      ;; (maybe-install-and-require 'company-emacs-eclim)
-      ;; (company-emacs-eclim-setup)
+      (maybe-install-and-require 'eclim)
+      (setq eclimd-autostart t)
+      (custom-set-variables
+        '(eclim-eclipse-dirs '("~/IdeaProjects"))
+        '(eclim-executable "~/eclipse/eclim"))
+      (defun my-java-mode-hook ()
+        (eclim-mode t)
+        (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
+      (add-hook 'java-mode-hook 'my-java-mode-hook)
+      (maybe-install-and-require 'company-emacs-eclim)
+      (company-emacs-eclim-setup)
     #+END_SRC
 
 * Data Modes

@@ -1,4 +1,4 @@
-(define-package "sbt-mode" "20170820.924" "Interactive support for sbt projects"
+(define-package "sbt-mode" "20171111.1558" "Interactive support for sbt projects"
   '((emacs "24.4"))
   :url "https://github.com/ensime/emacs-sbt-mode" :keywords
   '("languages"))

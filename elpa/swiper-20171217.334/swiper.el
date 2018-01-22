@@ -4,8 +4,8 @@
 
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/swiper
-;; Package-Version: 20171105.42
-;; Version: 0.9.1
+;; Package-Version: 20171217.334
+;; Version: 0.10.0
 ;; Package-Requires: ((emacs "24.1") (ivy "0.9.0"))
 ;; Keywords: matching
 
@@ -248,7 +248,8 @@
     (recenter-top-bottom arg)))
 
 (defvar swiper-font-lock-exclude
-  '(bookmark-bmenu-mode
+  '(bbdb-mode
+    bookmark-bmenu-mode
     package-menu-mode
     gnus-summary-mode
     gnus-article-mode
@@ -277,6 +278,8 @@
     occur-edit-mode
     bongo-mode
     bongo-library-mode
+    magit-popup-mode
+    adoc-mode
     bongo-playlist-mode
     eww-mode
     treemacs-mode
@@ -293,8 +296,8 @@
 (defun swiper-font-lock-ensure-p ()
   "Return non-nil if we should `font-lock-ensure'."
   (or (derived-mode-p 'magit-mode)
-              (bound-and-true-p magit-blame-mode)
-              (memq major-mode swiper-font-lock-exclude)))
+      (bound-and-true-p magit-blame-mode)
+      (memq major-mode swiper-font-lock-exclude)))
 
 (defun swiper-font-lock-ensure ()
   "Ensure the entired buffer is highlighted."
@@ -441,6 +444,7 @@ When REVERT is non-nil, regenerate the current *ivy-occur* buffer."
 (defvar swiper--current-match-start nil)
 (defvar swiper--point-min nil)
 (defvar swiper--point-max nil)
+(defvar swiper--reveal-mode nil)
 
 (defun swiper--init ()
   "Perform initialization common to both completion methods."
@@ -450,6 +454,9 @@ When REVERT is non-nil, regenerate the current *ivy-occur* buffer."
   (setq swiper--opoint (point))
   (setq swiper--point-min (point-min))
   (setq swiper--point-max (point-max))
+  (when (setq swiper--reveal-mode
+              (bound-and-true-p reveal-mode))
+    (reveal-mode -1))
   (when (bound-and-true-p evil-mode)
     (evil-set-jump)))
 
@@ -486,6 +493,10 @@ line numbers.  For the buffer, use `ivy--regex' instead."
 (defvar swiper-invocation-face nil
   "The face at the point of invocation of `swiper'.")
 
+(defcustom swiper-stay-on-quit nil
+  "When non-nil don't go back to search start on abort."
+  :type 'boolean)
+
 (defun swiper--ivy (candidates &optional initial-input)
   "Select one of CANDIDATES and move there.
 When non-nil, INITIAL-INPUT is the initial search pattern."
@@ -517,8 +528,10 @@ When non-nil, INITIAL-INPUT is the initial search pattern."
                  :history 'swiper-history
                  :caller 'swiper))
           (point))
-      (unless res
-        (goto-char swiper--opoint)))))
+      (unless (or res swiper-stay-on-quit)
+        (goto-char swiper--opoint))
+      (when swiper--reveal-mode
+        (reveal-mode 1)))))
 
 (defun swiper-toggle-face-matching ()
   "Toggle matching only the candidates with `swiper-invocation-face'."
@@ -565,7 +578,9 @@ Matched candidates should have `swiper-invocation-face'."
     (delete-overlay (pop swiper--overlays)))
   (save-excursion
     (goto-char (point-min))
-    (isearch-clean-overlays)))
+    (isearch-clean-overlays))
+  (when (> (length ivy-text) 0)
+    (cl-pushnew ivy-text swiper-history)))
 
 (defun swiper--update-input-ivy ()
   "Called when `ivy' input is updated."
@@ -809,19 +824,19 @@ otherwise continue prompting for buffers."
 
 (defun swiper-all-buffer-p (buffer)
   "Return non-nil if BUFFER should be considered by `swiper-all'."
-  (let ((major-mode (with-current-buffer buffer major-mode)))
+  (let ((mode (buffer-local-value 'major-mode (get-buffer buffer))))
     (cond
       ;; Ignore TAGS buffers, they tend to add duplicate results.
-      ((eq major-mode #'tags-table-mode) nil)
+      ((eq mode #'tags-table-mode) nil)
       ;; Always consider dired buffers, even though they're not backed
       ;; by a file.
-      ((eq major-mode #'dired-mode) t)
+      ((eq mode #'dired-mode) t)
       ;; Always consider stash buffers too, as they may have
       ;; interesting content not present in any buffers. We don't #'
       ;; quote to satisfy the byte-compiler.
-      ((eq major-mode 'magit-stash-mode) t)
+      ((eq mode 'magit-stash-mode) t)
       ;; Email buffers have no file, but are useful to search
-      ((eq major-mode 'gnus-article-mode) t)
+      ((eq mode 'gnus-article-mode) t)
       ;; Otherwise, only consider the file if it's backed by a file.
       (t (buffer-file-name buffer)))))
 
@@ -906,7 +921,7 @@ See `ivy-format-function' for further information."
   "Keymap for `swiper-all'.")
 
 ;;;###autoload
-(defun swiper-all ()
+(defun swiper-all (&optional initial-input)
   "Run `swiper' for all open buffers."
   (interactive)
   (let* ((swiper-window-width (- (frame-width) (if (display-graphic-p) 0 1)))
@@ -918,6 +933,7 @@ See `ivy-format-function' for further information."
                            (swiper-all-action (ivy-state-current ivy-last)))
               :dynamic-collection t
               :keymap swiper-all-map
+              :initial-input initial-input
               :caller 'swiper-multi)))
 
 (defun swiper-all-action (x)

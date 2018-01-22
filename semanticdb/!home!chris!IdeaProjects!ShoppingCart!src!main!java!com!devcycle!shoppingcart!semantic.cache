@@ -32,15 +32,23 @@
                         :arguments 
                           ( ("name" variable (:type "String") (reparse-symbol formal_parameters) [1863 1874]))                          
                         :type "void")
-                        (reparse-symbol class_member_declaration) [1837 1940]))                  
+                        (reparse-symbol class_member_declaration) [1837 1940])
+                    ("main" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [2032 2045]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2008 2091]))                  
                 :type "class")
-                nil [364 1943]))          
+                nil [364 2094]))          
       :file "ShoppingCart.java"
-      :pointmax 1944
-      :fsize 1943
-      :lastmodtime '(23029 64196 312927 319000)
-      :unmatched-syntax nil)
-)
+      :pointmax 2095
+      :fsize 2094
+      :lastmodtime '(23135 31447 763479 616000)
+      :unmatched-syntax nil))
   :file "!home!chris!IdeaProjects!ShoppingCart!src!main!java!com!devcycle!shoppingcart!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")
