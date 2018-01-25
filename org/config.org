@@ -3029,6 +3029,23 @@
       (company-emacs-eclim-setup)
     #+END_SRC
 
+** Kotlin
+
+*** Kotlin mode
+
+    Install Kotlin mode.
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'kotlin-mode)
+    #+END_SRC
+
+*** Fix paredit for Kotlin
+
+    Don't want spaces between symbols and parens for Kotlin.
+
+    #+BEGIN_SRC emacs-lisp
+      (add-hook 'kotlin-mode-hook 'my-paredit-nonlisp)
+    #+END_SRC
 * Data Modes
 
   Some things aren't really text and aren't really source code
