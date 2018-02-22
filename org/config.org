@@ -2904,7 +2904,6 @@
       ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
     #+END_SRC
 
-
 ** Scala
 
 *** ensime
@@ -2995,7 +2994,7 @@
     Add in JDEE for Java.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'jdee)
+;;      (maybe-install-and-require 'jdee)
     #+END_SRC
 
 *** Meghanada
@@ -3007,8 +3006,7 @@
       (add-hook 'java-mode-hook
          (lambda ()
            (meghanada-mode t)
-           (setq c-basic-offset 4)
-           (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+           (setq c-basic-offset 4)))
     #+END_SRC
 
 *** Eclim
@@ -3016,17 +3014,17 @@
     Try out eclim mode for Java for a bit.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'eclim)
-      (setq eclimd-autostart t)
-      (custom-set-variables
-        '(eclim-eclipse-dirs '("~/IdeaProjects"))
-        '(eclim-executable "~/eclipse/eclim"))
-      (defun my-java-mode-hook ()
-        (eclim-mode t)
-        (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
-      (add-hook 'java-mode-hook 'my-java-mode-hook)
-      (maybe-install-and-require 'company-emacs-eclim)
-      (company-emacs-eclim-setup)
+      ;; (maybe-install-and-require 'eclim)
+      ;; (setq eclimd-autostart t)
+      ;; (custom-set-variables
+      ;;   '(eclim-eclipse-dirs '("~/IdeaProjects,~/workspace"))
+      ;;   '(eclim-executable "~/eclipse/eclim"))
+      ;; (defun my-java-mode-hook ()
+      ;;   (eclim-mode t)
+      ;;   (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
+      ;; (add-hook 'java-mode-hook 'my-java-mode-hook)
+      ;; (maybe-install-and-require 'company-emacs-eclim)
+      ;; (company-emacs-eclim-setup)
     #+END_SRC
 
 ** Kotlin
@@ -3045,6 +3043,53 @@
 
     #+BEGIN_SRC emacs-lisp
       (add-hook 'kotlin-mode-hook 'my-paredit-nonlisp)
+    #+END_SRC
+
+** GraphQL
+
+*** Graphql mode
+
+    Add graphql mode.
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'graphql-mode)
+     (add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
+    #+END_SRC
+
+** Gradle
+
+   Install and require gradle mode
+
+   #+BEGIN_SRC emacs-lisp
+   (maybe-install-and-require 'gradle-mode)
+   ;; (add-to-list 'auto-mode-alist '("\\.gradle\\" . gradle-mode))
+   #+END_SRC
+
+** Groovy
+
+   Install and require groovy mode.
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'groovy-mode)
+   #+END_SRC
+
+** Docker
+
+*** Dockerfile mode
+
+    Install and require Dockerfile mode to provide syntax highlighting
+    for Dockerfiles.
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'dockerfile-mode)
+    #+END_SRC
+
+*** Docker mode
+
+    Install and require docker mode for running docker in emacs.
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'docker)
     #+END_SRC
 * Data Modes
 

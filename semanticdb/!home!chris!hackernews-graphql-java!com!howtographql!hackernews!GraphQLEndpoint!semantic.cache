@@ -1,0 +1,22 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.howtographql.hackernews" package nil nil [1 37])
+            ("com.coxautodev.graphql.tools.SchemaParser" include nil nil [39 88])
+            ("GraphQLEndpoint" type
+               (:typemodifiers ("public")
+                :type "class")
+                nil [90 121]))          
+      :file "GraphQLEndpoint.java"
+      :pointmax 122
+      :fsize 121
+      :lastmodtime '(23160 14873 458861 44000)
+      :unmatched-syntax nil))
+  :file "!home!chris!hackernews-graphql-java!com!howtographql!hackernews!GraphQLEndpoint!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
