@@ -268,8 +268,8 @@
    that problem. The # problem is solved with this bit of code below.
 
    #+BEGIN_SRC emacs-lisp
-     (when (memq window-system '(mac ns))
-       (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#"))))
+     ;; (when (memq window-system '(mac ns))
+     ;;   (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#"))))
    #+END_SRC
 
    We also need to deal with £ being a UTF-8 character so we don't get
@@ -284,16 +284,10 @@
    On a mac we have M-3 mapped to be the #
 
    #+BEGIN_SRC emacs-lisp
-     (if (memq window-system '(mac ns))
-         (progn
-           (require 'window-number-super)
-           (window-number-mode 1) ; for the window numbers
-           (window-number-super-mode 1) ; for the super key binding
-           )
        (progn
          (maybe-install-and-require 'window-number)
          (window-number-mode 1)
-         (window-number-meta-mode 1)))
+         (window-number-meta-mode 1))
    #+END_SRC
 
 ** $PATH is broken
@@ -334,6 +328,13 @@
       (when (memq window-system '(mac ns))
         (global-unset-key (kbd "s-h")))
     #+END_SRC
+
+** command key as meta
+
+   #+BEGIN_SRC emacs-lisp
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier 'super)
+   #+END_SRC
 
 * Make it Pretty
 
@@ -1921,9 +1922,9 @@
     files in /usr/local/share/emacs/site-lisp/mu4e/.
 
     #+BEGIN_SRC emacs-lisp
-      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
-      (require 'mu4e)
-      (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
+ ;;   (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+ ;;   (require 'mu4e)
+ ;;   (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
