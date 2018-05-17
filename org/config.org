@@ -163,10 +163,10 @@
 ** What do I use
 
    Profile your usage.
-     Find out what you use the most
+   Find out what you use the most
    by using keyfreq.
 
-    - [[http://twitter.com/EmacsHaiku/status/443757260682956800][@EmacsHaiku]]
+   - [[http://twitter.com/EmacsHaiku/status/443757260682956800][@EmacsHaiku]]
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'keyfreq)
@@ -202,11 +202,11 @@
 
    loccur mode hides all lines except those containing matches
 
-    #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'loccur)
       (global-set-key (kbd "C-M-o") 'loccur-current)
       (global-set-key (kbd "C-M-S-o") 'loccur)
-    #+END_SRC
+   #+END_SRC
 
 ** Tooltips in echo area
 
@@ -229,6 +229,21 @@
 
    #+BEGIN_SRC emacs-lisp
     (display-time-mode 1)
+   #+END_SRC
+
+** Set fundamental mode for large files
+
+   Performance for loading large files with font lock etc. on is poor
+   so make buffer fundamental and read only for large files.
+
+   #+BEGIN_SRC emacs-lisp
+     (defun my-find-file-check-make-large-file-read-only-hook ()
+       "If a file is over a given size, make the buffer read only."
+       (when (> (buffer-size) (* 1024 1024))
+         (setq buffer-read-only t)
+         (buffer-disable-undo)
+         (fundamental-mode)))
+     (add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
    #+END_SRC
 
 ** Key chord mode
@@ -383,9 +398,9 @@
     and this [[https://github.com/steckerhalter/grandshell-theme][grandshell]] theme looks pretty good. I'm going to try it
     for a while.
 
-;;    #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'grandshell-theme)
-;;    #+END_SRC
+    ;;    #+BEGIN_SRC emacs-lisp
+    ;;      (maybe-install-and-require 'grandshell-theme)
+    ;;    #+END_SRC
 
 *** cyberpunk, I still love you
 
@@ -536,11 +551,11 @@
 
 ** dirtree
 
-    Going to try out dirtree
+   Going to try out dirtree
 
-    #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'dirtree)
-    #+END_SRC
+   #+END_SRC
 
 ** helm-mode
 
@@ -556,6 +571,7 @@
      (global-set-key (kbd "M-x") #'helm-M-x)
      (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
      (global-set-key (kbd "C-x C-f") #'helm-find-files)
+     (global-set-key (kbd "s-i") #'helm-semantic-or-imenu)
    #+END_SRC
 
 ** ido
@@ -646,7 +662,7 @@
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'github-browse-file)
     #+END_SRC
-,
+    ,
 ** ace-jump-mode
 
    Move quickly anywhere in the buffer in 3 keystrokes. We can move
@@ -866,7 +882,7 @@
    Using imenu to navigate to a symbol
 
    #+BEGIN_SRC emacs-lisp
-     (global-set-key (kbd "s-i") 'imenu)
+;;     (global-set-key (kbd "s-i") 'imenu)
    #+END_SRC
 
 ** Swiper-Helm
@@ -880,6 +896,13 @@
     (global-set-key (kbd "C-s") 'swiper)
    #+END_SRC
 
+** Semantic mode
+
+   Switch on semantic mode everywhere
+
+   #+BEGIN_SRC emacs-lisp
+    (semantic-mode t)
+   #+END_SRC
 * Text Modes
 
 ** Text Mode Basics
@@ -1670,11 +1693,11 @@
 
 ** Tweet Button
 
-    Sometimes I just want to scream. Twitter lets me do that.
+   Sometimes I just want to scream. Twitter lets me do that.
 
-    #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp
       (global-set-key [M-f6] 'twittering-update-status-interactive)
-    #+END_SRC
+   #+END_SRC
 
 *** Tweeps I know with a hotkey
 
@@ -1787,21 +1810,21 @@
 
 ***** Spell Checking
 
-    And spell checking is good.
+      And spell checking is good.
 
-    #+BEGIN_SRC emacs-lisp
+      #+BEGIN_SRC emacs-lisp
       (erc-spelling-mode 1)
-    #+END_SRC
+      #+END_SRC
 
-    These are all of the channels I join by default. Some big data ones
-    like #cascalog and #hadoop. Some clojure ones such as
-    #liberator, #clojure, #clojurewerkz, #lndclj. Some devopsy ones
-    like #jclouds and #pallet. Some communities that do good
-    like #ukodi and ##cleanweb. And ones for Mastodon C like #kixi.
+      These are all of the channels I join by default. Some big data ones
+      like #cascalog and #hadoop. Some clojure ones such as
+      #liberator, #clojure, #clojurewerkz, #lndclj. Some devopsy ones
+      like #jclouds and #pallet. Some communities that do good
+      like #ukodi and ##cleanweb. And ones for Mastodon C like #kixi.
 
-    #+BEGIN_SRC emacs-lisp
+      #+BEGIN_SRC emacs-lisp
       (setq erc-autojoin-channels-alist '(("freenode.net" "#clojurewerkz" "#ldnclj" "#clojure-emacs" "##virtualJUG")))
-    #+END_SRC
+      #+END_SRC
 
 *** Credentials
 
@@ -1991,11 +2014,11 @@
       is done based on the From: field of the message.
 
       #+BEGIN_QUOTE
-        Then create a variable my-mu4e-account-alist, which should
-        contain a list for each of your accounts. Each list should
-        start with the account name, (which must be identical to the
-        account's directory name under ~/Maildir), followed by
-        (variable value) pairs:
+      Then create a variable my-mu4e-account-alist, which should
+      contain a list for each of your accounts. Each list should
+      start with the account name, (which must be identical to the
+      account's directory name under ~/Maildir), followed by
+      (variable value) pairs:
       #+END_QUOTE
 
       #+BEGIN_SRC emacs-lisp
@@ -2046,7 +2069,7 @@
 
 **** Unicode
 
-    We want to be able to read non-ascii characters.
+     We want to be able to read non-ascii characters.
 
      #+BEGIN_SRC emacs-lisp
        ;; Use fancy chars
@@ -2775,7 +2798,7 @@
 
 ** python
 
-     #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp
        (maybe-install-and-require 'elpy)
        (elpy-enable)
        (maybe-install-and-require 'python)
@@ -2787,7 +2810,7 @@
 ;;                                      (when indent-tabs-mode
 ;;                                        (guess-style-guess-tab-width)))
 
-     #+END_SRC
+   #+END_SRC
 
 
 
@@ -2976,10 +2999,10 @@
                (enlarge-window 20)))
 
         (global-set-key [M-f12] 'ide-panes)
-     #+END_SRC
+    #+END_SRC
 
-     #+RESULTS:
-     : ide-panes
+    #+RESULTS:
+    : ide-panes
 
 ** Java
 *** Fix paredit for Java
@@ -3015,17 +3038,17 @@
     Try out eclim mode for Java for a bit.
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'eclim)
-      ;; (setq eclimd-autostart t)
-      ;; (custom-set-variables
-      ;;   '(eclim-eclipse-dirs '("~/IdeaProjects,~/workspace"))
-      ;;   '(eclim-executable "~/eclipse/eclim"))
-      ;; (defun my-java-mode-hook ()
-      ;;   (eclim-mode t)
-      ;;   (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
-      ;; (add-hook 'java-mode-hook 'my-java-mode-hook)
-      ;; (maybe-install-and-require 'company-emacs-eclim)
-      ;; (company-emacs-eclim-setup)
+      (maybe-install-and-require 'eclim)
+      (custom-set-variables
+        '(eclim-eclipse-dirs '("~/eclipse-workspace"))
+        '(eclimd-executable "~/eclipse/jee-oxygen/Eclipse.app/Contents/Eclipse/eclimd"))
+      (setq eclimd-autostart t)
+      (defun my-java-mode-hook ()
+        (eclim-mode t)
+        (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
+      (add-hook 'java-mode-hook 'my-java-mode-hook)
+      (maybe-install-and-require 'company-emacs-eclim)
+      (company-emacs-eclim-setup)
     #+END_SRC
 
 ** Kotlin
