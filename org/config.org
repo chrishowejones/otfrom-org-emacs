@@ -389,7 +389,7 @@
     Saw this in someone's blog and thought I'd give it a looksie
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'monokai-theme)
+;;      (maybe-install-and-require 'monokai-theme)
     #+END_SRC
 
 *** grandshell
@@ -434,8 +434,21 @@
     Flatland lack cos I prefer the higher contrast than flatland
 
     #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'flatland-black-theme)
+      (maybe-install-and-require 'flatland-black-theme)
     #+END_SRC
+*** Nimbus theme
+
+    #+BEGIN_SRC emacs-lisp
+;;     (maybe-install-and-require 'nimbus-theme)
+    #+END_SRC
+
+*** Github theme
+
+    #+BEGIN_SRC emacs-lisp
+;;     (maybe-install-and-require 'github-theme)
+    #+END_SRC
+
+
 
 ** fonts
 
@@ -1628,6 +1641,18 @@
      (add-to-list 'auto-mode-alist (cons "\\.asciidoc\\'" 'adoc-mode))
    #+END_SRC
 
+** evil mode for my vim friends
+
+   I am mainly including this for my friends who use vim to be able to
+   pair with me and so I can use evil-search-symbol-forward and
+   evil-search-symbol-backward
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'evil)
+    (global-set-key (kbd "C-*") 'evil-search-word-forward)
+    (global-set-key (kbd "C-#") 'evil-search-word-backward)
+   #+END_SRC
+
 * Communication Modes
 
 ** twittering-mode
@@ -1823,7 +1848,7 @@
       like #ukodi and ##cleanweb. And ones for Mastodon C like #kixi.
 
       #+BEGIN_SRC emacs-lisp
-      (setq erc-autojoin-channels-alist '(("freenode.net" "#clojurewerkz" "#ldnclj" "#clojure-emacs" "##virtualJUG")))
+      (setq erc-autojoin-channels-alist '(("freenode.net" "#clojure" "#clojurescript" "##virtualJUG")))
       #+END_SRC
 
 *** Credentials
