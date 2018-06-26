@@ -1,9 +1,9 @@
 ;;; edn-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "edn" "edn.el" (22385 2469 938260 679000))
+;;;### (autoloads nil "edn" "edn.el" (23342 18016 683516 277000))
 ;;; Generated autoloads from edn.el
 
 (autoload 'edn-time-to-inst "edn" "\

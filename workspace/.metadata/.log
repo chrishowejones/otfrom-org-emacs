@@ -1,0 +1,5492 @@
+!SESSION 2018-06-24 11:29:42.910 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_171
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -data /home/chris/.emacs.d/workspace/
+
+This is a continuation of log file /home/chris/emacs-config/workspace/.metadata/.bak_0.log
+Created Time: 2018-06-24 11:33:19.650
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.650
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.651
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.653
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.655
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.656
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.658
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.659
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.661
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.661
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.896
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.899
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.901
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.903
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:19.905
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.101
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.101
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.130
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.130
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.130
+!MESSAGE Reconciled 0, validated: 1. Took 67 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.158
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.159
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.160
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.161
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:20.163
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:30.372
+!MESSAGE >> document/formatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:30.632
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:30.635
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:30.637
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:30.639
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:30.641
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.417
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.419
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.423
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.428
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.435
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.442
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.447
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.451
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.454
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.457
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.459
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.461
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.464
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.467
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.470
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.473
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.476
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.477
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.479
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.481
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.482
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.483
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.485
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.486
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.488
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.490
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.491
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.492
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.495
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.497
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.500
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.502
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.504
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.506
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.507
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.508
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.510
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.512
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.514
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.517
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.519
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.521
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.523
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.525
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.527
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.529
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.530
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.532
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.534
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.536
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.538
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.540
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.542
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.544
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.546
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.547
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.550
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.551
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.554
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.556
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.559
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.561
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.562
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.898
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.901
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.904
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.907
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:38.911
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.046
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.047
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.064
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.064
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.064
+!MESSAGE Reconciled 0, validated: 1. Took 50 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.160
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.163
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.166
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.168
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.171
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.221
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.222
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.223
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.224
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.226
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.228
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.230
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.232
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.235
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.237
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.240
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.243
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.246
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.472
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.734
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.735
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.754
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.755
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.755
+!MESSAGE Reconciled 0, validated: 1. Took 57 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:39.770
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:45.651
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:47.361
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:47.364
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:47.366
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:47.369
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:47.659
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:47.664
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.133
+!MESSAGE >> document/formatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.158
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.158
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.161
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.165
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.267
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.269
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.272
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.274
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.276
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.277
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.279
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.281
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.283
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.285
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.287
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.289
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.291
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.293
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.294
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.296
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.298
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.300
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.302
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.303
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.306
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.308
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.310
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.312
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.314
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.315
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.317
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.318
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.320
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.321
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.323
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.325
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.326
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.328
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.330
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.332
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.334
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.335
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.337
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.339
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.340
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.342
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.344
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.345
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.347
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.348
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.350
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.351
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.353
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.599
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.603
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.605
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.607
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.610
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.612
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.615
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.617
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.785
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.786
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.805
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.805
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.806
+!MESSAGE Reconciled 0, validated: 1. Took 52 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.845
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.846
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.847
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.847
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.848
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.848
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.849
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:50.850
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:54.147
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:54.148
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:54.149
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:54.150
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:54.449
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:33:54.453
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:00.818
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.035
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.039
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.041
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.044
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.332
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.337
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:01.340
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:04.693
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:07.620
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:07.843
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:07.846
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:07.848
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:07.850
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:08.142
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:08.146
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:08.150
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:12.309
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.038
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.261
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.263
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.265
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.267
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.559
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.564
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.567
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.682
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.919
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.923
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.925
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:16.928
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:17.218
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:17.223
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:17.226
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:18.133
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:19.035
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:19.425
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:19.940
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:19.942
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:19.944
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:28.995
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:28.997
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.001
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.007
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.012
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.016
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.019
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.022
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.024
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.026
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.028
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.030
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.032
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.033
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.472
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.472
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.489
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.489
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.489
+!MESSAGE Reconciled 0, validated: 1. Took 56 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.509
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.510
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.511
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.512
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:29.513
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.503
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.505
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.506
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.721
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.724
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.957
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.960
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.962
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.964
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.967
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.982
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:33.983
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.197
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.199
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.199
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.200
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.201
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.454
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.454
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.485
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.485
+!MESSAGE 2 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.486
+!MESSAGE Reconciled 0, validated: 1. Took 52 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.495
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.496
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.497
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.528
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.529
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.530
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.530
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:34.531
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:36.724
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:36.725
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:36.726
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.214
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.215
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.233
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.233
+!MESSAGE 2 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.233
+!MESSAGE Reconciled 0, validated: 1. Took 57 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.259
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.260
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.261
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.261
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:37.262
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:43.540
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.220
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.220
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.222
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.224
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.226
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.227
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.695
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.696
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.712
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.712
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.712
+!MESSAGE Reconciled 0, validated: 1. Took 35 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.736
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.737
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.738
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.738
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:45.740
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.303
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.305
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.310
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.316
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.321
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.323
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.562
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.566
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.568
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.570
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.573
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.575
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.577
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.579
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.757
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.758
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.759
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.775
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.775
+!MESSAGE 2 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.775
+!MESSAGE Reconciled 0, validated: 1. Took 51 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.776
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.776
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.983
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.986
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.987
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.989
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:48.991
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.204
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.205
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.225
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.226
+!MESSAGE 2 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.226
+!MESSAGE Reconciled 0, validated: 1. Took 49 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.251
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.252
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.253
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.254
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.256
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.553
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.556
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.557
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.802
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.806
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.808
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.810
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.813
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.989
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:49.990
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.007
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.007
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.007
+!MESSAGE Reconciled 0, validated: 1. Took 50 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.079
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.082
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.084
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.086
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:50.087
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.151
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.152
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.153
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.155
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.156
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.158
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.159
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.162
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.164
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.166
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.167
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.169
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.171
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.400
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.652
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.653
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.673
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.673
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.674
+!MESSAGE Reconciled 0, validated: 1. Took 53 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:51.710
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:53.854
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:53.856
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:53.858
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:53.860
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.151
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.155
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.745
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.973
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.976
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.978
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:54.980
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:55.270
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:55.275
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:55.278
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:56.744
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:56.981
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:56.984
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:56.986
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:56.987
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:57.279
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:57.284
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:57.287
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:58.620
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:34:59.855
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:00.433
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:00.762
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:01.305
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:01.312
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:01.316
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:17.463
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:25.132
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:27.439
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:32.985
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.700
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.701
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.703
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.705
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.707
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.709
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.711
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.713
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.715
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.717
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.719
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.721
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.723
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:42.724
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.157
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.158
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.176
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.176
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.177
+!MESSAGE Reconciled 0, validated: 1. Took 53 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.198
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.200
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.200
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.201
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:35:43.202
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.670
+!MESSAGE >> document/rename
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.782
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.783
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.784
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.786
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.788
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:15.789
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.272
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.273
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.293
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.293
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.293
+!MESSAGE Reconciled 0, validated: 1. Took 54 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.309
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.310
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.311
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.312
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:16.314
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:19.521
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.781
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.781
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.782
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.785
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.786
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.788
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.790
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.792
+!MESSAGE >> document/rangeFormatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.801
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.804
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.807
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.809
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.811
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.813
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:22.814
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.279
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.280
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.298
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.298
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.298
+!MESSAGE Reconciled 0, validated: 1. Took 34 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.320
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.321
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.322
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.323
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:23.324
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:24.998
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.209
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.215
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.218
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.221
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.224
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.226
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.228
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.230
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.507
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.512
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:25.516
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.295
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.296
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.299
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.304
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.308
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.312
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.317
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.320
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.322
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.324
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.325
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.327
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.330
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.331
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.552
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.556
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.559
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.562
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.567
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.636
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.638
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.640
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.642
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:47.643
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.018
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.019
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.020
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.021
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.021
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.022
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.023
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.026
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.028
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.030
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.032
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.034
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.036
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.038
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.040
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.042
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.044
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.046
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.048
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.050
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.268
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.279
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.285
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.291
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.295
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.298
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.301
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.303
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.306
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.308
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.310
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.312
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.314
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.316
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.318
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.320
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.322
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.324
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.325
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.327
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.328
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.330
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.331
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.333
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.335
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.336
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.338
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.339
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.341
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.342
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.344
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.345
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.347
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.349
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.350
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.352
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.353
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.355
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.357
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.358
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.360
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.362
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.363
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.365
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.367
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.369
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.370
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.372
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.374
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.376
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.377
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.380
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.382
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.384
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.386
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.387
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.629
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.632
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.634
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.636
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.864
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.865
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.884
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.885
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.885
+!MESSAGE Reconciled 0, validated: 1. Took 46 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.908
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.909
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.910
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:48.911
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.101
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.317
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.319
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.320
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.320
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.321
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.322
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.322
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.323
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.616
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.620
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:51.622
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:53.033
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:53.246
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:53.436
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.212
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.585
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.587
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.589
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.591
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.594
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:54.611
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.019
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.023
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.025
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.027
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.029
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.242
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.245
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.248
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.251
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.254
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.258
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.261
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.539
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:55.544
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:56.973
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.193
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.196
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.199
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.201
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.203
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.205
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.208
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.489
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.492
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:57.495
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:58.013
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:36:59.849
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:00.391
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:00.396
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:00.399
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:01.509
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:01.511
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.033
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.035
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.040
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.049
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.054
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.057
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.060
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.062
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.065
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.067
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.069
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.071
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.073
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.074
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.075
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.511
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.511
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.526
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.526
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.526
+!MESSAGE Reconciled 0, validated: 1. Took 50 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.643
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.643
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.644
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:06.644
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.094
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.310
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.314
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.317
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.319
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.608
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.612
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.615
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:09.854
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.113
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.116
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.119
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.121
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.412
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.415
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:10.416
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:24.962
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:25.190
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:25.194
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:25.196
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:25.198
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:43.766
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:43.989
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:43.992
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:43.993
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:37:43.995
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.474
+!MESSAGE >> document/rename
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.579
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.579
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.582
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.584
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.587
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:13.588
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.072
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.073
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.091
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.091
+!MESSAGE 0 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.091
+!MESSAGE Reconciled 0, validated: 1. Took 54 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.109
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.110
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.111
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:14.112
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:15.571
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:15.807
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:15.807
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:15.831
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.040
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.043
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.047
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.051
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.054
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.074
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.283
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.286
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.289
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.291
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.294
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.297
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.580
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.586
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.591
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.985
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.989
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.991
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.993
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.995
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:16.997
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:17.283
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:17.287
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:18.974
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:18.978
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.260
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.261
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.266
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.272
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.278
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.281
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.284
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.287
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.290
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.292
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.294
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.296
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.298
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.299
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.715
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.716
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.730
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.730
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.730
+!MESSAGE Reconciled 0, validated: 1. Took 30 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.763
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:22.764
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.110
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.321
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.323
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.463
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.673
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.675
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.972
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.977
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:24.980
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.008
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.221
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.224
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.226
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.228
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.514
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.518
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:25.521
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.312
+!MESSAGE >> document/rename
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.392
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.392
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.393
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.395
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.396
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.397
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.616
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.619
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.620
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.622
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.824
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.825
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.850
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.850
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.850
+!MESSAGE Reconciled 0, validated: 1. Took 52 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.879
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.880
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.881
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:34.883
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.042
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.044
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.049
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.055
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.060
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.065
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.068
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.071
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.074
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.076
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.078
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.080
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.082
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.084
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.086
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.087
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.089
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.090
+!MESSAGE >> document/rangeFormatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.101
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.103
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.104
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.106
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.108
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.110
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.111
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.113
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.115
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.117
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.118
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.120
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.122
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.123
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.125
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.127
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.128
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.130
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.132
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.133
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.135
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.137
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.138
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.140
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.141
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.143
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.144
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.146
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.148
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.149
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.151
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.152
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.154
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.155
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.157
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.158
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.160
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.162
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.164
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.166
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.168
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.169
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.171
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.172
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.174
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.176
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.177
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.179
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.180
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.181
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.183
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.185
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.186
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.429
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.431
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.433
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.436
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.671
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.672
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.688
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.688
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.688
+!MESSAGE Reconciled 0, validated: 1. Took 52 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.791
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.792
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.793
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:37.793
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.440
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.441
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.686
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.895
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.898
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.900
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.902
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:39.904
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:40.193
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:40.198
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:40.203
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:41.327
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:41.330
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:41.345
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:41.742
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.160
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.164
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.179
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.396
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.400
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.402
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.404
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.406
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.694
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.698
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:42.701
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.403
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.406
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.409
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.411
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.413
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.700
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:43.705
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:45.735
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:45.739
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.358
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.358
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.360
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.363
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.365
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.368
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.370
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.372
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.374
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.376
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.378
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.380
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.382
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.384
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.386
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.387
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.804
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.804
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.818
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.819
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.819
+!MESSAGE Reconciled 0, validated: 1. Took 30 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.846
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.847
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.848
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:51.849
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:53.827
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.078
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.081
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.082
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.084
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.089
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.297
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.301
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.304
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.306
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.596
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.600
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:54.603
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.118
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.344
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.348
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.351
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.354
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.640
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.644
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:38:55.647
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.444
+!MESSAGE >> document/rename
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.536
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.536
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.538
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.540
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.543
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.544
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.957
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.958
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.970
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.970
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.970
+!MESSAGE Reconciled 0, validated: 1. Took 26 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.997
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.998
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.999
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:05.999
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.042
+!MESSAGE >> document/rename
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.119
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.120
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.121
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.122
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.124
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.125
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.586
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.586
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.599
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.599
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.599
+!MESSAGE Reconciled 0, validated: 1. Took 25 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.628
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.630
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.630
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:21.631
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.342
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.343
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.345
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.347
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.349
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.351
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.353
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.354
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.356
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.358
+!MESSAGE >> document/rangeFormatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.366
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.368
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.370
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.371
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.373
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.375
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.377
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.379
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.380
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.603
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.605
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.607
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.609
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.810
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.811
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.837
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.837
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.837
+!MESSAGE Reconciled 0, validated: 1. Took 56 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.859
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.860
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.861
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:24.861
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:25.701
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:25.706
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.700
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.700
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.701
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.702
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.722
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.723
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.724
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:26.724
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:58.171
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:58.174
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:58.429
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:58.480
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:58.713
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:58.899
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.062
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.252
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.462
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.465
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.467
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.470
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.472
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.475
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.476
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.478
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.759
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.763
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.766
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:39:59.816
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.042
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.049
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.052
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.056
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.058
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.060
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.062
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.064
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.224
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.332
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.540
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.561
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.563
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.566
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.571
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.573
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.576
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.578
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.587
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.796
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.799
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.801
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.803
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.805
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.807
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.809
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:00.810
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.093
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.095
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.096
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.310
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.311
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.550
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.553
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.555
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.557
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.560
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.563
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.565
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.724
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.724
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.737
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.738
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.739
+!MESSAGE Reconciled 0, validated: 1. Took 26 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.762
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.763
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.764
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.764
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.765
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.766
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:01.767
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.488
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.488
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.489
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.604
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.604
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.683
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.684
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.904
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.906
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.908
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.909
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.911
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.913
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.915
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:02.917
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.102
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.103
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.121
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.121
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.121
+!MESSAGE Reconciled 0, validated: 1. Took 37 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.162
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.163
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.164
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.164
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.165
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.166
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.166
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.167
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.186
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.219
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.220
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.221
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.221
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.289
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.799
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.802
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:03.803
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.272
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.272
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.273
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.274
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.283
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.543
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.546
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.549
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.574
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.790
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.791
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:12.811
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.212
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.212
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.229
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.230
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.230
+!MESSAGE Reconciled 0, validated: 1. Took 39 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.871
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.872
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:13.875
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.007
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.008
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.319
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.321
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.798
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.799
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.814
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.815
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.815
+!MESSAGE Reconciled 0, validated: 1. Took 44 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.846
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.848
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:14.849
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.090
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.315
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.316
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.317
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2018-06-24 11:40:15.317
+!MESSAGE Error computing hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.ls.core.internal.DocumentAdapter.close(DocumentAdapter.java:151)
+	at org.eclipse.jdt.internal.core.CompilationUnit.openBuffer(CompilationUnit.java:1179)
+	at org.eclipse.jdt.internal.core.Openable.getBuffer(Openable.java:289)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.findElementsAtSelection(JDTUtils.java:528)
+	at org.eclipse.jdt.ls.core.internal.HoverInfoProvider.computeHover(HoverInfoProvider.java:80)
+	at org.eclipse.jdt.ls.core.internal.handlers.HoverHandler.computeHover(HoverHandler.java:47)
+	at org.eclipse.jdt.ls.core.internal.handlers.HoverHandler.hover(HoverHandler.java:38)
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer.lambda$6(JDTLanguageServer.java:361)
+	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:602)
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
+	at java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:443)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.318
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.318
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.319
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.320
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.320
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.606
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.607
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.608
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.609
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.610
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.611
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.612
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.612
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.649
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.650
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.651
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.651
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.652
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.654
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.655
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:15.656
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:16.838
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:16.841
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:16.844
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:16.844
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.012
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.015
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.417
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.421
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.429
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.642
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.646
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.648
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.650
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.653
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.657
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:18.934
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.232
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.237
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.569
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.573
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.574
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.576
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.578
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.579
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.580
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.581
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.866
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:19.870
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.069
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.254
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.422
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.599
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.765
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.974
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.977
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.979
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.980
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.982
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.984
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.986
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:32.987
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:33.273
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:33.277
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:33.280
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.237
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.238
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.720
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.720
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.737
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.737
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.737
+!MESSAGE Reconciled 0, validated: 1. Took 49 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.757
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.759
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.760
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.761
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.761
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.762
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:34.763
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.351
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.352
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.578
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.582
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.584
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.587
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.591
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.594
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.758
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.758
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.766
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.766
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.767
+!MESSAGE Reconciled 0, validated: 1. Took 13 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.819
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.820
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.820
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.821
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.822
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:35.824
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:36.316
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:36.317
+!MESSAGE Releasing AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:36.763
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.191
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.191
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.209
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.209
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.210
+!MESSAGE Reconciled 0, validated: 1. Took 45 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.387
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.628
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.629
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.630
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.630
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.631
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.632
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.655
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.656
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.657
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.657
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.658
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:37.660
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:48.838
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:48.841
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:48.842
+!MESSAGE >>New configuration: {java={jdt={ls={vmargs=-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication}}, errors={incompleteClasspath={severity=warning}}, configuration={updateBuildConfiguration=automatic, maven=null}, trace={server=off}, import={gradle={enabled=true}, maven={enabled=true}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**]}, referencesCodeLens={enabled=true}, progressReports={enabled=true}, signatureHelp={enabled=true}, implementationsCodeLens={enabled=true}, format={enabled=true, settings={profile=null, url=null}, comments={enabled=false}}, saveActions={organizeImports=true}, contentProvider=null, autobuild={enabled=true}, completion={favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*], importOrder=[java, javax, com, org]}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:48.844
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:48.845
+!MESSAGE >>New configuration: {java={jdt={ls={vmargs=-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication}}, errors={incompleteClasspath={severity=warning}}, configuration={updateBuildConfiguration=automatic, maven=null}, trace={server=off}, import={gradle={enabled=true}, maven={enabled=true}, exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**]}, referencesCodeLens={enabled=true}, progressReports={enabled=true}, signatureHelp={enabled=true}, implementationsCodeLens={enabled=true}, format={enabled=true, settings={profile=null, url=null}, comments={enabled=false}}, saveActions={organizeImports=true}, contentProvider=null, autobuild={enabled=true}, completion={favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*], importOrder=[java, javax, com, org]}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.360
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.361
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.396
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.437
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.437
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.438
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.438
+!MESSAGE 0 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.438
+!MESSAGE Reconciled 0, validated: 2. Took 147 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.475
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.477
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.478
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.480
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:49.481
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:51.758
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:40:52.203
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:01.022
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:01.393
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:11.806
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.415
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.624
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.627
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.629
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.631
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.634
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.638
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.641
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:13.848
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.090
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.092
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.095
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.097
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.099
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.101
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.104
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:14.389
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:17.129
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:23.872
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.233
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.442
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.652
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.655
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.657
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.659
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.662
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.665
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:25.668
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:26.146
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:26.443
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:26.998
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.207
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.210
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.212
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.214
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.217
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.505
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:27.992
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.229
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.232
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.235
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.238
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.240
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.324
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.543
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.546
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.549
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.551
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.554
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.768
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.976
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.979
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.981
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.983
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.986
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.988
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:28.991
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:29.275
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.421
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.661
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.665
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.668
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.671
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.674
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.677
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.679
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:32.959
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.497
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.738
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.741
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.744
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.747
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.750
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.754
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:33.757
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.034
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.971
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.974
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.977
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.980
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.983
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.986
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:34.989
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:35.269
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:35.553
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:35.554
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:35.805
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:35.993
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:35.993
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.008
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.029
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.029
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.029
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.029
+!MESSAGE 0 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.029
+!MESSAGE Reconciled 0, validated: 2. Took 73 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:36.064
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.230
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.415
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.416
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.650
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.653
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.656
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.659
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.662
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.666
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.909
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.910
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.926
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.956
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.956
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.956
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.956
+!MESSAGE 2 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:39.956
+!MESSAGE Reconciled 0, validated: 2. Took 89 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:40.022
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:40.023
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:40.024
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:40.024
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:40.025
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:40.026
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.164
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.166
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.413
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.653
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.653
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.668
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.684
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.684
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.684
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.684
+!MESSAGE 0 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.684
+!MESSAGE Reconciled 0, validated: 2. Took 66 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:41.720
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:42.753
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:42.755
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.143
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.240
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.241
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.256
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.275
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.275
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.276
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.276
+!MESSAGE 0 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.276
+!MESSAGE Reconciled 0, validated: 2. Took 71 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.350
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.351
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.353
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.354
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.355
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.640
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.705
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.737
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.765
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:43.822
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.252
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.255
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.258
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.260
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.264
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.264
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.634
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.634
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.635
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.878
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.882
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.884
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.887
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.890
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.894
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.898
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:44.902
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:45.176
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.056
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.060
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.063
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.067
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.071
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.072
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.073
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.088
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.351
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.728
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.729
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.736
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:46.979
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.222
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.222
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.236
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.252
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.252
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.252
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.253
+!MESSAGE 0 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.253
+!MESSAGE Reconciled 0, validated: 2. Took 65 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.281
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.913
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.913
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:47.914
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.135
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.137
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.169
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.171
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.370
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.373
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.616
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.619
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.858
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.859
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.873
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.890
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.890
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.891
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.891
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:48.891
+!MESSAGE Reconciled 0, validated: 2. Took 69 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:49.092
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:49.159
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:49.159
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.453
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.454
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.458
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.742
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.745
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.889
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.889
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.904
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.927
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.927
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.927
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.927
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.928
+!MESSAGE Reconciled 0, validated: 2. Took 73 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.962
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:51.963
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:52.095
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.030
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.031
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.034
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.272
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.275
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.517
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.517
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.531
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.548
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.548
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.549
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.549
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.549
+!MESSAGE Reconciled 0, validated: 2. Took 65 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.636
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.706
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:53.707
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:41:54.160
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:05.462
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.477
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.478
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.478
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.749
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.751
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.925
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.925
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.937
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.959
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.959
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.959
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.959
+!MESSAGE 1 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.960
+!MESSAGE Reconciled 0, validated: 2. Took 81 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.990
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:07.991
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:08.095
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.488
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.488
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.489
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.673
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.676
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.841
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:10.845
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.011
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.014
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.256
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.259
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.421
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.422
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.431
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.446
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.447
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.447
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.447
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.447
+!MESSAGE Reconciled 0, validated: 2. Took 34 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.514
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.515
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.534
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.535
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.536
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.768
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.770
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.971
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.971
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:11.986
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.007
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.008
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.008
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.008
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.008
+!MESSAGE Reconciled 0, validated: 2. Took 72 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.042
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.043
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.110
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.110
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.111
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.340
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.342
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.547
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.550
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.735
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.738
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.959
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:12.963
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.211
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.214
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.440
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.441
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.450
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.465
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.465
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.465
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.466
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.466
+!MESSAGE Reconciled 0, validated: 2. Took 54 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.575
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.640
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:13.641
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:18.522
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:18.523
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:18.523
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:18.717
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:18.721
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:18.877
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.111
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.359
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.360
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.374
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.390
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.390
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.390
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.390
+!MESSAGE 0 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.390
+!MESSAGE Reconciled 0, validated: 2. Took 61 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:19.568
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.084
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.085
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.087
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.325
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.328
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.358
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.359
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.533
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.536
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.778
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.780
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.993
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:35.993
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.003
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.016
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.016
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.016
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.016
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.016
+!MESSAGE Reconciled 0, validated: 2. Took 32 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.137
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.205
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:36.205
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:38.441
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:48.307
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:50.853
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:50.853
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:50.854
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.125
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.128
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.355
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.355
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.364
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.376
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.376
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.377
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.377
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.377
+!MESSAGE Reconciled 0, validated: 2. Took 73 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.468
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.506
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.507
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.612
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.613
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.613
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.713
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.717
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.965
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:51.967
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.199
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.200
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.214
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.230
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.230
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.230
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.230
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.230
+!MESSAGE Reconciled 0, validated: 2. Took 65 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.322
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.388
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.389
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.838
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.839
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:52.842
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.079
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.082
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.324
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.325
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.339
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.353
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.353
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.354
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.354
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.354
+!MESSAGE Reconciled 0, validated: 2. Took 63 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.447
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.515
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:42:53.516
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:02.628
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.364
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.366
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.368
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.645
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.647
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.850
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.851
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.865
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.879
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.879
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.879
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.879
+!MESSAGE 1 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.879
+!MESSAGE Reconciled 0, validated: 2. Took 62 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.911
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.911
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:05.936
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:07.844
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:07.844
+!MESSAGE Releasing AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:07.845
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.108
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.111
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.280
+!MESSAGE Releasing all ASTs
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.281
+!MESSAGE Caching AST for /ShoppingCart/src/main/java/com/devcycle/shoppingcart/ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.293
+!MESSAGE Caching AST for /ShoppingCart/src/test/java/com/devcycle/shoppingcart/ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.308
+!MESSAGE begin problem for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.308
+!MESSAGE 1 problems reported for /ShopCart.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.308
+!MESSAGE begin problem for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.308
+!MESSAGE 3 problems reported for /ShopCartTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.308
+!MESSAGE Reconciled 0, validated: 2. Took 63 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.354
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.355
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:08.405
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:43:13.816
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2018-06-24 11:44:47.415
+!MESSAGE >> document/didSave
