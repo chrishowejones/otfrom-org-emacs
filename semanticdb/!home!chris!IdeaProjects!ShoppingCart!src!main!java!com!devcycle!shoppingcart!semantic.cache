@@ -36,20 +36,13 @@
                         :arguments 
                           ( ("qty" variable (:type "int") (reparse-symbol formal_parameters) [1615 1622]))                          
                         :type "Double")
-                        (reparse-symbol class_member_declaration) [1582 1772])
-                    ("stuff" function
-                       (:typemodifiers ("public")
-                        :arguments 
-                          ( ("a" variable (:type "int") (reparse-symbol formal_parameters) [1799 1804])
-                            ("b" variable (:type "int") (reparse-symbol formal_parameters) [1806 1811]))                          
-                        :type "int")
-                        (reparse-symbol class_member_declaration) [1782 1854]))                  
+                        (reparse-symbol class_member_declaration) [1582 1772]))                  
                 :type "class")
-                nil [169 1857]))          
+                nil [169 1775]))          
       :file "ShopCart.java"
-      :pointmax 1858
-      :fsize 1857
-      :lastmodtime '(23343 30559 369506 367000)
+      :pointmax 1776
+      :fsize 1775
+      :lastmodtime '(23348 51648 113561 462000)
       :unmatched-syntax '((GT 248 . 249) (IDENTIFIER 237 . 241) (LT 241 . 242) (IDENTIFIER 161 . 166) (DOT 160 . 161) (IDENTIFIER 150 . 160) (DOT 149 . 150) (IDENTIFIER 143 . 149) (DOT 142 . 143) (IDENTIFIER 138 . 142) (DOT 137 . 138) (IMPORT 119 . 125) (STATIC 126 . 132) (IDENTIFIER 133 . 137))))
   :file "!home!chris!IdeaProjects!ShoppingCart!src!main!java!com!devcycle!shoppingcart!semantic.cache"
   :semantic-tag-version "2.0"
