@@ -526,6 +526,7 @@
      (line-number-mode 1)
      (column-number-mode 1)
      (menu-bar-mode 1)
+     (linum-mode 1)
    #+END_SRC
 
 ** Startup Screen
@@ -677,6 +678,14 @@
       (global-set-key (kbd "C-x g") 'magit-status)
     #+END_SRC
 
+*** magit todos
+
+    magit todos
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'magit-todos)
+    #+END_SRC
+
 *** git-gutter-mode+
 
     It is really nice having +/= in the gutter. I like it more than
@@ -767,7 +776,7 @@
 ** window and buffer tweaking
 
 *** window movement
-
+l
     I need to remap the windmove keys so that they don't conflict with
     the org-mode or paredit keys.
 
@@ -2867,13 +2876,6 @@
 
 ** javascript
 
-*** Indium
-
-    I saw this had a REPL so thought I'd try it.
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'indium)
-    #+END_SRC
 *** js2 mode
 
     According to [[http://twitter.com/sw1nn][Neale Swinnerton]] js2-mode is the way to go.
@@ -2920,6 +2922,7 @@
        (add-hook 'js2-mode-hook (lambda ()
         (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
     #+END_SRC
+
 *** company-tern
 
     #+BEGIN_SRC emacs-lisp

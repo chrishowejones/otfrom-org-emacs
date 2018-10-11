@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "paredit" "paredit.el" (23421 17840 834851
-;;;;;;  18000))
+;;;### (autoloads nil "paredit" "paredit.el" (23483 30966 842964
+;;;;;;  994000))
 ;;; Generated autoloads from paredit.el
 
 (autoload 'paredit-mode "paredit" "\
