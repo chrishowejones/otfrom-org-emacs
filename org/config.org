@@ -566,6 +566,12 @@
      ;;(golden-ratio-mode 1)
    #+END_SRC
 
+** emojis
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'emojify)
+     ;; (add-hook 'after-init-hook #'global-emojify-mode)
+   #+END_SRC
 * Tool Configuration
 
 ** ediff
@@ -2858,6 +2864,14 @@ l
        (global-set-key (kbd "C-c C-/") 'run-expectations)
      #+END_SRC
 
+
+**** Joker linting using flycheck-joker
+
+     Make sure you have the joker executable on your path somewhere.
+
+     #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'flycheck-joker)
+     #+END_SRC
 ** python
 
    #+BEGIN_SRC emacs-lisp
