@@ -2959,6 +2959,12 @@ l
      (require 'tern-project-dialog)
     #+END_SRC
 
+*** prettier
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'prettier-js)
+      (add-hook 'js2-mode-hook 'prettier-js-mode)
+    #+END_SRC
 ** elasticsearch
 
    Who knew you could poke elasticsearch from inside emacs. :-D
@@ -3305,7 +3311,7 @@ l
 
     #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'ruby-mode)
-     (add-hook 'ruby-mode 'my-paredit-nonlisp)
+     (add-hook 'ruby-mode-hook 'my-paredit-nonlisp)
     #+END_SRC
 
 *** Other file types that contain Ruby
@@ -3371,12 +3377,19 @@ l
                            (lambda () (interactive) (quit-restore-window)))))
     #+END_SRC
 
-*** Use company mode for Ruby
+*** Use company mode for Ruby inf buffers
 
     #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'company-inf-ruby)
      (eval-after-load 'company
       '(add-to-list 'company-backends 'company-inf-ruby))
+    #+END_SRC
+
+*** Use Robe for Ruby code assistance
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'robe)
+     (add-hook 'ruby-mode-hook 'robe-mode)
     #+END_SRC
 * Data Modes
 
