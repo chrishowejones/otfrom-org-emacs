@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "intero" "intero.el" (23566 41437 2948 801000))
+;;;### (autoloads nil "intero" "intero.el" (23591 38970 763296 189000))
 ;;; Generated autoloads from intero.el
 
 (autoload 'intero-mode "intero" "\

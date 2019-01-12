@@ -279,6 +279,12 @@
     (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
    #+END_SRC
 
+** Disable bell
+
+   #+BEGIN_SRC emacs-lisp
+    (setq ring-bell-function 'ignore)
+   #+END_SRC
+
 * non-elpa and work arounds
 
   At the moment we don't have any workarounds. It looked like we might
@@ -596,6 +602,12 @@
      (diminish 'company-mode "CA")
    #+END_SRC
 
+*** Company-quickhelp
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'company-quickhelp)
+      (company-quickhelp-mode)
+    #+END_SRC
 
 ** Base64 (add prefix command)
 
@@ -908,6 +920,17 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'helm-ag)
+   #+END_SRC
+
+** Winnow
+
+   Use winnow to filter results of compilation buffers but
+   particularly with ag
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'winnow)
+     (add-hook 'ag-mode-hook 'winnow-mode)
+     (add-hook 'compilation-mode-hook 'winnow-mode)
    #+END_SRC
 
 ** guide key
@@ -1634,6 +1657,7 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'markdown-mode)
+     (setq markdown-command "pandoc")
    #+END_SRC
 
 *** Github Flavouring
@@ -2787,9 +2811,9 @@ l
        (defun my-clojure-mode-hook ()
          (clj-refactor-mode 1)
          (yas-minor-mode 1) ; for adding require/use/import statements
-         ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-         (cljr-add-keybindings-with-prefix "C-c C-m"))
-         (setq cljr-favor-prefix-notation nil)
+         (cljr-add-keybindings-with-prefix "C-c RET")
+         (setq cljr-favor-prefix-notation nil))
+
          (add-hook
            'clojure-mode-hook #'my-clojure-mode-hook)
      #+END_SRC
@@ -3029,7 +3053,7 @@ l
     Going to try intero with Haskell projects.
 
     #+BEGIN_SRC emacs-lisp
-      (package-install 'intero)
+      (maybe-install-and-require 'intero)
       (add-hook 'haskell-mode-hook #'intero-mode)
     #+END_SRC
 
@@ -3390,6 +3414,25 @@ l
     #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'robe)
      (add-hook 'ruby-mode-hook 'robe-mode)
+    #+END_SRC
+
+** Terraform
+
+*** Terraform mode
+
+    Add terraform mode
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'terraform-mode)
+    #+END_SRC
+
+*** Company backend for terraform
+
+    Add autocomplete using company for terraform
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'company-terraform)
+     (company-terraform-init)
     #+END_SRC
 * Data Modes
 
