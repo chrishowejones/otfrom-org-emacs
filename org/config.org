@@ -979,6 +979,14 @@ l
 ;;     (global-set-key (kbd "s-i") 'imenu)
    #+END_SRC
 
+*** github-review
+
+    Use github review for PR reviews in Github.
+
+    #+BEGIN_SRC emacs-lisp
+      (require 'github-review)
+    #+END_SRC
+
 ** Swiper-Helm
 
    I'm going to use Swiper Helm for search for a bit but I'm not sure
