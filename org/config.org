@@ -1040,6 +1040,12 @@ l
    trello and link to my email, magit and everything else keeps
    making me want to try though.
 
+*** Single space sentences
+
+    #+BEGIN_SRC emacs-lisp
+     (setq sentence-end-double-space nil)
+    #+END_SRC
+
 *** fontify
 
     This is all written in org-mode. It would be good if the source
