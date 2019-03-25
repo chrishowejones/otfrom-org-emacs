@@ -285,6 +285,13 @@
     (setq ring-bell-function 'ignore)
    #+END_SRC
 
+** Remap transpose sexps
+
+   Remap transpose sexps as gnome is using C-M-t for terminal
+
+   #+BEGIN_SRC emacs-lisp
+    (global-set-key (kbd "C-M-S-T") 'transpose-sexps)
+   #+END_SRC
 * non-elpa and work arounds
 
   At the moment we don't have any workarounds. It looked like we might
