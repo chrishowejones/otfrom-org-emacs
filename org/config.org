@@ -1057,11 +1057,10 @@ l
 
 *** spelling
 
-    On a Mac we need to tell org-mode to use aspell, which we
-    installed using homebrew.
+    Switch on Flyspell for org-mode
 
     #+BEGIN_SRC emacs-lisp
-      (setq ispell-program-name (executable-find "aspell"))
+      (add-hook 'org-mode-hook 'turn-on-flyspell)
     #+END_SRC
 
 *** Set follow links on return
