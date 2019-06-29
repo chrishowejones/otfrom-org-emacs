@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "xref-js2" "xref-js2.el" (23496 16293 619422
-;;;;;;  671000))
+;;;### (autoloads nil "xref-js2" "xref-js2.el" (23828 57590 650762
+;;;;;;  242000))
 ;;; Generated autoloads from xref-js2.el
 
 (autoload 'xref-js2-xref-backend "xref-js2" "\

@@ -437,7 +437,7 @@
     for a while.
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'grandshell-theme)
+      (maybe-install-and-require 'grandshell-theme)
     #+END_SRC
 
 *** cyberpunk, I still love you
@@ -986,12 +986,17 @@ l
 ;;     (global-set-key (kbd "s-i") 'imenu)
    #+END_SRC
 
-*** github-review
-
-    Use github review for PR reviews in Github.
+*** magit-gh-pulls
 
     #+BEGIN_SRC emacs-lisp
-      (require 'github-review)
+     (maybe-install-and-require 'magit-gh-pulls)
+     (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+    #+END_SRC
+
+*** github-review
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'github-review)
     #+END_SRC
 
 ** Swiper-Helm
@@ -3454,6 +3459,34 @@ l
      (maybe-install-and-require 'company-terraform)
      (company-terraform-init)
     #+END_SRC
+
+** Rust
+
+*** Rust mode
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'rust-mode)
+    #+END_SRC
+
+*** Flymake
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'flymake-rust)
+    #+END_SRC
+
+*** Racer
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'racer)
+     (add-hook 'rust-mode-hook 'racer-mode)
+    #+END_SRC
+
+*** Cargo
+
+    #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'cargo)
+    #+END_SRC
+
 * Data Modes
 
   Some things aren't really text and aren't really source code
@@ -3627,6 +3660,12 @@ l
              (find-file target))
            (kill-buffer cur))))
       (define-key adoc-mode-map (kbd "C->") 'increment-clojure-cookbook)
+   #+END_SRC
+
+** Typing tutor
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'speed-type)
    #+END_SRC
 
 * Finishing
