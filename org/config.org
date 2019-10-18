@@ -607,6 +607,7 @@
      (maybe-install-and-require 'company)
      (add-hook 'after-init-hook 'global-company-mode)
      (diminish 'company-mode "CA")
+     (local-set-key "<TAB>" 'company-mode)
    #+END_SRC
 
 *** Company-quickhelp
@@ -2747,7 +2748,7 @@ l
       worse and infinite sequence. This should stop that.
 
       #+BEGIN_SRC emacs-lisp
-        (setq cider-repl-print-length 100)
+        (setq cider-print-options '(("length" 100)))
       #+END_SRC
 
       And seeing as we are limiting what we print, we should pretty
@@ -2921,20 +2922,30 @@ l
      #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'flycheck-joker)
      #+END_SRC
+
+**** clj-kondo linting
+
+     Make sure you have the clj-kondo executable on your path.
+
+     #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'flycheck-clj-kondo)
+      (dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
+              (setq flycheck-checkers (cons checker (delq checker flycheck-checkers))))
+      (dolist (checkers '((clj-kondo-clj . clojure-joker)
+                          (clj-kondo-cljs . clojurescript-joker)
+                          (clj-kondo-cljc . clojure-joker)
+                          (clj-kondo-edn . edn-joker)))
+              (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
+     #+END_SRC
 ** python
 
    #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'elpy)
-       (elpy-enable)
-       (maybe-install-and-require 'python)
-       (add-hook 'python-mode-hook 'my-paredit-nonlisp)
-;;       (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-;;       (add-to-list 'interpreter-mode-alist '("python" . python-mode))
-;;       (add-hook 'python-mode-hook 'guess-style-guess-tabs-mode)
-;;       (add-hook 'python-mode-hook (lambda ()
-;;                                      (when indent-tabs-mode
-;;                                        (guess-style-guess-tab-width)))
-
+     (maybe-install-and-require 'python)
+     (maybe-install-and-require 'elpy)
+     (add-hook 'python-mode-hook 'my-paredit-nonlisp)
+     (setq python-shell-interpreter "/home/chris/anaconda3/bin/ipython"
+           python-shell-interpreter-args "-i --simple-prompt")
+     (elpy-enable)
    #+END_SRC
 
 
@@ -3466,12 +3477,15 @@ l
 
     #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'rust-mode)
+     (add-hook 'rust-mode-hook 'my-paredit-nonlisp)
     #+END_SRC
 
 *** Flymake
 
     #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'flymake-rust)
+      (maybe-install-and-require 'flymake-rust)
+      (with-eval-after-load 'rust-mode
+        (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
     #+END_SRC
 
 *** Racer

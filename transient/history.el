@@ -7,7 +7,16 @@
  (magit-log
   ("-n256" "--graph" "--decorate"))
  (magit-merge nil)
- (magit-pull nil)
- (magit-push nil)
+ (magit-notes nil)
+ (magit-pull nil
+             ("--rebase"))
+ (magit-push
+  ("--force")
+  ("--force-with-lease"))
  (magit-rebase nil)
- (magit-stash nil))
+ (magit-remote
+  ("-f"))
+ (magit-reset nil)
+ (magit-stash nil)
+ (magit-tag nil
+            ("--annotate")))
