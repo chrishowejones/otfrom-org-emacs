@@ -1,10 +1,13 @@
 ;;; flycheck-pos-tip-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "flycheck-pos-tip" "flycheck-pos-tip.el" (23421
-;;;;;;  16942 770323 635000))
+;;;### (autoloads nil "flycheck-pos-tip" "flycheck-pos-tip.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from flycheck-pos-tip.el
 
 (defvar flycheck-pos-tip-mode nil "\
@@ -35,11 +38,14 @@ TTY frames.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-pos-tip" '("flycheck-pos-tip-")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; flycheck-pos-tip-autoloads.el ends here

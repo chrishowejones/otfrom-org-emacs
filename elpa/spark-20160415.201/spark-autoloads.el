@@ -1,9 +1,12 @@
 ;;; spark-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "spark" "spark.el" (23421 16660 369074 4000))
+;;;### (autoloads nil "spark" "spark.el" (0 0 0 0))
 ;;; Generated autoloads from spark.el
 
 (autoload 'spark "spark" "\
@@ -162,11 +165,14 @@ Examples:
 
 \(fn NUMBERS &key MIN MAX KEY (SIZE 50) LABELS TITLE (SCALE\\=\\? t) (NEWLINE\\=\\? t))" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "spark" '("spark-")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; spark-autoloads.el ends here

@@ -1,11 +1,10 @@
 ;;; tagedit-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
-
-;;;### (autoloads nil "tagedit" "tagedit.el" (23421 16651 245034
-;;;;;;  912000))
-;;; Generated autoloads from tagedit.el
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
 (autoload 'tagedit-add-paredit-like-keybindings "tagedit" "\
 
@@ -111,12 +110,11 @@ Goto start of content within current tag.
 
 
 \(fn)" t nil)
-
-;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; tagedit-autoloads.el ends here

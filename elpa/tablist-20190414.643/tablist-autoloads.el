@@ -1,10 +1,12 @@
 ;;; tablist-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "tablist" "tablist.el" (23824 31314 224344
-;;;;;;  749000))
+;;;### (autoloads nil "tablist" "tablist.el" (0 0 0 0))
 ;;; Generated autoloads from tablist.el
 
 (autoload 'tablist-minor-mode "tablist" "\
@@ -21,10 +23,19 @@ the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tablist" '("tablist-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("tablist-filter.el" "tablist-pkg.el")
-;;;;;;  (23824 31314 220344 807000))
+;;;### (autoloads nil "tablist-filter" "tablist-filter.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from tablist-filter.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tablist-filter" '("tablist-filter-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("tablist-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -32,5 +43,6 @@ the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; tablist-autoloads.el ends here

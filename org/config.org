@@ -990,8 +990,8 @@ l
 *** magit-gh-pulls
 
     #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'magit-gh-pulls)
-     (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+;;     (maybe-install-and-require 'magit-gh-pulls)
+;;     (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
     #+END_SRC
 
 *** github-review
@@ -1556,7 +1556,8 @@ l
          (shell . t)
          (clojure . t)
          (java . t)
-         (scala . t)))
+         ;;(scala . t)
+))
     #+END_SRC
 
 *** Org bullets
@@ -1576,34 +1577,34 @@ l
     Try out web mode.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'web-mode)
-      (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-      (add-to-list 'auto-mode-alist '("\\.hmtl?\\'" . web-mode))
+      ;; (maybe-install-and-require 'web-mode)
+      ;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.hmtl?\\'" . web-mode))
     #+END_SRC
 *** tagedit
 
     This gives us paredit like editing for html
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'tagedit)
-      (eval-after-load "sgml-mode"
-        '(progn
-           (require 'tagedit)
-           (tagedit-add-paredit-like-keybindings)
-           (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+      ;; (maybe-install-and-require 'tagedit)
+      ;; (eval-after-load "sgml-mode"
+      ;;   '(progn
+      ;;      (require 'tagedit)
+      ;;      (tagedit-add-paredit-like-keybindings)
+      ;;      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
     #+END_SRC
 
     I quite like the sound of the experimental editing stuff. Let's
     put it in and see if it helps or destroys our code.
 
     #+BEGIN_SRC emacs-lisp
-      (tagedit-add-experimental-features)
+;;      (tagedit-add-experimental-features)
     #+END_SRC
 
 *** Yaml
@@ -1661,7 +1662,7 @@ l
      And who doesn't want eldoc tips when they are editing things.
 
      #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'css-eldoc)
+;;       (maybe-install-and-require 'css-eldoc)
      #+END_SRC
 
 **** helm support
@@ -1744,9 +1745,9 @@ l
    evil-search-symbol-backward
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'evil)
-    (global-set-key (kbd "C-*") 'evil-search-word-forward)
-    (global-set-key (kbd "C-#") 'evil-search-word-backward)
+     ;; (maybe-install-and-require 'evil)
+     ;; (global-set-key (kbd "C-*") 'evil-search-word-forward)
+     ;; (global-set-key (kbd "C-#") 'evil-search-word-backward)
    #+END_SRC
 
 * Communication Modes
@@ -2488,7 +2489,7 @@ l
      put that in snippets.
 
      #+BEGIN_SRC emacs-lisp
-       (setq yas/root-directory (concat user-emacs-directory "snippets"))
+ ;;      (setq yas/root-directory (concat user-emacs-directory "snippets"))
      #+END_SRC
 
 **** Turn it on globally
@@ -3484,8 +3485,8 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'flymake-rust)
-      (with-eval-after-load 'rust-mode
-        (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+      ;; (with-eval-after-load 'rust-mode
+      ;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
     #+END_SRC
 
 *** Racer
@@ -3679,7 +3680,7 @@ l
 ** Typing tutor
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'speed-type)
+;;    (maybe-install-and-require 'speed-type)
    #+END_SRC
 
 * Finishing

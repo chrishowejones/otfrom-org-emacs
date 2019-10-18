@@ -1,9 +1,12 @@
 ;;; srv-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "srv" "srv.el" (23566 41421 198841 215000))
+;;;### (autoloads nil "srv" "srv.el" (0 0 0 0))
 ;;; Generated autoloads from srv.el
 
 (autoload 'srv-lookup "srv" "\
@@ -17,11 +20,14 @@ of the list.  The list is empty if no SRV records were found.
 
 \(fn TARGET)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "srv" '("srv--")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; srv-autoloads.el ends here

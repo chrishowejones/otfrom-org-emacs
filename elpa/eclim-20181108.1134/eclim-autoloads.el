@@ -1,9 +1,12 @@
 ;;; eclim-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "eclim" "eclim.el" (23566 41499 187371 967000))
+;;;### (autoloads nil "eclim" "eclim.el" (0 0 0 0))
 ;;; Generated autoloads from eclim.el
 
 (autoload 'eclim/workspace-dir "eclim" "\
@@ -38,19 +41,80 @@ See `eclim-mode' for more information on Eclim mode.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim" '("eclim")))
+
 ;;;***
 
-;;;### (autoloads nil "eclim-common" "eclim-common.el" (23566 41499
-;;;;;;  183371 941000))
+;;;### (autoloads nil "eclim-ant" "eclim-ant.el" (0 0 0 0))
+;;; Generated autoloads from eclim-ant.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-ant" '("eclim")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-common" "eclim-common.el" (0 0 0 0))
 ;;; Generated autoloads from eclim-common.el
 
 (defvar eclim-mode-map (let ((map (make-sparse-keymap))) (define-key map (kbd "M-TAB") 'eclim-complete) map) "\
 The keymap used in command `eclim-mode'.")
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-common" '("eclim")))
+
 ;;;***
 
-;;;### (autoloads nil "eclim-project" "eclim-project.el" (23566 41499
-;;;;;;  195372 22000))
+;;;### (autoloads nil "eclim-completion" "eclim-completion.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from eclim-completion.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-completion" '("eclim-")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-debug" "eclim-debug.el" (0 0 0 0))
+;;; Generated autoloads from eclim-debug.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-debug" '("eclim-")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-java" "eclim-java.el" (0 0 0 0))
+;;; Generated autoloads from eclim-java.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-java" '("eclim")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-java-run" "eclim-java-run.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from eclim-java-run.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-java-run" '("eclim-")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-macros" "eclim-macros.el" (0 0 0 0))
+;;; Generated autoloads from eclim-macros.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-macros" '("eclim")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-maven" "eclim-maven.el" (0 0 0 0))
+;;; Generated autoloads from eclim-maven.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-maven" '("eclim-")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-problems" "eclim-problems.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from eclim-problems.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-problems" '("eclim-")))
+
+;;;***
+
+;;;### (autoloads nil "eclim-project" "eclim-project.el" (0 0 0 0))
 ;;; Generated autoloads from eclim-project.el
 
 (autoload 'eclim-project-mode "eclim-project" "\
@@ -60,9 +124,18 @@ Manage all your eclim projects in one buffer.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-project" '("eclim")))
+
 ;;;***
 
-;;;### (autoloads nil "eclimd" "eclimd.el" (23566 41499 147371 696000))
+;;;### (autoloads nil "eclim-scala" "eclim-scala.el" (0 0 0 0))
+;;; Generated autoloads from eclim-scala.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclim-scala" '("eclim-scala-find-declaration")))
+
+;;;***
+
+;;;### (autoloads nil "eclimd" "eclimd.el" (0 0 0 0))
 ;;; Generated autoloads from eclimd.el
 (defalias 'start-eclimd 'eclimd-start)
 
@@ -85,12 +158,11 @@ To stop the server, you should use `eclimd-start'.
 
 \(fn WORKSPACE-DIR &optional CALLBACK)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eclimd" '("eclimd-" "stop-eclimd")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("eclim-ant.el" "eclim-completion.el" "eclim-debug.el"
-;;;;;;  "eclim-java-run.el" "eclim-java.el" "eclim-macros.el" "eclim-maven.el"
-;;;;;;  "eclim-pkg.el" "eclim-problems.el" "eclim-scala.el") (23566
-;;;;;;  41499 191371 995000))
+;;;### (autoloads nil nil ("eclim-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -98,5 +170,6 @@ To stop the server, you should use `eclimd-start'.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; eclim-autoloads.el ends here

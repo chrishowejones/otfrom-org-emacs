@@ -1,9 +1,12 @@
 ;;; org-magit-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "org-magit" "org-magit.el" (22005 44272 0 0))
+;;;### (autoloads nil "org-magit" "org-magit.el" (0 0 0 0))
 ;;; Generated autoloads from org-magit.el
 
 (autoload 'org-magit-open "org-magit" "\
@@ -23,11 +26,14 @@
 
 (eval-after-load "org" '(progn (org-add-link-type "magit" 'org-magit-open 'org-magit-export) (add-hook 'org-store-link-functions 'org-magit-store-link)))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-magit" '("org-magit-")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; org-magit-autoloads.el ends here

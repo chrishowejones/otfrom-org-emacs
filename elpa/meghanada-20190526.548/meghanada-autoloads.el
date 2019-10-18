@@ -1,10 +1,13 @@
 ;;; meghanada-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
 ;;;### (autoloads nil "company-meghanada" "company-meghanada.el"
-;;;;;;  (23824 31388 719262 592000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from company-meghanada.el
 
 (autoload 'meghanada-company-enable "company-meghanada" "\
@@ -12,10 +15,12 @@ Enable auto completion with company.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "company-meghanada" '("company-meghanada" "make-icon-hash" "meghanada--")))
+
 ;;;***
 
-;;;### (autoloads nil "eldoc-meghanada" "eldoc-meghanada.el" (23824
-;;;;;;  31388 723262 534000))
+;;;### (autoloads nil "eldoc-meghanada" "eldoc-meghanada.el" (0 0
+;;;;;;  0 0))
 ;;; Generated autoloads from eldoc-meghanada.el
 
 (autoload 'eldoc-meghanada-setup "eldoc-meghanada" "\
@@ -28,10 +33,12 @@ Enable eldoc for meghanada-mode.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eldoc-meghanada" '("eldoc-meghanada--")))
+
 ;;;***
 
 ;;;### (autoloads nil "flycheck-meghanada" "flycheck-meghanada.el"
-;;;;;;  (23824 31388 727262 475000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from flycheck-meghanada.el
 
 (autoload 'meghanada-flycheck-enable "flycheck-meghanada" "\
@@ -39,10 +46,11 @@ Enable flycheck for meghanada-mode.
 
 \(fn)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-meghanada" '("flycheck-meghanada-")))
+
 ;;;***
 
-;;;### (autoloads nil "meghanada" "meghanada.el" (23824 31388 727262
-;;;;;;  475000))
+;;;### (autoloads nil "meghanada" "meghanada.el" (0 0 0 0))
 ;;; Generated autoloads from meghanada.el
 
 (autoload 'meghanada-install-server "meghanada" "\
@@ -91,10 +99,11 @@ A better java development mode for Emacs (minor-mode).
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "meghanada" '("meghanada-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("meghanada-pkg.el") (23824 31388 731262
-;;;;;;  418000))
+;;;### (autoloads nil nil ("meghanada-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -102,5 +111,6 @@ A better java development mode for Emacs (minor-mode).
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; meghanada-autoloads.el ends here

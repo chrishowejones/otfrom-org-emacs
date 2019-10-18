@@ -10,9 +10,9 @@
  (magit-notes nil)
  (magit-pull nil
              ("--rebase"))
- (magit-push
-  ("--force")
-  ("--force-with-lease"))
+ (magit-push nil
+             ("--force")
+             ("--force-with-lease"))
  (magit-rebase nil)
  (magit-remote
   ("-f"))

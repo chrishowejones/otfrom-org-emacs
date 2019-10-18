@@ -1,10 +1,13 @@
 ;;; github-browse-file-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
 ;;;### (autoloads nil "github-browse-file" "github-browse-file.el"
-;;;;;;  (23421 16926 278248 890000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from github-browse-file.el
 
 (autoload 'github-browse-file "github-browse-file" "\
@@ -32,11 +35,14 @@ Show the GitHub page for the current commit.
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "github-browse-file" '("github-browse-")))
+
 ;;;***
 
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; github-browse-file-autoloads.el ends here

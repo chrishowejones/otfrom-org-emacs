@@ -1,10 +1,12 @@
 ;;; redtick-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "redtick" "redtick.el" (23421 16687 553191
-;;;;;;  28000))
+;;;### (autoloads nil "redtick" "redtick.el" (0 0 0 0))
 ;;; Generated autoloads from redtick.el
 
 (defvar redtick-mode nil "\
@@ -29,10 +31,11 @@ Ask for DESCRIPTION, enable minor-mode, and start the pomodoro.
 
 \(fn DESCRIPTION)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "redtick" '("redtick-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("redtick-pkg.el") (23421 16687 553191
-;;;;;;  28000))
+;;;### (autoloads nil nil ("redtick-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -40,5 +43,6 @@ Ask for DESCRIPTION, enable minor-mode, and start the pomodoro.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; redtick-autoloads.el ends here

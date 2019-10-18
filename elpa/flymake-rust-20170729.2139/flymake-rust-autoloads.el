@@ -1,10 +1,15 @@
 ;;; flymake-rust-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil nil ("flymake-rust.el") (23831 10604 464416
-;;;;;;  17000))
+;;;### (autoloads nil "flymake-rust" "flymake-rust.el" (0 0 0 0))
+;;; Generated autoloads from flymake-rust.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flymake-rust" '("flymake-rust-")))
 
 ;;;***
 
@@ -12,5 +17,6 @@
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; flymake-rust-autoloads.el ends here
