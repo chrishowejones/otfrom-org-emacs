@@ -437,7 +437,7 @@
     for a while.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'grandshell-theme)
+;;      (maybe-install-and-require 'grandshell-theme)
     #+END_SRC
 
 *** cyberpunk, I still love you
@@ -477,7 +477,9 @@
 *** Nimbus theme
 
     #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'nimbus-theme)
+
+;;     (maybe-install-and-require 'nimbus-theme)
+;;     (load-theme 'nimbus)
     #+END_SRC
 
 *** Github theme
@@ -508,6 +510,11 @@
      (require 'init-fonts)
    #+END_SRC
 
+*** Default font height
+
+    #+BEGIN_SRC emacs-lisp
+      (set-face-attribute 'default nil :height 80)
+    #+END_SRC
 *** Font Switching
 
     The screen on my sputnik is amazing, but while I can see the font
@@ -528,6 +535,7 @@
 ;;        (set-default-font "Inconsolata-10"))
     #+END_SRC
 
+
 ** bars, menus and numbers
 
    I like no scroll bars, no toolbars and line and column numbers in
@@ -536,10 +544,11 @@
    #+BEGIN_SRC emacs-lisp
      (tool-bar-mode -1)
      (scroll-bar-mode -1)
-     (line-number-mode 1)
+     (line-number-mode -1)
      (column-number-mode 1)
-     (menu-bar-mode 1)
-     (linum-mode 1)
+     (menu-bar-mode -1)
+     (setq display-line-numbers-type 'relative)
+     (global-display-line-numbers-mode)
    #+END_SRC
 
 ** Startup Screen
@@ -972,11 +981,11 @@ l
      (defun top-of-window ()
        (interactive)
        (move-to-window-line 0))
-     (global-set-key (kbd "C-s-t") 'top-of-window)
+     (global-set-key (kbd "C-s-h") 'top-of-window)
      (defun bottom-of-window ()
        (interactive)
        (move-to-window-line -1))
-     (global-set-key (kbd "C-s-b") 'bottom-of-window)
+     (global-set-key (kbd "C-s-l") 'bottom-of-window)
    #+END_SRC
 
 ** Imenu
@@ -2489,7 +2498,7 @@ l
      put that in snippets.
 
      #+BEGIN_SRC emacs-lisp
- ;;      (setq yas/root-directory (concat user-emacs-directory "snippets"))
+;      (setq yas/root-directory (concat user-emacs-directory "snippets"))
      #+END_SRC
 
 **** Turn it on globally
