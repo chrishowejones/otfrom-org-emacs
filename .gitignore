@@ -25,3 +25,6 @@ url/*
 network-security.data
 semanticdb/
 /diary
+/transient
+.projectile
+projectile.cache

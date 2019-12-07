@@ -547,7 +547,7 @@
      (line-number-mode -1)
      (column-number-mode 1)
      (menu-bar-mode -1)
-     (setq display-line-numbers-type 'relative)
+     (setq display-line-numbers-type 'absolute)
      (global-display-line-numbers-mode)
    #+END_SRC
 
@@ -1020,6 +1020,17 @@ l
     (global-set-key (kbd "C-s") 'swiper)
    #+END_SRC
 
+** recentf mode
+
+   Switch on recentf-mode
+
+   #+BEGIN_SRC emacs-lisp
+    (recentf-mode 1)
+    (setq recentf-max-menu-items 25)
+    (setq recentf-max-saved-items 25)
+    (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+   #+END_SRC
+
 * Text Modes
 
 ** Text Mode Basics
@@ -1112,17 +1123,6 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (setq org-feed-retrieve-method 'curl)
-    #+END_SRC
-
-*** palimpsest mode
-
-    I saw this in a presentation on using Emacs for writers where the
-    speaker was using this to send text to top or bottom of a text
-    file
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'palimpsest)
-     (add-hook 'text-mode-hook 'palimpsest-mode)
     #+END_SRC
 
 *** Open text in adoc mode
