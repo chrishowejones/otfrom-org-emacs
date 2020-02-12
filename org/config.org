@@ -179,6 +179,13 @@
      (setq exec-path (append exec-path '("/usr/bin")))
    #+END_SRC
 
+** Add exec path from shell
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'exec-path-from-shell)
+    (exec-path-from-shell-initialize)
+   #+END_SRC
+
 ** iy-go-to-char
 
    Saw this on magnars episode 4 of emacs rocks
@@ -2971,6 +2978,7 @@ l
       (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
       ;; Better imenu
       (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+      (setq js2-basic-offset 2)
     #+END_SRC
 
     And we can hook it in to run node.js shell scripts as well.
@@ -3002,11 +3010,12 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'xref-js2)
-       ;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
-       ;; unbind it.
-       (define-key js-mode-map (kbd "M-.") nil)
-       (add-hook 'js2-mode-hook (lambda ()
-        (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+      ;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+      ;; unbind it.
+      (define-key js-mode-map (kbd "M-.") nil)
+      (define-key paredit-mode-map (kbd "M-?") nil)
+      (add-hook 'js2-mode-hook (lambda ()
+       (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
     #+END_SRC
 
 *** company-tern
@@ -3032,484 +3041,523 @@ l
 *** prettier
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'prettier-js)
-      (add-hook 'js2-mode-hook 'prettier-js-mode)
-    #+END_SRC
-** elasticsearch
-
-   Who knew you could poke elasticsearch from inside emacs. :-D
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'es-mode)
-     (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
-   #+END_SRC
-
-** pastebins
-
-   gist, pastebin, refheap. All good ways of sharing snippets of code
-   with people on irc or similar.
-
-*** gist
-
-    As you probably already have a github account, having gist as a
-    way of sharing code snippets is a good idea.
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'gist)
+      ;; (maybe-install-and-require 'prettier-js)
+      ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
+      ;; (add-hook 'web-mode-hook 'prettier-js-mode)
+      ;; (setq prettier-js-args '(
+      ;;     "--trailing-comma" "all"
+      ;;     "--bracket-spacing" "false"
+      ;;     "--jsx-bracket-same-line" "true"
+      ;;  ))
     #+END_SRC
 
-*** refheap
+*** js-format
 
-    I like [[http://refheap.com][refheap]] and Anthony Grimes seems like a nice guy. And it
-    is built in clojure.
+    Try js-format instead of prettier as prettier is annoying me atm.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'refheap)
+      (maybe-install-and-require 'js-format)
+      (defun my-statement-format ()
+        (interactive
+          (progn
+            (js-format-mark-statement t)
+            (js-format-region (region-beginning) (region-end))
+            (keyboard-quit))))
+      (add-hook 'js2-mode-hook (lambda ()
+        (define-key paredit-mode-map (kbd "M-q") nil)
+        (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
     #+END_SRC
 
-** restclient
-
-   Added in rest client to allow for manual testing of restful client.
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'restclient)
-   #+END_SRC
-
-** Haskell
-
-*** Haskell mode
-
-    Require Haskell mode
+*** indium
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'haskell-mode)
+     (maybe-install-and-require 'indium)
+     (setq indium-chrome-executable "google-chrome")
+     (add-hook 'js-mode-hook #'indium-interaction-mode)
     #+END_SRC
 
-*** hindent
-
-    Add indentation for Haskell
+*** pug mode - for pug templating
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'hindent)
-      ;; (add-hook 'haskell-mode-hook #'hindent-mode)
+      (maybe-install-and-require 'pug-mode)
     #+END_SRC
 
-*** intero - for Haskella
 
-    Going to try intero with Haskell projects.
+**** elasticsearch
 
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'intero)
-      (add-hook 'haskell-mode-hook #'intero-mode)
-    #+END_SRC
+     Who knew you could poke elasticsearch from inside emacs. :-D
 
-*** stylish-haskell
+     #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'es-mode)
+       (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
+     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp
-      ;; (custom-set-variables
-      ;;  '(haskell-stylish-on-save t))
-    #+END_SRC
+**** pastebins
 
-*** Interactive features
+     gist, pastebin, refheap. All good ways of sharing snippets of code
+     with people on irc or similar.
 
-    #+BEGIN_SRC emacs-lisp
-      ;; (add-hook `haskell-mode-hook `interactive-haskell-mode)
-      ;; (custom-set-variables
-      ;;  '(haskell-process-suggest-remove-import-lines t)
-      ;;  '(haskell-process-auto-import-loaded-modules t)
-      ;;  '(haskell-process-log t)
-      ;;  '(haskell-process-type 'stack-ghci)
-      ;;  '(haskell-process-type 'chosen-process-type))
-      ;; (eval-after-load 'haskell-mode '(progn
-      ;;   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-      ;;   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-      ;;   (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-      ;;   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-      ;;   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-      ;;   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)))
-      ;; (eval-after-load 'haskell-cabal '(progn
-      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-      ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
-    #+END_SRC
+***** gist
 
-** Scala
+      As you probably already have a github account, having gist as a
+      way of sharing code snippets is a good idea.
 
-*** ensime
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'gist)
+      #+END_SRC
 
-    I am going to try ensime for Scala.
+***** refheap
 
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'ensime)
-      (add-hook 'scala-mode-hook 'ensime-mode)
-      (add-hook 'scala-mode-hook
-        (local-set-key (kbd "M-;") 'comment-or-uncomment-region))
-    #+END_SRC
+      I like [[http://refheap.com][refheap]] and Anthony Grimes seems like a nice guy. And it
+      is built in clojure.
 
-*** Scala newlines in comments
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'refheap)
+      #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp
-        (defun scala-mode-newline-comments ()
-        "Custom newline appropriate for `scala-mode'."
-        ;; shouldn't this be in a post-insert hook?
-          (interactive)
-          (newline-and-indent)
-          (scala-indent:insert-asterisk-on-multiline-comment))
+**** restclient
 
-      (define-key scala-mode-map (kbd "RET") 'scala-mode-newline-comments)
-    #+END_SRC
+     Added in rest client to allow for manual testing of restful client.
 
-*** Comment regions
+     #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'restclient)
+     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp
-     (defun scala-comment-region ()
-          (setq comment-start "/* "
-                comment-end " */"
-                comment-style 'multi-line
-                comment-empty-lines t))
-      (add-hook 'scala-mode-hook 'scala-comment-region)
-    #+END_SRC
+**** Haskell
 
-*** Fix paredit for scala
+***** Haskell mode
 
-    Don't want spaces between symbols and parens for Scala
+      Require Haskell mode
 
-    #+BEGIN_SRC emacs-lisp
-     (add-hook 'scala-mode-hook 'my-paredit-nonlisp)
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'haskell-mode)
+      #+END_SRC
 
-*** Open and scale windows for use with Scala and Java
+***** hindent
 
-    I like having my ensime sbt and scala console buffers at the
-    bottom of the frame a bit like something like Intellij or Eclipse.
+      Add indentation for Haskell
 
-    #+BEGIN_SRC emacs-lisp
-       (defun ide-panes ()
-         (interactive)
-         (delete-other-windows)
+      #+BEGIN_SRC emacs-lisp
+        ;; (maybe-install-and-require 'hindent)
+        ;; (add-hook 'haskell-mode-hook #'hindent-mode)
+      #+END_SRC
 
-         (progn
-               ;; create our 2 columns
-               (window-number-select 1)
-               (split-window-right)
+***** intero - for Haskella
 
-                ;; split column vertically
-               (split-window-below)
-               (window-number-select 3)
-               (split-window-below)
+      Going to try intero with Haskell projects.
 
-               ;; expand top windows
-               (enlarge-window 20)
-               (window-number-select 1)
-               (enlarge-window 20)))
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'intero)
+        (add-hook 'haskell-mode-hook #'intero-mode)
+      #+END_SRC
 
-        (global-set-key [M-f12] 'ide-panes)
-    #+END_SRC
+***** stylish-haskell
 
-    #+RESULTS:
-    : ide-panes
+      #+BEGIN_SRC emacs-lisp
+        ;; (custom-set-variables
+        ;;  '(haskell-stylish-on-save t))
+      #+END_SRC
 
-** Java
-*** Fix paredit for Java
+***** Interactive features
 
-    Don't want spaces between symbols and parens for Java
+      #+BEGIN_SRC emacs-lisp
+        ;; (add-hook `haskell-mode-hook `interactive-haskell-mode)
+        ;; (custom-set-variables
+        ;;  '(haskell-process-suggest-remove-import-lines t)
+        ;;  '(haskell-process-auto-import-loaded-modules t)
+        ;;  '(haskell-process-log t)
+        ;;  '(haskell-process-type 'stack-ghci)
+        ;;  '(haskell-process-type 'chosen-process-type))
+        ;; (eval-after-load 'haskell-mode '(progn
+        ;;   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+        ;;   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+        ;;   (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+        ;;   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+        ;;   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+        ;;   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)))
+        ;; (eval-after-load 'haskell-cabal '(progn
+        ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+        ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+        ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+        ;;                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+      #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp
-     (add-hook 'java-mode-hook 'my-paredit-nonlisp)
-    #+END_SRC
+**** Scala
 
-*** Jdee
+***** ensime
 
-    Add in JDEE for Java.
+      I am going to try ensime for Scala.
 
-    #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'jdee)
-;;      (setq jdee-server-dir "/home/chris/jdeejar")
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'ensime)
+        (add-hook 'scala-mode-hook 'ensime-mode)
+        (add-hook 'scala-mode-hook
+          (local-set-key (kbd "M-;") 'comment-or-uncomment-region))
+      #+END_SRC
 
-*** Eclim
+***** Scala newlines in comments
 
-    Try out eclim mode for Java for a bit.
+      #+BEGIN_SRC emacs-lisp
+          (defun scala-mode-newline-comments ()
+          "Custom newline appropriate for `scala-mode'."
+          ;; shouldn't this be in a post-insert hook?
+            (interactive)
+            (newline-and-indent)
+            (scala-indent:insert-asterisk-on-multiline-comment))
 
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'eclim)
-      (setq eclim-eclipse-dir '("~/eclipse"))
-      (setq eclimd-executable "~/eclipse/eclimd")
-      (setq eclim-executable "~/eclipse/eclim")
-      (setq eclimd-autostart t)
-      (defun my-java-mode-hook ()
-        (eclim-mode t)
-        (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
-      (add-hook 'java-mode-hook 'my-java-mode-hook)
-;;      (maybe-install-and-require 'company-emacs-eclim)
-;;      (company-emacs-eclim-setup)
-    #+END_SRC
+        (define-key scala-mode-map (kbd "RET") 'scala-mode-newline-comments)
+      #+END_SRC
 
-*** Meghanada
+***** Comment regions
 
-    Add meghanada mode (no idea why this is not in here!)
+      #+BEGIN_SRC emacs-lisp
+       (defun scala-comment-region ()
+            (setq comment-start "/* "
+                  comment-end " */"
+                  comment-style 'multi-line
+                  comment-empty-lines t))
+        (add-hook 'scala-mode-hook 'scala-comment-region)
+      #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'meghanada)
-      (add-hook 'java-mode-hook
+***** Fix paredit for scala
+
+      Don't want spaces between symbols and parens for Scala
+
+      #+BEGIN_SRC emacs-lisp
+       (add-hook 'scala-mode-hook 'my-paredit-nonlisp)
+      #+END_SRC
+
+***** Open and scale windows for use with Scala and Java
+
+      I like having my ensime sbt and scala console buffers at the
+      bottom of the frame a bit like something like Intellij or Eclipse.
+
+      #+BEGIN_SRC emacs-lisp
+         (defun ide-panes ()
+           (interactive)
+           (delete-other-windows)
+
+           (progn
+                 ;; create our 2 columns
+                 (window-number-select 1)
+                 (split-window-right)
+
+                  ;; split column vertically
+                 (split-window-below)
+                 (window-number-select 3)
+                 (split-window-below)
+
+                 ;; expand top windows
+                 (enlarge-window 20)
+                 (window-number-select 1)
+                 (enlarge-window 20)))
+
+          (global-set-key [M-f12] 'ide-panes)
+      #+END_SRC
+
+      #+RESULTS:
+      : ide-panes
+
+**** Java
+***** Fix paredit for Java
+
+      Don't want spaces between symbols and parens for Java
+
+      #+BEGIN_SRC emacs-lisp
+       (add-hook 'java-mode-hook 'my-paredit-nonlisp)
+      #+END_SRC
+
+***** Jdee
+
+      Add in JDEE for Java.
+
+      #+BEGIN_SRC emacs-lisp
+  ;;      (maybe-install-and-require 'jdee)
+  ;;      (setq jdee-server-dir "/home/chris/jdeejar")
+      #+END_SRC
+
+***** Eclim
+
+      Try out eclim mode for Java for a bit.
+
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'eclim)
+        (setq eclim-eclipse-dir '("~/eclipse"))
+        (setq eclimd-executable "~/eclipse/eclimd")
+        (setq eclim-executable "~/eclipse/eclim")
+        (setq eclimd-autostart t)
+        (defun my-java-mode-hook ()
+          (eclim-mode t)
+          (local-set-key (kbd "C-c C-e C-r") 'eclim-run-class))
+        (add-hook 'java-mode-hook 'my-java-mode-hook)
+  ;;      (maybe-install-and-require 'company-emacs-eclim)
+  ;;      (company-emacs-eclim-setup)
+      #+END_SRC
+
+***** Meghanada
+
+      Add meghanada mode (no idea why this is not in here!)
+
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'meghanada)
+        (add-hook 'java-mode-hook
+           (lambda ()
+             (meghanada-mode t)
+             (setq c-basic-offset 4)))
+      #+END_SRC
+
+***** LSP Java
+
+      Java support for lsp mode using the Eclipse JDT Language Server.
+
+      #+BEGIN_SRC emacs-lisp
+        ;; (maybe-install-and-require 'lsp-java)
+        ;; (add-hook 'java-mode-hook #'lsp-java-enable)
+        ;; ;; set the projects that are going to be imported into the workspace.
+        ;; (setq lsp-java--workspace-folders (list "/home/chris/gs-spring-boot"
+        ;;                                         "/home/chris/eclipse-workspace/"
+        ;;                                         "/home/chris/IdeaProjects/ShoppingCart"
+        ;;                                         "/home/chris/IdeaProjects/ShoppingCartExample"))
+        ;; (setq lsp-ui-sideline-update-mode 'point)
+        ;; (maybe-install-and-require 'lsp-ui)
+        ;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+        ;; (add-hook 'java-mode-hook 'flycheck-mode)
+        ;; (maybe-install-and-require 'company-lsp)
+        ;; (push 'company-lsp company-backends)
+      #+END_SRC
+
+**** Kotlin
+
+***** Kotlin mode
+
+      Install Kotlin mode.
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'kotlin-mode)
+      #+END_SRC
+
+***** Fix paredit for Kotlin
+
+      Don't want spaces between symbols and parens for Kotlin.
+
+      #+BEGIN_SRC emacs-lisp
+        (add-hook 'kotlin-mode-hook 'my-paredit-nonlisp)
+      #+END_SRC
+
+**** GraphQL
+
+***** Graphql mode
+
+      Add graphql mode.
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'graphql-mode)
+       (add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
+      #+END_SRC
+
+**** Gradle
+
+     Install and require gradle mode
+
+     #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'gradle-mode)
+     ;; (add-to-list 'auto-mode-alist '("\\.gradle\\" . gradle-mode))
+     #+END_SRC
+
+**** Groovy
+
+     Install and require groovy mode.
+
+     #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'groovy-mode)
+     #+END_SRC
+
+**** Docker
+
+***** Dockerfile mode
+
+      Install and require Dockerfile mode to provide syntax highlighting
+      for Dockerfiles.
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'dockerfile-mode)
+      #+END_SRC
+
+***** Docker mode
+
+      Install and require docker mode for running docker in emacs.
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'docker)
+      #+END_SRC
+
+**** Elixir
+
+***** Elixir mode
+
+      Install Elixir mode.
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'elixir-mode)
+      #+END_SRC
+
+***** Alchemist
+
+      Install Alchemist for Elixir tooling.
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'alchemist)
+      #+END_SRC
+
+***** Fix paredit for Elixir
+
+      Don't want spaces between symbols and parens for Elixir
+
+      #+BEGIN_SRC emacs-lisp
+       (add-hook 'elixir-mode 'my-paredit-nonlisp)
+      #+END_SRC
+**** Kubernetes
+
+     Try out k8s mode
+
+     #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'kubernetes)
+     #+END_SRC
+**** Ruby
+
+***** Ruby mode
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'ruby-mode)
+       (add-hook 'ruby-mode-hook 'my-paredit-nonlisp)
+      #+END_SRC
+
+***** Other file types that contain Ruby
+
+      Some other file extensions contain Ruby.
+
+      #+BEGIN_SRC emacs-lisp
+       (add-to-list 'auto-mode-alist
+               '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+       (add-to-list 'auto-mode-alist
+               '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+      #+END_SRC
+
+***** Ruby electric
+
+      More ruby support via Ruby electric..
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'ruby-electric)
+      #+END_SRC
+
+***** RVM as default package manager
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'rvm)
+       (rvm-use-default)
+      #+END_SRC
+
+***** Seeing is believing for ruby buffer interaction
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'seeing-is-believing)
+       (add-hook 'ruby-hook 'seeing-is-believing)
+      #+END_SRC
+
+***** IRB from emacs
+
+      Use inf-ruby...
+
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'inf-ruby)
+       (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+       (add-hook 'ruby-mode 'inf-ruby-minor-mode)
+       (add-hook 'inf-ruby-minor-mode
          (lambda ()
-           (meghanada-mode t)
-           (setq c-basic-offset 4)))
-    #+END_SRC
+           (local-set-key (kbd "C-c C-e") 'ruby-send-line)
+           (local-set-key (kbd "C-c C-k") 'ruby-send-buffer-and-go)))
+      #+END_SRC
 
-*** LSP Java
+***** Ruby TDD from emacs
 
-    Java support for lsp mode using the Eclipse JDT Language Server.
+      Use ruby test mode
 
-    #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'lsp-java)
-      ;; (add-hook 'java-mode-hook #'lsp-java-enable)
-      ;; ;; set the projects that are going to be imported into the workspace.
-      ;; (setq lsp-java--workspace-folders (list "/home/chris/gs-spring-boot"
-      ;;                                         "/home/chris/eclipse-workspace/"
-      ;;                                         "/home/chris/IdeaProjects/ShoppingCart"
-      ;;                                         "/home/chris/IdeaProjects/ShoppingCartExample"))
-      ;; (setq lsp-ui-sideline-update-mode 'point)
-      ;; (maybe-install-and-require 'lsp-ui)
-      ;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-      ;; (add-hook 'java-mode-hook 'flycheck-mode)
-      ;; (maybe-install-and-require 'company-lsp)
-      ;; (push 'company-lsp company-backends)
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'ruby-test-mode)
+       (add-hook 'ruby-mode 'ruby-test-mode)
+       (add-hook 'compilation-finish-functions
+            (lambda (buf strg)
+              (switch-to-buffer-other-window "*compilation*")
+              (read-only-mode)
+              (goto-char (point-max))
+              (local-set-key (kbd "q")
+                             (lambda () (interactive) (quit-restore-window)))))
+      #+END_SRC
 
-** Kotlin
+***** Use company mode for Ruby inf buffers
 
-*** Kotlin mode
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'company-inf-ruby)
+       (eval-after-load 'company
+        '(add-to-list 'company-backends 'company-inf-ruby))
+      #+END_SRC
 
-    Install Kotlin mode.
+***** Use Robe for Ruby code assistance
 
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'kotlin-mode)
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'robe)
+       (add-hook 'ruby-mode-hook 'robe-mode)
+      #+END_SRC
 
-*** Fix paredit for Kotlin
+**** Terraform
 
-    Don't want spaces between symbols and parens for Kotlin.
+***** Terraform mode
 
-    #+BEGIN_SRC emacs-lisp
-      (add-hook 'kotlin-mode-hook 'my-paredit-nonlisp)
-    #+END_SRC
+      Add terraform mode
 
-** GraphQL
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'terraform-mode)
+      #+END_SRC
 
-*** Graphql mode
+***** Company backend for terraform
 
-    Add graphql mode.
+      Add autocomplete using company for terraform
 
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'graphql-mode)
-     (add-to-list 'auto-mode-alist '("\\.graphqls\\'" . graphql-mode))
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'company-terraform)
+       (company-terraform-init)
+      #+END_SRC
 
-** Gradle
+**** Rust
 
-   Install and require gradle mode
+***** Rust mode
 
-   #+BEGIN_SRC emacs-lisp
-   (maybe-install-and-require 'gradle-mode)
-   ;; (add-to-list 'auto-mode-alist '("\\.gradle\\" . gradle-mode))
-   #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'rust-mode)
+       (add-hook 'rust-mode-hook 'my-paredit-nonlisp)
+      #+END_SRC
 
-** Groovy
+***** Flymake
 
-   Install and require groovy mode.
+      #+BEGIN_SRC emacs-lisp
+        (maybe-install-and-require 'flymake-rust)
+        ;; (with-eval-after-load 'rust-mode
+        ;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+      #+END_SRC
 
-   #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'groovy-mode)
-   #+END_SRC
+***** Racer
 
-** Docker
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'racer)
+       (add-hook 'rust-mode-hook 'racer-mode)
+      #+END_SRC
 
-*** Dockerfile mode
+***** Cargo
 
-    Install and require Dockerfile mode to provide syntax highlighting
-    for Dockerfiles.
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'dockerfile-mode)
-    #+END_SRC
-
-*** Docker mode
-
-    Install and require docker mode for running docker in emacs.
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'docker)
-    #+END_SRC
-
-** Elixir
-
-*** Elixir mode
-
-    Install Elixir mode.
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'elixir-mode)
-    #+END_SRC
-
-*** Alchemist
-
-    Install Alchemist for Elixir tooling.
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'alchemist)
-    #+END_SRC
-
-*** Fix paredit for Elixir
-
-    Don't want spaces between symbols and parens for Elixir
-
-    #+BEGIN_SRC emacs-lisp
-     (add-hook 'elixir-mode 'my-paredit-nonlisp)
-    #+END_SRC
-** Kubernetes
-
-   Try out k8s mode
-
-   #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'kubernetes)
-   #+END_SRC
-** Ruby
-
-*** Ruby mode
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'ruby-mode)
-     (add-hook 'ruby-mode-hook 'my-paredit-nonlisp)
-    #+END_SRC
-
-*** Other file types that contain Ruby
-
-    Some other file extensions contain Ruby.
-
-    #+BEGIN_SRC emacs-lisp
-     (add-to-list 'auto-mode-alist
-             '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
-     (add-to-list 'auto-mode-alist
-             '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
-    #+END_SRC
-
-*** Ruby electric
-
-    More ruby support via Ruby electric..
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'ruby-electric)
-    #+END_SRC
-
-*** RVM as default package manager
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'rvm)
-     (rvm-use-default)
-    #+END_SRC
-
-*** Seeing is believing for ruby buffer interaction
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'seeing-is-believing)
-     (add-hook 'ruby-hook 'seeing-is-believing)
-    #+END_SRC
-
-*** IRB from emacs
-
-    Use inf-ruby...
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'inf-ruby)
-     (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
-     (add-hook 'ruby-mode 'inf-ruby-minor-mode)
-     (add-hook 'inf-ruby-minor-mode
-       (lambda ()
-         (local-set-key (kbd "C-c C-e") 'ruby-send-line)
-         (local-set-key (kbd "C-c C-k") 'ruby-send-buffer-and-go)))
-    #+END_SRC
-
-*** Ruby TDD from emacs
-
-    Use ruby test mode
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'ruby-test-mode)
-     (add-hook 'ruby-mode 'ruby-test-mode)
-     (add-hook 'compilation-finish-functions
-          (lambda (buf strg)
-            (switch-to-buffer-other-window "*compilation*")
-            (read-only-mode)
-            (goto-char (point-max))
-            (local-set-key (kbd "q")
-                           (lambda () (interactive) (quit-restore-window)))))
-    #+END_SRC
-
-*** Use company mode for Ruby inf buffers
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'company-inf-ruby)
-     (eval-after-load 'company
-      '(add-to-list 'company-backends 'company-inf-ruby))
-    #+END_SRC
-
-*** Use Robe for Ruby code assistance
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'robe)
-     (add-hook 'ruby-mode-hook 'robe-mode)
-    #+END_SRC
-
-** Terraform
-
-*** Terraform mode
-
-    Add terraform mode
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'terraform-mode)
-    #+END_SRC
-
-*** Company backend for terraform
-
-    Add autocomplete using company for terraform
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'company-terraform)
-     (company-terraform-init)
-    #+END_SRC
-
-** Rust
-
-*** Rust mode
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'rust-mode)
-     (add-hook 'rust-mode-hook 'my-paredit-nonlisp)
-    #+END_SRC
-
-*** Flymake
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'flymake-rust)
-      ;; (with-eval-after-load 'rust-mode
-      ;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-    #+END_SRC
-
-*** Racer
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'racer)
-     (add-hook 'rust-mode-hook 'racer-mode)
-    #+END_SRC
-
-*** Cargo
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'cargo)
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'cargo)
+      #+END_SRC
 
 * Data Modes
 

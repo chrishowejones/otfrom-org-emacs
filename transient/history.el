@@ -1,10 +1,11 @@
 ((magit-blame
   ("-w"))
  (magit-branch nil)
+ (magit-cherry-pick
+  ("--ff"))
  (magit-commit nil)
  (magit-diff
-  ("--no-ext-diff" "--stat")
-  ("--no-ext-diff"))
+  ("--no-ext-diff" "--stat"))
  (magit-dispatch nil)
  (magit-fetch nil)
  (magit-log
@@ -21,7 +22,9 @@
   ("-f"))
  (magit-reset nil)
  (magit-revert
-  ("--edit"))
+  ("--edit")
+  nil)
  (magit-stash nil)
+ (magit-submodule nil)
  (magit-tag nil
             ("--annotate")))
