@@ -16,14 +16,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/com/devcycle/shoppingcart/ShoppingCart.java</name>
+			<name>src/com/example/helloworld/HelloWorldApplication.java</name>
 			<type>1</type>
-			<location>/home/chris/IdeaProjects/ShoppingCartExample/src/main/java/com/devcycle/shoppingcart/ShoppingCart.java</location>
-		</link>
-		<link>
-			<name>src/com/devcycle/shoppingcart/ShoppingCartTest.java</name>
-			<type>1</type>
-			<location>/home/chris/IdeaProjects/ShoppingCartExample/src/test/java/com/devcycle/shoppingcart/ShoppingCartTest.java</location>
+			<location>//home/chris/dropwizard/dropwizard-example/src/main/java/com/example/helloworld/HelloWorldApplication.java</location>
 		</link>
 	</linkedResources>
 </projectDescription>

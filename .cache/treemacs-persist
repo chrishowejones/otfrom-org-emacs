@@ -1,3 +1,6 @@
 * Default
-** starter
- - path :: ~/complete-javascript-course/99-bonus-1/starter
+** pact-workshop-jvm
+ - path :: ~/pact-workshop-jvm
+* Sage
+** OrderManagementGradle
+ - path :: ~/Sage/OrderManagementGradle

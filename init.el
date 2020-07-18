@@ -32,6 +32,10 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 ;; This installs elpa packages if we haven't done that yet
 (defun maybe-install-and-require (p)
   "Install elpa packages if not already installed.

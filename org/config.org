@@ -28,6 +28,7 @@
    #+BEGIN_SRC emacs-lisp
     (maybe-install-and-require 'try)
    #+END_SRC
+
 * Globals
 
 ** Set initial framesize
@@ -663,6 +664,17 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'treemacs)
+     (use-package treemacs-magit
+       :after treemacs magit
+       :ensure t)
+     (use-package treemacs-projectile
+       :after treemacs projectile
+       :ensure t)
+
+     (use-package treemacs-icons-dired
+       :after treemacs dired
+       :ensure t
+       :config (treemacs-icons-dired-mode))
    #+END_SRC
 
 ** helm
@@ -1043,6 +1055,12 @@ l
     (setq recentf-max-menu-items 25)
     (setq recentf-max-saved-items 25)
     (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+   #+END_SRC
+
+** hydra
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'hydra)
    #+END_SRC
 
 * Text Modes
@@ -3346,6 +3364,14 @@ l
     #+BEGIN_SRC emacs-lisp
      (add-hook 'java-mode-hook 'my-paredit-nonlisp)
     #+END_SRC
+*** Fix indents for Java
+
+    #+BEGIN_SRC emacs-lisp
+      (add-hook 'java-mode-hook (lambda ()
+                                  (setq c-basic-offset 4
+                                      tab-width 4
+                                      indent-tabs-mode t)))
+    #+END_SRC
 
 *** Jdee
 
@@ -3393,19 +3419,56 @@ l
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'lsp-mode)
       (setq lsp-keymap-prefix "M-s-l")
-      (maybe-install-and-require 'lsp-java)
-      (add-hook 'java-mode-hook #'lsp)
-      ;; ;; set the projects that are going to be imported into the workspace.
-      ;; (setq lsp-java--workspace-folders (list "/home/chris/gs-spring-boot"
-      ;;                                         "/home/chris/eclipse-workspace/"
-      ;;                                         "/home/chris/IdeaProjects/ShoppingCart"
-      ;;                                         "/home/chris/IdeaProjects/ShoppingCartExample"))
-      ;; (setq lsp-ui-sideline-update-mode 'point)
-      (maybe-install-and-require 'lsp-ui)
-      (add-hook 'java-mode-hook 'flycheck-mode)
-      (maybe-install-and-require 'company-lsp)
+      (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
+      (use-package lsp-mode
+          :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+                  (java-mode . lsp)
+                  ;; if you want which-key integration
+                  ;;(lsp-mode . lsp-enable-which-key-integration)
+                  )
+          :commands lsp)
+
+      ;; optionally
+      (use-package lsp-ui :commands lsp-ui-mode)
+      ;; if you are helm user
+      (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+      ;; if you are ivy user
+      (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+      (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+      ;; optionally if you want to use debugger
+      (use-package dap-mode)
+      (use-package dap-java)
+            ;; (maybe-install-and-require 'lsp-java)
+            ;; (add-hook 'java-mode-hook #'lsp)
+            ;; (use-package lsp-ui)
+            ;; (add-hook 'java-mode-hook 'flycheck-mode)
+            ;; (maybe-install-and-require 'company-lsp)
+            ;; (use-package helm-lsp)
+            ;; (use-package lsp-treemacs)
+            ;; (require 'lsp-java-boot)
+
+            ;; ;; ;; to enable the lenses
+            ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+            ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+
+            ;; add lombok to classpath for lsp
+       (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
+       (setq lsp-java-vmargs
+             `("-noverify"
+               "-Xmx1G"
+               "-XX:+UseG1GC"
+               "-XX:+UseStringDeduplication"
+               ,(concat "-javaagent:" path-to-lombok)
+               ,(concat "-Xbootclasspath/a:" path-to-lombok)))
     #+END_SRC
 
+*** DAP mode
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
+      (use-package dap-java :ensure nil)
+    #+END_SRC
 ** Kotlin
 
 *** Kotlin mode
@@ -3450,6 +3513,9 @@ l
 
    #+BEGIN_SRC emacs-lisp
     (maybe-install-and-require 'groovy-mode)
+    (add-hook 'groovy-mode 'my-paredit-nonlisp)
+    (add-to-list 'auto-mode-alist
+             (cons "\\.gradle\\'" 'groovy-mode))
    #+END_SRC
 
 ** Docker
