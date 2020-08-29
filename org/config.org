@@ -982,12 +982,21 @@ l
    remembering keybindings (sign of getting old)
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'guide-key)
-     (setq guide-key/guide-key-sequence t)
-     (setq guide-key/recursive-key-sequence-flag t)
-     (setq guide-key/idle-delay 1)
-     (setq guide-key/popup-window-position :bottom)
-     (guide-key-mode 1)
+     ;; (maybe-install-and-require 'guide-key)
+     ;; (setq guide-key/guide-key-sequence t)
+     ;; (setq guide-key/recursive-key-sequence-flag t)
+     ;; (setq guide-key/idle-delay 1)
+     ;; (setq guide-key/popup-window-position :bottom)
+     ;; (guide-key-mode 1)
+   #+END_SRC
+
+** Which key
+
+   Try which key instead of guide key
+
+   #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'which-key)
+    (which-key-mode)
    #+END_SRC
 
 ** expand region
@@ -2441,8 +2450,14 @@ l
 * Programming Modes
 ** shell
 
+
    #+BEGIN_SRC emacs-lisp
      (global-set-key [C-M-return] 'shell)
+     ;; Use bash explicitly cos fancy shells like zsh don't render well in emacs
+     (setq explicit-shell-file-name "/bin/bash")
+     (setq shell-file-name "bash")
+     (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+     (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
    #+END_SRC
 
 ** prog-mode
@@ -2566,6 +2581,11 @@ l
        (diminish 'yas-minor-mode)
      #+END_SRC
 
+**** Java snippets
+
+     #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'java-snippets)
+     #+END_SRC
 *** smartscan
 
     A suggestion from [[http://www.masteringemacs.org/articles/2011/01/14/effective-editing-movement/][Effective Editing]] in [[http://www.masteringemacs.org/][Mastering Emacs]]. This
@@ -3424,7 +3444,7 @@ l
           :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
                   (java-mode . lsp)
                   ;; if you want which-key integration
-                  ;;(lsp-mode . lsp-enable-which-key-integration)
+                  (lsp-mode . lsp-enable-which-key-integration)
                   )
           :commands lsp)
 
@@ -3437,24 +3457,11 @@ l
       (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
       ;; optionally if you want to use debugger
-      (use-package dap-mode)
-      (use-package dap-java)
-            ;; (maybe-install-and-require 'lsp-java)
-            ;; (add-hook 'java-mode-hook #'lsp)
-            ;; (use-package lsp-ui)
-            ;; (add-hook 'java-mode-hook 'flycheck-mode)
-            ;; (maybe-install-and-require 'company-lsp)
-            ;; (use-package helm-lsp)
-            ;; (use-package lsp-treemacs)
-            ;; (require 'lsp-java-boot)
-
-            ;; ;; ;; to enable the lenses
-            ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
-            ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-
-            ;; add lombok to classpath for lsp
-       (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
-       (setq lsp-java-vmargs
+      (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
+      (use-package dap-java :ensure nil)
+      ;; add lombok to classpath for lsp
+      (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
+      (setq lsp-java-vmargs
              `("-noverify"
                "-Xmx1G"
                "-XX:+UseG1GC"

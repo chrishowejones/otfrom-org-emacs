@@ -28,3 +28,7 @@ semanticdb/
 /transient
 .projectile
 projectile.cache
+/workspace
+/eclipse.jdt.ls
+.lsp-session*
+.cache/
