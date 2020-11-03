@@ -47,15 +47,6 @@
            browse-url-generic-program "google-chrome")
    #+END_SRC
 
-** Run edit server
-
-   Run an edit server so I can use chrome's Edit with Emacs.
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'edit-server)
-     (edit-server-start)
-   #+END_SRC
-
 ** Undo tree
 
    Add undo tree for the few times I get confused about where I am in
@@ -523,26 +514,6 @@
     #+BEGIN_SRC emacs-lisp
       (set-face-attribute 'default nil :height 80)
     #+END_SRC
-*** Font Switching
-
-    The screen on my sputnik is amazing, but while I can see the font
-    with the great resolution, it is a bit tricky to read when I'm
-    tired.
-
-    #+BEGIN_SRC emacs-lisp
-;;      (defun presentation-font ()
-;;        (interactive)
-;;        (set-default-font "Inconsolata-20"))
-
-;;      (defun bigger-font ()
-;;        (interactive)
-;;        (set-default-font "Inconsolata-12"))
-
-;;      (defun smaller-font ()
-;;        (interactive)
-;;        (set-default-font "Inconsolata-10"))
-    #+END_SRC
-
 
 ** bars, menus and numbers
 
@@ -932,6 +903,17 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (diminish 'projectile-mode)
+   #+END_SRC
+
+   Configure a gradlew project type to find test files on assumption
+   it's a Java project.
+
+   #+BEGIN_SRC emacs-lisp
+    (projectile-register-project-type 'gradlew '("gradlew")
+                                  :project-file "gradlew"
+				  :compile "./gradlew build"
+				  :test "./gradlew clean test"
+				  :test-suffix "Test")
    #+END_SRC
 
 *** projectile and helm
@@ -1963,16 +1945,6 @@ l
 
    Internet Relay Chat is a great way of talking to lots of
    interesting people in what feels a bit like a pub.
-
-*** Set up tls
-
-    need to set up tls for irc.
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'tls)
-
-
-    #+end_SRC
 *** Connect to freenode
 
     According to the [[http://freenode.net/irc_servers.shtml][freenode]] site we should be connecting to
@@ -1996,14 +1968,6 @@ l
       ;; ;; don't show any of this
       ;; (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
     #+END_SRC
-
-***** Spell Checking
-
-      And spell checking is good.
-
-      #+BEGIN_SRC emacs-lisp
-      (erc-spelling-mode 1)
-      #+END_SRC
 
       These are all of the channels I join by default. Some big data ones
       like #cascalog and #hadoop. Some clojure ones such as
@@ -2554,6 +2518,7 @@ l
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'yasnippet)
       (key-chord-define-global "yy" 'yas-expand-from-trigger-key)
+      (define-key yas-minor-mode-map (kbd "C-c C-y") 'yas-visit-snippet-file)
     #+END_SRC
 
 **** Snippet Directory
@@ -3302,28 +3267,56 @@ l
 
 ** Scala
 
-*** ensime
+# *** ensime
+#
+#     I am going to try ensime for Scala.
+#
+#     #+BEGIN_SRC emacs-lisp
+#       (maybe-install-and-require 'ensime)
+#       (add-hook 'scala-mode-hook 'ensime-mode)
+#       (add-hook 'scala-mode-hook
+#         (local-set-key (kbd "M-;") 'comment-or-uncomment-region))
+#     #+END_SRC
 
-    I am going to try ensime for Scala.
+*** Scala mode
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'ensime)
-      (add-hook 'scala-mode-hook 'ensime-mode)
-      (add-hook 'scala-mode-hook
-        (local-set-key (kbd "M-;") 'comment-or-uncomment-region))
+     (use-package scala-mode
+       :mode "\\.s\\(cala\\|bt\\)$")
     #+END_SRC
 
+*** sbt mode
+
+    #+BEGIN_SRC emacs-lisp
+     (when (not (package-installed-p 'sbt-mode))
+      (package-install 'sbt-mode))
+     (use-package sbt-mode
+       :commands sbt-start sbt-command
+       :config
+       ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+       ;; allows using SPACE when in the minibuffer
+       (substitute-key-definition
+         'minibuffer-complete-word
+         'self-insert-command
+         minibuffer-local-completion-map)
+       ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+       (setq sbt:program-options '("-Dsbt.supershell=false")))
+
+     (add-hook 'scala-mode-hook
+        (local-set-key (kbd "C-c C-t") 'sbt-do-test)
+        (local-set-key (kbd "C-c C-s") 'sbt-hydra))
+    #+END_SRC
 *** Scala newlines in comments
 
     #+BEGIN_SRC emacs-lisp
-        (defun scala-mode-newline-comments ()
+    (defun scala-mode-newline-comments ()
         "Custom newline appropriate for `scala-mode'."
         ;; shouldn't this be in a post-insert hook?
           (interactive)
           (newline-and-indent)
           (scala-indent:insert-asterisk-on-multiline-comment))
 
-      (define-key scala-mode-map (kbd "RET") 'scala-mode-newline-comments)
+      ;; (define-key scala-mode-map (kbd "RET") 'scala-mode-newline-comments)
     #+END_SRC
 
 *** Comment regions
@@ -3388,9 +3381,13 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (add-hook 'java-mode-hook (lambda ()
+                                  (c-set-offset 'arglist-intro '++)
+                                  (c-set-offset 'arglist-close 'c-lineup-arglist)
+                                  (c-set-offset 'statement-cont '++)
+                                  (c-set-offset 'case-label '+)
                                   (setq c-basic-offset 4
-                                      tab-width 4
-                                      indent-tabs-mode t)))
+                                        tab-width 4
+                                        indent-tabs-mode nil)))
     #+END_SRC
 
 *** Jdee
@@ -3402,7 +3399,7 @@ l
 ;;      (setq jdee-server-dir "/home/chris/jdeejar")
     #+END_SRC
 
-*** Claim
+*** Eclim
 
     Try out eclim mode for Java for a bit.
 
@@ -3432,21 +3429,42 @@ l
       ;;      (setq c-basic-offset 4)))
     #+END_SRC
 
-*** LSP Java
+*** LSP Java/Scala
 
-    Java support for lsp mode using the Eclipse JDT Language Server.
+    Java and Scala support for lsp mode using the Eclipse JDT Language Server.
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'lsp-mode)
       (setq lsp-keymap-prefix "M-s-l")
       (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
+      (setq gc-cons-threshold 1000000)
+      (setq read-process-output-max (* 1024 1024 2))
+;;      (setq lsp-completion-provider :capf)
+      (setq lsp-idle-delay 0.5)
       (use-package lsp-mode
-          :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-                  (java-mode . lsp)
-                  ;; if you want which-key integration
-                  (lsp-mode . lsp-enable-which-key-integration)
-                  )
+          :hook ((java-mode . lsp)
+                 (scala-mode . lsp)
+                 ;; if you want which-key integration
+                 (lsp-mode . lsp-enable-which-key-integration)
+                 (lsp-mode . flycheck-mode)
+                 (lsp-mode . lsp-lens-mode)
+                 )
+          :config (setq lsp-prefer-flymake nil)
+                  (setq lsp-keep-workspace-alive nil)
           :commands lsp)
+      (maybe-install-and-require 'lsp-ui)
+      (use-package lsp-java)
+      (add-hook 'java-mode 'lsp-mode)
+
+      ;; Use eclipse 2.1 formatting
+      (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
+      (setq lsp-java-format-settings-profile "myeclipse21formatter")
+
+      ;; Don't watch files
+      (setq lsp-enable-file-watchers nil)
+
+      ;; Add metals backend for lsp-mode scala
+      (maybe-install-and-require 'lsp-metals)
 
       ;; optionally
       (use-package lsp-ui :commands lsp-ui-mode)
@@ -3454,18 +3472,20 @@ l
       (use-package helm-lsp :commands helm-lsp-workspace-symbol)
       ;; if you are ivy user
       (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-      (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+      (use-package lsp-treemacs
+        :commands lsp-treemacs-errors-list
+        :config
+        (lsp-metals-treeview-mode t)
+        (setq lsp-metals-treeview-show-when-views-received t)
+      )
 
-      ;; optionally if you want to use debugger
-      (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
-      (use-package dap-java :ensure nil)
       ;; add lombok to classpath for lsp
       (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
       (setq lsp-java-vmargs
              `("-noverify"
                "-Xmx1G"
-               "-XX:+UseG1GC"
-               "-XX:+UseStringDeduplication"
+;;               "-XX:+UseG1GC"
+;;               "-XX:+UseStringDeduplication"
                ,(concat "-javaagent:" path-to-lombok)
                ,(concat "-Xbootclasspath/a:" path-to-lombok)))
     #+END_SRC
@@ -3473,8 +3493,21 @@ l
 *** DAP mode
 
     #+BEGIN_SRC emacs-lisp
-      (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
-      (use-package dap-java :ensure nil)
+      (use-package posframe
+      ;; Posframe is a pop-up tool that must be manually installed for dap-mode
+        )
+      (when (not (package-installed-p dap-mode))
+        (package-install 'dap-mode))
+      (use-package dap-mode
+        :after lsp-mode
+        :hook ((lsp-mode . dap-mode)
+               (lsp-mode . dap-ui-mode))
+        :config (dap-auto-configure-mode))
+      ;; (use-package dap-java :ensure nil)
+      (require 'dap-java)
+      (define-key dap-mode-map (kbd "M-s-l t t") 'dap-java-run-test-method)
+      (define-key dap-mode-map (kbd "M-s-l t c") 'dap-java-run-test-class)
+      (define-key dap-mode-map (kbd "M-s-l t d") 'dap-java-debug-test-method)
     #+END_SRC
 ** Kotlin
 
