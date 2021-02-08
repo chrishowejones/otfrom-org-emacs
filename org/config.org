@@ -2985,6 +2985,48 @@ l
                           (clj-kondo-edn . edn-joker)))
               (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
      #+END_SRC
+
+**** clojure-lsp
+
+     Trying clojure-lsp to see what static analysis can give me on top
+     of CIDER.
+
+     #+BEGIN_SRC emacs-lisp
+      (use-package lsp-mode
+        :ensure t
+        :hook ((clojure-mode . lsp)
+               (clojurec-mode . lsp)
+               (clojurescript-mode . lsp))
+        :config
+        ;; add paths to your local installation of project mgmt tools, like lein
+        (setenv "PATH" (concat
+                         "/usr/local/bin" path-separator
+                         (getenv "PATH")))
+        (dolist (m '(clojure-mode
+                     clojurec-mode
+                     clojurescript-mode
+                     clojurex-mode))
+           (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+        (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))) ;; Optional: In case `clojure-lsp` is not in your PATH
+
+        (use-package lsp-ui
+          :ensure t
+          :commands lsp-ui-mode)
+
+        (use-package company-lsp
+          :ensure t
+          :commands company-lsp)
+      (setq gc-cons-threshold (* 100 1024 1024)
+            read-process-output-max (* 1024 1024)
+            treemacs-space-between-root-nodes nil
+            company-idle-delay 0.0
+            company-minimum-prefix-length 1
+            lsp-lens-enable t
+            lsp-signature-auto-activate nil
+            ; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
+            ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+            )
+     #+END_SRC
 ** python
 
    #+BEGIN_SRC emacs-lisp
