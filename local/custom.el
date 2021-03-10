@@ -55,7 +55,8 @@
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(python-shell-interpreter "/home/chris/anaconda3/bin/ipython")
  '(safe-local-variable-values
-   '((haskell-process-use-ghci . t)
+   '((css-indent-offset . 2)
+     (haskell-process-use-ghci . t)
      (haskell-indent-spaces . 4)
      (cider-refresh-after-fn . "integrant.repl/resume")
      (cider-refresh-before-fn . "integrant.repl/suspend")

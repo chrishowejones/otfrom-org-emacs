@@ -384,8 +384,8 @@
 ** command key as meta
 
    #+BEGIN_SRC emacs-lisp
-    (setq mac-command-modifier 'meta)
-    (setq mac-option-modifier 'super)
+    (setq mac-command-modifier 'super)
+    (setq mac-option-modifier 'meta)
    #+END_SRC
 
 * Make it Pretty
@@ -664,6 +664,8 @@
      (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
      (global-set-key (kbd "C-x C-f") #'helm-find-files)
      (global-set-key (kbd "s-i") #'helm-semantic-or-imenu)
+     (global-set-key (kbd "C-x C-M-o") #'helm-occur)
+     (global-set-key (kbd "C-x c C-b") #'helm-mini)
    #+END_SRC
 
 ** ido
@@ -1064,8 +1066,8 @@ l
      (maybe-install-and-require 'flyspell)
      (add-hook 'text-mode-hook
                (lambda ()
-                       (flyspell-mode 1)
-                       (diminish 'flyspell-mode)
+                       ;; (flyspell-mode 1)
+                       ;; (diminish 'flyspell-mode)
                        (auto-fill-mode 1)
                        (diminish 'auto-fill-function)))
    #+END_SRC
@@ -1829,8 +1831,8 @@ l
    #+END_SRC
 
    #+BEGIN_SRC emacs-lisp
-     (add-hook 'twittering-edit-mode-hook
-         (lambda () (ispell-minor-mode) (flyspell-mode)))
+     ;; (add-hook 'twittering-edit-mode-hook
+     ;;     (lambda () (ispell-minor-mode) (flyspell-mode)))
    #+END_SRC
 
    You can configure it to use a local, encrypted file for the
@@ -2796,7 +2798,7 @@ l
       worse and infinite sequence. This should stop that.
 
       #+BEGIN_SRC emacs-lisp
-        (setq cider-print-options '(("length" 100)))
+        (setq cider-print-options '(("length" 1000)))
       #+END_SRC
 
       And seeing as we are limiting what we print, we should pretty
@@ -3022,9 +3024,10 @@ l
             company-idle-delay 0.0
             company-minimum-prefix-length 1
             lsp-lens-enable t
+            lsp-ui-doc-enable nil
             lsp-signature-auto-activate nil
-            ; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
-            ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+            ;; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
+            ;; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
             )
      #+END_SRC
 ** python

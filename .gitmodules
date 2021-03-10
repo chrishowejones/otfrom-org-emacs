@@ -1,0 +1,3 @@
+[submodule "non-elpa/jenv.el"]
+	path = non-elpa/jenv.el
+	url = git@github.com:shellbj/jenv.el.git
