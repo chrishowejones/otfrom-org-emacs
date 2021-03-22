@@ -2777,20 +2777,6 @@ l
 ;;          (mlet 1))
       #+END_SRC
 
-***** component
-
-      I keep typing (go) when I should be typing (reset). Maybe a
-      hotkey will keep me out of trouble.
-
-      #+BEGIN_SRC emacs-lisp
-        (defun cider-system-reset ()
-          (interactive)
-          (cider-interactive-eval
-           "(user/reset)"))
-
-        (define-key clojure-mode-map (kbd "s-r") 'cider-system-reset)
-      #+END_SRC
-
 ***** Don't destroy that repl buffer while pretty printing
 
       It can be very frustrating to be poking away at clojure data
@@ -3859,6 +3845,15 @@ l
    #+BEGIN_SRC emacs-lisp
    (maybe-install-and-require 'image+)
    (eval-after-load 'image '(require 'image+))
+   #+END_SRC
+
+** PDF tools
+
+   Use pdf tools for pdf's
+
+   #+BEGIN_SRC emacs-lisp
+    (add-to-list 'auto-mode-alist '("\\.pdf\\'" . doc-view-mode))
+    (add-hook 'doc-view-mode-hook #'pdf-tools-install)
    #+END_SRC
 * Notification Systems
 
