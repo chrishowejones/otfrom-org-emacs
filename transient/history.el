@@ -7,11 +7,15 @@
  (magit-branch nil)
  (magit-cherry-pick
   ("--ff"))
- (magit-commit nil)
+ (magit-commit nil
+               ("--signoff"))
  (magit-diff
   ("--no-ext-diff" "--stat")
+  (("--" "src/clash/api/resolvers/admin.clj"))
+  ("--no-ext-diff")
   (("--" "provider/build.gradle")))
  (magit-dispatch nil)
+ (magit-ediff nil)
  (magit-fetch nil)
  (magit-file-dispatch nil)
  (magit-log
@@ -28,12 +32,13 @@
   (("--" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java")))
  (magit-pull nil
              ("--rebase"))
- (magit-push
-  ("--force-with-lease")
-  nil
-  ("--force-with-lease" "--force")
-  ("--force"))
- (magit-rebase nil)
+ (magit-push nil
+             ("--force-with-lease")
+             ("--force")
+             ("--force-with-lease" "--force"))
+ (magit-rebase
+  ("--autostash")
+  nil)
  (magit-remote
   ("-f"))
  (magit-reset nil)

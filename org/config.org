@@ -291,6 +291,17 @@
    #+BEGIN_SRC emacs-lisp
     (global-set-key (kbd "C-M-S-T") 'transpose-sexps)
    #+END_SRC
+
+** Mute dialog for safe variables list
+
+   Add to safe variables list to mute messages from .dir-locals
+
+   #+BEGIN_SRC emacs-lisp
+    (defun hack-local-variables-confirm (f &rest args)
+    "Disables annoying dialog 'The local variables list in :x contains values that may not be safe"
+    t)
+   #+END_SRC
+
 * non-elpa and work arounds
 
   At the moment we don't have any workarounds. It looked like we might
@@ -764,7 +775,14 @@
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'github-browse-file)
     #+END_SRC
-    ,
+
+*** forge
+
+    #+BEGIN_SRC emacs-lisp
+     (with-eval-after-load 'magit
+      (require 'forge))
+    #+END_SRC
+
 ** avy-mode
 
    This is supposed to be a replacement for ace-jump-mode so thought
@@ -1015,12 +1033,6 @@ l
 ;;     (global-set-key (kbd "s-i") 'imenu)
    #+END_SRC
 
-*** magit-gh-pulls
-
-    #+BEGIN_SRC emacs-lisp
-;;     (maybe-install-and-require 'magit-gh-pulls)
-;;     (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-    #+END_SRC
 
 *** github-review
 
@@ -1589,7 +1601,9 @@ l
          (emacs-lisp . t)
          (shell . t)
          (clojure . t)
+         (http . t)
          (java . t)
+         (sql . t)
          ;;(scala . t)
 ))
     #+END_SRC
@@ -2710,7 +2724,7 @@ l
       might go all Bruce Banner on you.
 
       #+BEGIN_SRC emacs-lisp
-        (setq cider-popup-stacktraces t)
+        ;; (setq cider-popup-stacktraces t)
       #+END_SRC
 
 ***** clojure-mode-hook
@@ -3010,10 +3024,10 @@ l
             company-idle-delay 0.0
             company-minimum-prefix-length 1
             lsp-lens-enable t
-            lsp-ui-doc-enable nil
+            lsp-ui-doc-enable t
             lsp-signature-auto-activate nil
-            ;; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
-            ;; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+            lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
+            lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
             )
      #+END_SRC
 ** python
@@ -3237,6 +3251,12 @@ l
      (maybe-install-and-require 'restclient)
    #+END_SRC
 
+** HTTP org babel
+
+   #+BEGIN_SRC emacs-lisp
+   (maybe-install-and-require 'ob-http)
+   #+END_SRC
+
 ** Haskell
 
 *** Haskell mode
@@ -3312,8 +3332,19 @@ l
 *** Scala mode
 
     #+BEGIN_SRC emacs-lisp
+     (when (not (package-installed-p 'scala-mode))
+       (package-install 'scala-mode))
      (use-package scala-mode
        :mode "\\.s\\(cala\\|bt\\)$")
+     (setq use-package-always-defer t
+       use-package-always-ensure t
+       backup-directory-alist `((".*" . ,temporary-file-directory))
+       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+     ;; Enable scala-mode for highlighting, indentation and motion commands
+     (use-package scala-mode
+       :interpreter
+       ("scala" . scala-mode))
     #+END_SRC
 
 *** sbt mode
@@ -3321,22 +3352,34 @@ l
     #+BEGIN_SRC emacs-lisp
      (when (not (package-installed-p 'sbt-mode))
       (package-install 'sbt-mode))
+
      (use-package sbt-mode
-       :commands sbt-start sbt-command
-       :config
-       ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
-       ;; allows using SPACE when in the minibuffer
-       (substitute-key-definition
+        :commands sbt-start sbt-command
+        :config
+        ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+        ;; allows using SPACE when in the minibuffer
+        (substitute-key-definition
          'minibuffer-complete-word
          'self-insert-command
          minibuffer-local-completion-map)
-       ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
-       (setq sbt:program-options '("-Dsbt.supershell=false")))
+         ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+         (setq sbt:program-options '("-Dsbt.supershell=false")))
 
      (add-hook 'scala-mode-hook
         (local-set-key (kbd "C-c C-t") 'sbt-do-test)
         (local-set-key (kbd "C-c C-s") 'sbt-hydra))
     #+END_SRC
+
+*** Metals for lsp
+
+    Add metals backend for lsp-mode
+
+    #+BEGIN_SRC emacs-lisp
+     ;; Add metals backend for lsp-mode
+     (use-package lsp-metals
+       :config (setq lsp-metals-treeview-show-when-views-received t))
+    #+END_SRC
+
 *** Scala newlines in comments
 
     #+BEGIN_SRC emacs-lisp
@@ -3399,6 +3442,8 @@ l
 
     #+RESULTS:
     : ide-panes
+
+
 
 ** Java
 *** Fix paredit for Java
@@ -3758,7 +3803,7 @@ l
 *** Flymake
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'flymake-rust)
+      ;; (maybe-install-and-require 'flymake-rust)
       ;; (with-eval-after-load 'rust-mode
       ;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
     #+END_SRC
@@ -3774,6 +3819,79 @@ l
 
     #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'cargo)
+    #+END_SRC
+
+
+** Golang
+
+**
+
+*** Go-mode
+
+    Add go-mode
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'go-mode)
+      (add-hook 'go-mode-hook 'my-paredit-nonlisp)
+    #+END_SRC
+
+*** Godoc
+
+    Add godoc
+
+    #+BEGIN_SRC emacs-lisp
+      (setenv "GOPATH" "/Users/tleyden/Development/gocode")
+    #+END_SRC
+
+*** Gofmt on save
+
+    Run gofmt on save.
+
+    #+BEGIN_SRC emacs-lisp
+     (add-to-list 'exec-path "/Users/tleyden/Development/gocode/bin")
+    #+END_SRC
+
+*** Godef bindings
+
+    Set up key bindings for godef.
+
+    #+BEGIN_SRC emacs-lisp
+     (defun my-go-mode-hook ()
+       ; Call Gofmt before saving
+       (add-hook 'before-save-hook 'gofmt-before-save)
+       ; Godef jump key binding
+       (local-set-key (kbd "M-.") 'godef-jump)
+       (local-set-key (kbd "M-*") 'pop-tag-mark))
+
+     (add-hook 'go-mode-hook 'my-go-mode-hook)
+    #+END_SRC
+
+*** Company completion for go
+
+    Set up company mode for Golang
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'company-go)
+      (add-hook 'go-mode-hook (lambda ()
+                                (set (make-local-variable 'company-backends) '(company-go))
+                                (company-mode)))
+    #+END_SRC
+
+** Log mode
+
+   #+begin_src emacs-lsp
+   (maybe-install-and-require 'logview)
+   #+end_src
+
+
+** Graphql
+
+
+*** Graphql mode
+
+    #+BEGIN_SRC emacs-lisp
+    (maybe-install-and-require 'graphql-mode)
+    (maybe-install-and-require 'ob-graphql)
     #+END_SRC
 
 * Data Modes

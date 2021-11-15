@@ -20,7 +20,7 @@
                          ("melpa-stable" . "http://stable.melpa.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
-(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+;;(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
 ;; This means we prefer things from ~/.emacs.d/elpa over the standard packages.
 (package-initialize)
