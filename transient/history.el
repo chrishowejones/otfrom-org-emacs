@@ -1,4 +1,5 @@
-((magit-am
+((forge-dispatch nil)
+ (magit-am
   ("--3way")
   nil)
  (magit-blame
@@ -41,6 +42,8 @@
   nil)
  (magit-remote
   ("-f"))
+ (magit-remote\.<remote>\.fetch "origin:refs/heads/master" "")
+ (magit-remote\.<remote>\.push "origin/#1079-add-deleted-video-tables-to-the-extract-processes")
  (magit-reset nil)
  (magit-revert
   ("--edit")

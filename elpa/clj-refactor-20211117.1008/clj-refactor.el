@@ -7,7 +7,7 @@
 ;;         Lars Andersen <expez@expez.com>
 ;;         Benedek Fazekas <benedek.fazekas@gmail.com>
 ;;         Bozhidar Batsov <bozhidar@batsov.dev>
-;; Version: 3.0.0
+;; Version: 3.2.2
 ;; Keywords: convenience, clojure, cider
 
 ;; Package-Requires: ((emacs "26.1") (seq "2.19") (yasnippet "0.6.1") (paredit "24") (multiple-cursors "1.2.2") (clojure-mode "5.9") (cider "1.0") (parseedn "1.0.6") (inflections "2.3") (hydra "0.13.2"))
@@ -337,19 +337,18 @@ Otherwise open the file and do the changes non-interactively."
   (declare (debug (form body))
            (indent 1))
   (let ((fn (make-symbol "filename"))
-        (bf (make-symbol "buffer")))
+        (bf (make-symbol "buffer"))
+        (wo (make-symbol "was-open")))
     `(let* ((,fn ,filename)
-            (,bf (get-file-buffer ,fn)))
-       (if ,bf
-           (progn
-             (set-buffer ,bf)
-             ,@body
-             (save-buffer))
-         (with-temp-file ,fn
-           (insert-file-contents ,fn)
-           (delay-mode-hooks
-             (clojure-mode)
-             ,@body))))))
+            (,wo (get-file-buffer ,fn))
+            (,bf (find-file-noselect ,fn)))
+       (when ,bf
+         (set-buffer ,bf)
+         ,@body
+         (save-buffer)
+         (when (not ,wo)
+           ;; Don't accumulate open buffers, since this can slow down Emacs for large projects:
+           (kill-buffer))))))
 
 (define-key clj-refactor-map [remap paredit-raise-sexp] 'cljr-raise-sexp)
 (define-key clj-refactor-map [remap paredit-splice-sexp-killing-backward] 'cljr-splice-sexp-killing-backward)
@@ -915,6 +914,31 @@ issued, and should be left focused."
       (kill-buffer buf))
     (find-file (format "%s/%s" new-dir (seq-some (apply-partially same-file active) files)))))
 
+
+(defcustom cljr-print-right-margin 72
+  "Will be forwarded to `clojure.pprint/*print-right-margin*'
+when refactor-nrepl pretty-prints ns forms,
+as performed after `clean-ns', `rename-file-or-dir', etc.
+You can set it to the string \"nil\" for disabling line wrapping.
+
+See also: `cljr-print-miser-width'."
+  :group 'cljr
+  :type '(choice integer string)
+  :safe (lambda (s) (or (integerp s) (stringp s)))
+  :package-version "3.2.0")
+
+(defcustom cljr-print-miser-width 40
+  "Will be forwarded to `clojure.pprint/*print-miser-width*'
+when refactor-nrepl pretty-prints ns forms,
+as performed after `clean-ns', `rename-file-or-dir', etc.
+You can set it to the string \"nil\" for disabling line wrapping.
+
+See also: `cljr-print-right-margin'."
+  :group 'cljr
+  :type '(choice integer string)
+  :safe (lambda (s) (or (integerp s) (stringp s)))
+  :package-version "3.2.0")
+
 ;;;###autoload
 (defun cljr-rename-file-or-dir (old-path new-path)
   "Rename a file or directory of files.
@@ -944,7 +968,9 @@ See: https://github.com/clojure-emacs/clj-refactor.el/wiki/cljr-rename-file-or-d
         (let* ((changed-files (cljr--call-middleware-sync
                                (cljr--create-msg "rename-file-or-dir"
                                                  "old-path" nrepl-old-path
-                                                 "new-path" nrepl-new-path)
+                                                 "new-path" nrepl-new-path
+                                                 "print-right-margin" cljr-print-right-margin
+                                                 "print-miser-width" cljr-print-miser-width)
                                "touched"))
                (changed-files-count (length changed-files)))
           (cond
@@ -2797,6 +2823,8 @@ removed."
                                          "path" path
                                          "relative-path" relative-path
                                          "libspec-whitelist" cljr-libspec-whitelist
+                                         "print-right-margin" cljr-print-right-margin
+                                         "print-miser-width" cljr-print-miser-width
                                          "prune-ns-form" (if no-prune? "false"
                                                            "true"))
                        "ns"))
@@ -3278,7 +3306,10 @@ if REMOVE-PACKAGE_VERSION is t get rid of the (package: 20150828.1048) suffix."
         (replace-regexp-in-string " (.*)" "" version)
       version)))
 
-(defcustom cljr-injected-middleware-version "3.0.0" ;; (cljr--version t)
+;; We used to derive the version out of `(cljr--version t)`,
+;; but now prefer a fixed version to fully decouple things and prevent unforeseen behavior.
+;; This suits better our current pace of development.
+(defcustom cljr-injected-middleware-version "3.1.0"
   "The refactor-nrepl version to be injected.
 
 You can customize this in order to try out new releases.
