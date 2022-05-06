@@ -584,6 +584,14 @@
      (maybe-install-and-require 'emojify)
      ;; (add-hook 'after-init-hook #'global-emojify-mode)
    #+END_SRC
+
+** All the icons
+
+   #+BEGIN_SRC emacs-lisp
+   (when (display-graphic-p)
+    (require 'all-the-icons))
+   #+END_SRC
+
 * Tool Configuration
 
 ** ediff
@@ -779,9 +787,17 @@
 *** forge
 
     #+BEGIN_SRC emacs-lisp
-     (with-eval-after-load 'magit
-      (require 'forge))
+      ;; (with-eval-after-load 'magit
+      ;;  (require 'forge))
     #+END_SRC
+
+*** gitlink
+
+    #+begin_src emacs-lisp
+     (maybe-install-and-require 'git-link)
+     (global-set-key (kbd "C-c g l") 'git-link)
+     (setq git-link-open-in-browser t)
+    #+end_src
 
 ** avy-mode
 
@@ -948,10 +964,10 @@ l
 
 *** projectile indexing
 
-    Set native indexing for projectile (doesn't work for windows!)
+    Set alien indexing for projectile
 
     #+BEGIN_SRC emacs-lisp
-      (setq projectile-indexing-method 'native)
+      (setq projectile-indexing-method 'alien)
     #+END_SRC
 
 ** Ag, the silver searcher with helm
@@ -1066,6 +1082,20 @@ l
 
    #+BEGIN_SRC emacs-lisp
     (maybe-install-and-require 'hydra)
+   #+END_SRC
+
+** Dashboard
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'dashboard)
+     (dashboard-setup-startup-hook)
+     (setq dashboard-items '((recents  . 10)
+                             (bookmarks . 5)
+                             (projects . 5)
+                             (agenda . 5)
+                             (registers . 5)))
+     (setq dashboard-projects-switch-function 'projectile-persp-switch-project)
+     (setq dashboard-week-agenda t)
    #+END_SRC
 
 * Text Modes
@@ -1618,14 +1648,15 @@ l
      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     #+END_SRC
 
+
 ** html, sgml, xml
 
 
 *** html non lisp paredit
 
     #+BEGIN_SRC emacs-lisp
-      ;; (add-hook 'html-mode-hook 'my-paredit-nonlisp)
-      ;; (add-hook 'mhtml-mode-hook 'my-paredit-nonlisp)
+      (add-hook 'html-mode-hook 'my-paredit-nonlisp)
+      (add-hook 'mhtml-mode-hook 'my-paredit-nonlisp)
     #+END_SRC
 
 *** web mode
@@ -1651,6 +1682,7 @@ l
         '(add-to-list 'company-backends 'company-web))
 
     #+END_SRC
+
 *** tagedit
 
     This gives us paredit like editing for html
@@ -2734,6 +2766,7 @@ l
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'clojure-mode-hook lisp-hooks)
+        (setq clojure-toplevel-inside-comment-form t)
       #+END_SRC
 
 ***** cider-mode-hooks
@@ -2847,6 +2880,33 @@ l
         (add-hook 'cider-repl-mode-hook 'eldoc-mode)
       #+END_SRC
 
+**** REBL repl
+
+     #+BEGIN_SRC emacs-lisp
+       ;; Similar to C-x C-e, but sends to REBL
+       (defun rebl-eval-last-sexp ()
+         (interactive)
+         (let* ((bounds (cider-last-sexp 'bounds))
+                (s (cider-last-sexp))
+                (reblized (concat "(cognitect.rebl/inspect " s ")")))
+           (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
+
+       ;; Similar to C-M-x, but sends to REBL
+       (defun rebl-eval-defun-at-point ()
+         (interactive)
+         (let* ((bounds (cider-defun-at-point 'bounds))
+                (s (cider-defun-at-point))
+                (reblized (concat "(cognitect.rebl/inspect " s ")")))
+           (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
+
+       ;; C-S-x send defun to rebl
+       ;; C-x C-r send last sexp to rebl (Normally bound to "find-file-read-only"... Who actually uses that though?)
+       (add-hook 'cider-mode-hook
+                 (lambda ()
+                   (local-set-key (kbd "C-S-x") #'rebl-eval-defun-at-point)
+                   (local-set-key (kbd "C-x M-r") #'rebl-eval-last-sexp)))
+     #+END_SRC
+
 **** Alignment Changes
 
      There are very few bits of alignment that I would *ever* do
@@ -2946,8 +3006,8 @@ l
        ;; (eval-after-load 'flycheck '(flycheck-clojure-setup))
        ;; (add-hook 'after-init-hook #'global-flycheck-mode)
        ;; (with-eval-after-load 'flycheck
-       ;;   (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
-       ;;   (flycheck-pos-tip-mode 1))
+       ;;    (setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
+       ;;    (flycheck-pos-tip-mode 1))
      #+END_SRC
 
 **** Expectations support
@@ -3021,13 +3081,13 @@ l
       (setq gc-cons-threshold (* 100 1024 1024)
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
-            company-idle-delay 0.0
+            company-idle-delay 0.7
             company-minimum-prefix-length 1
             lsp-lens-enable t
-            lsp-ui-doc-enable t
+            lsp-ui-doc-enable nil
             lsp-signature-auto-activate nil
-            lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
-            lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+            lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
+            lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
             )
      #+END_SRC
 ** python
@@ -3366,7 +3426,7 @@ l
          (setq sbt:program-options '("-Dsbt.supershell=false")))
 
      (add-hook 'scala-mode-hook
-        (local-set-key (kbd "C-c C-t") 'sbt-do-test)
+        ;;(local-set-key (kbd "C-c C-t") 'sbt-do-test)
         (local-set-key (kbd "C-c C-s") 'sbt-hydra))
     #+END_SRC
 
