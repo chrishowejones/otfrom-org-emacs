@@ -29,6 +29,24 @@
     (maybe-install-and-require 'try)
    #+END_SRC
 
+** Install straight package mgr
+
+#+begin_src emacs-lisp
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+  (setq package-enable-at-startup nil)
+#+end_src
+
 * Globals
 
 ** Set initial framesize
@@ -526,6 +544,14 @@
       (set-face-attribute 'default nil :height 80)
     #+END_SRC
 
+
+*** Default font scale
+
+    #+BEGIN_SRC emacs-lisp
+      (require 'default-text-scale)
+      (setq default-text-scale-mode t)
+    #+END_SRC
+
 ** bars, menus and numbers
 
    I like no scroll bars, no toolbars and line and column numbers in
@@ -544,10 +570,11 @@
 ** Startup Screen
 
    I'd also like to ski the startup screen and go straight to
-   the *scratch* buffer.
+   the *dashboard* buffer.
 
    #+BEGIN_SRC emacs-lisp
-     (setq inhibit-startup-screen t)
+     (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+     ;;(setq inhibit-startup-screen t)
    #+END_SRC
 
 ** alpha alpha alpha
@@ -614,7 +641,7 @@
      (maybe-install-and-require 'company)
      (add-hook 'after-init-hook 'global-company-mode)
      (diminish 'company-mode "CA")
-     (local-set-key "<TAB>" 'company-mode)
+     (global-set-key (kbd "M-TAB") 'company-complete)
    #+END_SRC
 
 *** Company-quickhelp
@@ -667,8 +694,9 @@
        :config (treemacs-icons-dired-mode))
    #+END_SRC
 
-** helm
--mode
+
+
+** helm-mode
 
    helm-mode is the succesor to anything.el. I don't really have my
    head around it all yet, but I'm already pretty impressed with it so
@@ -678,7 +706,9 @@
    My helm-mode guru is [[http://twitter.com/krisajenkins][Kris Jenkins]].
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'helm)
+     ;;(maybe-install-and-require 'helm)
+     (use-package helm
+       :straight t)
      (global-set-key (kbd "M-x") #'helm-M-x)
      (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
      (global-set-key (kbd "C-x C-f") #'helm-find-files)
@@ -968,6 +998,27 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (setq projectile-indexing-method 'alien)
+    #+END_SRC
+
+*** close all buffers that don't belong to a projectile project
+
+    #+BEGIN_SRC emacs-lisp
+      (defun modi/kill-non-project-buffers (&optional kill-special)
+        "Kill buffers that do not belong to a `projectile' project.
+
+      With prefix argument (`C-u'), also kill the special buffers."
+        (interactive "P")
+        (let ((bufs (buffer-list (selected-frame))))
+          (dolist (buf bufs)
+            (with-current-buffer buf
+              (let ((buf-name (buffer-name buf)))
+                (when (or (null (projectile-project-p))
+                          (and kill-special
+                               (string-match "^\*" buf-name)))
+                  ;; Preserve buffers with names starting with *scratch or *Messages
+                  (unless (string-match "^\\*\\(\\scratch\\|Messages\\|dashboard\\)" buf-name)
+                    (message "Killing buffer %s" buf-name)
+                    (kill-buffer buf))))))))
     #+END_SRC
 
 ** Ag, the silver searcher with helm
@@ -1634,8 +1685,9 @@ l
          (http . t)
          (java . t)
          (sql . t)
+         (dsq . t)
          ;;(scala . t)
-))
+         ))
     #+END_SRC
 
 *** Org bullets
@@ -1946,7 +1998,7 @@ l
    jabber.el.
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'jabber)
+     ;; (maybe-install-and-require 'jabber)
    #+END_SRC
 
    The setup for the jabber-account-list is in my private gpg
@@ -1955,23 +2007,23 @@ l
    We also want to be able to store a local history of our chats.
 
    #+BEGIN_SRC emacs-lisp
-     (setq
-       jabber-history-enabled t
-       jabber-use-global-history nil
-       jabber-backlog-number 40
-       jabber-backlog-days 30)
+     ;; (setq
+     ;;   jabber-history-enabled t
+     ;;   jabber-use-global-history nil
+     ;;   jabber-backlog-number 40
+     ;;   jabber-backlog-days 30)
    #+END_SRC
 
    And we want URLs to be clickable.
 
    #+BEGIN_SRC emacs-lisp
-     (add-hook 'jabber-chat-mode-hook 'goto-address)
+     ;; (add-hook 'jabber-chat-mode-hook 'goto-address)
    #+END_SRC
 
    And those BIG AVATARS are just TOO BIG, so let's get rid of them.
 
    #+BEGIN_SRC emacs-lisp
-     (setq jabber-chat-buffer-show-avatar nil)
+;;     (setq jabber-chat-buffer-show-avatar nil)
    #+END_SRC
 
    And while we want to know when we receive messages having something
@@ -1979,14 +2031,14 @@ l
    just waaaaay too chatty.
 
    #+BEGIN_SRC emacs-lisp
-     (setq jabber-alert-presence-hooks nil)
+  ;;   (setq jabber-alert-presence-hooks nil)
    #+END_SRC
 
    A convenience binding for firing up all the jabber connections
    would be handy.
 
    #+BEGIN_SRC emacs-lisp
-     (global-set-key [f6] 'jabber-connect-all)
+    ;; (global-set-key [f6] 'jabber-connect-all)
    #+END_SRC
 
 ** irc, currently with erc
@@ -2803,14 +2855,14 @@ l
       thing in cider now and we've loaded that above.
 
       #+BEGIN_SRC emacs-lisp
-        (setq company-minimum-prefix-length 2)
         (setq company-tooltip-flip-when-above t)
-        (setq company-minimum-prefix-length 0)               ; WARNING, probably you will get perfomance issue if min len is 0!
+        (setq company-minimum-prefix-length 2)               ; WARNING, probably you will get perfomance issue if min len is 0!
         (setq company-tooltip-limit 20)                      ; bigger popup window
         (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
         (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
         (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
         (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
+        (global-set-key (kbd "M-TAB") 'company-complete)
       #+END_SRC
 
 ***** compojure indentation rules
@@ -2948,7 +3000,8 @@ l
          (clj-refactor-mode 1)
          (yas-minor-mode 1) ; for adding require/use/import statements
          (cljr-add-keybindings-with-prefix "C-c RET")
-         (setq cljr-favor-prefix-notation nil))
+         (setq cljr-favor-prefix-notation nil)
+         (setq cljr-add-ns-to-blank-clj-files t))
 
          (add-hook
            'clojure-mode-hook #'my-clojure-mode-hook)
@@ -3081,8 +3134,6 @@ l
       (setq gc-cons-threshold (* 100 1024 1024)
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
-            company-idle-delay 0.7
-            company-minimum-prefix-length 1
             lsp-lens-enable t
             lsp-ui-doc-enable nil
             lsp-signature-auto-activate nil
@@ -3341,8 +3392,8 @@ l
     Going to try intero with Haskell projects.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'intero)
-      (add-hook 'haskell-mode-hook #'intero-mode)
+      ;; (maybe-install-and-require 'intero)
+      ;; (add-hook 'haskell-mode-hook #'intero-mode)
     #+END_SRC
 
 *** stylish-haskell
