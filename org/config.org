@@ -1688,6 +1688,7 @@ l
          (dsq . t)
          ;;(scala . t)
          ))
+      (setq org-babel-clojure-backend 'cider)
     #+END_SRC
 
 *** Org bullets
