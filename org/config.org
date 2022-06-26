@@ -2519,8 +2519,8 @@ l
    #+BEGIN_SRC emacs-lisp
      (global-set-key [C-M-return] 'shell)
      ;; Use bash explicitly cos fancy shells like zsh don't render well in emacs
-     (setq explicit-shell-file-name "/bin/bash")
-     (setq shell-file-name "bash")
+     (setq explicit-shell-file-name "/bin/zsh")
+     (setq shell-file-name "zsh")
      (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
      (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
    #+END_SRC

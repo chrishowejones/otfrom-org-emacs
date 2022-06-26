@@ -1,0 +1,2 @@
+;;; Generated package description from ob-dsq.el  -*- no-byte-compile: t -*-
+(define-package "ob-dsq" "20220614.1942" "Babel functions for the `dsq` CLI tool by Multiprocess Labs" '((emacs "27.1")) :commit "45a1e4a24bc89a23912478479b9afb162dd768a3" :authors '(("Fritz Grabo" . "hello@fritzgrabo.com")) :maintainer '("Fritz Grabo" . "hello@fritzgrabo.com") :keywords '("data" "tools") :url "https://github.com/fritzgrabo/ob-dsq")
