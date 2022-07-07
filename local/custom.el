@@ -55,7 +55,7 @@
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(omnisharp-server-executable-path
    "/home/chris/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
- '(org-agenda-files '("/home/chris/Documents/todo.org"))
+ '(org-agenda-files nil)
  '(org-hide-emphasis-markers nil)
  '(org-reveal-keyboard t)
  '(package-hidden-regexps '("\\`fontsloth\\'"))

@@ -7,7 +7,7 @@
 ;;; Generated autoloads from straight.el
 
 (autoload 'straight-remove-unused-repos "straight" "\
-Remove unused repositories from the repos directory.
+Remove unused repositories from the repos and build directories.
 A repo is considered \"unused\" if it was not explicitly requested via
 `straight-use-package' during the current Emacs session.
 If FORCE is non-nil do not prompt before deleting repos.
@@ -403,6 +403,14 @@ Return a list PACKAGE's dependents.
 
 ;;;***
 
+;;;### (autoloads nil "straight-ert-print-hack" "straight-ert-print-hack.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from straight-ert-print-hack.el
+
+(register-definition-prefixes "straight-ert-print-hack" '("+without-print-limits"))
+
+;;;***
+
 ;;;### (autoloads nil "straight-x" "straight-x.el" (0 0 0 0))
 ;;; Generated autoloads from straight-x.el
 
@@ -418,6 +426,6 @@ List of pinned packages.")
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8-emacs-unix
+;; coding: utf-8
 ;; End:
 ;;; straight-autoloads.el ends here

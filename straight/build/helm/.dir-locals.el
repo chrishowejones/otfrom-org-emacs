@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/.dir-locals.el
+/Users/chris/.emacs.d/straight/repos/helm/.dir-locals.el

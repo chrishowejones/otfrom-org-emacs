@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/helm-mode.el
+/Users/chris/.emacs.d/straight/repos/helm/helm-mode.el

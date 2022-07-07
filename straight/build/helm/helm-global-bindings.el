@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/helm-global-bindings.el
+/Users/chris/.emacs.d/straight/repos/helm/helm-global-bindings.el

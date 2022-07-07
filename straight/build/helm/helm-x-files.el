@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/helm-x-files.el
+/Users/chris/.emacs.d/straight/repos/helm/helm-x-files.el

@@ -42,9 +42,9 @@
  (magit-rebase nil)
  (magit-remote
   ("-f"))
- (magit-remote.<remote>.*url "git@github.com:chrishowejones/otfrom-org-emacs.git" "git@github.com:chrishowejonew/otfrom-org-emacs.git" "https://github.com/chrishowejones/otfrom-org-emacs.git")
- (magit-remote.<remote>.fetch "+refs/heads/*:refs/remotes/origin/*" "" "origin:refs/heads/master")
- (magit-remote.<remote>.push "origin/#1079-add-deleted-video-tables-to-the-extract-processes")
+ (magit-remote\.<remote>\.*url "git@github.com:chrishowejones/otfrom-org-emacs.git" "git@github.com:chrishowejonew/otfrom-org-emacs.git" "https://github.com/chrishowejones/otfrom-org-emacs.git")
+ (magit-remote\.<remote>\.fetch "+refs/heads/*:refs/remotes/origin/*" "" "origin:refs/heads/master")
+ (magit-remote\.<remote>\.push "origin/#1079-add-deleted-video-tables-to-the-extract-processes")
  (magit-reset nil)
  (magit-revert nil
                ("--edit"))

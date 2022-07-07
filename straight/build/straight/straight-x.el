@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/straight.el/straight-x.el
+/Users/chris/.emacs.d/straight/repos/straight.el/straight-x.el

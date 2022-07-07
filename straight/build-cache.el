@@ -1,11 +1,11 @@
 
 :tanat
 
-"29.0.50"
+"28.1"
 
-#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ("2022-06-26 15:55:52" ("emacs") (:type git :host github :repo "raxod502/straight.el" :files ("straight*.el") :branch "master" :package "straight" :local-repo "straight.el")) "org-elpa" ("2022-06-26 15:55:52" nil (:local-repo nil :package "org-elpa" :type git)) "melpa" ("2022-06-26 15:55:52" nil (:type git :host github :repo "melpa/melpa" :build nil :package "melpa" :local-repo "melpa")) "gnu-elpa-mirror" ("2022-06-26 15:55:52" nil (:type git :host github :repo "emacs-straight/gnu-elpa-mirror" :build nil :package "gnu-elpa-mirror" :local-repo "gnu-elpa-mirror")) "el-get" ("2022-06-26 15:55:52" nil (:type git :host github :repo "dimitri/el-get" :build nil :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :flavor melpa :package "el-get" :local-repo "el-get")) "emacsmirror-mirror" ("2022-06-26 15:55:52" nil (:type git :host github :repo "emacs-straight/emacsmirror-mirror" :build nil :package "emacsmirror-mirror" :local-repo "emacsmirror-mirror")) "helm" ("2022-06-26 15:55:54" ("helm-core" "popup") (:type git :flavor melpa :files ("*.el" "emacs-helm.sh" (:exclude "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core.el") "helm-pkg.el") :host github :repo "emacs-helm/helm" :package "helm" :local-repo "helm")) "helm-core" ("2022-06-26 15:55:54" ("emacs" "async") (:flavor melpa :files ("helm-core.el" "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core-pkg.el") :package "helm-core" :local-repo "helm" :type git :repo "emacs-helm/helm" :host github)) "async" ("2022-06-26 15:55:54" ("emacs") (:type git :flavor melpa :host github :repo "jwiegley/emacs-async" :package "async" :local-repo "emacs-async")) "popup" ("2022-06-26 15:55:54" ("emacs") (:type git :flavor melpa :files ("popup.el" "popup-pkg.el") :host github :repo "auto-complete/popup-el" :package "popup" :local-repo "popup-el"))))
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ("2022-07-07 12:48:40" ("emacs") (:type git :host github :repo "raxod502/straight.el" :files ("straight*.el") :branch "master" :package "straight" :local-repo "straight.el")) "org-elpa" ("2022-07-07 12:48:40" nil (:local-repo nil :package "org-elpa" :type git)) "melpa" ("2022-07-07 12:48:40" nil (:type git :host github :repo "melpa/melpa" :build nil :package "melpa" :local-repo "melpa")) "gnu-elpa-mirror" ("2022-07-07 12:48:40" nil (:type git :host github :repo "emacs-straight/gnu-elpa-mirror" :build nil :package "gnu-elpa-mirror" :local-repo "gnu-elpa-mirror")) "el-get" ("2022-07-07 12:48:40" nil (:type git :host github :repo "dimitri/el-get" :build nil :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :flavor melpa :package "el-get" :local-repo "el-get")) "emacsmirror-mirror" ("2022-07-07 12:48:40" nil (:type git :host github :repo "emacs-straight/emacsmirror-mirror" :build nil :package "emacsmirror-mirror" :local-repo "emacsmirror-mirror")) "helm" ("2022-07-07 12:48:43" ("helm-core" "popup") (:type git :flavor melpa :files ("*.el" "emacs-helm.sh" (:exclude "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core.el") "helm-pkg.el") :host github :repo "emacs-helm/helm" :package "helm" :local-repo "helm")) "helm-core" ("2022-07-07 12:48:43" ("emacs" "async") (:flavor melpa :files ("helm-core.el" "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core-pkg.el") :package "helm-core" :local-repo "helm" :type git :repo "emacs-helm/helm" :host github)) "async" ("2022-07-07 12:48:43" ("emacs") (:type git :flavor melpa :host github :repo "jwiegley/emacs-async" :package "async" :local-repo "emacs-async")) "popup" ("2022-07-07 12:48:43" ("emacs") (:type git :flavor melpa :host github :repo "auto-complete/popup-el" :package "popup" :local-repo "popup-el"))))
 
-#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ((straight straight-x straight-autoloads) (autoload 'straight-remove-unused-repos "straight" "Remove unused repositories from the repos directory.
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ((straight-x straight-autoloads straight straight-ert-print-hack) (autoload 'straight-remove-unused-repos "straight" "Remove unused repositories from the repos and build directories.
 A repo is considered \"unused\" if it was not explicitly requested via
 `straight-use-package' during the current Emacs session.
 If FORCE is non-nil do not prompt before deleting repos.
@@ -294,7 +294,7 @@ locally bound plist, straight-bug-report-args.
 
 (fn &optional PACKAGE)" t nil) (autoload 'straight-dependents "straight" "Return a list PACKAGE's dependents.
 
-(fn &optional PACKAGE)" t nil) (register-definition-prefixes "straight" '("straight-")) (defvar straight-x-pinned-packages nil "List of pinned packages.") (register-definition-prefixes "straight-x" '("straight-x-")) (provide 'straight-autoloads)) "async" ((async dired-async async-autoloads async-bytecomp smtpmail-async) (autoload 'async-start-process "async" "Start the executable PROGRAM asynchronously named NAME.  See `async-start'.
+(fn &optional PACKAGE)" t nil) (register-definition-prefixes "straight" '("straight-")) (register-definition-prefixes "straight-ert-print-hack" '("+without-print-limits")) (defvar straight-x-pinned-packages nil "List of pinned packages.") (register-definition-prefixes "straight-x" '("straight-x-")) (provide 'straight-autoloads)) "async" ((dired-async smtpmail-async async async-bytecomp async-autoloads) (autoload 'async-start-process "async" "Start the executable PROGRAM asynchronously named NAME.  See `async-start'.
 PROGRAM is passed PROGRAM-ARGS, calling FINISH-FUNC with the
 process object when done.  If FINISH-FUNC is nil, the future
 object will return the process object when the program is
@@ -368,11 +368,10 @@ for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `async-bytecomp-package-mode'.") (custom-autoload 'async-bytecomp-package-mode "async-bytecomp" nil) (autoload 'async-bytecomp-package-mode "async-bytecomp" "Byte compile asynchronously packages installed with package.el.
-
 Async compilation of packages can be controlled by
 `async-bytecomp-allowed-packages'.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Async-Bytecomp-Package mode' mode.  If the prefix argument is
 positive, enable the mode, and if it is zero or negative, disable
 the mode.
@@ -398,7 +397,7 @@ Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `dired-async-mode'.") (custom-autoload 'dired-async-mode "dired-async" nil) (autoload 'dired-async-mode "dired-async" "Do dired actions asynchronously.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Dired-Async mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -412,15 +411,15 @@ evaluate `(default-value \\='dired-async-mode)'.
 The mode's hook is called both when the mode is enabled and when
 it is disabled.
 
-(fn &optional ARG)" t nil) (autoload 'dired-async-do-copy "dired-async" "Run \342\200\230dired-do-copy\342\200\231 asynchronously.
+(fn &optional ARG)" t nil) (autoload 'dired-async-do-copy "dired-async" "Run ‘dired-do-copy’ asynchronously.
 
-(fn &optional ARG)" t nil) (autoload 'dired-async-do-symlink "dired-async" "Run \342\200\230dired-do-symlink\342\200\231 asynchronously.
+(fn &optional ARG)" t nil) (autoload 'dired-async-do-symlink "dired-async" "Run ‘dired-do-symlink’ asynchronously.
 
-(fn &optional ARG)" t nil) (autoload 'dired-async-do-hardlink "dired-async" "Run \342\200\230dired-do-hardlink\342\200\231 asynchronously.
+(fn &optional ARG)" t nil) (autoload 'dired-async-do-hardlink "dired-async" "Run ‘dired-do-hardlink’ asynchronously.
 
-(fn &optional ARG)" t nil) (autoload 'dired-async-do-rename "dired-async" "Run \342\200\230dired-do-rename\342\200\231 asynchronously.
+(fn &optional ARG)" t nil) (autoload 'dired-async-do-rename "dired-async" "Run ‘dired-do-rename’ asynchronously.
 
-(fn &optional ARG)" t nil) (register-definition-prefixes "dired-async" '("dired-async-")) (register-definition-prefixes "smtpmail-async" '("async-smtpmail-")) (provide 'async-autoloads)) "helm-core" ((helm-source helm-core helm-lib helm-core-autoloads helm-multi-match) (autoload 'helm-configuration "helm-core" "Customize Helm." t nil) (autoload 'helm-define-multi-key "helm-core" "In KEYMAP, define key sequence KEY for function list FUNCTIONS.
+(fn &optional ARG)" t nil) (register-definition-prefixes "dired-async" '("dired-async-")) (register-definition-prefixes "smtpmail-async" '("async-smtpmail-")) (provide 'async-autoloads)) "helm-core" ((helm-core helm-lib helm-source helm-core-autoloads helm-multi-match) (autoload 'helm-configuration "helm-core" "Customize Helm." t nil) (autoload 'helm-define-multi-key "helm-core" "In KEYMAP, define key sequence KEY for function list FUNCTIONS.
 Each function runs sequentially for each KEY press.
 If DELAY is specified, switch back to initial function of FUNCTIONS list
 after DELAY seconds.
@@ -436,7 +435,7 @@ E.g.
       (interactive)
       (message \"Run baz\"))
 
-(helm-define-multi-key global-map (kbd \"<f5> q\") '(foo bar baz) 2)
+(helm-define-multi-key global-map (kbd \"<f5> q\") \\='(foo bar baz) 2)
 
 Each time \"<f5> q\" is pressed, the next function is executed.
 Waiting more than 2 seconds between key presses switches back to
@@ -458,8 +457,8 @@ Arg OTHER-SUBKEYS is an alist specifying other short key bindings
 to use once started, e.g.:
 
     (helm-define-key-with-subkeys global-map
-       (kbd \"C-x v n\") ?n 'git-gutter:next-hunk
-       '((?p . git-gutter:previous-hunk)))
+       (kbd \"C-x v n\") ?n \\='git-gutter:next-hunk
+       \\='((?p . git-gutter:previous-hunk)))
 
 In this example, `C-x v n' will run `git-gutter:next-hunk'
 subsequent \"n\" will run this command again and subsequent \"p\"
@@ -531,7 +530,7 @@ Minibuffer prompt. Default value is `helm--prompt'.
 If t, allow resumption of the previous session of this Helm
 command, skipping initialization.
 
-If 'noresume, this instance of `helm' cannot be resumed.
+If \\='noresume, this instance of `helm' cannot be resumed.
 
 *** :preselect
 
@@ -586,7 +585,7 @@ Allow running this Helm command in a running Helm session.
 Other keywords are interpreted as local variables of this Helm
 session. The `helm-' prefix can be omitted. For example,
 
-(helm :sources 'helm-source-buffers-list
+(helm :sources \\='helm-source-buffers-list
        :buffer \"*helm buffers*\"
        :candidate-number-limit 10)
 
@@ -606,14 +605,14 @@ However, the use of non-keyword args is deprecated.
 (fn &key SOURCES INPUT PROMPT RESUME PRESELECT BUFFER KEYMAP DEFAULT HISTORY ALLOW-NEST OTHER-LOCAL-VARS)" nil nil) (autoload 'helm-cycle-resume "helm-core" "Cycle in `helm-buffers' list and resume when waiting more than 1.2s." t nil) (autoload 'helm-other-buffer "helm-core" "Simplified Helm interface with other `helm-buffer'.
 Call `helm' only with SOURCES and BUFFER as args.
 
-(fn SOURCES BUFFER)" nil nil) (register-definition-prefixes "helm-core" '("helm-" "with-helm-")) (register-definition-prefixes "helm-lib" '("helm-" "with-helm-")) (register-definition-prefixes "helm-multi-match" '("helm-m")) (register-definition-prefixes "helm-source" '("helm-")) (provide 'helm-core-autoloads)) "popup" ((popup popup-autoloads) (register-definition-prefixes "popup" '("popup-")) (provide 'popup-autoloads)) "helm" ((helm-eval helm-net helm-occur helm-for-files helm helm-help helm-font helm-elisp-package helm-easymenu helm-epa helm-grep helm-tags helm-mode helm-fd helm-external helm-command helm-types helm-shell helm-locate helm-x-files helm-man helm-adaptive helm-regexp \.dir-locals helm-global-bindings helm-semantic helm-sys helm-bookmark helm-color helm-buffers helm-dabbrev helm-id-utils helm-info helm-files helm-elisp helm-find helm-utils helm-imenu helm-misc helm-autoloads helm-config helm-ring helm-comint helm-eshell) (defvar helm-adaptive-mode nil "Non-nil if Helm-Adaptive mode is enabled.
+(fn SOURCES BUFFER)" nil nil) (register-definition-prefixes "helm-core" '("helm-" "with-helm-")) (register-definition-prefixes "helm-lib" '("helm-" "with-helm-")) (register-definition-prefixes "helm-multi-match" '("helm-m")) (register-definition-prefixes "helm-source" '("helm-")) (provide 'helm-core-autoloads)) "popup" ((popup popup-autoloads) (register-definition-prefixes "popup" '("popup-")) (provide 'popup-autoloads)) "helm" ((helm-grep helm-config helm-font helm-bookmark helm-adaptive helm-occur helm-easymenu helm-fd helm-eshell helm-buffers helm helm-tags helm-net helm-locate helm-utils helm-elisp helm-global-bindings helm-man helm-external helm-misc helm-ring helm-semantic helm-command helm-id-utils helm-x-files helm-autoloads helm-types helm-eval helm-help helm-epa helm-dabbrev helm-regexp helm-shell helm-info helm-elisp-package helm-imenu helm-sys helm-color helm-find helm-for-files helm-mode \.dir-locals helm-comint helm-files) (defvar helm-adaptive-mode nil "Non-nil if Helm-Adaptive mode is enabled.
 See the `helm-adaptive-mode' command
 for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `helm-adaptive-mode'.") (custom-autoload 'helm-adaptive-mode "helm-adaptive" nil) (autoload 'helm-adaptive-mode "helm-adaptive" "Toggle adaptive sorting in all sources.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Adaptive mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -666,7 +665,7 @@ Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `helm-epa-mode'.") (custom-autoload 'helm-epa-mode "helm-epa" nil) (autoload 'helm-epa-mode "helm-epa" "Enable helm completion on gpg keys in epa functions.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Epa mode' mode.  If the prefix argument is positive, enable
 the mode, and if it is zero or negative, disable the mode.
 
@@ -693,11 +692,7 @@ Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `helm-ff-icon-mode'.") (custom-autoload 'helm-ff-icon-mode "helm-files" nil) (autoload 'helm-ff-icon-mode "helm-files" "Display icons from `all-the-icons' package in HFF when enabled.
 
-NOTE: This mode is building `helm-source-find-files', so if you enable
-it from your init file, ensure to call it _after_ your defmethod's
-`helm-setup-user-source' definitions (if some) to ensure they are called.
-
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Ff-Icon mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -710,6 +705,10 @@ evaluate `(default-value \\='helm-ff-icon-mode)'.
 
 The mode's hook is called both when the mode is enabled and when
 it is disabled.
+
+NOTE: This mode is building `helm-source-find-files', so if you enable
+it from your init file, ensure to call it _after_ your defmethod's
+`helm-setup-user-source' definitions (if some) to ensure they are called.
 
 (fn &optional ARG)" t nil) (autoload 'helm-ff-cleanup-image-dired-dir-and-cache "helm-files" "Cleanup `image-dired-dir' directory.
 Delete all thumb files that are no more associated with an existing
@@ -738,13 +737,7 @@ Don't call it from programs, use `helm-find-files-1' instead.
 This is the starting point for nearly all actions you can do on
 files.
 
-(fn ARG)" t nil) (autoload 'helm-delete-tramp-connection "helm-files" "Allow deleting tramp connection or marked tramp connections at once.
-
-This replace `tramp-cleanup-connection' which is partially broken
-in Emacs < to 25.1.50.1 (See Emacs bug http://debbugs.gnu.org/cgi/bugreport.cgi?bug=24432).
-
-It allows additionally to delete more than one connection at
-once." t nil) (register-definition-prefixes "helm-files" '("eshell-command-aliases-list" "helm-")) (autoload 'helm-find "helm-find" "Preconfigured `helm' for the find shell command.
+(fn ARG)" t nil) (register-definition-prefixes "helm-files" '("eshell-command-aliases-list" "helm-")) (autoload 'helm-find "helm-find" "Preconfigured `helm' for the find shell command.
 
 Recursively find files whose names are matched by all specified
 globbing PATTERNs under the current directory using the external
@@ -811,7 +804,7 @@ With a prefix arg refresh the database in each project.
 
 (fn UPDATE)" t nil) (autoload 'helm-locate "helm-locate" "Preconfigured `helm' for Locate.
 Note: you can add locate options after entering pattern.
-See 'man locate' for valid options and also `helm-locate-command'.
+See \\='man locate' for valid options and also `helm-locate-command'.
 
 You can specify a local database with prefix argument ARG.
 With two prefix arg, refresh the current local db or create it if
@@ -831,10 +824,9 @@ for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `helm-minibuffer-history-mode'.") (custom-autoload 'helm-minibuffer-history-mode "helm-misc" nil) (autoload 'helm-minibuffer-history-mode "helm-misc" "Bind `helm-minibuffer-history-key' in al minibuffer maps.
-
 This mode is enabled by `helm-mode', so there is no need to enable it directly.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Minibuffer-History mode' mode.  If the prefix argument is
 positive, enable the mode, and if it is zero or negative, disable
 the mode.
@@ -991,7 +983,7 @@ Keys description:
 
 - BUFFER: `helm-buffer' name, defaults to \"*Helm Completions*\".
 
-- TEST: A predicate called with one arg 'candidate'.
+- TEST: A predicate called with one arg \\='candidate'.
 
 - NORET: Allow disabling helm-ff-RET (have no effect if helm-ff-RET
                                       isn't bound to RET).
@@ -1002,7 +994,7 @@ Keys description:
 
 - HISTORY: Display HISTORY in a special source.
 
-- MUST-MATCH: Can be 'confirm, nil, or t.
+- MUST-MATCH: Can be \\='confirm, nil, or t.
 
 - FUZZY: Enable fuzzy matching when non-nil (Enabled by default).
 
@@ -1119,7 +1111,7 @@ Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `helm-top-poll-mode'.") (custom-autoload 'helm-top-poll-mode "helm-sys" nil) (autoload 'helm-top-poll-mode "helm-sys" "Refresh automatically helm top buffer once enabled.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Top-Poll mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -1151,7 +1143,7 @@ Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `helm-popup-tip-mode'.") (custom-autoload 'helm-popup-tip-mode "helm-utils" nil) (autoload 'helm-popup-tip-mode "helm-utils" "Show help-echo informations in a popup tip at end of line.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Popup-Tip mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -1167,7 +1159,7 @@ it is disabled.
 
 (fn &optional ARG)" t nil) (register-definition-prefixes "helm-utils" '("helm-" "with-helm-display-marked-candidates")) (register-definition-prefixes "helm-x-files" '("helm-")) (provide 'helm-autoloads))))
 
-#s(hash-table size 65 test eq rehash-size 1.5 rehash-threshold 0.8125 data (org-elpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 11 "melpa" nil "gnu-elpa-mirror" nil "el-get" nil "emacsmirror-mirror" nil "straight" nil "helm" nil "helm-core" nil "async" nil "popup" nil)) melpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "gnu-elpa-mirror" nil "el-get" (el-get :type git :flavor melpa :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :host github :repo "dimitri/el-get") "emacsmirror-mirror" nil "straight" nil "helm" (helm :type git :flavor melpa :files ("*.el" "emacs-helm.sh" (:exclude "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core.el") "helm-pkg.el") :host github :repo "emacs-helm/helm") "helm-core" (helm-core :type git :flavor melpa :files ("helm-core.el" "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core-pkg.el") :host github :repo "emacs-helm/helm") "async" (async :type git :flavor melpa :host github :repo "jwiegley/emacs-async") "popup" (popup :type git :flavor melpa :files ("popup.el" "popup-pkg.el") :host github :repo "auto-complete/popup-el"))) gnu-elpa-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 3 "emacsmirror-mirror" nil "straight" nil)) el-get #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 1 "emacsmirror-mirror" nil "straight" nil)) emacsmirror-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "straight" (straight :type git :host github :repo "emacsmirror/straight")))))
+#s(hash-table size 65 test eq rehash-size 1.5 rehash-threshold 0.8125 data (org-elpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 13 "melpa" nil "gnu-elpa-mirror" nil "el-get" nil "emacsmirror-mirror" nil "straight" nil "helm" nil "helm-core" nil "async" nil "popup" nil)) melpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "gnu-elpa-mirror" nil "el-get" (el-get :type git :flavor melpa :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :host github :repo "dimitri/el-get") "emacsmirror-mirror" nil "straight" nil "helm" (helm :type git :flavor melpa :files ("*.el" "emacs-helm.sh" (:exclude "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core.el") "helm-pkg.el") :host github :repo "emacs-helm/helm") "helm-core" (helm-core :type git :flavor melpa :files ("helm-core.el" "helm-lib.el" "helm-source.el" "helm-multi-match.el" "helm-core-pkg.el") :host github :repo "emacs-helm/helm") "async" (async :type git :flavor melpa :host github :repo "jwiegley/emacs-async") "popup" (popup :type git :flavor melpa :host github :repo "auto-complete/popup-el"))) gnu-elpa-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 3 "emacsmirror-mirror" nil "straight" nil)) el-get #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "emacsmirror-mirror" nil "straight" nil)) emacsmirror-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "straight" (straight :type git :host github :repo "emacsmirror/straight")))))
 
 ("org-elpa" "melpa" "gnu-elpa-mirror" "el-get" "emacsmirror-mirror" "straight" "emacs" "helm" "helm-core" "async" "popup")
 
