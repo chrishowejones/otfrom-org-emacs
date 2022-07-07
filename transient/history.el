@@ -1,4 +1,5 @@
 ((forge-dispatch nil)
+ (kubernetes-file nil)
  (magit-am
   ("--3way")
   nil)
