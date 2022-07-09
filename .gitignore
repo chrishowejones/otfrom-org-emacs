@@ -32,3 +32,4 @@ projectile.cache
 /eclipse.jdt.ls
 .lsp-session*
 .cache/
+elncache/
