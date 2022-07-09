@@ -1900,6 +1900,15 @@ l
      ;; (global-set-key (kbd "C-#") 'evil-search-word-backward)
    #+END_SRC
 
+*** Org present
+
+    Org present mode for simple presentations when I don't want all
+    the fancy reveal stuff.
+
+    #+begin_src emacs-lisp
+      (maybe-install-and-require 'org-present)
+    #+end_src
+
 * Communication Modes
 
 ** twittering-mode
