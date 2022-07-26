@@ -281,7 +281,7 @@
 ** require final newline
 
    #+BEGIN_SRC emacs-lisp
-    (setq require-final-newline t)
+    (setq require-final-newline nil)
    #+END_SRC
 
 ** Load prefer newer
@@ -4083,8 +4083,8 @@ l
    Use pdf tools for pdf's
 
    #+BEGIN_SRC emacs-lisp
-    (add-to-list 'auto-mode-alist '("\\.pdf\\'" . doc-view-mode))
-    (add-hook 'doc-view-mode-hook #'pdf-tools-install)
+     (pdf-tools-install)
+     (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
    #+END_SRC
 * Notification Systems
 
@@ -4238,7 +4238,7 @@ l
    emacs-server.
 
    #+BEGIN_SRC emacs-lisp
-     (server-start)
+     ;; (server-start)
    #+END_SRC
 
 ** Finis

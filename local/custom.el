@@ -5,6 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#454545" "#d65946" "#6aaf50" "#baba36" "#598bc1" "#ab75c3" "#68a5e9" "#bdbdb3"])
+ '(auto-coding-alist
+   '(("\\.\\(arc\\|zip\\|lzh\\|lha\\|zoo\\|[jew]ar\\|xpi\\|rar\\|7z\\|squashfs\\|ARC\\|ZIP\\|LZH\\|LHA\\|ZOO\\|[JEW]AR\\|XPI\\|RAR\\|7Z\\|SQUASHFS\\)\\'" . no-conversion-multibyte)
+     ("\\.\\(exe\\|EXE\\)\\'" . no-conversion)
+     ("\\.\\(sx[dmicw]\\|odt\\|tar\\|t[bg]z\\)\\'" . no-conversion)
+     ("\\.\\(gz\\|Z\\|bz\\|bz2\\|xz\\|gpg\\)\\'" . no-conversion)
+     ("\\.\\(jpe?g\\|png\\|gif\\|tiff?\\|p[bpgn]m\\)\\'" . no-conversion)
+     ("/#[^/]+#\\'" . utf-8-emacs-unix)))
  '(background-color "#202020")
  '(background-mode dark)
  '(c-basic-offset 4)
