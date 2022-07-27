@@ -15,6 +15,6 @@
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8-emacs-unix
+;; coding: utf-8
 ;; End:
 ;;; popup-autoloads.el ends here

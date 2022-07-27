@@ -103,11 +103,10 @@ or call the function `async-bytecomp-package-mode'.")
 
 (autoload 'async-bytecomp-package-mode "async-bytecomp" "\
 Byte compile asynchronously packages installed with package.el.
-
 Async compilation of packages can be controlled by
 `async-bytecomp-allowed-packages'.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Async-Bytecomp-Package mode' mode.  If the prefix argument is
 positive, enable the mode, and if it is zero or negative, disable
 the mode.
@@ -151,7 +150,7 @@ or call the function `dired-async-mode'.")
 (autoload 'dired-async-mode "dired-async" "\
 Do dired actions asynchronously.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Dired-Async mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -204,6 +203,6 @@ Run ‘dired-do-rename’ asynchronously.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8-emacs-unix
+;; coding: utf-8
 ;; End:
 ;;; async-autoloads.el ends here

@@ -829,6 +829,15 @@
      (setq git-link-open-in-browser t)
     #+end_src
 
+*** Git timemachine
+
+    Git timemachine can be used to rewind and fast forward through
+    time for any file under Git version control.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'git-timemachine)
+    #+END_SRC
+
 ** avy-mode
 
    This is supposed to be a replacement for ace-jump-mode so thought
@@ -1148,6 +1157,19 @@ l
      (setq dashboard-projects-switch-function 'projectile-persp-switch-project)
      (setq dashboard-week-agenda t)
    #+END_SRC
+
+** Crux
+
+   Useful editing tools.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'crux)
+     (global-set-key (kbd "s-r") 'crux-recentf-find-file)
+     (global-set-key (kbd "C-c M-k") 'crux-kill-other-buffers)
+     (global-set-key (kbd "C-c P") 'crux-kill-buffer-truename)
+     (global-set-key (kbd "C-k") 'crux-smart-kill-line)
+     #+END_SRC
+
 
 * Text Modes
 
@@ -3631,60 +3653,62 @@ l
     Java and Scala support for lsp mode using the Eclipse JDT Language Server.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'lsp-mode)
-      (setq lsp-keymap-prefix "M-s-l")
-      (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
-      (setq gc-cons-threshold 1000000)
-      (setq read-process-output-max (* 1024 1024 2))
-;;      (setq lsp-completion-provider :capf)
-      (setq lsp-idle-delay 0.5)
-      (use-package lsp-mode
-          :hook ((java-mode . lsp)
-                 (scala-mode . lsp)
-                 ;; if you want which-key integration
-                 (lsp-mode . lsp-enable-which-key-integration)
-                 (lsp-mode . flycheck-mode)
-                 (lsp-mode . lsp-lens-mode)
-                 )
-          :config (setq lsp-prefer-flymake nil)
-                  (setq lsp-keep-workspace-alive nil)
-          :commands lsp)
-      (maybe-install-and-require 'lsp-ui)
-      (use-package lsp-java)
-      (add-hook 'java-mode 'lsp-mode)
+            (maybe-install-and-require 'lsp-mode)
+            (setq lsp-keymap-prefix "M-s-l")
+            (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
+            (setq gc-cons-threshold 1000000)
+            (setq read-process-output-max (* 1024 1024 2))
+      ;;      (setq lsp-completion-provider :capf)
+            (setq lsp-idle-delay 0.5)
+            (use-package lsp-mode
+                :hook ((java-mode . lsp)
+                       (scala-mode . lsp)
+                       ;; if you want which-key integration
+                       (lsp-mode . lsp-enable-which-key-integration)
+                       (lsp-mode . flycheck-mode)
+                       (lsp-mode . lsp-lens-mode)
+                       )
+                :config (setq lsp-prefer-flymake nil)
+                        (setq lsp-keep-workspace-alive nil)
+                :commands lsp)
+            (maybe-install-and-require 'lsp-ui)
+            (use-package lsp-java)
+            (add-hook 'java-mode 'lsp-mode)
 
-      ;; Use eclipse 2.1 formatting
-      (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
-      (setq lsp-java-format-settings-profile "myeclipse21formatter")
+            ;; Use eclipse 2.1 formatting
+            (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
+            (setq lsp-java-format-settings-profile "myeclipse21formatter")
 
-      ;; Don't watch files
-      (setq lsp-enable-file-watchers nil)
+            ;; Don't watch files
+            (setq lsp-enable-file-watchers nil)
 
-      ;; Add metals backend for lsp-mode scala
-      (maybe-install-and-require 'lsp-metals)
+            ;; Add metals backend for lsp-mode scala
+            (maybe-install-and-require 'lsp-metals)
 
-      ;; optionally
-      (use-package lsp-ui :commands lsp-ui-mode)
-      ;; if you are helm user
-      (use-package helm-lsp :commands helm-lsp-workspace-symbol)
-      ;; if you are ivy user
-      (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-      (use-package lsp-treemacs
-        :commands lsp-treemacs-errors-list
-        :config
-        (lsp-metals-treeview-mode t)
-        (setq lsp-metals-treeview-show-when-views-received t)
-      )
+            ;; optionally
+            (use-package lsp-ui :commands lsp-ui-mode)
+            ;; if you are helm user
+            (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+            ;; if you are ivy user
+            (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+            (use-package lsp-treemacs
+              :commands lsp-treemacs-errors-list
+              :config
+              (lsp-metals-treeview-mode t)
+              (setq lsp-metals-treeview-show-when-views-received t)
+            )
 
-      ;; add lombok to classpath for lsp
-      (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
-      (setq lsp-java-vmargs
-             `("-noverify"
-               "-Xmx1G"
-;;               "-XX:+UseG1GC"
-;;               "-XX:+UseStringDeduplication"
-               ,(concat "-javaagent:" path-to-lombok)
-               ,(concat "-Xbootclasspath/a:" path-to-lombok)))
+            ;; add lombok to classpath for lsp
+      ;;  (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
+
+          (setq lsp-java-vmargs
+                   `("-noverify"
+                     "-Xmx1G"
+      ;;               "-XX:+UseG1GC"
+      ;;               "-XX:+UseStringDeduplication"
+      ;;               ,(concat "-javaagent:" path-to-lombok)
+      ;;               ,(concat "-Xbootclasspath/a:" path-to-lombok)
+                     ))
     #+END_SRC
 
 *** DAP mode

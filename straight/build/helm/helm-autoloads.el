@@ -19,7 +19,7 @@ or call the function `helm-adaptive-mode'.")
 (autoload 'helm-adaptive-mode "helm-adaptive" "\
 Toggle adaptive sorting in all sources.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Adaptive mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -209,7 +209,7 @@ or call the function `helm-epa-mode'.")
 (autoload 'helm-epa-mode "helm-epa" "\
 Enable helm completion on gpg keys in epa functions.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Epa mode' mode.  If the prefix argument is positive, enable
 the mode, and if it is zero or negative, disable the mode.
 
@@ -306,11 +306,7 @@ or call the function `helm-ff-icon-mode'.")
 (autoload 'helm-ff-icon-mode "helm-files" "\
 Display icons from `all-the-icons' package in HFF when enabled.
 
-NOTE: This mode is building `helm-source-find-files', so if you enable
-it from your init file, ensure to call it _after_ your defmethod's
-`helm-setup-user-source' definitions (if some) to ensure they are called.
-
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Ff-Icon mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -323,6 +319,10 @@ evaluate `(default-value \\='helm-ff-icon-mode)'.
 
 The mode's hook is called both when the mode is enabled and when
 it is disabled.
+
+NOTE: This mode is building `helm-source-find-files', so if you enable
+it from your init file, ensure to call it _after_ your defmethod's
+`helm-setup-user-source' definitions (if some) to ensure they are called.
 
 \(fn &optional ARG)" t nil)
 
@@ -620,10 +620,9 @@ or call the function `helm-minibuffer-history-mode'.")
 
 (autoload 'helm-minibuffer-history-mode "helm-misc" "\
 Bind `helm-minibuffer-history-key' in al minibuffer maps.
-
 This mode is enabled by `helm-mode', so there is no need to enable it directly.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Minibuffer-History mode' mode.  If the prefix argument is
 positive, enable the mode, and if it is zero or negative, disable
 the mode.
@@ -1066,7 +1065,7 @@ or call the function `helm-top-poll-mode'.")
 (autoload 'helm-top-poll-mode "helm-sys" "\
 Refresh automatically helm top buffer once enabled.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Top-Poll mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -1139,7 +1138,7 @@ or call the function `helm-popup-tip-mode'.")
 (autoload 'helm-popup-tip-mode "helm-utils" "\
 Show help-echo informations in a popup tip at end of line.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Helm-Popup-Tip mode' mode.  If the prefix argument is positive,
 enable the mode, and if it is zero or negative, disable the mode.
 
@@ -1176,6 +1175,6 @@ it is disabled.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8-emacs-unix
+;; coding: utf-8
 ;; End:
 ;;; helm-autoloads.el ends here
