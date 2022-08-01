@@ -619,6 +619,13 @@
     (require 'all-the-icons))
    #+END_SRC
 
+** Beacon
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'beacon)
+     (beacon-mode 1)
+   #+END_SRC
+
 * Tool Configuration
 
 ** ediff
@@ -1150,6 +1157,15 @@ l
      (setq dashboard-week-agenda t)
    #+END_SRC
 
+
+** Perspective
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'perspective)
+     (customize-set-variable 'persp-mode-prefix-key (kbd "C-c M-p"))
+     (persp-mode)
+     (maybe-install-and-require 'persp-projectile)
+   #+END_SRC
 
 ** Crux
 

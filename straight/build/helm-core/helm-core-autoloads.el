@@ -6,9 +6,6 @@
 ;;;### (autoloads nil "helm-core" "helm-core.el" (0 0 0 0))
 ;;; Generated autoloads from helm-core.el
 
-(autoload 'helm-configuration "helm-core" "\
-Customize Helm." t nil)
-
 (autoload 'helm-define-multi-key "helm-core" "\
 In KEYMAP, define key sequence KEY for function list FUNCTIONS.
 Each function runs sequentially for each KEY press.
@@ -73,11 +70,16 @@ in MAP and then exit the loop running EXIT-FN, if specified.
 If DELAY an integer is specified exit after DELAY seconds.
 
 NOTE: SUBKEY and OTHER-SUBKEYS bindings support only char syntax
-and vectors, so don't use strings to define them.
+and vectors, so don't use strings to define them.  While defining
+or executing a kbd macro no SUBKEY or OTHER-SUBKEYS are provided,
+i.e. the loop is not entered after running COMMAND.
 
-\(fn MAP KEY SUBKEY COMMAND &optional OTHER-SUBKEYS PROMPT EXIT-FN DELAY)" nil nil)
+\(fn MAP KEY SUBKEY COMMAND &optional OTHER-SUBKEYS PROMPT EXIT-FN DELAY DOCSTRING)" nil nil)
 
 (function-put 'helm-define-key-with-subkeys 'lisp-indent-function '1)
+
+(autoload 'helm-configuration "helm-core" "\
+Customize Helm." t nil)
 
 (autoload 'helm-debug-open-last-log "helm-core" "\
 Open Helm log file or buffer of last Helm session." t nil)

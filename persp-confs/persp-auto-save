@@ -1,0 +1,10 @@
+;; -*- mode: emacs-lisp; eval: (progn (pp-buffer) (indent-buffer)) -*-
+((def-persp nil
+   ((def-buffer "config.org" "/Users/chris/emacs-config/org/config.org" org-mode)
+    (def-buffer "process.clj" "/Users/chris/hiba/lomond/src/lomond/card/enrolment/process.clj" clojure-mode)
+    (def-buffer "card.clj" "/Users/chris/hiba/lomond/src/lomond/company/card.clj" clojure-mode)
+    (def-buffer "service_wiring.clj" "/Users/chris/hiba/lomond/src/lomond/service_wiring.clj" clojure-mode)
+    (def-buffer "README.md" "/Users/chris/hi-gpg/README.md" gfm-mode))
+   (def-wconf nil)
+   (def-params nil)
+   t nil nil))
