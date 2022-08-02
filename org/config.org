@@ -842,6 +842,15 @@
      (setq git-link-open-in-browser t)
     #+end_src
 
+*** git-timemachine
+
+    Git timemachine is awesome. Allows you to step thru time for a
+    file under git vcs.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'git-timemachine)
+    #+END_SRC
+
 ** avy-mode
 
    This is supposed to be a replacement for ace-jump-mode so thought
@@ -3396,6 +3405,7 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'restclient)
+     (maybe-install-and-require 'restclient-jq)
    #+END_SRC
 
 ** HTTP org babel
