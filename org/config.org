@@ -666,6 +666,12 @@
       (interactive "r\nP"))
     (advice-add 'base64-encode-region :before #'base64-encode-region-prefix-arg)
    #+END_SRC
+
+** Restart emacs
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'restart-emacs)
+   #+END_SRC
 * directories, navigation, searching, movement
 ** dired
 
@@ -4047,6 +4053,12 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'csv-mode)
+   #+END_SRC
+
+** jq mode
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'jq-mode)
    #+END_SRC
 
 * Multimedia
