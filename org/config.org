@@ -516,9 +516,12 @@
      (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
    #+END_SRC
 
+   On a mac we have M-3 mapped to be the #
 ** window-number-super mode
 
-   On a mac we have M-3 mapped to be the #
+   Window number mode shows the number of the window in the
+   mini-buffer. Window number meta mode enables selecting a window by
+   using META-n where n is the windows number.
 
    #+BEGIN_SRC emacs-lisp
        (progn
