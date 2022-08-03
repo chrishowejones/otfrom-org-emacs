@@ -619,6 +619,14 @@
     (require 'all-the-icons))
    #+END_SRC
 
+** Beacon
+
+   Helps highlight where the cursor (point) is.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'beacon)
+     (beacon-mode 1)
+   #+END_SRC
 * Tool Configuration
 
 ** ediff
@@ -667,6 +675,17 @@
 
    #+BEGIN_SRC emacs-lisp
      (setq dired-listing-switches "-alh")
+   #+END_SRC
+** peep-dired
+
+   Use peep dired to preview in dired mode (peep)
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'peep-dired)
+     (setq peep-dired-cleanup-on-disable t)
+     (setq peep-dired-enable-on-directories nil)
+     (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4" "zip" "gz" "gpg" "tar"))
+     (define-key dired-mode-map (kbd "M-p") 'peep-dired)
    #+END_SRC
 
 ** dirtree
@@ -1011,6 +1030,7 @@ l
 
 *** close all buffers that don't belong to a projectile project
 
+
     #+BEGIN_SRC emacs-lisp
       (defun modi/kill-non-project-buffers (&optional kill-special)
         "Kill buffers that do not belong to a `projectile' project.
@@ -1029,6 +1049,16 @@ l
                     (message "Killing buffer %s" buf-name)
                     (kill-buffer buf))))))))
     #+END_SRC
+
+** perspective
+
+   Add perspective mode.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'perspective)
+     (customize-set-variable 'persp-mode-prefix-key (kbd "C-c M-p"))
+     (persp-mode)
+   #+END_SRC
 
 ** Ag, the silver searcher with helm
 
@@ -1169,8 +1199,6 @@ l
      (global-set-key (kbd "C-c P") 'crux-kill-buffer-truename)
      (global-set-key (kbd "C-k") 'crux-smart-kill-line)
      #+END_SRC
-
-
 * Text Modes
 
 ** Text Mode Basics
@@ -1292,7 +1320,7 @@ l
     still b0rken. Yet another reason to go over to linux.
 
     #+BEGIN_SRC emacs-lisp
-      (setq org-reveal-root "file::///home/chris/reveal.js/")
+      (setq org-reveal-root "file:///home/chris/reveal.js/js/reveal.js")
     #+END_SRC
 
 *** Scheduling, Project Management, Time Keeping
@@ -3392,6 +3420,7 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'restclient)
+     (maybe-install-and-require 'restclient-jq)
    #+END_SRC
 
 ** HTTP org babel
@@ -4053,6 +4082,18 @@ l
      (maybe-install-and-require 'csv-mode)
    #+END_SRC
 
+
+** jq mode
+
+   Mode to run jq queries
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'jq-mode)
+     (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
+     (with-eval-after-load "json-mode"
+      (define-key json-mode-map (kbd "C-c C-j") #'jq-interactively))
+   #+END_SRC
+
 * Multimedia
 
 ** emms to play music
@@ -4256,7 +4297,7 @@ l
    secure).
 
    #+BEGIN_SRC emacs-lisp
-     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
+;;     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
    #+END_SRC
 
 ** emacs-server

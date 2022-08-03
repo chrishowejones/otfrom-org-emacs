@@ -258,6 +258,10 @@ abort completely with `C-g'.
 
 ;;;***
 
+;;;### (autoloads nil nil ("crux-pkg.el") (0 0 0 0))
+
+;;;***
+
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
