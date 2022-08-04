@@ -6,6 +6,8 @@
   - [[#load-if-exists][load-if-exists]]
   - [[#install-try][Install Try]]
   - [[#install-straight-package-mgr][Install straight package mgr]]
+- [[#local-config][Local Config]]
+  - [[#customel][custom.el]]
 - [[#globals][Globals]]
   - [[#set-initial-framesize][Set initial framesize]]
   - [[#which-browser][Which browser]]
@@ -37,6 +39,7 @@
   - [[#disable-bell][Disable bell]]
   - [[#remap-transpose-sexps][Remap transpose sexps]]
   - [[#mute-dialog-for-safe-variables-list][Mute dialog for safe variables list]]
+  - [[#disable-pop-up-windows][Disable pop up windows]]
 - [[#non-elpa-and-work-arounds][non-elpa and work arounds]]
   - [[#non-elpa-files][non-elpa files]]
 - [[#macintosh-specific-setup][Macintosh Specific Setup]]
@@ -91,8 +94,8 @@
 - [[#text-modes][Text Modes]]
   - [[#text-mode-basics][Text Mode Basics]]
   - [[#org-mode][org-mode]]
-  - [[#html-sgml-xml][html, sgml, xml]]
   - [[#markdown][markdown]]
+  - [[#html-sgml-xml][html, sgml, xml]]
   - [[#adoc-mode-for-asciidoc][adoc mode for asciidoc]]
   - [[#evil-mode-for-my-vim-friends][evil mode for my vim friends]]
 - [[#communication-modes][Communication Modes]]
@@ -139,8 +142,6 @@
   - [[#pdf-tools][PDF tools]]
 - [[#notification-systems][Notification Systems]]
   - [[#the-great-eye-of-sauron][The great eye of Sauron]]
-- [[#local-config][Local Config]]
-  - [[#customel][custom.el]]
 - [[#utilities-and-general-keybindings][Utilities and General Keybindings]]
   - [[#join-line][join-line]]
   - [[#org-mind-map][Org mind map]]
@@ -201,6 +202,20 @@
         (eval-print-last-sexp)))
     (load bootstrap-file nil 'nomessage))
 #+end_src
+* Local Config
+
+** custom.el
+
+   custom.el is great for configuring things through that "gui" in
+   emacs, but it is a real pain when it drops junk in your [[../init.el][init.el]] and
+   messes up your pretty config and git history and is stuff that you
+   don't want to leak out on to github. You can change the location of
+   this file though and I like to do this.
+
+   #+BEGIN_SRC emacs-lisp
+     (setq custom-file (concat user-emacs-directory "local/custom.el"))
+     (load-if-exists custom-file)
+   #+END_SRC
 
 * Globals
 
@@ -474,6 +489,17 @@
     "Disables annoying dialog 'The local variables list in :x contains values that may not be safe"
     t)
    #+END_SRC
+
+** Disable pop up windows
+
+   Disable the pop up windows. Counter intuitively this should be non
+   nil for preventing a new window.
+
+   #+begin_src emacs-lisp
+     (setq pop-up-windows t)
+   #+end_src
+
+   #+RESULTS:
 
 * non-elpa and work arounds
 
@@ -832,8 +858,10 @@
    to have the file listings use human friendly numbers though.
 
    #+BEGIN_SRC emacs-lisp
+     (require 'dired)
      (setq dired-listing-switches "-alh")
    #+END_SRC
+
 ** peep-dired
 
    Use peep dired to preview in dired mode (peep)
@@ -843,6 +871,7 @@
      (setq peep-dired-cleanup-on-disable t)
      (setq peep-dired-enable-on-directories nil)
      (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4" "zip" "gz" "gpg" "tar"))
+     (define-key dired-mode-map (kbd "M-p") 'peep-dired)
    #+END_SRC
 
 ** dirtree
@@ -1909,6 +1938,18 @@ l
      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     #+END_SRC
 
+
+
+** markdown
+
+   I love org-mode, but lots of other systems use markdown, github
+   wiki pages being a very good example.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'markdown-mode)
+     (setq markdown-command "pandoc")
+   #+END_SRC
+
 *** toc org
 
     Generate a toc from a toc tag on saving.
@@ -1924,6 +1965,7 @@ l
             (define-key markdown-mode-map (kbd "\C-c\C-o") 'toc-org-markdown-follow-thing-at-point))
         (warn "toc-org not found"))
   #+END_SRC
+
 
 ** html, sgml, xml
 
@@ -2049,16 +2091,6 @@ l
        (add-hook 'css-mode-hook
                  (lambda () (local-set-key (kbd "s-h") 'helm-css-scss)))
      #+END_SRC
-
-** markdown
-
-   I love org-mode, but lots of other systems use markdown, github
-   wiki pages being a very good example.
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'markdown-mode)
-     (setq markdown-command "pandoc")
-   #+END_SRC
 
 *** Github Flavouring
 
@@ -4363,20 +4395,6 @@ l
 ;;      (setq sauron-prio-twittering-new-tweets 4)
     #+END_SRC
 
-* Local Config
-
-** custom.el
-
-   custom.el is great for configuring things through that "gui" in
-   emacs, but it is a real pain when it drops junk in your [[../init.el][init.el]] and
-   messes up your pretty config and git history and is stuff that you
-   don't want to leak out on to github. You can change the location of
-   this file though and I like to do this.
-
-   #+BEGIN_SRC emacs-lisp
-     (setq custom-file (concat user-emacs-directory "local/custom.el"))
-     (load-if-exists custom-file)
-   #+END_SRC
 
 * Utilities and General Keybindings
 

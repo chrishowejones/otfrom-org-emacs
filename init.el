@@ -11,7 +11,7 @@
 ;;(add-to-list 'load-path "/home/chris/benchmark-init-el/")
 ;;(require 'benchmark-init-loaddefs)
 ;;(benchmark-init/activate)
-
+(setq package-enable-at-startup t)
 (require 'package)
 
 ;;; Code:
@@ -23,6 +23,7 @@
 
 ;; This means we prefer things from ~/.emacs.d/elpa over the standard packages.
 (package-initialize)
+;;(package-activate-all)
 
 ;; This bootstraps us if we don't have anything
 (when (not package-archive-contents)
@@ -35,7 +36,7 @@
 ;; This installs elpa packages if we haven't done that yet
 (defun maybe-install-and-require (p)
   "Install elpa packages if not already installed.
-p (as P): package to be installed."
+   p (as P): package to be installed."
   (when (not (package-installed-p p))
     (package-install p))
   (require p))
