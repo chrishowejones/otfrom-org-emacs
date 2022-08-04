@@ -200,7 +200,6 @@
         (goto-char (point-max))
         (eval-print-last-sexp)))
     (load bootstrap-file nil 'nomessage))
-  (setq package-enable-at-startup nil)
 #+end_src
 
 * Globals
