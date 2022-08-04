@@ -1,159 +1,7 @@
 #+TITLE: My init as an org file
 #+PROPERTY: header-args :tangle config.el
-
-* TABLE OF CONTENTS :toc:
-- [[#helpers][Helpers]]
-  - [[#load-if-exists][load-if-exists]]
-  - [[#install-try][Install Try]]
-  - [[#install-straight-package-mgr][Install straight package mgr]]
-- [[#local-config][Local Config]]
-  - [[#customel][custom.el]]
-- [[#globals][Globals]]
-  - [[#set-initial-framesize][Set initial framesize]]
-  - [[#which-browser][Which browser]]
-  - [[#undo-tree][Undo tree]]
-  - [[#auto-indent-on-newline][Auto indent on newline]]
-  - [[#next-line-add-newlines][Next line add newlines]]
-  - [[#upcase-and-downcase-region][upcase and downcase region]]
-  - [[#narrowing-the-region-to-what-i-want-to-look-at][Narrowing the region to what I want to look at]]
-  - [[#diminish][diminish]]
-  - [[#tabs-are-evil][Tabs are Evil]]
-  - [[#uniquify][uniquify]]
-  - [[#multiple-cursors][Multiple Cursors]]
-  - [[#make-emacs-discoverable][Make emacs Discoverable]]
-  - [[#what-do-i-use][What do I use]]
-  - [[#add-usrbin-to-path][Add /usr/bin to path]]
-  - [[#add-exec-path-from-shell][Add exec path from shell]]
-  - [[#iy-go-to-char][iy-go-to-char]]
-  - [[#remap-m-i-to-back-to-indentation][Remap M-i to back-to-indentation]]
-  - [[#loccur-mode][loccur mode]]
-  - [[#tooltips-in-echo-area][Tooltips in echo area]]
-  - [[#y-and-n-prompts][Y and N prompts]]
-  - [[#time-in-status][Time in status]]
-  - [[#set-fundamental-mode-for-large-files][Set fundamental mode for large files]]
-  - [[#key-chord-mode][Key chord mode]]
-  - [[#use-hide-show-minor-mode-everywhere][Use hide show minor mode everywhere]]
-  - [[#require-final-newline][require final newline]]
-  - [[#load-prefer-newer][Load prefer newer]]
-  - [[#enable-eldoc-in-minibuffer][Enable eldoc in minibuffer]]
-  - [[#disable-bell][Disable bell]]
-  - [[#remap-transpose-sexps][Remap transpose sexps]]
-  - [[#mute-dialog-for-safe-variables-list][Mute dialog for safe variables list]]
-  - [[#disable-pop-up-windows][Disable pop up windows]]
-- [[#non-elpa-and-work-arounds][non-elpa and work arounds]]
-  - [[#non-elpa-files][non-elpa files]]
-- [[#macintosh-specific-setup][Macintosh Specific Setup]]
-  - [[#-is-broken-on-uk-macs][# is broken on UK Macs]]
-  - [[#window-number-super-mode][window-number-super mode]]
-  - [[#path-is-broken][$PATH is broken]]
-  - [[#ns-win-keys-that-i-want-to-die][ns-win keys that I want to die]]
-  - [[#command-key-as-meta][command key as meta]]
-- [[#make-it-pretty][Make it Pretty]]
-  - [[#color-themes][color themes]]
-  - [[#fonts][fonts]]
-  - [[#bars-menus-and-numbers][bars, menus and numbers]]
-  - [[#startup-screen][Startup Screen]]
-  - [[#alpha-alpha-alpha][alpha alpha alpha]]
-  - [[#golden-ratio][Golden ratio]]
-  - [[#emojis][emojis]]
-  - [[#all-the-icons][All the icons]]
-  - [[#beacon][Beacon]]
-- [[#tool-configuration][Tool Configuration]]
-  - [[#ediff][ediff]]
-  - [[#company][company]]
-  - [[#base64-add-prefix-command][Base64 (add prefix command)]]
-- [[#directories-navigation-searching-movement][directories, navigation, searching, movement]]
-  - [[#dired][dired]]
-  - [[#peep-dired][peep-dired]]
-  - [[#dirtree][dirtree]]
-  - [[#treemacs][Treemacs]]
-  - [[#helm-mode][helm-mode]]
-  - [[#ido][ido]]
-  - [[#git][git]]
-  - [[#avy-mode][avy-mode]]
-  - [[#registers][Registers]]
-  - [[#dumb-jump-mode][dumb-jump-mode]]
-  - [[#mouse-avoidance][Mouse Avoidance]]
-  - [[#window-and-buffer-tweaking][window and buffer tweaking]]
-  - [[#backup-directories][backup directories]]
-  - [[#ibuffer][ibuffer]]
-  - [[#projectile][projectile]]
-  - [[#perspective][perspective]]
-  - [[#ag-the-silver-searcher-with-helm][Ag, the silver searcher with helm]]
-  - [[#winnow][Winnow]]
-  - [[#guide-key][guide key]]
-  - [[#which-key][Which key]]
-  - [[#expand-region][expand region]]
-  - [[#jump-to-top-or-bottom-of-window][Jump to top or bottom of window]]
-  - [[#imenu][Imenu]]
-  - [[#swiper-helm][Swiper-Helm]]
-  - [[#recentf-mode][recentf mode]]
-  - [[#hydra][hydra]]
-  - [[#dashboard][Dashboard]]
-  - [[#crux][Crux]]
-- [[#text-modes][Text Modes]]
-  - [[#text-mode-basics][Text Mode Basics]]
-  - [[#org-mode][org-mode]]
-  - [[#markdown][markdown]]
-  - [[#html-sgml-xml][html, sgml, xml]]
-  - [[#adoc-mode-for-asciidoc][adoc mode for asciidoc]]
-  - [[#evil-mode-for-my-vim-friends][evil mode for my vim friends]]
-- [[#communication-modes][Communication Modes]]
-  - [[#twittering-mode][twittering-mode]]
-  - [[#tweet-button][Tweet Button]]
-  - [[#jabberel-for-gtalk-and-other-jabber-servers][jabber.el for gtalk and other jabber servers]]
-  - [[#irc-currently-with-erc][irc, currently with erc]]
-  - [[#email][email]]
-  - [[#web-browsing][Web Browsing]]
-  - [[#hailing-frequencies-or-comms][Hailing Frequencies or comms]]
-- [[#programming-modes][Programming Modes]]
-  - [[#shell][shell]]
-  - [[#prog-mode][prog-mode]]
-  - [[#lisp-modes][lisp modes]]
-  - [[#python][python]]
-  - [[#javascript][javascript]]
-  - [[#typescript][typescript]]
-  - [[#elasticsearch][elasticsearch]]
-  - [[#pastebins][pastebins]]
-  - [[#restclient][restclient]]
-  - [[#http-org-babel][HTTP org babel]]
-  - [[#haskell][Haskell]]
-  - [[#scala][Scala]]
-  - [[#java][Java]]
-  - [[#kotlin][Kotlin]]
-  - [[#graphql][GraphQL]]
-  - [[#gradle][Gradle]]
-  - [[#groovy][Groovy]]
-  - [[#docker][Docker]]
-  - [[#elixir][Elixir]]
-  - [[#kubernetes][Kubernetes]]
-  - [[#ruby][Ruby]]
-  - [[#terraform][Terraform]]
-  - [[#rust][Rust]]
-  - [[#golang][Golang]]
-  - [[#log-mode][Log mode]]
-  - [[#graphql-1][Graphql]]
-- [[#data-modes][Data Modes]]
-  - [[#csv-mode][csv-mode]]
-  - [[#jq-mode][jq mode]]
-- [[#multimedia][Multimedia]]
-  - [[#emms-to-play-music][emms to play music]]
-  - [[#image-mode][Image+ mode]]
-  - [[#pdf-tools][PDF tools]]
-- [[#notification-systems][Notification Systems]]
-  - [[#the-great-eye-of-sauron][The great eye of Sauron]]
-- [[#utilities-and-general-keybindings][Utilities and General Keybindings]]
-  - [[#join-line][join-line]]
-  - [[#org-mind-map][Org mind map]]
-  - [[#ox-freemind][Ox Freemind]]
-- [[#misc][Misc]]
-  - [[#clojure-cookbook-next-recipe][clojure cookbook next recipe]]
-  - [[#typing-tutor][Typing tutor]]
-- [[#finishing][Finishing]]
-  - [[#general-cleanup][General Cleanup]]
-  - [[#passwords-and-encrypted-things][passwords and encrypted things]]
-  - [[#emacs-server][emacs-server]]
-  - [[#finis][Finis]]
+#+OPTIONS: toc:2
+#+EXPORT_FILE_NAME: ~/Documents/emacs-config
 
 * Helpers
 
@@ -521,7 +369,7 @@
 
 * Macintosh Specific Setup
 
-** # is broken on UK Macs
+** Hash sign is broken on UK Macs
 
    On UK keyboards shift-3 is bound to £. This is a real pain. The #
    character is usually bound to M-3. This also causes problems,
@@ -924,15 +772,6 @@
    #+END_SRC
 
 ** ido
-
-*** ido fix mode
-
-    Seen this recommended by Bug in Projectile docs and anything good
-    enough for him is good enough for me.
-
-    #+BEGIN_SRC
-      (maybe-install-and-require 'fix-ido)
-    #+END_SRC
 
 *** ido flex matching
 
@@ -1937,6 +1776,7 @@ l
      (maybe-install-and-require 'org-bullets)
      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     #+END_SRC
+
 
 
 

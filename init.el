@@ -11,7 +11,6 @@
 ;;(add-to-list 'load-path "/home/chris/benchmark-init-el/")
 ;;(require 'benchmark-init-loaddefs)
 ;;(benchmark-init/activate)
-(setq package-enable-at-startup t)
 (require 'package)
 
 ;;; Code:
