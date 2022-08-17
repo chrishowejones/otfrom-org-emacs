@@ -1175,7 +1175,7 @@ l
 ** Swiper-Helm
 
    I'm going to use Swiper Helm for search for a bit but I'm not sure
-   about suing ivy-mode completion and counsel as I'm kind of
+   about using ivy-mode completion and counsel as I'm kind of
    comfortable with helm and company-mode for now.
 
    #+BEGIN_SRC emacs-lisp
@@ -1212,6 +1212,22 @@ l
                              (registers . 5)))
      (setq dashboard-projects-switch-function 'projectile-persp-switch-project)
      (setq dashboard-week-agenda t)
+     (setq dashboard-set-heading-icons t)
+     (setq dashboard-set-file-icons t)
+     (setq dashboard-set-navigator t)
+     ;; Format: "(icon title help action face prefix suffix)"
+     (setq dashboard-navigator-buttons
+      `(;; line1
+        ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
+         "GitHub Homepage"
+         "Browse GH Homepage"
+         (lambda (&rest _) (browse-url "https://github.com/chrishowejones")))
+        ("?" "" "?/h" #'show-help nil "<" ">"))
+         ;; line 2
+        ((,(all-the-icons-faicon "linkedin" :height 1.1 :v-adjust 0.0)
+          "Linkedin"
+          ""
+          (lambda (&rest _) (browse-url "https://www.linkedin.com/in/chrishowejones/"))))))
    #+END_SRC
 
 ** Crux
