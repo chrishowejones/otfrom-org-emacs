@@ -2863,7 +2863,7 @@ l
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'clojure-mode-hook lisp-hooks)
-        (setq clojure-toplevel-inside-comment-form t)
+        ;;(setq clojure-toplevel-inside-comment-form t)
       #+END_SRC
 
 ***** cider-mode-hooks
@@ -3953,8 +3953,9 @@ l
 *** Rust mode
 
     #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'rust-mode)
-     (add-hook 'rust-mode-hook 'my-paredit-nonlisp)
+      (maybe-install-and-require 'rust-mode)
+      (add-hook 'rust-mode-hook 'my-paredit-nonlisp)
+      (add-hook 'rust-mode-hook #'lsp)
     #+END_SRC
 
 *** Flymake
@@ -3963,13 +3964,6 @@ l
       ;; (maybe-install-and-require 'flymake-rust)
       ;; (with-eval-after-load 'rust-mode
       ;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-    #+END_SRC
-
-*** Racer
-
-    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'racer)
-     (add-hook 'rust-mode-hook 'racer-mode)
     #+END_SRC
 
 *** Cargo
