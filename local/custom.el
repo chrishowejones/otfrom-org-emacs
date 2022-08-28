@@ -57,8 +57,8 @@
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(omnisharp-server-executable-path
    "/home/chris/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
- '(org-agenda-files '("/home/chris/Documents/todo.org"))
- '(org-hide-emphasis-markers nil)
+ '(org-agenda-files '("/home/chris/org/refile.org" "/home/chris/org/notes.org"))
+ '(org-hide-emphasis-markers t)
  '(org-reveal-keyboard t)
  '(org-reveal-root "file:///home/chris/reveal.js/")
  '(package-enable-at-startup t)
@@ -151,4 +151,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-1 ((t (:foreground "#4ec9b0" :weight normal :height 1.1 :family "Latin")))))

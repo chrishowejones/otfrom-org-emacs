@@ -35,3 +35,4 @@ projectile.cache
 eln-cache/*
 recentf
 straight/repos
+straight/build-cache.el

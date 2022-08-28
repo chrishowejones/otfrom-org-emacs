@@ -2,6 +2,7 @@
 #+PROPERTY: header-args :tangle config.el
 #+OPTIONS: toc:2
 #+EXPORT_FILE_NAME: ~/Documents/emacs-config
+#+auto_tangle: t
 
 * Helpers
 
@@ -647,8 +648,8 @@
 ** All the icons
 
    #+BEGIN_SRC emacs-lisp
-   (when (display-graphic-p)
-    (require 'all-the-icons))
+     (package-install 'all-the-icons)
+     (require 'all-the-icons)
    #+END_SRC
 
 ** Beacon
@@ -681,7 +682,14 @@
      (maybe-install-and-require 'company)
      (add-hook 'after-init-hook 'global-company-mode)
      (diminish 'company-mode "CA")
-     (global-set-key (kbd "M-TAB") 'company-complete)
+     (global-set-key (kbd "C-M-i") 'company-complete)
+     (setq company-tooltip-flip-when-above t)
+     (setq company-minimum-prefix-length 2)               ; WARNING, probably you will get perfomance issue if min len is 0!
+     (setq company-tooltip-limit 20)                      ; bigger popup window
+     (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+     (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+     (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+     (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
    #+END_SRC
 
 *** Company-quickhelp
@@ -1251,8 +1259,9 @@ l
      (maybe-install-and-require 'flyspell)
      (add-hook 'text-mode-hook
                (lambda ()
-                       ;; (flyspell-mode 1)
-                       ;; (diminish 'flyspell-mode)
+                       (flyspell-mode 1)
+                       (diminish 'flyspell-mode)
+                       (setq fill-column 120)
                        (auto-fill-mode 1)
                        (diminish 'auto-fill-function)))
    #+END_SRC
@@ -1270,16 +1279,46 @@ l
 
 ** org-mode
 
-   I also use org-mode on its own and would like to use it more. I
-   used to be a complete planner-mode addict. I've never really
-   gotten into org-mode in the same way. Having a way to sync to
-   trello and link to my email, magit and everything else keeps
-   making me want to try though.
+   I also use org-mode on its own and would like to use it more. I used to be a complete planner-mode addict. I've never
+   really gotten into org-mode in the same way. Having a way to sync to trello and link to my email, magit and
+   everything else keeps making me want to try though.
 
 *** Single space sentences
 
     #+BEGIN_SRC emacs-lisp
      (setq sentence-end-double-space nil)
+    #+END_SRC
+
+
+*** Adapt indentation
+
+    Adapt indentation to outline node level.
+
+    #+BEGIN_SRC emacs-lisp
+      (setq org-adapt-indentation t)
+    #+END_SRC
+
+*** Hide emphasis markers
+
+    This hides the markup markers for bold, italic, etc.
+
+    #+BEGIN_SRC emacs-lisp
+      (setq org-hide-emphasis-markers t)
+    #+END_SRC
+
+
+*** Scale heading fonts
+
+    #+BEGIN_SRC emacs-lisp
+        (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+          (set-face-attribute (car face) nil :weight 'regular :height(cdr face)))
     #+END_SRC
 
 *** fontify
@@ -1387,6 +1426,7 @@ l
      I'd like to be prompted for a note as well.
 
      #+BEGIN_SRC emacs-lisp
+        (setq org-agenda-start-with-log-mode t)
         (setq org-log-done 'note)
      #+END_SRC
 
@@ -1426,15 +1466,9 @@ l
       where to file it yet which is why refile is in here.
 
       #+BEGIN_SRC emacs-lisp
-        ;; (setq org-agenda-files
-        ;;       '("~/org/refile.org"
-        ;;         "~/org/work/world-domination.org"
-        ;;         "~/org/work.org"
-        ;;         "~/org/community.org"
-        ;;         "~/org/personal.org"
-        ;;         "~/org/mc-cal.org"
-        ;;         "~/org/otfrom-cal.org"
-        ;;         "~/org/ldnclj-cal.org"))
+        (setq org-agenda-files
+              '("~/org/refile.org"
+                "~/org/notes.org"))
       #+END_SRC
 
 ***** Agenda Sorting
@@ -1659,7 +1693,7 @@ l
      them. I can refile them later.
 
      #+BEGIN_SRC emacs-lisp
-       (setq org-default-notes-file (concat org-directory "/refile.org"))
+       (setq org-default-notes-file (concat org-directory "/notes.org"))
      #+END_SRC
 
 **** Capture Hot Key
@@ -1793,9 +1827,15 @@ l
      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     #+END_SRC
 
+*** Org auto tangle
 
+   Automatically tangle org files to create any source file from the
+   org file. Need to add org header ##+auto_tangle: t' to activate this.
 
-
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'org-auto-tangle)
+     (add-hook 'org-mode-hook 'org-auto-tangle-mode)
+   #+END_SRC
 ** markdown
 
    I love org-mode, but lots of other systems use markdown, github
@@ -2495,13 +2535,13 @@ l
      I want to use org-contacts rather than bbdb.
 
      #+BEGIN_SRC emacs-lisp
-;;       (require 'org-contacts)
-;;       (setq org-contacts-files (quote ("~/org/contacts.org")))
-;;       (setq mu4e-org-contacts-file  "~/org/contacts.org")
-;;       (add-to-list 'mu4e-headers-actions
-;;                    '("org-contact-add" . mu4e-action-add-org-contact) t)
-;;       (add-to-list 'mu4e-view-actions
-;;                    '("org-contact-add" . mu4e-action-add-org-contact) t)
+       (maybe-install-and-require 'org-contacts)
+       (setq org-contacts-files (quote ("~/org/contacts.org")))
+       (setq mu4e-org-contacts-file  "~/org/contacts.org")
+       ;;       (add-to-list 'mu4e-headers-actions
+       ;;                    '("org-contact-add" . mu4e-action-add-org-contact) t)
+       ;;       (add-to-list 'mu4e-view-actions
+       ;;                    '("org-contact-add" . mu4e-action-add-org-contact) t)
      #+END_SRC
 
 **** And a hot key
@@ -2968,24 +3008,6 @@ l
         (add-hook 'cider-mode-hook 'subword-mode)
       #+END_SRC
 
-***** autocomplete
-
-      Popup autocomplete always looks cool and it helps sometimes too.
-
-      We used to have ac-nrepl here, but company is the supported
-      thing in cider now and we've loaded that above.
-
-      #+BEGIN_SRC emacs-lisp
-        (setq company-tooltip-flip-when-above t)
-        (setq company-minimum-prefix-length 2)               ; WARNING, probably you will get perfomance issue if min len is 0!
-        (setq company-tooltip-limit 20)                      ; bigger popup window
-        (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
-        (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
-        (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-        (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
-        (global-set-key (kbd "M-TAB") 'company-complete)
-      #+END_SRC
-
 ***** compojure indentation rules
 
       A number of things in compojure don't really indent
@@ -3228,40 +3250,43 @@ l
      of CIDER.
 
      #+BEGIN_SRC emacs-lisp
-      (use-package lsp-mode
-        :ensure t
-        :hook ((clojure-mode . lsp)
-               (clojurec-mode . lsp)
-               (clojurescript-mode . lsp))
-        :config
-        ;; add paths to your local installation of project mgmt tools, like lein
-        (setenv "PATH" (concat
-                         "/usr/local/bin" path-separator
-                         (getenv "PATH")))
-        (dolist (m '(clojure-mode
-                     clojurec-mode
-                     clojurescript-mode
-                     clojurex-mode))
-           (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
-        (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))) ;; Optional: In case `clojure-lsp` is not in your PATH
+       (use-package lsp-mode
+         :ensure t
+         :hook ((clojure-mode . lsp)
+                (clojurec-mode . lsp)
+                (clojurescript-mode . lsp))
+         :config
+         ;; add paths to your local installation of project mgmt tools, like lein
+         (setenv "PATH" (concat
+                          "/usr/local/bin" path-separator
+                          (getenv "PATH")))
+         (dolist (m '(clojure-mode
+                      clojurec-mode
+                      clojurescript-mode
+                      clojurex-mode))
+            (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+         (setq lsp-keymap-prefix "M-s-l")
+         (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
+         (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))) ;; Optional: In case `clojure-lsp` is not in your PATH
 
-        (use-package lsp-ui
-          :ensure t
-          :commands lsp-ui-mode)
+         (use-package lsp-ui
+           :ensure t
+           :commands lsp-ui-mode)
 
-        (use-package company-lsp
-          :ensure t
-          :commands company-lsp)
-      (setq gc-cons-threshold (* 100 1024 1024)
-            read-process-output-max (* 1024 1024)
-            treemacs-space-between-root-nodes nil
-            lsp-lens-enable t
-            lsp-ui-doc-enable nil
-            lsp-signature-auto-activate nil
-            lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
-            lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
-            )
+         (use-package company-lsp
+           :ensure t
+           :commands company-lsp)
+       (setq gc-cons-threshold (* 100 1024 1024)
+             read-process-output-max (* 1024 1024)
+             treemacs-space-between-root-nodes nil
+             lsp-lens-enable t
+             lsp-ui-doc-enable nil
+             lsp-signature-auto-activate nil
+             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
+             lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
+             )
      #+END_SRC
+
 ** python
 
    #+BEGIN_SRC emacs-lisp
@@ -3475,6 +3500,19 @@ l
       (maybe-install-and-require 'refheap)
     #+END_SRC
 
+** jq mode
+
+   Mode to run jq queries
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'jq-mode)
+     (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
+     (with-eval-after-load "json-mode"
+      (define-key json-mode-map (kbd "C-c C-j") #'jq-interactively))
+     (with-eval-after-load "restclient-mode"
+      (define-key restclient-mode-map (kbd "C-c C-j") #'jq-interactively))
+   #+END_SRC
+
 ** restclient
 
    Added in rest client to allow for manual testing of restful client.
@@ -3482,6 +3520,7 @@ l
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'restclient)
      (maybe-install-and-require 'restclient-jq)
+     (add-hook 'restclient #'restclient-jq)
    #+END_SRC
 
 ** HTTP org babel
@@ -3743,12 +3782,8 @@ l
     Java and Scala support for lsp mode using the Eclipse JDT Language Server.
 
     #+BEGIN_SRC emacs-lisp
-            (maybe-install-and-require 'lsp-mode)
-            (setq lsp-keymap-prefix "M-s-l")
-            (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
             (setq gc-cons-threshold 1000000)
             (setq read-process-output-max (* 1024 1024 2))
-      ;;      (setq lsp-completion-provider :capf)
             (setq lsp-idle-delay 0.5)
             (use-package lsp-mode
                 :hook ((java-mode . lsp)
@@ -4143,18 +4178,6 @@ l
      (maybe-install-and-require 'csv-mode)
    #+END_SRC
 
-
-** jq mode
-
-   Mode to run jq queries
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'jq-mode)
-     (add-to-list 'auto-mode-alist '("\\.jq$" . jq-mode))
-     (with-eval-after-load "json-mode"
-      (define-key json-mode-map (kbd "C-c C-j") #'jq-interactively))
-   #+END_SRC
-
 * Multimedia
 
 ** emms to play music
@@ -4251,7 +4274,6 @@ l
 ;;      (setq sauron-prio-twittering-new-tweets 4)
     #+END_SRC
 
-
 * Utilities and General Keybindings
 
 ** join-line
@@ -4346,6 +4368,7 @@ l
    #+BEGIN_SRC emacs-lisp
 ;;     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
    #+END_SRC
+
 
 ** emacs-server
 
