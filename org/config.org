@@ -741,7 +741,7 @@
 ** Treemacs
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'treemacs)
+     (use-package treemacs)
      (use-package treemacs-magit
        :after treemacs magit
        :ensure t)
@@ -754,8 +754,6 @@
        :ensure t
        :config (treemacs-icons-dired-mode))
    #+END_SRC
-
-
 
 ** helm-mode
 

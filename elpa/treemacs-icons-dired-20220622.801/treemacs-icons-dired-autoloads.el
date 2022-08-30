@@ -23,7 +23,7 @@ or call the function `treemacs-icons-dired-mode'.")
 (autoload 'treemacs-icons-dired-mode "treemacs-icons-dired" "\
 Display treemacs icons for each file in a Dired buffer.
 
-This is a global minor mode.  If called interactively, toggle the
+This is a minor mode.  If called interactively, toggle the
 `Treemacs-Icons-Dired mode' mode.  If the prefix argument is
 positive, enable the mode, and if it is zero or negative, disable
 the mode.
@@ -55,6 +55,6 @@ This function is meant to be used as a single-use toggle added to
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8-emacs-unix
+;; coding: utf-8
 ;; End:
 ;;; treemacs-icons-dired-autoloads.el ends here

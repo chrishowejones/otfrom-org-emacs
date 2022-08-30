@@ -25,6 +25,6 @@ the project's root directory.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8-emacs-unix
+;; coding: utf-8
 ;; End:
 ;;; treemacs-projectile-autoloads.el ends here
