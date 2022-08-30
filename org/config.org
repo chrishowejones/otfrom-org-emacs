@@ -61,8 +61,7 @@
    Things in browse-url land seem a bit flaky atm.
 
    #+BEGIN_SRC emacs-lisp
-     (setq browse-url-browser-function 'browse-url-generic
-           browse-url-generic-program "google-chrome")
+     (setq browse-url-browser-function 'browse-url-default-macosx-browser)
    #+END_SRC
 
 ** Undo tree
@@ -839,7 +838,7 @@
     #+begin_src emacs-lisp
      (maybe-install-and-require 'git-link)
      (global-set-key (kbd "C-c g l") 'git-link)
-     (setq git-link-open-in-browser t)
+     (setq git-link-open-in-browser nil)
     #+end_src
 
 *** git-timemachine
@@ -1234,6 +1233,13 @@ l
      (setq sentence-end-double-space nil)
     #+END_SRC
 
+*** Use Org indent mode in Org files
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook
+    (lambda () (org-indent-mode t)))
+#+END_SRC
+
 *** fontify
 
     This is all written in org-mode. It would be good if the source
@@ -1378,15 +1384,9 @@ l
       where to file it yet which is why refile is in here.
 
       #+BEGIN_SRC emacs-lisp
-        ;; (setq org-agenda-files
-        ;;       '("~/org/refile.org"
-        ;;         "~/org/work/world-domination.org"
-        ;;         "~/org/work.org"
-        ;;         "~/org/community.org"
-        ;;         "~/org/personal.org"
-        ;;         "~/org/mc-cal.org"
-        ;;         "~/org/otfrom-cal.org"
-        ;;         "~/org/ldnclj-cal.org"))
+       (setq org-agenda-files
+             '("~/org/refile.org"
+               "~/org/notes.org"))
       #+END_SRC
 
 ***** Agenda Sorting
@@ -1643,7 +1643,7 @@ l
                ("r" "respond" entry (file+datetree org-default-notes-file)
                 "* TODO Respond to %:from on %:subject\nSCHEDULED: %t\n%^{Owner}p\n%U\n%a\n"
                 :clock-in t :clock-resume t :empty-lines-after 1)
-               ("n" "note" entry (file+datetree org-default-notes-file)
+               ("n" "note" entry (file "~/org/notes.org")
                 "* %? :NOTE:\n%U\n%a\n" :clock-resume t :empty-lines-after 1)
                ("j" "Journal" entry (file+datetree org-default-notes-file)
                 "* %?\n%U\n" :clock-in t :clock-resume t :empty-lines-after 1 :empty-lines-after 1)
@@ -2243,9 +2243,9 @@ l
     files in /usr/local/share/emacs/site-lisp/mu4e/.
 
     #+BEGIN_SRC emacs-lisp
- ;;   (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
- ;;   (require 'mu4e)
- ;;   (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
+      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+      ;;   (require 'mu4e)
+      ;;   (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -2863,7 +2863,7 @@ l
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'clojure-mode-hook lisp-hooks)
-        ;;(setq clojure-toplevel-inside-comment-form t)
+        (setq clojure-toplevel-inside-comment-form nil)
       #+END_SRC
 
 ***** cider-mode-hooks

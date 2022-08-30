@@ -23,7 +23,7 @@
  '(cljr-libspec-whitelist
    '("^cljsns" "^slingshot.test" "^monger.joda-time" "^monger.json" "^clj-time.jdbc"))
  '(clojure-indent-style :always-align)
- '(clojure-toplevel-inside-comment-form t)
+ '(clojure-toplevel-inside-comment-form nil)
  '(company-backends
    '(company-meghanada company-emacs-eclim company-tern company-bbdb company-css company-semantic company-clang company-xcode company-cmake company-capf company-files
                        (company-dabbrev-code company-gtags company-etags company-keywords)
@@ -62,7 +62,7 @@
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(omnisharp-server-executable-path
    "/home/chris/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
- '(org-agenda-files nil)
+ '(org-agenda-files '("/Users/chris/org/refile.org"))
  '(org-hide-emphasis-markers nil)
  '(org-reveal-keyboard t)
  '(package-hidden-regexps '("\\`fontsloth\\'"))
@@ -70,6 +70,7 @@
    '(xwwp-follow-link-helm ob-dsq org-tempo all-the-icons dashboard git-link magithub helm-cider cider-hydra forge ob-http ob-graphql graphql logview cljr-helm clj-refactor company-go go-mode scala-mode pdf-tools pdfview pdf-view company-lsp org-re-reveal ox-reveal lsp-ui lsp-java lsp-metals lsp-magit use-package dap-java dap-mode company-web company-web-html treemacs-icons-dired treemacs-magit treemacs-projectile treemacs neotree rjsx-mode typescript-mode pug-mode helm-gtags xref-js2 js-format flycheck-clj-kondo cargo-mode cargo-minor-mode racer magit-gh-pulls flycheck-rust cargo rust-mode speed-type github-review company-quickhelp company-terraform winnow helm-rg robe prettier-js flycheck-joker emojify magit-todos cider kubernetes floobits slime-clj company-inf-ruby ruby-test-mode inf-ruby inf-ruby-minor-mode seeing-is-believing rvm ruby-electric alchemist elixir-mode lsp-intellij indium gruvbox-theme flatui-theme evil-mode evil github-theme nimbus-theme company-tern docker-mode groovy-mode gradle-mode graphql-mode ob-kotlin flycheck-kotlin kotlin-mode company-emacs-eclim swiper-helm image+ ox-freemind org-mind-map og-mind-map eclimd org-bullets undo-tree eclim zenburn-theme try ace-window palimpsest palimpsest-mode key-chord keychord org org-plus-contrib flycheck-cask-setup 4clojure java-snippets intero meghanada xml-rpc stylish-haskell emms-info-mediainfo emms-state helm-emms monokai-theme omnisharp csharp-mode window-number websocket web w3m tle tagedit sotlisp solarized-theme smartscan smartparens skewer-mode scala-mode2 sauron restclient refheap redtick rainbow-mode rainbow-delimiters python-mode pkgbuild-mode org-pomodoro org-magit org-gcal org-ehtml noctilux-theme markdown-mode loccur keyfreq jedi jabber iy-go-to-char iedit htmlize hindent highlight-symbol helm-projectile helm-orgcard helm-flyspell helm-css-scss helm-ag haskell-mode guide-key grandshell-theme golden-ratio gnus-alias github-browse-file git-messenger git-gutter-fringe+ gist flycheck-pos-tip flatland-black-theme fakir expand-region exec-path-from-shell es-mode emms elpy elm-mode edit-server dumb-jump dockerfile-mode docker discover dirtree diminish db dash-functional cyberpunk-theme csv-mode css-eldoc creole color-identifiers-mode clojure-mode-extra-font-locking cljsbuild-mode buffer-move bash-completion avy align-cljlet ag adoc-mode ace-jump-mode ac-helm))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(python-shell-interpreter "/home/chris/anaconda3/bin/ipython")
+ '(require-final-newline 'ask)
  '(safe-local-variable-values
    '((cljr-injected-middleware-version . "3.0.0-alpha11")
      (eval define-clojure-indent
