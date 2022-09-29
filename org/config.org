@@ -1,6 +1,6 @@
 #+TITLE: My init as an org file
 #+PROPERTY: header-args :tangle config.el
-#+OPTIONS: toc:2
+#+OPTIONS: toc:nil
 #+EXPORT_FILE_NAME: ~/Documents/emacs-config
 #+auto_tangle: t
 
@@ -1135,8 +1135,8 @@ l
    Try which key instead of guide key
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'which-key)
-    (which-key-mode)
+     (maybe-install-and-require 'which-key)
+     (which-key-mode)
    #+END_SRC
 
 ** expand region
@@ -3266,49 +3266,6 @@ l
               (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
      #+END_SRC
 
-**** clojure-lsp
-
-     Trying clojure-lsp to see what static analysis can give me on top
-     of CIDER.
-
-     #+BEGIN_SRC emacs-lisp
-       (use-package lsp-mode
-         :ensure t
-         :hook ((clojure-mode . lsp)
-                (clojurec-mode . lsp)
-                (clojurescript-mode . lsp))
-         :config
-         ;; add paths to your local installation of project mgmt tools, like lein
-         (setenv "PATH" (concat
-                          "/usr/local/bin" path-separator
-                          (getenv "PATH")))
-         (dolist (m '(clojure-mode
-                      clojurec-mode
-                      clojurescript-mode
-                      clojurex-mode))
-            (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
-         (setq lsp-keymap-prefix "M-s-l")
-         (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
-         (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))) ;; Optional: In case `clojure-lsp` is not in your PATH
-
-         (use-package lsp-ui
-           :ensure t
-           :commands lsp-ui-mode)
-
-         (use-package company-lsp
-           :ensure t
-           :commands company-lsp)
-       (setq gc-cons-threshold (* 100 1024 1024)
-             read-process-output-max (* 1024 1024)
-             treemacs-space-between-root-nodes nil
-             lsp-lens-enable t
-             lsp-ui-doc-enable nil
-             lsp-signature-auto-activate nil
-             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
-             lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
-             )
-     #+END_SRC
-
 ** python
 
    #+BEGIN_SRC emacs-lisp
@@ -3373,6 +3330,13 @@ l
        (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
     #+END_SRC
 
+*** Tern
+
+    #+BEGIN_SRC emacs-lisp
+      (add-to-list 'load-path "~/tern/emacs/")
+      (autoload 'tern-mode "tern.el" nil t)
+    #+END_SRC
+
 *** company-tern
 
     #+BEGIN_SRC emacs-lisp
@@ -3432,6 +3396,23 @@ l
       (maybe-install-and-require 'pug-mode)
       (add-hook 'pug-mode-hook 'my-paredit-nonlisp)
     #+END_SRC
+
+*** Node.js Repl
+
+    Try this to give me a node repl.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'nodejs-repl)
+      (add-hook 'js-mode-hook
+          (lambda ()
+            (define-key js-mode-map (kbd "C-c C-e") 'nodejs-repl-send-last-expression)
+            (define-key js-mode-map (kbd "C-c C-j") 'nodejs-repl-send-line)
+            (define-key js-mode-map (kbd "C-c C-r") 'nodejs-repl-send-region)
+            (define-key js-mode-map (kbd "C-c C-k") 'nodejs-repl-send-buffer)
+            (define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+            (define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
+    #+END_SRC
+
 
 
 ** typescript
@@ -3651,16 +3632,6 @@ l
         (local-set-key (kbd "C-c C-s") 'sbt-hydra))
     #+END_SRC
 
-*** Metals for lsp
-
-    Add metals backend for lsp-mode
-
-    #+BEGIN_SRC emacs-lisp
-     ;; Add metals backend for lsp-mode
-     (use-package lsp-metals
-       :config (setq lsp-metals-treeview-show-when-views-received t))
-    #+END_SRC
-
 *** Scala newlines in comments
 
     #+BEGIN_SRC emacs-lisp
@@ -3786,84 +3757,6 @@ l
       ;;      (setq c-basic-offset 4)))
     #+END_SRC
 
-*** LSP Java/Scala
-
-    Java and Scala support for lsp mode using the Eclipse JDT Language Server.
-
-    #+BEGIN_SRC emacs-lisp
-            (setq gc-cons-threshold 1000000)
-            (setq read-process-output-max (* 1024 1024 2))
-            (setq lsp-idle-delay 0.5)
-            (use-package lsp-mode
-                :hook ((java-mode . lsp)
-                       (scala-mode . lsp)
-                       ;; if you want which-key integration
-                       (lsp-mode . lsp-enable-which-key-integration)
-                       (lsp-mode . flycheck-mode)
-                       (lsp-mode . lsp-lens-mode)
-                       )
-                :config (setq lsp-prefer-flymake nil)
-                        (setq lsp-keep-workspace-alive nil)
-                :commands lsp)
-            (maybe-install-and-require 'lsp-ui)
-            (use-package lsp-java)
-            (add-hook 'java-mode 'lsp-mode)
-
-            ;; Use eclipse 2.1 formatting
-            (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
-            (setq lsp-java-format-settings-profile "myeclipse21formatter")
-
-            ;; Don't watch files
-            (setq lsp-enable-file-watchers nil)
-
-            ;; Add metals backend for lsp-mode scala
-            (maybe-install-and-require 'lsp-metals)
-
-            ;; optionally
-            (use-package lsp-ui :commands lsp-ui-mode)
-            ;; if you are helm user
-            (use-package helm-lsp :commands helm-lsp-workspace-symbol)
-            ;; if you are ivy user
-            (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-            (use-package lsp-treemacs
-              :commands lsp-treemacs-errors-list
-              :config
-              (lsp-metals-treeview-mode t)
-              (setq lsp-metals-treeview-show-when-views-received t)
-            )
-
-            ;; add lombok to classpath for lsp
-      ;;  (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
-
-          (setq lsp-java-vmargs
-                   `("-noverify"
-                     "-Xmx1G"
-      ;;               "-XX:+UseG1GC"
-      ;;               "-XX:+UseStringDeduplication"
-      ;;               ,(concat "-javaagent:" path-to-lombok)
-      ;;               ,(concat "-Xbootclasspath/a:" path-to-lombok)
-                     ))
-    #+END_SRC
-
-*** DAP mode
-
-    #+BEGIN_SRC emacs-lisp
-      (use-package posframe
-      ;; Posframe is a pop-up tool that must be manually installed for dap-mode
-        )
-      (when (not (package-installed-p dap-mode))
-        (package-install 'dap-mode))
-      (use-package dap-mode
-        :after lsp-mode
-        :hook ((lsp-mode . dap-mode)
-               (lsp-mode . dap-ui-mode))
-        :config (dap-auto-configure-mode))
-      ;; (use-package dap-java :ensure nil)
-      (require 'dap-java)
-      (define-key dap-mode-map (kbd "M-s-l t t") 'dap-java-run-test-method)
-      (define-key dap-mode-map (kbd "M-s-l t c") 'dap-java-run-test-class)
-      (define-key dap-mode-map (kbd "M-s-l t d") 'dap-java-debug-test-method)
-    #+END_SRC
 ** Kotlin
 
 *** Kotlin mode
@@ -4158,10 +4051,9 @@ l
 
 ** Log mode
 
-   #+begin_src emacs-lsp
+   #+begin_src emacs-lisp
    (maybe-install-and-require 'logview)
    #+end_src
-
 
 ** Graphql
 
@@ -4171,6 +4063,132 @@ l
     #+BEGIN_SRC emacs-lisp
     (maybe-install-and-require 'graphql-mode)
     (maybe-install-and-require 'ob-graphql)
+    #+END_SRC
+
+
+** LSP config (many langs)
+
+*** LSP config
+
+    I've extracted LSP config to a separate section as I'm using it for loads of different langs.
+
+    Install and require some backends
+    #+BEGIN_SRC emacs-lisp
+     ;; Add metals backend for lsp-mode scala
+     (maybe-install-and-require 'lsp-metals)
+     ;; Install lsp-ui
+     (maybe-install-and-require 'lsp-ui)
+    #+END_SRC
+
+    Set up LSP mode.
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package lsp-mode
+         :ensure t
+         :hook ((clojure-mode . lsp)
+                (clojurec-mode . lsp)
+                (clojurescript-mode . lsp)
+                (java-mode . lsp)
+                (scala-mode . lsp)
+                (js2-mode . lsp)
+                ;; if you want which-key integration
+                (lsp-mode . lsp-enable-which-key-integration)
+                (lsp-mode . flycheck-mode)
+                (lsp-mode . lsp-lens-mode))
+         :config
+                (setq lsp-prefer-flymake nil)
+                (setq lsp-keep-workspace-alive nil)
+                ;; add paths to your local installation of project mgmt tools, like lein
+                (setenv "PATH" (concat
+                                 "/usr/local/bin" path-separator
+                                 (getenv "PATH")))
+                (dolist (m '(clojure-mode
+                             clojurec-mode
+                             clojurescript-mode
+                             clojurex-mode))
+                   (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+                (setq lsp-keymap-prefix "M-s-l")
+                (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
+                (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
+          :commands lsp)
+
+      (use-package lsp-ui
+         :ensure t
+         :commands lsp-ui-mode)
+
+      (use-package company-lsp
+         :ensure t
+         :commands company-lsp)
+
+      (setq gc-cons-threshold (* 100 1024 1024)
+            read-process-output-max (* 1024 1024)
+            treemacs-space-between-root-nodes nil
+            lsp-lens-enable t
+            lsp-ui-doc-enable nil
+            lsp-signature-auto-activate nil
+            lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
+            lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
+            )
+
+      ;; Add metals backend for lsp-mode
+      (use-package lsp-metals
+        :config (setq lsp-metals-treeview-show-when-views-received t))
+
+      ;; Scala and Java
+      (setq gc-cons-threshold 1000000)
+      (setq read-process-output-max (* 1024 1024 2))
+      (setq lsp-idle-delay 0.5)
+
+      (use-package lsp-java)
+      (add-hook 'java-mode 'lsp-mode)
+
+      ;; Use eclipse 2.1 formatting
+      (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
+      (setq lsp-java-format-settings-profile "myeclipse21formatter")
+      ;; Don't watch files
+      (setq lsp-enable-file-watchers nil)
+      ;; if you are helm user
+      (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+      (use-package lsp-treemacs
+        :commands lsp-treemacs-errors-list
+        :config
+        (lsp-metals-treeview-mode t)
+        (setq lsp-metals-treeview-show-when-views-received t))
+
+      ;; add lombok to classpath for lsp
+      ;;  (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
+
+      (setq lsp-java-vmargs
+            `("-noverify"
+             "-Xmx1G"
+      ;;     "-XX:+UseG1GC"
+      ;;     "-XX:+UseStringDeduplication"
+      ;;     ,(concat "-javaagent:" path-to-lombok)
+      ;;     ,(concat "-Xbootclasspath/a:" path-to-lombok)
+                     ))
+
+    #+END_SRC
+
+*** DAP mode
+
+    DAP mode for debugging using LSP.
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package posframe
+      ;; Posframe is a pop-up tool that must be manually installed for dap-mode
+        )
+      (when (not (package-installed-p dap-mode))
+        (package-install 'dap-mode))
+      (use-package dap-mode
+        :after lsp-mode
+        :hook ((lsp-mode . dap-mode)
+               (lsp-mode . dap-ui-mode))
+        :config (dap-auto-configure-mode))
+      ;; (use-package dap-java :ensure nil)
+      (require 'dap-java)
+      (define-key dap-mode-map (kbd "M-s-l t t") 'dap-java-run-test-method)
+      (define-key dap-mode-map (kbd "M-s-l t c") 'dap-java-run-test-class)
+      (define-key dap-mode-map (kbd "M-s-l t d") 'dap-java-debug-test-method)
     #+END_SRC
 
 * Data Modes

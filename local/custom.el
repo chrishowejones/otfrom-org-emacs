@@ -147,7 +147,8 @@
      (340 . "#a71d5d")
      (360 . "#969896")))
  '(vc-annotate-very-old-color "#969896")
- '(warning-suppress-types '((comp) (comp) (comp))))
+ '(warning-suppress-types '((comp) (comp) (comp)))
+ '(which-key-popup-type 'minibuffer))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
