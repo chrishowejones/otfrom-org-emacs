@@ -1,0 +1,2 @@
+;;; Generated package description from logview.el  -*- no-byte-compile: t -*-
+(define-package "logview" "20220916.2058" "Major mode for viewing log files" '((emacs "25.1") (datetime "0.6.1") (extmap "1.0")) :commit "3b0b544b69759f4c119d4460f98263b6e739e7de" :authors '(("Paul Pogonyshev" . "pogonyshev@gmail.com")) :maintainer '("Paul Pogonyshev" . "pogonyshev@gmail.com") :keywords '("files" "tools") :url "https://github.com/doublep/logview")
