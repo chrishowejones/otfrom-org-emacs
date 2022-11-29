@@ -257,7 +257,14 @@
    Change the yes and no prompts to y and n
 
    #+BEGIN_SRC emacs-lisp
-    (fset 'yes-or-no-p 'y-or-n-p)
+     (fset 'yes-or-no-p 'y-or-n-p)
+     (defalias 'yes-or-no-p 'y-or-n-p)
+     ;; (defun yes-or-no-p->-y-or-n-p (orig-fun &rest r)
+     ;;   (cl-letf (((symbol-function 'yes-or-no-p) #'y-or-n-p))
+     ;;   (apply orig-fun r)))
+
+     ;; (advice-add 'projectile-kill-buffers :around #'yes-or-no-p->-y-or-n-p)
+     ;; (advice-add 'project-kill-buffers :around #'yes-or-no-p->-y-or-n-p)
    #+END_SRC
 
 ** Time in status
@@ -1137,6 +1144,7 @@ l
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'which-key)
      (which-key-mode)
+     (setq which-key-popup-type 'minibuffer)
    #+END_SRC
 
 ** expand region
@@ -1412,7 +1420,7 @@ l
 
      #+BEGIN_SRC emacs-lisp
              (setq org-todo-keywords
-                    '((sequence "TODO(t)" "NEXT(n!)" "DOING(g!)" "|" "DONE(d!)")
+                    '((sequence "TODO(t)" "DOING(g!)" "|" "DONE(d!)")
                       (sequence "WAITING(w@/!)" "BLOCKED(b@/!)" "REVIEW(r@/!)" "PLAN(p@/!)" "BACKLOG(l!)" "DOING(g!)" "|" "COMPLETED(m!)" "CANCELLED(n@/!)")
                       ;(sequence "PROJECT(p!)" "|" "COMPLETE(m!)")
                       (sequence "|"  "CANCELLED(n@/!)" "PHONE" "MEETING" "DECISION" "NOTE" "EMAIL")))
@@ -2694,6 +2702,17 @@ l
      (global-set-key [C-f12] 'comms)
    #+END_SRC
 
+
+** Mastodon
+
+   Mastodon mode.
+
+   #+BEGIN_SRC emacs-lisp
+     (require 'mastodon)
+     (setq mastodon-instance-url "https://mastodon.social"
+           mastodon-active-user "agile_geek")
+
+   #+END_SRC
 * Programming Modes
 ** shell
 
@@ -3340,15 +3359,15 @@ l
 *** company-tern
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'company-tern)
-      (add-to-list 'company-backends 'company-tern)
-      (add-hook 'js2-mode-hook
-       (lambda ()
-         (tern-mode)
-         (company-mode)))
-      ;; Disable completion keybindings, as we use xref-js2 instead
-      (define-key tern-mode-keymap (kbd "M-.") nil)
-      (define-key tern-mode-keymap (kbd "M-,") nil)
+      ;; (maybe-install-and-require 'company-tern)
+      ;; (add-to-list 'company-backends 'company-tern)
+      ;; (add-hook 'js2-mode-hook
+      ;;  (lambda ()
+      ;;    (tern-mode)
+      ;;    (company-mode)))
+      ;; ;; Disable completion keybindings, as we use xref-js2 instead
+      ;; (define-key tern-mode-keymap (kbd "M-.") nil)
+      ;; (define-key tern-mode-keymap (kbd "M-,") nil)
     #+END_SRC
 
 *** tern project dialog
@@ -4097,6 +4116,7 @@ l
                 (lsp-mode . lsp-lens-mode))
          :config
                 (setq lsp-prefer-flymake nil)
+                (add-to-list 'company-backends 'company-capf)
                 (setq lsp-keep-workspace-alive nil)
                 ;; add paths to your local installation of project mgmt tools, like lein
                 (setenv "PATH" (concat
@@ -4115,10 +4135,6 @@ l
       (use-package lsp-ui
          :ensure t
          :commands lsp-ui-mode)
-
-      (use-package company-lsp
-         :ensure t
-         :commands company-lsp)
 
       (setq gc-cons-threshold (* 100 1024 1024)
             read-process-output-max (* 1024 1024)
