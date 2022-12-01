@@ -2713,6 +2713,15 @@ l
            mastodon-active-user "agile_geek")
 
    #+END_SRC
+
+** Slack
+
+   This is a Slack client.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'slack)
+
+   #+END_SRC
 * Programming Modes
 ** shell
 
