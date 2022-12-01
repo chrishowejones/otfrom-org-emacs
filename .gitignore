@@ -30,8 +30,10 @@ semanticdb/
 projectile.cache
 /workspace
 /eclipse.jdt.ls
+forge-database*
 .lsp-session*
 .cache/
 recentf
 straight/repos
+straight/build-cache.el
 eln-cache/*
