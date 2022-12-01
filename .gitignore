@@ -32,7 +32,6 @@ projectile.cache
 /eclipse.jdt.ls
 .lsp-session*
 .cache/
-eln-cache/*
 recentf
 straight/repos
-straight/build-cache.el
+eln-cache/*

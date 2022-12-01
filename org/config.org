@@ -875,8 +875,8 @@
 *** forge
 
     #+BEGIN_SRC emacs-lisp
-      ;; (with-eval-after-load 'magit
-      ;;  (require 'forge))
+      (with-eval-after-load 'magit
+       (require 'forge))
     #+END_SRC
 
 *** gitlink
