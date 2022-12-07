@@ -3041,7 +3041,7 @@ l
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'clojure-mode-hook lisp-hooks)
-        (setq clojure-toplevel-inside-comment-form t)
+        (setq clojure-toplevel-inside-comment-form nil)
       #+END_SRC
 
 ***** cider-mode-hooks
@@ -4163,11 +4163,13 @@ l
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
             lsp-lens-enable t
-            lsp-ui-doc-enable nil
+            lsp-ui-doc-enable t
             lsp-signature-auto-activate nil
             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
             lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
             )
+
+      (setq lsp-ui-doc-show-with-cursor t)
 
       ;; Add metals backend for lsp-mode
       (use-package lsp-metals
