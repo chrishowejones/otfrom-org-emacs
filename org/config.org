@@ -259,12 +259,6 @@
    #+BEGIN_SRC emacs-lisp
      (fset 'yes-or-no-p 'y-or-n-p)
      (defalias 'yes-or-no-p 'y-or-n-p)
-     ;; (defun yes-or-no-p->-y-or-n-p (orig-fun &rest r)
-     ;;   (cl-letf (((symbol-function 'yes-or-no-p) #'y-or-n-p))
-     ;;   (apply orig-fun r)))
-
-     ;; (advice-add 'projectile-kill-buffers :around #'yes-or-no-p->-y-or-n-p)
-     ;; (advice-add 'project-kill-buffers :around #'yes-or-no-p->-y-or-n-p)
    #+END_SRC
 
 ** Time in status
@@ -2720,7 +2714,25 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'slack)
-
+     (require 'helm-slack)
+     (slack-register-team
+      :name "myslackteam"
+      :token (auth-source-pick-first-password
+              :host "myslackteam.slack.com"
+              :user "chris.howejones@gmail.com")
+      :cookie (auth-source-pick-first-password
+               :host "myslackteam.slack.com"
+               :user "chris.howejones@gmail.com^cookie")
+      :subscribed-channels '((announcements clojure clojure-europe clojure-uk)))
+     (slack-register-team
+      :name "clojurians"
+      :token (auth-source-pick-first-password
+              :host "clojurians.slack.com"
+              :user "chris.howejones@gmail.com")
+      :cookie (auth-source-pick-first-password
+               :host "clojurians.slack.com"
+               :user "chris.howejones@gmail.com^cookie")
+      :subscribed-channels '((announcements clojure clojure-europe clojure-uk)))
    #+END_SRC
 * Programming Modes
 ** shell
@@ -3111,7 +3123,8 @@ l
                  (do (figwheel-sidecar.repl-api/start-figwheel!) nil) ; idempotent
                      (figwheel-sidecar.repl-api/cljs-repl)")
             (cider-repl-return)))
-          (add-hook 'cider-repl-mode-hook (lambda () (local-set-key (kbd "C-c C-f") 'cider-figwheel-repl)))
+          (add-hook 'cider-repl-mode-hook
+                    (lambda () (local-set-key (kbd "C-c C-f") 'cider-figwheel-repl)))
       #+END_SRC
 
 ***** A few repl tweaks
@@ -3120,9 +3133,9 @@ l
       in my repl buffer.
 
       #+BEGIN_SRC emacs-lisp
-        (add-hook 'cider-repl-mode-hook 'paredit-mode)
-        (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-        (add-hook 'cider-repl-mode-hook 'eldoc-mode)
+        (add-hook 'cider-repl-mode-hook #'paredit-mode)
+        (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+        (add-hook 'cider-repl-mode-hook #'eldoc-mode)
       #+END_SRC
 
 **** REBL repl
@@ -3397,9 +3410,10 @@ l
             (js-format-mark-statement t)
             (js-format-region (region-beginning) (region-end))
             (keyboard-quit))))
-      (add-hook 'js2-mode-hook (lambda ()
-        (define-key paredit-mode-map (kbd "M-q") nil)
-        (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
+      (add-hook 'js2-mode-hook
+                (lambda ()
+                  (define-key paredit-mode-map (kbd "M-q") nil)
+                  (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
     #+END_SRC
 
 *** rjsx-mode
@@ -4418,7 +4432,7 @@ l
    secure).
 
    #+BEGIN_SRC emacs-lisp
-;;     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
+     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
    #+END_SRC
 
 
@@ -4434,21 +4448,4 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (server-start)
-   #+END_SRC
-
-** Finis
-
-   I should really come up with better exhortations than this. The
-   stuff that Sam Aaron has in emacs-live I actually find quite
-   inspirational. cider.el has similar, though more specifically
-   clojurian things to say that I quite like as well.
-
-   However, I've always expected that any sufficiently advanced lisp
-   system has probably gained sentience. I think Emacs probably
-   qualifies for that.
-
-   Therefore, let's sign off as so...
-
-   #+BEGIN_SRC emacs-lisp
-     (message "TTFN.")
    #+END_SRC
