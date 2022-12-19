@@ -1,7 +1,6 @@
 #+TITLE: My init as an org file
 #+PROPERTY: header-args :tangle config.el
 #+OPTIONS: toc:nil
-#+EXPORT_FILE_NAME: ~/Documents/emacs-config
 #+auto_tangle: t
 
 * Helpers
@@ -67,6 +66,22 @@
    #+END_SRC
 
 * Globals
+
+** passwords and encrypted things
+
+   It is good to store your passwords and things in an encrypted
+   file. I call mine mellon, because you can only read it if you are
+   my friend and have the passphrase.
+
+   This does mean that every time you use it you have to give the
+   passphrase, but it does mean that you can keep all your passwords
+   for things like erc and stuff in a file reasonably safely (though
+   it will be in memory when emacs is running, so it isn't completely
+   secure).
+
+   #+BEGIN_SRC emacs-lisp
+     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
+   #+END_SRC
 
 ** Set initial framesize
 
@@ -564,6 +579,14 @@
 ;;     (maybe-install-and-require 'gruvbox-theme)
     #+END_SRC
 
+
+*** Doom themes
+
+    #+BEGIN_SRC emacs-lisp
+      (unless (package-installed-p 'doom-themes)
+        (package-install 'doom-themes))
+    #+END_SRC
+
 ** fonts
 
    Using init-fonts to globally change font sizes.
@@ -575,7 +598,7 @@
 *** Default font height
 
     #+BEGIN_SRC emacs-lisp
-      (set-face-attribute 'default nil :height 80)
+      (set-face-attribute 'default nil :height 100)
     #+END_SRC
 
 
@@ -598,7 +621,7 @@
      (column-number-mode 1)
      (menu-bar-mode -1)
      (setq display-line-numbers-type 'absolute)
-     (global-display-line-numbers-mode)
+     ;; (global-display-line-numbers-mode)
    #+END_SRC
 
 ** Startup Screen
@@ -643,7 +666,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'emojify)
-     ;; (add-hook 'after-init-hook #'global-emojify-mode)
+     (add-hook 'slack-mode-hook #'emojify-mode)
    #+END_SRC
 
 ** All the icons
@@ -661,6 +684,19 @@
      (maybe-install-and-require 'beacon)
      (beacon-mode 1)
    #+END_SRC
+
+** visual fill mode
+
+   Add in visual fill mode to centre stuff.
+
+   #+BEGIN_SRC emacs-lisp
+     (unless (package-installed-p 'visual-fill-column)
+       (package-install 'visual-fill-column))
+     (setq visual-fill-column-width 110
+           visual-fill-column-center-text t)
+
+   #+END_SRC
+
 * Tool Configuration
 
 ** ediff
@@ -1236,6 +1272,7 @@ l
           "Linkedin"
           ""
           (lambda (&rest _) (browse-url "https://www.linkedin.com/in/chrishowejones/"))))))
+     (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
    #+END_SRC
 
 ** Crux
@@ -1466,8 +1503,9 @@ l
       where to file it yet which is why refile is in here.
 
       #+BEGIN_SRC emacs-lisp
-         (setq org-agenda-files '("~/org/notes.org"
-                                  "~/org/personal.org"))
+        (setq org-agenda-files '("~/org/notes.org"
+                                 "~/org/personal.org"
+                                 "~/schedule.org"))
       #+END_SRC
 
 ***** Agenda Sorting
@@ -2082,6 +2120,34 @@ l
 
     #+begin_src emacs-lisp
       (maybe-install-and-require 'org-present)
+      (defun my/org-present-start ()
+        ;; Center the presentation and wrap lines
+        (visual-fill-column-mode 1)
+        (visual-line-mode 1)
+        (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+                                           (header-line (:height 4.0) variable-pitch)
+                                           (org-document-title (:height 1.75) org-document-title)
+                                           (org-code (:height 1.55) org-code)
+                                           (org-verbatim (:height 1.55) org-verbatim)
+                                           (org-block (:height 1.25) org-block)
+                                           (org-block-begin-line (:height 0.7) org-block)))
+        ;; Load up doom-palenight for the System Crafters look
+        (load-theme 'doom-palenight t)
+
+        ;; NOTE: These settings might not be ideal for your machine, tweak them as needed!
+        (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'light :height 90)
+        (set-face-attribute 'fixed-pitch nil :font "JetBrains Mono" :weight 'light :height 100)
+        (set-face-attribute 'variable-pitch nil :font "Iosevka Aile" :weight 'light :height 1.3))
+
+      (defun my/org-present-end ()
+        ;; Stop centering the document
+        (visual-fill-column-mode 0)
+        (visual-line-mode 0)
+        (setq-local face-remapping-alist '((default variable-pitch default)))
+        (toggle-use-system-font))
+
+      (add-hook 'org-present-mode-hook 'my/org-present-start)
+      (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
     #+end_src
 
 * Communication Modes
@@ -2354,19 +2420,19 @@ l
      at a real maildir directory.
 
      #+BEGIN_SRC emacs-lisp
-              ;; (maybe-install-and-require 'gnus-alias)
-              ;; ;; Define two identities, "home" and "work"
-              ;; (setq gnus-alias-identity-alist
-              ;;       '(("gmail"
-              ;;          "Chris Howe-Jones <chris.howejones@gmail.com>" ;; Sender address
-              ;;          nil
-              ;;          "Chris Howe-Jones <chris.howejones@gmail.com>"
-              ;;          (("Fcc" . "/home/bld/maildir/gmail/sent"))
-              ;;          nil ;; No extra body text
-              ;;          "~/.signature")
-              ;;          ))
-              ;; ;; Use "home" identity by default
-              ;; (setq gnus-alias-default-identity "gmail")
+       (maybe-install-and-require 'gnus-alias)
+       ;; Define two identities, "home" and "work"
+       (setq gnus-alias-identity-alist
+             '(("gmail"
+                "chris.howejones@gmail.com" ;; Sender address
+                nil
+                "chris.howejones@gmail.com"
+                (("Fcc" . "/home/bld/maildir/gmail/sent"))
+                nil ;; No extra body text
+                "~/.signature")
+               ))
+       ;; Use "home" identity by default
+       (setq gnus-alias-default-identity "gmail")
               ;; Define rules to match work identity
        ;;       (setq gnus-alias-identity-rules
        ;;             '(("DevCycle" ("to" ".*devcycle.com" both) "DevCycle")))
@@ -2383,9 +2449,9 @@ l
     files in /usr/local/share/emacs/site-lisp/mu4e/.
 
     #+BEGIN_SRC emacs-lisp
- ;;   (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
- ;;   (require 'mu4e)
- ;;   (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
+    (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+    (require 'mu4e)
+    (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -2400,17 +2466,17 @@ l
      much even with that.
 
      #+BEGIN_SRC emacs-lisp
-;;       (setq mu4e-hide-index-messages 1)
+       (setq mu4e-hide-index-messages t)
      #+END_SRC
 
 **** Fetching mail
 
-     We use offlineimap to get our mail and want to get it every 13
-     minutes, just to be lucky.
+     We use offlineimap to get our mail and want to get it every 5
+     minutes.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-get-mail-command "offlineimap")
-       (setq mu4e-update-interval (* 32 60))
+       (setq mu4e-get-mail-command "offlineimap -s")
+       (setq mu4e-update-interval (* 5 60))
      #+END_SRC
 
 **** Shortcuts
@@ -2419,8 +2485,11 @@ l
      interested in.
 
      #+BEGIN_SRC emacs-lisp
-;;       (setq mu4e-maildir-shortcuts
-;;             '(("/gmail/INBOX" . ?p)))
+       (setq mu4e-maildir-shortcuts
+             '(("/gmail/INBOX" . ?i)
+               (:maildir "/gmail/[Google Mail].Sent Mail"  :key ?s)
+               (:maildir "/gmail/[Google Mail].Trash"      :key ?t)
+               (:maildir "/gmail/[Google Mail].All Mail"   :key ?a)))
      #+END_SRC
 
 **** Multiple Accounts
@@ -2430,18 +2499,25 @@ l
 
 ***** The default account.
 
-      I've defaulted to my mastodonc account as it is easier to
-      explain to my friends about my work account than my clients
-      about my personal account.
+      I've defaulted to my gmail account personal.
 
       #+BEGIN_SRC emacs-lisp
-;;        (setq mu4e-refile-folder "/gmail/all"
-;;              mu4e-sent-folder "/gmail/sent"
-;;              mu4e-drafts-folder "/gmail/drafts"
-;;              mu4e-trash-folder "/gmail/trash"
-;;              user-mail-address "chris.howejones@gmail.com"
-;;              message-signature-file "/home/chrishowe-jones/.signature"
-;;              user-mail-address "chris.howejones@gmail.com")
+        (setq mu4e-refile-folder "/gmail/[Google Mail].All Mail"
+              mu4e-sent-folder "/gmail/[Google Mail].Sent Mail"
+              mu4e-drafts-folder "/gmail/[Google Mail].Drafts"
+              mu4e-trash-folder "/gmail/[Google Mail].Bin"
+              user-mail-address "chris.howejones@gmail.com"
+              message-signature-file "/home/chrishowe-jones/.signature"
+              user-mail-address "chris.howejones@gmail.com"
+              mu4e-inboxes-query "maildir:/gmail/INBOX"
+              smtpmail-queue-dir "~/mail/queue/cur"
+              mail-user-agent 'mu4e-user-agent
+              mu4e-html2text-command 'mu4e-shr2text
+              mu4e-view-show-images t
+              mu4e-index-lazy-check t
+              mu4e-view-show-addresses t
+              message-kill-buffer-on-exit t
+              mu4e-sent-messages-behavior 'delete)
       #+END_SRC
 
 ***** The account switching
@@ -2460,21 +2536,20 @@ l
       #+END_QUOTE
 
       #+BEGIN_SRC emacs-lisp
-;;        (defvar my-mu4e-account-alist
-;;          '(("devcycle"
-;;             (mu4e-refile-folder "/devcycle/all")
-;;             (mu4e-sent-folder "/devcycle/sent")
-;;             (mu4e-drafts-folder "/devcycle/drafts")
-;;             (mu4e-trash-folder "/devcycle/trash")
-;;             (user-mail-address "chris@devcycle.com")
-;;             (message-signature-file "/home/chrishowe-jones/.signature.work"))
-;;            ("gmail"
-;;             (mu4e-refile-folder "/gmail/all")
-;;             (mu4e-sent-folder "/gmail/sent")
-;;             (mu4e-drafts-folder "/gmail/drafts")
-;;             (mu4e-trash-folder "/gmail/trash")
-;;             (user-mail-address "chris.howejones@gmail.com")
-;;             (message-signature-file "/home/chrishowe-jones/.signature"))))
+        (defvar my-mu4e-account-alist
+          '(("gmail"
+             (mu4e-refile-folder "/gmail/[Google Mail].All Mail")
+             (mu4e-sent-folder "/gmail/[Google Mail].Sent Mail")
+             (mu4e-drafts-folder "/gmail/[Google Mail].Drafts")
+             (mu4e-trash-folder "/gmail/[Google Mail].Bin")
+             (user-mail-address "chris.howejones@gmail.com")
+             (message-signature-file "/home/chrishowe-jones/.signature")
+             ;; (smtpmail-smtp-user "gmail")
+             ;; (smtpmail-local-domain "gmail.com")
+             ;; (smtpmail-default-smtp-server "smtp.gmail.com")
+             ;; (smtpmail-smtp-server "smtp.gmail.com")
+             ;; (smtpmail-smtp-service 587)
+             )))
       #+END_SRC
 
 ***** Add a switch function to the hook
@@ -2484,25 +2559,25 @@ l
       that you can just turn on.
 
       #+BEGIN_SRC emacs-lisp
-;;         (defun my-mu4e-set-account ()
-;;               "Set the account for composing a message."
-;;               (let* ((account
-;;                       (if mu4e-compose-parent-message
-;;                           (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-;;                             (string-match "/\\(.*?\\)/" maildir)
-;;                             (match-string 1 maildir))
-;;                         (completing-read (format "Compose with account: (%s) "
-;;                                                  (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
-;;                                          (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-;;                                          nil t nil nil (caar my-mu4e-account-alist))))
-;;                      (account-vars (cdr (assoc account my-mu4e-account-alist))))
-;;                 (if account-vars
-;;                     (mapc #'(lambda (var)
-;;                               (set (car var) (cadr var)))
-;;                           account-vars)
-;;                   (error "No email account found"))))
+        (defun my-mu4e-set-account ()
+               "Set the account for composing a message."
+               (let* ((account
+                       (if mu4e-compose-parent-message
+                           (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+                             (string-match "/\\(.*?\\)/" maildir)
+                             (match-string 1 maildir))
+                         (completing-read (format "Compose with account: (%s) "
+                                                  (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
+                                          (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+                                          nil t nil nil (caar my-mu4e-account-alist))))
+                      (account-vars (cdr (assoc account my-mu4e-account-alist))))
+                 (if account-vars
+                     (mapc #'(lambda (var)
+                               (set (car var) (cadr var)))
+                           account-vars)
+                   (error "No email account found"))))
 
-;;        (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+        (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
       #+END_SRC
 
 **** Unicode
@@ -2511,7 +2586,7 @@ l
 
      #+BEGIN_SRC emacs-lisp
        ;; Use fancy chars
-;;       (setq mu4e-use-fancy-chars t)
+       (setq mu4e-use-fancy-chars t)
      #+END_SRC
 
 **** Gmail quirks and feature simulations
@@ -2522,7 +2597,7 @@ l
       when I'm looking at messages in my inbox.
 
       #+BEGIN_SRC emacs-lisp
-;;        (setq mu4e-headers-include-related t)
+        (setq mu4e-headers-include-related t)
       #+END_SRC
 
 ***** Skip duplicates
@@ -2532,7 +2607,7 @@ l
       to skip the duplicates.
 
       #+BEGIN_SRC emacs-lisp
-;;        (setq mu4e-headers-skip-duplicates t)
+        (setq mu4e-headers-skip-duplicates t)
       #+END_SRC
 
 **** View html only emails in the browser
@@ -2541,8 +2616,8 @@ l
      hitting aV.
 
      #+BEGIN_SRC emacs-lisp
-;;       (add-to-list 'mu4e-view-actions
-;;                    '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+       (add-to-list 'mu4e-view-actions
+                    '("ViewInBrowser" . mu4e-action-view-in-browser) t)
      #+END_SRC
 
 **** mu4e and org-mode capturing
@@ -2551,7 +2626,7 @@ l
      of the reason for having email in emacs anyway.
 
      #+BEGIN_SRC emacs-lisp
-;;       (require 'org-mu4e)
+       (require 'org-mu4e)
      #+END_SRC
 
 **** mu4e and org-contacts
@@ -2574,9 +2649,18 @@ l
      to be the hot key.
 
      #+BEGIN_SRC emacs-lisp
-;;       (global-set-key [f11] 'mu4e)
+       (global-set-key [f9] 'mu4e)
      #+END_SRC
 
+
+**** mu4e alert
+
+     Switch on mu4e alert notifications for mu4e
+
+     #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'mu4e-alert)
+       (add-hook 'mu4e-mode-hook #'mu4e-alert-enable-notifications)
+     #+END_SRC
 ** Web Browsing
 
 *** w3m
@@ -2586,8 +2670,9 @@ l
     while shall we?
 
     #+BEGIN_SRC emacs-lisp
-;;      (maybe-install-and-require 'w3m)
-;;      (setq browse-url-browser-function 'browse-url-generic)
+      ;; (maybe-install-and-require 'w3m)
+      ;; (setq browse-url-browser-function 'browse-url-generic)
+      ;; (require 'w3m-load)
       (global-set-key "\C-xm" 'browse-url-at-point)
       (setq w3m-use-cookies t)
     #+END_SRC
@@ -2716,15 +2801,6 @@ l
      (maybe-install-and-require 'slack)
      (require 'helm-slack)
      (slack-register-team
-      :name "myslackteam"
-      :token (auth-source-pick-first-password
-              :host "myslackteam.slack.com"
-              :user "chris.howejones@gmail.com")
-      :cookie (auth-source-pick-first-password
-               :host "myslackteam.slack.com"
-               :user "chris.howejones@gmail.com^cookie")
-      :subscribed-channels '((announcements clojure clojure-europe clojure-uk)))
-     (slack-register-team
       :name "clojurians"
       :token (auth-source-pick-first-password
               :host "clojurians.slack.com"
@@ -2733,7 +2809,17 @@ l
                :host "clojurians.slack.com"
                :user "chris.howejones@gmail.com^cookie")
       :subscribed-channels '((announcements clojure clojure-europe clojure-uk)))
+     (slack-register-team
+      :name "CTO Craft"
+      :token (auth-source-pick-first-password
+              :host "ctocraft.slack.com"
+              :user "chris.howejones@gmail.com")
+      :cookie (auth-source-pick-first-password
+               :host "ctocraft.slack.com"
+               :user "chris.howejones@gmail.com^cookie")
+      :subscribed-channels '((general introductions)))
    #+END_SRC
+
 * Programming Modes
 ** shell
 
@@ -2886,20 +2972,50 @@ l
                 '(lambda () (smartscan-mode 1)))
     #+END_SRC
 
-**** paredit spaces for non s-expr langs
+*** paredit spaces for non s-expr langs
 
-     Need to stop insertion of spaces between symbols and parens for
-     non s-expr langs
+    Need to stop insertion of spaces between symbols and parens for
+    non s-expr langs
 
-     #+BEGIN_SRC emacs-lisp
-     (defun my-paredit-nonlisp ()
-       "Turn on paredit mode for non-lisps."
-       (interactive)
-       (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-            '((lambda (endp delimiter) nil)))
-         (paredit-mode 1))
-     #+END_SRC
+    #+BEGIN_SRC emacs-lisp
+    (defun my-paredit-nonlisp ()
+      "Turn on paredit mode for non-lisps."
+      (interactive)
+      (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+           '((lambda (endp delimiter) nil)))
+        (paredit-mode 1))
+    #+END_SRC
 
+*** Set line numbers mode in prog modes
+
+    Set line numbers on in all programming modes.
+
+    #+BEGIN_SRC emacs-lisp
+      (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+    #+END_SRC
+
+
+*** Set font for prog modes
+
+    Set the font for all prog modes.
+
+    #+BEGIN_SRC emacs-lisp
+      (defun my-buffer-face-mode-variable ()
+          "Set font to a variable width (proportional) fonts in current buffer"
+          (interactive)
+          (setq buffer-face-mode-face '(:family "IosevkaAile"))
+          (buffer-face-mode))
+
+       ;; Use monospaced font faces in current buffer
+      (defun my-buffer-face-mode-fixed ()
+        "Sets a fixed width (monospace) font in current buffer"
+        (interactive)
+        (setq buffer-face-mode-face
+              '(:family "JetBrains Mono"))
+        (buffer-face-mode))
+
+        (add-hook 'prog-mode-hook 'my-buffer-face-mode-fixed)
+    #+END_SRC
 ** lisp modes
 
    emacs-lisp and clojure are the two that really go in here for now,
@@ -3134,6 +3250,8 @@ l
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'cider-repl-mode-hook #'paredit-mode)
+        (add-hook 'cider-repl-mode-hook
+                    (lambda () (local-set-key (kbd "<return>") 'cider-repl-return)))
         (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
         (add-hook 'cider-repl-mode-hook #'eldoc-mode)
       #+END_SRC
@@ -3251,7 +3369,7 @@ l
 
      #+BEGIN_SRC emacs-lisp
        (add-hook 'clojure-mode-hook
-         (lambda () (local-set-key [s-f9] 'clojure-cheatsheet)))
+         (lambda () (local-set-key [s-f9] 'clojure-view-cheatsheet)))
      #+END_SRC
 
 **** Squiggly clojure
@@ -3395,7 +3513,7 @@ l
 *** tern project dialog
 
     #+BEGIN_SRC emacs-lisp
-     (require 'tern-project-dialog)
+      ;; (require 'tern-project-dialog)
     #+END_SRC
 
 *** js-format
@@ -4274,14 +4392,14 @@ l
     And a control-meta to start everything off.
 
     #+BEGIN_SRC emacs-lisp
-      (global-set-key (kbd "<f7>") 'emms-previous)
+      ;; (global-set-key (kbd "<f7>") 'emms-previous)
 
-      (global-set-key (kbd "<f8>") 'emms-pause)
-      (global-set-key (kbd "C-<f8>") 'emms-play-playlist)
-      (global-set-key (kbd "M-<f8>") 'emms-play-dired)
-      (global-set-key (kbd "s-<f8>") 'emms-stop)
+      ;; (global-set-key (kbd "<f8>") 'emms-pause)
+      ;; (global-set-key (kbd "C-<f8>") 'emms-play-playlist)
+      ;; (global-set-key (kbd "M-<f8>") 'emms-play-dired)
+      ;; (global-set-key (kbd "s-<f8>") 'emms-stop)
 
-      (global-set-key (kbd "<f9>") 'emms-next)
+      ;; (global-set-key (kbd "<f9>") 'emms-next)
     #+END_SRC
 
 *** Turn off emms-mode-line
@@ -4420,22 +4538,6 @@ l
 
     With newer version of emacs new minor modes get turned on by
     default and clutter up my mode line. I'd like to turn them off.
-
-** passwords and encrypted things
-
-   It is good to store your passwords and things in an encrypted
-   file. I call mine mellon, because you can only read it if you are
-   my friend and have the passphrase.
-
-   This does mean that every time you use it you have to give the
-   passphrase, but it does mean that you can keep all your passwords
-   for things like erc and stuff in a file reasonably safely (though
-   it will be in memory when emacs is running, so it isn't completely
-   secure).
-
-   #+BEGIN_SRC emacs-lisp
-     (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
-   #+END_SRC
 
 
 ** emacs-server
