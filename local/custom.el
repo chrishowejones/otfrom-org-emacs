@@ -41,6 +41,7 @@
  '(helm-mode t)
  '(hl-paren-background-colors '("#2492db" "#95a5a6" nil))
  '(hl-paren-colors '("#ecf0f1" "#ecf0f1" "#c0392b"))
+ '(hmouse-middle-flag t)
  '(indium-chrome-executable "google-chrome")
  '(ivy-mode t)
  '(jdee-server-dir "/home/chris/jdeejar")

@@ -226,8 +226,8 @@
 ** Add exec path from shell
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'exec-path-from-shell)
-    (exec-path-from-shell-initialize)
+     (maybe-install-and-require 'exec-path-from-shell)
+     (exec-path-from-shell-initialize)
    #+END_SRC
 
 ** iy-go-to-char
@@ -2213,6 +2213,17 @@ l
    #+end_src
 
 
+** Hyperbole
+
+   Hyperbole looks really cool so going to try it.
+   [[https://www.gnu.org/software/hyperbole/][Hyperbole docs]]
+
+   #+BEGIN_SRC emacs-lisp
+     (unless (package-installed-p 'hyperbole)
+       (package-refresh-contents)
+       (package-install 'hyperbole))
+     (hyperbole-mode 1)
+   #+END_SRC
 
 * Communication Modes
 
