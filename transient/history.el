@@ -13,7 +13,6 @@
                ("--signoff"))
  (magit-diff
   ("--no-ext-diff" "--stat")
-  ("--no-ext-diff")
   ("--no-ext-diff" "--stat" "--show-signature")
   (("--" "src/clash/api/resolvers/admin.clj"))
   (("--" "provider/build.gradle")))
@@ -33,12 +32,13 @@
                      (("--" "/home/chris/Sage/it-ead-zuora/src/main/java/com/sage/zuorawrapper/model/adapter/ErrorResponseAdapter.java"))
                      (("--" "src/main/java/com/sage/zuorawrapper/services/QueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionRecord.java" "src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionQuery.java"))
                      (("--" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java")))
- (magit-pull nil
-             ("--rebase"))
- (magit-push nil
-             ("--force-with-lease")
-             ("--force")
-             ("--force-with-lease" "--force"))
+ (magit-pull
+  ("--rebase")
+  nil)
+ (magit-push
+  ("--force-with-lease")
+  ("--force")
+  ("--force-with-lease" "--force"))
  (magit-rebase nil
                ("--autostash"))
  (magit-remote

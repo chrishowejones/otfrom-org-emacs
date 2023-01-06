@@ -37,3 +37,4 @@ recentf
 straight/repos
 straight/build-cache.el
 eln-cache/*
+persist/*

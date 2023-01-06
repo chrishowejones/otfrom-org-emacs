@@ -3,6 +3,7 @@
 #+OPTIONS: toc:nil
 #+auto_tangle: t
 
+
 * Helpers
 
   There are a number of helper functions that we'll need through the
@@ -1439,7 +1440,11 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (setq org-reveal-root "file:///home/chris/reveal.js/js/reveal.js")
+      (setq org-reveal-external-plugins '((RevealMenu . "file:///home/chris/reveal.js/plugin/reveal.js-menu-master/menu.js")))
     #+END_SRC
+
+    #+RESULTS:
+    : ((RevealMenu . plugin/reveal.js-menu/menu.js))
 
 *** Scheduling, Project Management, Time Keeping
 
@@ -1505,7 +1510,7 @@ l
       #+BEGIN_SRC emacs-lisp
         (setq org-agenda-files '("~/org/notes.org"
                                  "~/org/personal.org"
-                                 "~/schedule.org"))
+                                 "~/org/obrizum-cal.org"))
       #+END_SRC
 
 ***** Agenda Sorting
@@ -2131,6 +2136,8 @@ l
      (maybe-install-and-require 'org-present)
      (defvar my/fixed-width-font "JetBrains Mono"
        "The font to use for monospaced (fixed width) text.")
+     (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+     (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
 
      (defvar my/variable-width-font "Iosevka Aile"
        "The font to use for variable-pitch (document) text.")
@@ -2212,18 +2219,6 @@ l
      (add-hook 'org-present-after-navigate-functions 'my/org-present-prepare-slide)
    #+end_src
 
-
-** Hyperbole
-
-   Hyperbole looks really cool so going to try it.
-   [[https://www.gnu.org/software/hyperbole/][Hyperbole docs]]
-
-   #+BEGIN_SRC emacs-lisp
-     (unless (package-installed-p 'hyperbole)
-       (package-refresh-contents)
-       (package-install 'hyperbole))
-     (hyperbole-mode 1)
-   #+END_SRC
 
 * Communication Modes
 
@@ -4560,6 +4555,22 @@ l
    #+BEGIN_SRC emacs-lisp
 ;;     (require 'ox-freemind)
    #+END_SRC
+** Hyperbole
+
+   Hyperbole looks really cool so going to try it.
+   [[https://www.gnu.org/software/hyperbole/][Hyperbole docs]]
+
+   #+BEGIN_SRC emacs-lisp
+     (unless (package-installed-p 'hyperbole)
+       (package-refresh-contents)
+       (package-install 'hyperbole))
+     ;; (add-hook 'hyperbole-init-hook
+     ;;           (lambda () (global-set-key [mouse-9])  'action-mouse-key-emacs))
+     ;; (add-hook 'hyperbole-init-hook (lambda () (global-set-key "\C-hh" 'hyperbole)))
+     (hyperbole-mode t)
+   #+END_SRC
+
+
 * Misc
 
   Miscellaneous stuff.

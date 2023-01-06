@@ -93,12 +93,12 @@
       all tests pass.  If any fail, you can press the Action Key to see the
       source of the failure.  Full testing is supported under POSIX systems
       only.  See "Makefile" and "test/MANIFEST".
- 
+
   *** Implicit Button Types to Run Tests: The file "hypb-ert.el" contains two
       action link types:
         hyperbole-run-test  - run a single Hyperbole test by name
         hyperbole-run-tests - run one more tests matching a pattern
-      
+
         Example uses:
           Run the test hbut-defal-url
             <hyperbole-run-test hbut-defal-url>
@@ -108,7 +108,7 @@
 
           Run all tests
             <hyperbole-run-tests t>
- 
+
   *** Installation Testing: install-test/local-install-test.sh automatically
       installs Hyperbole for testing from one or more of its releases or
       development branches.  See "Makefile" and "install-test/MANIFEST".
@@ -394,7 +394,7 @@
 
   *** gbut:ebut-program: Programmatically add global explicit buttons at the
       end of the personal button file.
-      
+
   *** kbd-key implicit button type: Interactive creation now allows for
       a full key series, not just a single key binding.
 
@@ -1082,7 +1082,7 @@
 
     - Keyboard Drags: Keyboard emulation of many Smart Mouse Key drag actions.
       See "(hyperbole)Keyboard Drags".
-  
+
     - Keyboard Help: When {M-o} is bound to the `hkey-operate' command to
       emulate drag depress and release events; when in the release window
       prior to pressing the second {M-o}, {C-h A} now reports the drag
@@ -1384,7 +1384,7 @@
     - Minibuffer Help: Improved help strings shown in the minibuffer while
       HyControl is active.  Added {?} key which toggles this display on and
       off.
-      
+
     - ESC: Removed this as a quit key since now that regular key sequences are
       supported, this is often used as a meta key prefix.  Use {q} to quit.
 
@@ -1648,7 +1648,7 @@ are new in 2016 and you should look through them all.
       completions after typing a few characters.  Since Emacs and most GNU
       programs include Info manuals, you now ​have ​a simple way to link to and
 ​      ​jump​ ​to any marked item within any manual.
-      
+
       Previously, when creating a link to an Info manual node, Hyperbole
       would ignore cross-references and menu items and just link directly
       to the node rather than anything it referenced.  To get that behavior
@@ -1665,10 +1665,10 @@ are new in 2016 and you should look through them all.
       delimited existing pathname followed by a :line-num and an optional
       :column-num displays the path at line-num and column-num.  So
       "~/.emacs:10:40" shows your Emacs initialization file at line 10 and
-      column 40.  The column number is optional.​
+      column 40.  The column number is optional.
 
     - GNU Info Manual Key Sequences: Previously, Hyperbole recognized​ ​key
-      sequences delimited by curly braces only, {}.  Now it recognizes​ the​
+      sequences delimited by curly braces only, {}.  Now it recognizes​ the
       ​quotation ​marks used in GNU Info manuals as well and can execute them
       with an Action Key press within Info buffers.
 
@@ -1854,7 +1854,7 @@ are new in 2016 and you should look through them all.
   BUTTONS
 
     - Prevented keyword matches as identifiers in Java, C++, C, Objective-C
-      and Python. 
+      and Python.
 
     - Prevented @ annotation matches when matching to Java identifiers/tags.
 
@@ -1877,7 +1877,7 @@ are new in 2016 and you should look through them all.
     - Added chapter on HyControl, window, frame and buffer control.
 
     - In the Hyperbole Manual Glossary, added Buffer, Frame, HyControl
-      and Window definitions. 
+      and Window definitions.
 
     - Added additional Q&A in an appendix.
 
@@ -1910,7 +1910,7 @@ are new in 2016 and you should look through them all.
       key binding {C-c \}.
 
     - Removed {C-c C-t} hmouse-toggle-bindings key binding.  This
-      should be used rarely, so force use of {M-x hmouse-toggle-bindings RET). 
+      should be used rarely, so force use of {M-x hmouse-toggle-bindings RET).
 
     - Updated "hmouse-mod.el" library for Emacs 25; it allows using the Smart
       Mouse Keys as Control and Meta modifiers when desired.
@@ -1926,7 +1926,7 @@ are new in 2016 and you should look through them all.
       and end of lines for times when there are not 2 chars to transpose.
 
   ROLO
-  
+
     - Improved {M-s} interactive string searching for rolo match buffer strings.
       Made {C-u M-s} do a regexp search for rolo match buffer strings.
 
@@ -1989,7 +1989,7 @@ are new in 2016 and you should look through them all.
       setup hooks as necessary.
 
   ROLO
-  
+
     - New {o} key binding for an overview of all Rolo matches at all
       levels, one line per entry.
 
@@ -2170,7 +2170,7 @@ are new in 2016 and you should look through them all.
       The Assist Key displays the same but leaves point in the listing buffer.
       Xref is a built-in Emacs package that displays definitions and
       cross-references of identifier strings.  It is similar to etags, but
-      more general. 
+      more general.
 
   KOUTLINER
 
@@ -2308,7 +2308,7 @@ are new in 2016 and you should look through them all.
       users with this behavior.  More skilled users can set
       `action-key-default-function' to do what they would like.
 
-    - Fixed bug that caused proportional scrolling to not be the default when 
+    - Fixed bug that caused proportional scrolling to not be the default when
       the Action Key is pressed at the end of a line.
 
   KOUTLINER
@@ -2353,7 +2353,7 @@ are new in 2016 and you should look through them all.
 
     - Added `rolo-display-format-function' which can be used to customize the
       display of rolo search matches.  See the Info manual section,
-      "(hyperbole)HyRolo Settings" for details. 
+      "(hyperbole)HyRolo Settings" for details.
 
   KOUTLINER
 
@@ -2384,7 +2384,7 @@ are new in 2016 and you should look through them all.
       moves forward (instead of back) through this location history list.
 
     - Added support for multiple TAGS file searches when looking for an
-      identifier definition from an Action Key click.  Each TAG file found in 
+      identifier definition from an Action Key click.  Each TAG file found in
       an ancestor directory of the current directory is searched until an
       exact match is found (otherwise, an error message is displayed).
       This works only under newer editors whose tag support includes multiple
@@ -2425,7 +2425,7 @@ are new in 2016 and you should look through them all.
   HYPERLINKS
 
     - An entry in (hpath:get-external-display-alist) used to externally display
-      special file types may now contain a list of executables, the first of 
+      special file types may now contain a list of executables, the first of
       which is found on a system is used to do the display.  The executable
       to use is recomputed each time a file is displayed to account for any
       changes in executables found in the search path.
@@ -2732,7 +2732,7 @@ are new in 2016 and you should look through them all.
   BUTTON TYPES
 
     - "hsys-w3.el" is now automatically loaded so that the Action Key can
-      follow URLs by default.  It defines the implicit button type, www-url. 
+      follow URLs by default.  It defines the implicit button type, www-url.
 
     - New implicit button type, text-toc, makes table of contents entries in
       README files jump to the associated section of the file.  Try it with
@@ -2816,7 +2816,7 @@ are new in 2016 and you should look through them all.
       view-related tree operations from Tree menu to View menu.
 
     - Fixed importation of star outline and Augment-style files.
-    
+
     - The elements of a another buffer or file may be inserted into a
       koutline as a set of cells by using the {C-x i} command. When prompted,
       you may use a buffer name or file name from which to insert.
@@ -2841,7 +2841,7 @@ are new in 2016 and you should look through them all.
 
     - {C-c +} appends the contents of one cell to the end of another.  Added
       this as Append-Cell to popup and pulldown menus.
-    
+
     - {M-w}, copy-region, now works properly in read-only outlines.
 
   CONTACT MANAGER
@@ -2861,7 +2861,7 @@ are new in 2016 and you should look through them all.
     - New variable, wrolo-yank-reformat-function, permits reformatting of an
       entry yanked into the current buffer with {C-h h r y}, rolo-yank.
 
-  WINDOW CONFIGURATIONS 
+  WINDOW CONFIGURATIONS
 
     - The minibuffer menu items, Win/PopRing and Win/YankRing now redisplay
       the Win menu after performing their actions.  This allows you to yank

@@ -1,3 +1,6 @@
+
+
+
 * GNU Hyperbole Fast Demo by Bob Weiner
 
   Send an email or a testimonial if you like Hyperbole to <rsw@gnu.org>.
@@ -110,7 +113,7 @@
        directories. By default, Org files, Python files and Elisp files are
        handled.
 
-    "(hyperbole)action-key-modeline-function" 
+    "(hyperbole)action-key-modeline-function"
 
        Double quoted Info manual references are also implicit buttons.  You
        can link to both nodes/sections in GNU Info manuals as well as to
@@ -188,7 +191,7 @@
        within key series surrounded by parentheses maintain spaces between
        words without the need to use 'SPC'.
 
-    {M-x shell RET M-> (export HYPERBOLE_DIR=${hyperb:dir} && 
+    {M-x shell RET M-> (export HYPERBOLE_DIR=${hyperb:dir} &&
      cd $HYPERBOLE_DIR && grep -n gbut:label-list *.el) RET}
 
        Use both a Hyperbole resolved variable, ${hyperb:dir}, and a
@@ -378,4 +381,3 @@ learn how to create new kinds of implicit button and action types, see:
     "man/hyperbole.html"   - web HTML version
     "man/hyperbole.pdf"    - printable version
     "man/hyperbole.texi"   - source form
-
