@@ -1,2 +1,3 @@
 ;;; -*- lisp-data -*-
-(("~/devcycle.github.io/"))
+(("/home/chris/engineering-progression/")
+ ("~/devcycle.github.io/"))

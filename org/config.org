@@ -858,6 +858,16 @@
       (maybe-install-and-require 'magit-todos)
     #+END_SRC
 
+
+*** Code Review
+
+    Code review to allow me to manage PRs etc.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'code-review)
+      (setq code-review-auth-login-marker 'forge)
+    #+END_SRC
+
 *** git-gutter-mode+
 
     It is really nice having +/= in the gutter. I like it more than
@@ -1256,7 +1266,8 @@ l
                              (agenda . 5)
                              (registers . 5)))
      (setq dashboard-projects-switch-function 'projectile-persp-switch-project)
-     (setq dashboard-week-agenda t)
+     (setq dashboard-week-agenda nil)
+     (setq dashboard-filter-agenda-entry 'dashboard-filter-agenda-by-time)
      (setq dashboard-set-heading-icons t)
      (setq dashboard-set-file-icons t)
      (setq dashboard-set-navigator t)
@@ -1274,6 +1285,15 @@ l
           ""
           (lambda (&rest _) (browse-url "https://www.linkedin.com/in/chrishowejones/"))))))
      (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+     ;; Remap Open Dashboard
+     (defun new-dashboard ()
+       "Jump to the dashboard buffer, if doesn't exists create one."
+       (interactive)
+       (switch-to-buffer dashboard-buffer-name)
+       (dashboard-mode)
+       (dashboard-insert-startupify-lists)
+       (dashboard-refresh-buffer))
+     (global-set-key (kbd "<f1>") 'new-dashboard)
    #+END_SRC
 
 ** Crux
@@ -1445,6 +1465,15 @@ l
 
     #+RESULTS:
     : ((RevealMenu . plugin/reveal.js-menu/menu.js))
+
+
+*** Load markdown backend ox-md
+
+    Load the md backend for org-mode so that I can export to markdown.
+
+    #+BEGIN_SRC emacs-lisp
+   (require 'ox-md)
+    #+END_SRC
 
 *** Scheduling, Project Management, Time Keeping
 
@@ -3393,9 +3422,10 @@ l
        (defun my-clojure-mode-hook ()
          (clj-refactor-mode 1)
          (yas-minor-mode 1) ; for adding require/use/import statements
-         (cljr-add-keybindings-with-prefix "C-c RET")
+         (cljr-add-keybindings-with-prefix "C-c C-m")
          (setq cljr-favor-prefix-notation nil)
-         (setq cljr-add-ns-to-blank-clj-files t))
+         (setq cljr-add-ns-to-blank-clj-files nil)
+         (setq cljr-insert-newline-after-require nil))
 
          (add-hook
            'clojure-mode-hook #'my-clojure-mode-hook)
@@ -4351,7 +4381,7 @@ l
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
             lsp-lens-enable t
-            lsp-ui-doc-enable t
+            lsp-ui-doc-enable nil
             lsp-signature-auto-activate nil
             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
             lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
@@ -4564,10 +4594,15 @@ l
      (unless (package-installed-p 'hyperbole)
        (package-refresh-contents)
        (package-install 'hyperbole))
+     (add-hook 'hyperbole-init-hook
+               (lambda ()
+                 (local-unset-key (kbd "C-c RET"))
+                 (local-unset-key (kbd "C-c C-m"))))
      ;; (add-hook 'hyperbole-init-hook
-     ;;           (lambda () (global-set-key [mouse-9])  'action-mouse-key-emacs))
+     ;;           (lambda () (global-set-key "C-c ")  'action-mouse-key-emacs))
      ;; (add-hook 'hyperbole-init-hook (lambda () (global-set-key "\C-hh" 'hyperbole)))
-     (hyperbole-mode t)
+     ;; (hyperbole-mode t)
+
    #+END_SRC
 
 

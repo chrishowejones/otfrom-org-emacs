@@ -1,4 +1,8 @@
 ((forge-dispatch nil)
+ (kubernetes-dispatch nil)
+ (kubernetes-exec
+  ("--stdin" "--tty"))
+ (kubernetes-file nil)
  (magit-am
   ("--3way")
   nil)
@@ -18,7 +22,8 @@
   (("--" "provider/build.gradle")))
  (magit-dispatch nil)
  (magit-ediff nil)
- (magit-fetch nil)
+ (magit-fetch nil
+              ("--prune"))
  (magit-file-dispatch nil)
  (magit-log
   ("-n256" "--graph" "--decorate")
@@ -32,23 +37,24 @@
                      (("--" "/home/chris/Sage/it-ead-zuora/src/main/java/com/sage/zuorawrapper/model/adapter/ErrorResponseAdapter.java"))
                      (("--" "src/main/java/com/sage/zuorawrapper/services/QueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionRecord.java" "src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionQuery.java"))
                      (("--" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java")))
- (magit-pull
-  ("--rebase")
+ (magit-pull nil
+             ("--rebase"))
+ (magit-push nil
+             ("--force-with-lease")
+             ("--force")
+             ("--force-with-lease" "--force"))
+ (magit-rebase
+  ("--autostash")
   nil)
- (magit-push
-  ("--force-with-lease")
-  ("--force")
-  ("--force-with-lease" "--force"))
- (magit-rebase nil
-               ("--autostash"))
  (magit-remote
   ("-f"))
  (magit-remote.<remote>.*url "git@github.com:chrishowejones/otfrom-org-emacs.git" "git@github.com:chrishowejonew/otfrom-org-emacs.git" "https://github.com/chrishowejones/otfrom-org-emacs.git")
  (magit-remote.<remote>.fetch "+refs/heads/*:refs/remotes/origin/*" "" "origin:refs/heads/master")
  (magit-remote.<remote>.push "origin/#1079-add-deleted-video-tables-to-the-extract-processes")
  (magit-reset nil)
- (magit-revert nil
-               ("--edit"))
+ (magit-revert
+  ("--edit")
+  nil)
  (magit-stash nil)
  (magit-submodule nil)
  (magit-tag nil
