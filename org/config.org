@@ -588,6 +588,15 @@
         (package-install 'doom-themes))
     #+END_SRC
 
+
+*** VSCode dark theme
+
+    #+BEGIN_SRC emacs-lisp
+    (use-package vscode-dark-plus-theme
+         :ensure t)
+
+    #+END_SRC
+
 ** fonts
 
    Using init-fonts to globally change font sizes.
@@ -606,8 +615,8 @@
 *** Default font scale
 
     #+BEGIN_SRC emacs-lisp
-      (require 'default-text-scale)
-      (setq default-text-scale-mode t)
+      ;; (require 'default-text-scale)
+      ;; (setq default-text-scale-mode t)
     #+END_SRC
 
 ** bars, menus and numbers
@@ -864,8 +873,8 @@
     Code review to allow me to manage PRs etc.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'code-review)
-      (setq code-review-auth-login-marker 'forge)
+      ;; (maybe-install-and-require 'code-review)
+      ;; (setq code-review-auth-login-marker 'forge)
     #+END_SRC
 
 *** git-gutter-mode+
@@ -916,8 +925,8 @@
 *** forge
 
     #+BEGIN_SRC emacs-lisp
-      (with-eval-after-load 'magit
-       (require 'forge))
+      ;; (with-eval-after-load 'magit
+      ;;  (require 'forge))
     #+END_SRC
 
 *** gitlink
@@ -1136,8 +1145,10 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (maybe-install-and-require 'perspective)
+     (maybe-install-and-require 'persp-projectile)
      (customize-set-variable 'persp-mode-prefix-key (kbd "C-c M-p"))
      (persp-mode)
+     (require 'persp-projectile)
    #+END_SRC
 
 ** Ag, the silver searcher with helm
@@ -2886,7 +2897,7 @@ l
    Mastodon mode.
 
    #+BEGIN_SRC emacs-lisp
-     (require 'mastodon)
+     (maybe-install-and-require 'mastodon)
      (setq mastodon-instance-url "https://mastodon.social"
            mastodon-active-user "agile_geek")
 
@@ -2917,6 +2928,15 @@ l
                :host "ctocraft.slack.com"
                :user "chris.howejones@gmail.com^cookie")
       :subscribed-channels '((general introductions)))
+     (slack-register-team
+      :name "Obrizum"
+      :token (auth-source-pick-first-password
+              :host "obrizum.slack.com"
+              :user "chris.howe-jones@obrizumgroup.com")
+      :cookie (auth-source-pick-first-password
+               :host "obrizum.slack.com"
+               :user "chris.howe-jones@obrizumgroup.com^cookie")
+      :subscribed-channels '((general productdev engineering-leadership software-engineering)))
    #+END_SRC
 
 * Programming Modes
@@ -4591,13 +4611,13 @@ l
    [[https://www.gnu.org/software/hyperbole/][Hyperbole docs]]
 
    #+BEGIN_SRC emacs-lisp
-     (unless (package-installed-p 'hyperbole)
-       (package-refresh-contents)
-       (package-install 'hyperbole))
-     (add-hook 'hyperbole-init-hook
-               (lambda ()
-                 (local-unset-key (kbd "C-c RET"))
-                 (local-unset-key (kbd "C-c C-m"))))
+     ;; (unless (package-installed-p 'hyperbole)
+     ;;   (package-refresh-contents)
+     ;;   (package-install 'hyperbole))
+     ;; (add-hook 'hyperbole-init-hook
+     ;;           (lambda ()
+     ;;             (local-unset-key (kbd "C-c RET"))
+     ;;             (local-unset-key (kbd "C-c C-m"))))
      ;; (add-hook 'hyperbole-init-hook
      ;;           (lambda () (global-set-key "C-c ")  'action-mouse-key-emacs))
      ;; (add-hook 'hyperbole-init-hook (lambda () (global-set-key "\C-hh" 'hyperbole)))
