@@ -4,8 +4,8 @@
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-helm-ag
-;; Package-Version: 20221017.1528
-;; Package-Commit: 2f5e41ae979394208989c25f4cdc73a0532fede9
+;; Package-Version: 0.64
+;; Package-Commit: 6a3e738c1bb5e80c7ea80f7166fda34a714284d8
 ;; Version: 0.64
 ;; Package-Requires: ((emacs "25.1") (helm "2.0"))
 
@@ -369,8 +369,7 @@ Default behaviour shows finish and result in mode-line."
   "Not documented, FILENAME."
   (let ((search-directory default-directory))
     (switch-to-buffer (get-buffer-create " *helm-ag persistent*"))
-    (setq default-directory search-directory
-          buffer-read-only nil)
+    (setq default-directory search-directory)
     (fundamental-mode)
     (erase-buffer)
     (insert-file-contents filename)
@@ -627,7 +626,7 @@ Default behaviour shows finish and result in mode-line."
   (interactive)
   (goto-char (point-min))
   (let ((read-only-files 0)
-        (files-to-lines (make-hash-table :test #'equal))
+        (files-to-lines (make-hash-table))
         (regexp (helm-ag--match-line-regexp))
         (line-deletes (make-hash-table :test #'equal)))
     ;; Group changes by file
@@ -640,16 +639,14 @@ Default behaviour shows finish and result in mode-line."
         (if (not (file-writable-p file))
             (cl-incf read-only-files)
           (if lines-list
-              (progn
-                (push (list line body ovs) lines-list)
-                (puthash file lines-list files-to-lines))
+              (push (list line body ovs) lines-list)
             (puthash file (list (list line body ovs)) files-to-lines)))))
     ;; Batch edits by file
     (maphash
      (lambda (curr-file lines-data)
        (with-temp-buffer
          (insert-file-contents curr-file)
-         (dolist (curr-line-data (reverse lines-data))
+         (dolist (curr-line-data lines-data)
            (cl-destructuring-bind
                (line body ovs) curr-line-data
              (goto-char (point-min))
@@ -1034,8 +1031,7 @@ Continue searching the parent directory? "))
                          (case-fold-search helm-ag--ignore-case))
                      (dolist (pattern patterns)
                        (let ((last-point (point)))
-                         (while (and (< (point) bound)
-                                     (re-search-forward pattern bound t))
+                         (while (re-search-forward pattern bound t)
                            (set-text-properties (match-beginning 0) (match-end 0)
                                                 '(face helm-match))
                            (when (= last-point (point))
@@ -1139,9 +1135,7 @@ Continue searching the parent directory? "))
            proc
            (lambda (process event)
              (helm-process-deferred-sentinel-hook
-              process event (helm-default-directory))
-             (when (string= event "finished\n")
-               (helm-ag--do-ag-propertize helm-input)))))))))
+              process event (helm-default-directory)))))))))
 
 (defconst helm-do-ag--help-message
   "\n* Helm Do Ag\n
@@ -1177,7 +1171,7 @@ Continue searching the parent directory? "))
     (goto-char (point-min))
     (dolist (pattern patterns)
       (let ((last-point (point)))
-        (while (and (not (eobp)) (re-search-forward pattern nil t))
+        (while (re-search-forward pattern nil t)
           (set-text-properties (match-beginning 0) (match-end 0)
                                '(face helm-match))
           (when (= last-point (point))

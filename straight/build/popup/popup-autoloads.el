@@ -5,13 +5,11 @@
 
 ;;; Code:
 
+
 
-;;;### (autoloads nil "popup" "popup.el" (0 0 0 0))
 ;;; Generated autoloads from popup.el
 
 (register-definition-prefixes "popup" '("popup-"))
-
-;;;***
 
 ;;; End of scraped data
 

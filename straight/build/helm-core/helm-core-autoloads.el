@@ -5,8 +5,8 @@
 
 ;;; Code:
 
+
 
-;;;### (autoloads nil "helm-core" "helm-core.el" (0 0 0 0))
 ;;; Generated autoloads from helm-core.el
 
 (autoload 'helm-define-multi-key "helm-core" "\
@@ -26,23 +26,20 @@ E.g.
       (interactive)
       (message \"Run baz\"))
 
-\(helm-define-multi-key global-map (kbd \"<f5> q\") \\='(foo bar baz) 2)
+(helm-define-multi-key global-map (kbd \"<f5> q\") \\='(foo bar baz) 2)
 
 Each time \"<f5> q\" is pressed, the next function is executed.
 Waiting more than 2 seconds between key presses switches back to
 executing the first function on the next hit.
 
-\(fn KEYMAP KEY FUNCTIONS &optional DELAY)")
-
+(fn KEYMAP KEY FUNCTIONS &optional DELAY)")
 (autoload 'helm-multi-key-defun "helm-core" "\
 Define NAME as a multi-key command running FUNS.
 After DELAY seconds, the FUNS list is reinitialized.
 See `helm-define-multi-key'.
 
-\(fn NAME DOCSTRING FUNS &optional DELAY)" nil t)
-
+(fn NAME DOCSTRING FUNS &optional DELAY)" nil t)
 (function-put 'helm-multi-key-defun 'lisp-indent-function 2)
-
 (autoload 'helm-define-key-with-subkeys "helm-core" "\
 Define in MAP a KEY and SUBKEY to COMMAND.
 
@@ -77,26 +74,22 @@ and vectors, so don't use strings to define them.  While defining
 or executing a kbd macro no SUBKEY or OTHER-SUBKEYS are provided,
 i.e. the loop is not entered after running COMMAND.
 
-\(fn MAP KEY SUBKEY COMMAND &optional OTHER-SUBKEYS PROMPT EXIT-FN DELAY DOCSTRING)")
-
+(fn MAP KEY SUBKEY COMMAND &optional OTHER-SUBKEYS PROMPT EXIT-FN DELAY DOCSTRING)")
 (function-put 'helm-define-key-with-subkeys 'lisp-indent-function 1)
-
 (autoload 'helm-configuration "helm-core" "\
 Customize Helm." t)
-
 (autoload 'helm-debug-open-last-log "helm-core" "\
 Open Helm log file or buffer of last Helm session." t)
-
 (autoload 'helm "helm-core" "\
 Main function to execute helm sources.
 
 PLIST is a list like
 
-\(:key1 val1 :key2 val2 ...)
+(:key1 val1 :key2 val2 ...)
 
  or
 
-\(&optional sources input prompt resume preselect
+(&optional sources input prompt resume preselect
             buffer keymap default history allow-nest).
 
 ** Keywords
@@ -154,7 +147,7 @@ Buffer name for this Helm session. `helm-buffer' will take this value.
 
 *** :keymap
 
-\[Obsolete]
+[Obsolete]
 
 Keymap used at the start of this Helm session.
 
@@ -197,7 +190,7 @@ Allow running this Helm command in a running Helm session.
 Other keywords are interpreted as local variables of this Helm
 session. The `helm-' prefix can be omitted. For example,
 
-\(helm :sources \\='helm-source-buffers-list
+(helm :sources \\='helm-source-buffers-list
        :buffer \"*helm buffers*\"
        :candidate-number-limit 10)
 
@@ -209,47 +202,35 @@ Starts a Helm session with the variable
 For backward compatibility, positional parameters are
 supported:
 
-\(helm sources input prompt resume preselect
+(helm sources input prompt resume preselect
        buffer keymap default history allow-nest)
 
 However, the use of non-keyword args is deprecated.
 
-\(fn &key SOURCES INPUT PROMPT RESUME PRESELECT BUFFER KEYMAP DEFAULT HISTORY ALLOW-NEST OTHER-LOCAL-VARS)")
-
+(fn &key SOURCES INPUT PROMPT RESUME PRESELECT BUFFER KEYMAP DEFAULT HISTORY ALLOW-NEST OTHER-LOCAL-VARS)")
 (autoload 'helm-cycle-resume "helm-core" "\
 Cycle in `helm-buffers' list and resume when waiting more than 1.2s." t)
-
 (autoload 'helm-other-buffer "helm-core" "\
 Simplified Helm interface with other `helm-buffer'.
 Call `helm' only with SOURCES and BUFFER as args.
 
-\(fn SOURCES BUFFER)")
-
+(fn SOURCES BUFFER)")
 (register-definition-prefixes "helm-core" '("helm-" "with-helm-"))
 
-;;;***
 
-;;;### (autoloads nil "helm-lib" "helm-lib.el" (0 0 0 0))
 ;;; Generated autoloads from helm-lib.el
 
 (register-definition-prefixes "helm-lib" '("helm-" "with-helm-"))
 
-;;;***
 
-;;;### (autoloads nil "helm-multi-match" "helm-multi-match.el" (0
-;;;;;;  0 0 0))
 ;;; Generated autoloads from helm-multi-match.el
 
 (register-definition-prefixes "helm-multi-match" '("helm-m"))
 
-;;;***
 
-;;;### (autoloads nil "helm-source" "helm-source.el" (0 0 0 0))
 ;;; Generated autoloads from helm-source.el
 
 (register-definition-prefixes "helm-source" '("helm-"))
-
-;;;***
 
 ;;; End of scraped data
 

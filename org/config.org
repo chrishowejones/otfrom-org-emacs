@@ -875,7 +875,7 @@
     #+BEGIN_SRC emacs-lisp
       (with-eval-after-load 'magit
        (require 'code-review))
-      (setq code-review-auth-login-marker 'forge)
+      (setq code-review-auth-login-marker nil)
     #+END_SRC
 
 *** git-gutter-mode+
@@ -945,6 +945,54 @@
 
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'git-timemachine)
+    #+END_SRC
+
+
+*** JIRA client
+
+    Add a client for JIRA
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package ejira
+      :init
+      (setq jiralib2-url              "https://obrizum.atlassian.net/jira"
+            jiralib2-auth             'basic
+            jiralib2-user-login-name  "chris.howe-jones@obrizumgroup.com"
+            jiralib2-token            nil
+
+            ;; NOTE, this directory needs to be in `org-agenda-files'`
+            ejira-org-directory       "~/jira"
+            ejira-projects            '("EJ" "JL2")
+
+            ejira-priorities-alist    '(("Highest" . ?A)
+                                        ("High"    . ?B)
+                                        ("Medium"  . ?C)
+                                        ("Low"     . ?D)
+                                        ("Lowest"  . ?E))
+            ejira-todo-states-alist   '(("To Do"       . 1)
+                                        ("In Progress" . 2)
+                                        ("Done"        . 3)))
+      :config
+      ;; Tries to auto-set custom fields by looking into /editmeta
+      ;; of an issue and an epic.
+      (add-hook 'jiralib2-post-login-hook #'ejira-guess-epic-sprint-fields)
+
+      ;; They can also be set manually if autoconfigure is not used.
+      ;; (setq ejira-sprint-field       'customfield_10001
+      ;;       ejira-epic-field         'customfield_10002
+      ;;       ejira-epic-summary-field 'customfield_10004)
+
+      (require 'ejira-agenda)
+
+      ;; Make the issues visisble in your agenda by adding `ejira-org-directory'
+      ;; into your `org-agenda-files'.
+      (add-to-list 'org-agenda-files ejira-org-directory)
+
+      ;; Add an agenda view to browse the issues that
+      (org-add-agenda-custom-command
+       '("j" "My JIRA issues"
+         ((ejira-jql "resolution = unresolved and assignee = currentUser()"
+                     ((org-agenda-overriding-header "Assigned to me")))))))
     #+END_SRC
 
 ** avy-mode
@@ -1106,7 +1154,7 @@ l
     replacement for the super-t stuff I had before.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'helm-projectile)
+      (require 'helm-projectile)
       (helm-projectile-on)
     #+END_SRC
 
@@ -1246,8 +1294,8 @@ l
    comfortable with helm and company-mode for now.
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'swiper-helm)
-    (global-set-key (kbd "C-s") 'swiper)
+     (maybe-install-and-require 'swiper-helm)
+     (global-set-key (kbd "C-s") 'swiper)
    #+END_SRC
 
 ** recentf mode

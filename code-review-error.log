@@ -136,3 +136,33 @@ index 21ccf1cb..514b4900 100644
        (modal/modal-button {:kind \"tertiary\" :onClick #(m/toggle!! this :ui/editing?)}" (((typename . "PullRequestReview") (author (login . "EduardoMRB")) (bodyHTML . "<p dir=\"auto\">LGTM!</p>") (state . "APPROVED") (createdAt . "2023-02-02T12:53:00Z") (databaseId . 1281001232) (updatedAt . "2023-02-02T12:53:00Z") (comments (nodes))) ((typename . "PullRequestReview") (author (login . "chrishowejones")) (bodyHTML . "") (state . "APPROVED") (createdAt . "2023-02-02T17:07:22Z") (databaseId . 1281492143) (updatedAt . "2023-02-02T17:07:22Z") (comments (nodes)))) "cambioscience" "obrizum" "198" "<p dir=\"auto\">The problem was that with <code class=\"notranslate\">focusLock</code> on, focus was prevented (by the modal) from being passed to elements outside the modal; this affects the link edit for CKE which is created by CKE at the bottom of the DOM</p>" "[OBR-960] fix link edit for CKEditor in modal" nil "4a5799fbf4230cb9a070e8f7e927acecd70b14a7" nil "MERGED" nil nil nil nil ((title) (perc) (number)) nil nil nil nil eieio--unbound nil) code-review-section-full-refresh? code-review-buffer-name t eieio-oset finished finished-at current-time-string code-review-db-update code-review--build-buffer nil "Done submitting review"] 5 "
 
 (fn &rest _)"] code-review-github-errback nil nil))
+
+Wed Feb  8 16:30:54 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:31:17 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:31:36 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:44:35 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:46:12 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:54:15 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:55:36 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:58:04 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 16:58:40 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 17:12:07 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 17:12:49 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 17:13:09 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 17:13:14 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 17:13:56 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
+
+Wed Feb  8 17:14:18 2023 - code-review--build-buffer - (wrong-number-of-arguments (6 . 7) 8)
