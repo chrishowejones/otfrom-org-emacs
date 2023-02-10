@@ -948,52 +948,26 @@
     #+END_SRC
 
 
-*** JIRA client
+*** org-jira
 
-    Add a client for JIRA
+    Add org JIRA mode
 
     #+BEGIN_SRC emacs-lisp
-      (use-package ejira
-      :init
-      (setq jiralib2-url              "https://obrizum.atlassian.net/jira"
-            jiralib2-auth             'basic
-            jiralib2-user-login-name  "chris.howe-jones@obrizumgroup.com"
-            jiralib2-token            nil
-
-            ;; NOTE, this directory needs to be in `org-agenda-files'`
-            ejira-org-directory       "~/jira"
-            ejira-projects            '("EJ" "JL2")
-
-            ejira-priorities-alist    '(("Highest" . ?A)
-                                        ("High"    . ?B)
-                                        ("Medium"  . ?C)
-                                        ("Low"     . ?D)
-                                        ("Lowest"  . ?E))
-            ejira-todo-states-alist   '(("To Do"       . 1)
-                                        ("In Progress" . 2)
-                                        ("Done"        . 3)))
-      :config
-      ;; Tries to auto-set custom fields by looking into /editmeta
-      ;; of an issue and an epic.
-      (add-hook 'jiralib2-post-login-hook #'ejira-guess-epic-sprint-fields)
-
-      ;; They can also be set manually if autoconfigure is not used.
-      ;; (setq ejira-sprint-field       'customfield_10001
-      ;;       ejira-epic-field         'customfield_10002
-      ;;       ejira-epic-summary-field 'customfield_10004)
-
-      (require 'ejira-agenda)
-
-      ;; Make the issues visisble in your agenda by adding `ejira-org-directory'
-      ;; into your `org-agenda-files'.
-      (add-to-list 'org-agenda-files ejira-org-directory)
-
-      ;; Add an agenda view to browse the issues that
-      (org-add-agenda-custom-command
-       '("j" "My JIRA issues"
-         ((ejira-jql "resolution = unresolved and assignee = currentUser()"
-                     ((org-agenda-overriding-header "Assigned to me")))))))
+      (maybe-install-and-require 'org-jira)
+      (setq jiralib-url "https://obrizum.atlassian.net")
+      (with-eval-after-load 'org-mode
+        (org-jira-mode t))
     #+END_SRC
+
+    #+BEGIN_SRC emacs-lisp
+      (current-active-maps)
+    #+END_SRC
+
+    #+RESULTS:
+    | keymap |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+    | keymap | (3 keymap (116 keymap (106 . org-jira-todo-to-jira)) (119 keymap (117 . org-jira-update-worklogs-from-org-clocks)) (99 keymap (117 . org-jira-update-comment) (99 . org-jira-add-comment)) (115 keymap (103 . org-jira-get-subtasks) (99 . org-jira-create-subtask)) (105 keymap (102 . org-jira-get-issues-by-fixversion) (107 . org-jira-copy-current-issue-key) (99 . org-jira-create-issue) (82 . org-jira-refresh-issues-in-buffer) (114 . org-jira-refresh-issue) (97 . org-jira-assign-issue) (110 . org-jira-progress-issue-next) (119 . org-jira-progress-issue) (117 . org-jira-update-issue) (104 . org-jira-get-issues-headonly) (106 . org-jira-get-issues-from-custom-jql) (103 . org-jira-get-issues) (98 . org-jira-browse-issue) (118 . org-jira-get-issues-by-board)) (98 keymap (103 . org-jira-get-boards)) (112 keymap (103 . org-jira-get-projects))) |
+    | keymap | (menu-bar keymap (debug menu-item Debug (keymap Debug (Start menu-item Start dap-debug) (Create Debug Template menu-item Create Debug Template dap-debug-edit-template) (Debug last session menu-item Debug last session dap-debug-last) (Recent Sessions menu-item Recent Sessions nil :filter #[257 \302\300!\301"\207 [#[257 \301\302"\207 [dap--debug-configuration -map #[257 \211\211A\262\242\300\301\302""\207 [vector make-closure #[0 \301\300!\207 [V0 dap-debug] 2 nil nil]] 9                                                                                                                                                                                                                                                                                                                                                                    |
+
 
 ** avy-mode
 
