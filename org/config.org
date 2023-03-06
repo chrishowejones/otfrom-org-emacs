@@ -602,7 +602,7 @@
    Using init-fonts to globally change font sizes.
 
    #+BEGIN_SRC emacs-lisp
-     (require 'init-fonts)
+     ;; (require 'init-fonts)
    #+END_SRC
 
 *** Default font height
@@ -615,8 +615,8 @@
 *** Default font scale
 
     #+BEGIN_SRC emacs-lisp
-      ;; (require 'default-text-scale)
-      ;; (setq default-text-scale-mode t)
+      (require 'default-text-scale)
+      (setq default-text-scale-mode t)
     #+END_SRC
 
 ** bars, menus and numbers
@@ -3038,6 +3038,9 @@ l
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'highlight-symbol)
       (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+      (setq highlight-symbol-on-navigation-p t)
+      (global-set-key [f3] 'highlight-symbol-next)
+      (global-set-key [(shift f3)] 'highlight-symbol-prev)
     #+END_SRC
 
 *** flycheck

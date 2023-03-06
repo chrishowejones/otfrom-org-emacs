@@ -28,6 +28,7 @@
    '(treemacs-icons-dired--set-tab-width treemacs-icons-dired--enable-highlight-correction treemacs--select-icon-set dired-extra-startup dired-regexp-turn-on-discover dired-marking-turn-on-discover dired-isearch-meta-turn-on-discover dired-turn-on-discover))
  '(display-time-day-and-date t)
  '(ensime-startup-snapshot-notification nil)
+ '(explicit-shell-file-name nil)
  '(fci-rule-color "#383838")
  '(flycheck-disabled-checkers '(clojure-cider-eastwood\,\ clojure-cider-kibit))
  '(foreground-color "#cccccc")

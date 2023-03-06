@@ -43,9 +43,8 @@
              ("--force-with-lease")
              ("--force")
              ("--force-with-lease" "--force"))
- (magit-rebase
-  ("--autostash")
-  nil)
+ (magit-rebase nil
+               ("--autostash"))
  (magit-remote
   ("-f"))
  (magit-remote.<remote>.*url "git@github.com:chrishowejones/otfrom-org-emacs.git" "git@github.com:chrishowejonew/otfrom-org-emacs.git" "https://github.com/chrishowejones/otfrom-org-emacs.git")
