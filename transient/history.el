@@ -18,6 +18,11 @@
                ("--signoff"))
  (magit-diff
   ("--no-ext-diff" "--stat")
+  (("--" "projects/space-invader/bin/dev-release"))
+  (("--" "projects/space-invader/bin/dev-release")
+   "--no-ext-diff" "--stat")
+  (("--" "projects/space-invader/deps.edn")
+   "--no-ext-diff" "--stat")
   ("--no-ext-diff" "--stat" "--show-signature")
   (("--" "src/clash/api/resolvers/admin.clj"))
   (("--" "provider/build.gradle")))
@@ -40,12 +45,13 @@
                      (("--" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java")))
  (magit-pull nil
              ("--rebase"))
- (magit-push
-  ("--force-with-lease")
-  nil
-  ("--force")
-  ("--force-with-lease" "--force"))
- (magit-rebase nil)
+ (magit-push nil
+             ("--force-with-lease")
+             ("--force")
+             ("--force-with-lease" "--force"))
+ (magit-rebase
+  ("--autostash")
+  nil)
  (magit-remote
   ("-f"))
  (magit-remote.<remote>.*url "git@github.com:chrishowejones/otfrom-org-emacs.git" "git@github.com:chrishowejonew/otfrom-org-emacs.git" "https://github.com/chrishowejones/otfrom-org-emacs.git")
@@ -60,4 +66,4 @@
  (magit-tag nil
             ("--annotate"))
  (magit-worktree nil)
- (magit:-- "src/main/java/com/sage/zuorawrapper/model/adapter/ErrorResponseAdapter.java" "" "/home/chris/Sage/it-ead-zuora/src/main/java/com/sage/zuorawrapper/model/adapter/ErrorResponseAdapter.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java,src/main/java/com/sage/zuorawrapper/services/QueryService.java,src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java,src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionRecord.java,src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionQuery.java" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java,src/main/java/com/sage/zuorawrapper/services/QueryService.java"))
+ (magit:-- "projects/space-invader/bin/dev-release" "" "projects/space-invader/deps.edn" "src/main/java/com/sage/zuorawrapper/model/adapter/ErrorResponseAdapter.java" "/home/chris/Sage/it-ead-zuora/src/main/java/com/sage/zuorawrapper/model/adapter/ErrorResponseAdapter.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java,src/main/java/com/sage/zuorawrapper/services/QueryService.java,src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java,src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionRecord.java,src/main/java/com/sage/zuorawrapper/zuora/model/SubscriptionQuery.java" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java,src/main/java/com/sage/zuorawrapper/services/QueryService.java"))
