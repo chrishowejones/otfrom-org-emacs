@@ -3796,6 +3796,21 @@ l
       (maybe-install-and-require 'refheap)
     #+END_SRC
 
+** JSON mode
+
+   Install JSON mode
+
+   #+begin_src emacs-lisp
+     (maybe-install-and-require 'json-mode)
+   #+end_src
+
+** Json Navigator
+
+   Install JSON Navigator
+
+   #+begin_src emacs-lisp
+     (maybe-install-and-require 'json-navigator)
+   #+end_src
 ** jq mode
 
    Mode to run jq queries
