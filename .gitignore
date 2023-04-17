@@ -42,3 +42,4 @@ persist/*
 .org-generic-id-locations
 oauth2-auto.plist
 request/curl-cookie-jar
+persist/**
