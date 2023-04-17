@@ -51,6 +51,7 @@
  '(lsp-java-server-install-dir "~/emacs-config/eclipse.jdt.ls/server/")
  '(lsp-response-timeout 5)
  '(lsp-signature-auto-activate '(:on-trigger-char :on-server-request))
+ '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(menu-bar-mode nil)
  '(newsticker-url-list
    '(("New York Times" "https://spiderbites.nytimes.com/rss/" nil nil nil)))
@@ -59,7 +60,7 @@
  '(omnisharp-server-executable-path
    "/home/chris/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
  '(org-agenda-files
-   '("~/org/personal.org" "/home/chris/org/refile.org" "/home/chris/org/notes.org"))
+   '("/home/chris/org/notes.org" "/home/chris/org/personal.org"))
  '(org-hide-emphasis-markers t)
  '(org-reveal-keyboard t)
  '(org-reveal-root "file:///home/chris/reveal.js/")
