@@ -127,6 +127,7 @@
  '(split-height-threshold 180)
  '(split-width-threshold 200)
  '(tab-always-indent t)
+ '(typescript-indent-level 4)
  '(vc-annotate-background "#b0cde7")
  '(vc-annotate-color-map
    '((20 . "#969896")

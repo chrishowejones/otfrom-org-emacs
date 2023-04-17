@@ -45,10 +45,11 @@
                      (("--" "src/main/java/com/sage/zuorawrapper/zuora/services/ZuoraQueryService.java" "src/main/java/com/sage/zuorawrapper/services/QueryService.java")))
  (magit-pull nil
              ("--rebase"))
- (magit-push nil
-             ("--force-with-lease")
-             ("--force")
-             ("--force-with-lease" "--force"))
+ (magit-push
+  ("--force-with-lease")
+  nil
+  ("--force")
+  ("--force-with-lease" "--force"))
  (magit-rebase
   ("--autostash")
   nil)
