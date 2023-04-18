@@ -41,8 +41,8 @@
   (require p))
 
 ;; org-mode always needs to be installed in an emacs where it isn't loaded.
-(when (not (package-installed-p 'org))
-  (package-install 'org))
+;; (when (not (package-installed-p 'gnu))
+;;   (package-install 'org))
 (require 'org)
 
 (org-babel-load-file (concat user-emacs-directory "org/config.org"))
