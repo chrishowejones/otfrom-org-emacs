@@ -3062,13 +3062,12 @@ l
       (define-key yas-minor-mode-map (kbd "C-c C-y") 'yas-visit-snippet-file)
     #+END_SRC
 
-**** Snippet Directory
+**** yasnippet-snippets
 
-     We need a place to add our snippets for each mode as well. We'll
-     put that in snippets.
+     Set up yasnippet-snippets from Andrea (awesome guy that he is he's saved me loads of time here).
 
      #+BEGIN_SRC emacs-lisp
-;      (setq yas/root-directory (concat user-emacs-directory "snippets"))
+     (maybe-install-and-require 'yasnippet-snippets)
      #+END_SRC
 
 **** Turn it on globally
