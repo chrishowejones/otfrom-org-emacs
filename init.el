@@ -22,7 +22,6 @@
 
 ;; This means we prefer things from ~/.emacs.d/elpa over the standard packages.
 (package-initialize)
-;;(package-activate-all)
 
 ;; This bootstraps us if we don't have anything
 (when (not package-archive-contents)
@@ -39,6 +38,8 @@
   (when (not (package-installed-p p))
     (package-install p))
   (require p))
+
+(defvar native-comp-deferred-compilation-deny-list nil)
 
 ;; org-mode always needs to be installed in an emacs where it isn't loaded.
 ;; (when (not (package-installed-p 'gnu))
