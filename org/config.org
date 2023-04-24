@@ -873,9 +873,9 @@
     Code review to allow me to manage PRs etc.
 
     #+BEGIN_SRC emacs-lisp
-      (with-eval-after-load 'magit
-       (require 'code-review))
-      (setq code-review-auth-login-marker nil)
+      ;; (with-eval-after-load 'magit
+      ;;  (require 'code-review))
+      ;; (setq code-review-auth-login-marker nil)
     #+END_SRC
 
 *** git-gutter-mode+
@@ -926,8 +926,8 @@
 *** forge
 
     #+BEGIN_SRC emacs-lisp
-      (with-eval-after-load 'magit
-       (require 'forge))
+      ;; (with-eval-after-load 'magit
+      ;;  (require 'forge))
     #+END_SRC
 
 *** gitlink
