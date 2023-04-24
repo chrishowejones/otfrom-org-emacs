@@ -2006,6 +2006,7 @@ l
       (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
       (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
       (add-to-list 'auto-mode-alist '("\\.hmtl?\\'" . web-mode))
+      ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
       (setq web-mode-markup-indent-offset 2)
       (setq web-mode-css-markup-indent-offset 2)
       (setq web-mode-code-indent-offset 2)
@@ -2014,6 +2015,12 @@ l
       (eval-after-load 'web-mode
         '(add-to-list 'company-backends 'company-web))
 
+      ;; (add-hook 'web-mode-hook
+      ;;           (lambda ()
+      ;;             (when (string-equal "tsx" (file-name-extension buffer-file-name))
+      ;;               (setup-tide-mode))))
+        ;; enable typescript - tslint checker
+      (flycheck-add-mode 'typescript-tslint 'web-mode)
     #+END_SRC
 
 *** tagedit
@@ -2021,19 +2028,19 @@ l
     This gives us paredit like editing for html
 
     #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'tagedit)
-      ;; (eval-after-load "sgml-mode"
-      ;;   '(progn
-      ;;      (require 'tagedit)
-      ;;      (tagedit-add-paredit-like-keybindings)
-      ;;      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
+      (maybe-install-and-require 'tagedit)
+      (eval-after-load "web-mode"
+        '(progn
+           (require 'tagedit)
+           (tagedit-add-paredit-like-keybindings)
+           (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
     #+END_SRC
 
     I quite like the sound of the experimental editing stuff. Let's
     put it in and see if it helps or destroys our code.
 
     #+BEGIN_SRC emacs-lisp
-;;      (tagedit-add-experimental-features)
+      (tagedit-add-experimental-features)
     #+END_SRC
 
 *** Yaml
@@ -3711,6 +3718,53 @@ l
 
       ;; make sure paredit doesn't add space before parens
       (add-hook 'typescript-mode-hook 'my-paredit-nonlisp)
+      (use-package typescript-mode
+       :after tree-sitter
+       :config
+       (setq typescript-indent-level 2)
+
+       ;; we choose this instead of tsx-mode so that eglot can automatically figure out language for server
+       ;; see https://github.com/joaotavora/eglot/issues/624 and https://github.com/joaotavora/eglot#handling-quirky-servers
+       (define-derived-mode typescriptreact-mode typescript-mode
+         "TypeScript TSX")
+
+       ;; use our derived mode for tsx files
+       (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescriptreact-mode))
+       ;; by default, typescript-mode is mapped to the treesitter typescript parser
+       ;; use our derived mode to map both .tsx AND .ts - typescriptreact-mode - treesitter tsx
+       (add-to-list 'tree-sitter-major-mode-language-alist '(typescriptreact-mode
+        . tsx)))
+    #+END_SRC
+
+
+*** Treesitter indentation
+      https://github.com/orzechowskid/tsi.el/
+      great tree-sitter-based indentation for typescript/tsx, css, json
+
+    #+BEGIN_SRC emacs-lisp
+    (straight-use-package '(tsi :type git :host github :repo "orzechowskid/tsi.el"))
+    (use-package tsi
+        :after tree-sitter
+        ;; define autoload definitions which when actually invoked will cause package to be loaded
+        :commands (tsi-typescript-mode tsi-json-mode tsi-css-mode)
+        :init
+        (add-hook 'typescript-mode-hook (lambda () (tsi-typescript-mode 1)))
+        (add-hook 'json-mode-hook (lambda () (tsi-json-mode 1)))
+        (add-hook 'css-mode-hook (lambda () (tsi-css-mode 1)))
+        (add-hook 'scss-mode-hook (lambda () (tsi-scss-mode 1))))
+    #+END_SRC
+
+
+*** Apheleia
+
+    auto-format different source code files extremely intelligently
+    https://github.com/radian-software/apheleia
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package apheleia
+        :ensure t
+        :config
+        (apheleia-global-mode +1))
     #+END_SRC
 
 *** Tide
@@ -3719,8 +3773,8 @@ l
     Emacs.
 
     #+BEGIN_SRC emacs-lisp
-        (maybe-install-and-require 'tide)
-        (defun setup-tide-mode ()
+      (maybe-install-and-require 'tide)
+      (defun setup-tide-mode ()
           (interactive)
           (tide-setup)
           (flycheck-mode +1)
@@ -3731,7 +3785,8 @@ l
           ;; install it separately via package-install
           ;; `M-x package-install [ret] company`
           (company-mode +1)
-          (electric-indent-local-mode nil))
+          ;; (electric-indent-local-mode nil)
+          )
 
       ;; aligns annotation to the right hand side
       (setq company-tooltip-align-annotations t)
@@ -3743,6 +3798,21 @@ l
 
       ;; format
       (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions nil :placeOpenBraceOnNewLineForFunctions nil))
+    #+END_SRC
+
+*** ts-comint repl for typescript
+
+    Use ts-comint as a REPL for typescript.
+
+    #+BEGIN_SRC emacs-lisp
+      (maybe-install-and-require 'ts-comint)
+      (add-hook 'typescript-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-x C-e") 'ts-send-last-sexp)
+            (local-set-key (kbd "C-M-x") 'ts-send-last-sexp-and-go)
+            (local-set-key (kbd "C-c b") 'ts-send-buffer)
+            (local-set-key (kbd "C-c C-b") 'ts-send-buffer-and-go)
+            (local-set-key (kbd "C-c l") 'ts-load-file-and-go)))
     #+END_SRC
 
 ** elasticsearch
@@ -4393,6 +4463,7 @@ l
                 (java-mode . lsp)
                 (scala-mode . lsp)
                 (js2-mode . lsp)
+                (typescript-mode . lsp)
                 ;; if you want which-key integration
                 (lsp-mode . lsp-enable-which-key-integration)
                 (lsp-mode . flycheck-mode)
@@ -4408,6 +4479,8 @@ l
                 (dolist (m '(clojure-mode
                              clojurec-mode
                              clojurescript-mode
+                             typescript-mode
+                             javascript-mode
                              clojurex-mode))
                    (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
                 (setq lsp-keymap-prefix "M-s-l")
@@ -4467,7 +4540,9 @@ l
       ;;     ,(concat "-javaagent:" path-to-lombok)
       ;;     ,(concat "-Xbootclasspath/a:" path-to-lombok)
                      ))
-
+      ;; (add-hook 'typescript-mode-hook 'lsp-deferred)
+      ;; (add-hook 'javascript-mode-hook 'lsp-deferred)
+      (add-hook 'typescript-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
     #+END_SRC
 
 *** DAP mode
@@ -4487,9 +4562,42 @@ l
         :config (dap-auto-configure-mode))
       ;; (use-package dap-java :ensure nil)
       (require 'dap-java)
+      (setq package-list '(dap-mode typescript-mode))
       (define-key dap-mode-map (kbd "M-s-l t t") 'dap-java-run-test-method)
       (define-key dap-mode-map (kbd "M-s-l t c") 'dap-java-run-test-class)
       (define-key dap-mode-map (kbd "M-s-l t d") 'dap-java-debug-test-method)
+      (defun my-setup-dap-node ()
+        "Require dap-node feature and run dap-node-setup if VSCode module isn't already installed"
+        (require 'dap-node)
+        (unless (file-exists-p dap-node-debug-path) (dap-node-setup)))
+
+      (add-hook 'typescript-mode-hook 'my-setup-dap-node)
+      (add-hook 'javascript-mode-hook 'my-setup-dap-node)
+      (add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra)))
+    #+END_SRC
+
+*** Treesitter
+
+    Colouring for JS and typescript
+
+    #+BEGIN_SRC emacs-lisp
+      ;; Loading tree-sitter package
+      (maybe-install-and-require 'tree-sitter-langs)
+      (maybe-install-and-require 'tree-sitter)
+
+      (use-package tree-sitter
+        :ensure t
+        :config
+        ;; activate tree-sitter on any buffer containing code for which it has a parser available
+        (global-tree-sitter-mode)
+        ;; you can easily see the difference tree-sitter-hl-mode makes for python, ts or tsx
+        ;; by switching on and off
+        (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+      (use-package tree-sitter-langs
+        :ensure t
+        :after tree-sitter)
     #+END_SRC
 
 * Data Modes
