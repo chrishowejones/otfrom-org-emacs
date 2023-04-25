@@ -43,3 +43,4 @@ persist/*
 oauth2-auto.plist
 request/curl-cookie-jar
 persist/**
+org-roam.db
