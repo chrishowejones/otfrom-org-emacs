@@ -159,7 +159,9 @@ you'd like to use the default Emacs behavior use
 
 (defcustom cider-repl-init-code (list (cdr (assoc 'clj cider-repl-require-repl-utils-code)))
   "Clojure code to evaluate when starting a REPL.
-Will be evaluated with bindings for set!-able vars in place."
+Will be evaluated with bindings for set!-able vars in place.
+
+See also `cider-repl-eval-init-code'."
   :type '(list string)
   :package-version '(cider . "0.21.0"))
 
@@ -1837,6 +1839,15 @@ constructs."
 (declare-function cider-complete-at-point "cider-completion")
 (defvar cider--static-font-lock-keywords)
 
+(defun cider-repl-setup-paredit ()
+  "Override the paredit-RET binding in cider-repl-mode."
+  (let ((oldmap (cdr (assoc 'paredit-mode minor-mode-map-alist)))
+        (newmap (make-sparse-keymap)))
+    (set-keymap-parent newmap oldmap)
+    (define-key newmap (kbd "RET") nil)
+    (make-local-variable 'minor-mode-overriding-map-alist)
+    (push `(paredit-mode . ,newmap) minor-mode-overriding-map-alist)))
+
 (define-derived-mode cider-repl-mode fundamental-mode "REPL"
   "Major mode for Clojure REPL interactions.
 
@@ -1864,7 +1875,8 @@ constructs."
     (add-hook 'kill-buffer-hook #'cider-repl-history-just-save t t)
     (add-hook 'kill-emacs-hook #'cider-repl-history-just-save))
   (add-hook 'completion-at-point-functions #'cider-complete-at-point nil t)
-  (add-hook 'paredit-mode-hook (lambda () (clojure-paredit-setup cider-repl-mode-map))))
+  (add-hook 'paredit-mode-hook (lambda () (clojure-paredit-setup cider-repl-mode-map)))
+  (cider-repl-setup-paredit))
 
 (provide 'cider-repl)
 
