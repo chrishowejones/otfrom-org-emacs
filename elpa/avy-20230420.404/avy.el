@@ -4,8 +4,8 @@
 
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/avy
-;; Package-Version: 20230316.2259
-;; Package-Commit: d9634efe2631b608cb28c420f54d6e6689805cf7
+;; Package-Version: 20230420.404
+;; Package-Commit: be612110cb116a38b8603df367942e2bb3d9bdbe
 ;; Version: 0.5.0
 ;; Package-Requires: ((emacs "24.1") (cl-lib "0.5"))
 ;; Keywords: point, location
@@ -840,11 +840,11 @@ Set `avy-style' according to COMMAND as well."
            avy-last-candidates))
          (min-dist
           (apply #'min
-                 (mapcar (lambda (x) (abs (- (caar x) (point)))) avy-last-candidates)))
+                 (mapcar (lambda (x) (abs (- (if (listp (car x)) (caar x) (car x)) (point)))) avy-last-candidates)))
          (pos
           (cl-position-if
            (lambda (x)
-             (= (- (caar x) (point)) min-dist))
+             (= (- (if (listp (car x)) (caar x) (car x)) (point)) min-dist))
            avy-last-candidates)))
     (funcall advancer pos avy-last-candidates)))
 
@@ -854,7 +854,8 @@ Set `avy-style' according to COMMAND as well."
   (avy--last-candidates-cycle
    (lambda (pos lst)
      (when (> pos 0)
-       (goto-char (caar (nth (1- pos) lst)))))))
+       (let ((candidate (nth (1- pos) lst)))
+         (goto-char (if (listp (car candidate)) (caar candidate) (car candidate))))))))
 
 (defun avy-next ()
   "Go to the next candidate of the last `avy-read'."
@@ -862,7 +863,8 @@ Set `avy-style' according to COMMAND as well."
   (avy--last-candidates-cycle
    (lambda (pos lst)
      (when (< pos (1- (length lst)))
-       (goto-char (caar (nth (1+ pos) lst)))))))
+       (let ((candidate (nth (1+ pos) lst)))
+         (goto-char (if (listp (car candidate)) (caar candidate) (car candidate))))))))
 
 ;;;###autoload
 (defun avy-process (candidates &optional overlay-fn cleanup-fn)
