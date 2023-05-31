@@ -616,7 +616,7 @@
 *** Default font scale
 
     #+BEGIN_SRC emacs-lisp
-      (require 'default-text-scale)
+      (maybe-install-and-require 'default-text-scale)
       (setq default-text-scale-mode t)
     #+END_SRC
 

@@ -5,8 +5,7 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
+(add-to-list 'load-path (or (and load-file-name (file-name-directory load-file-name)) (car load-path)))
 
 
 
@@ -36,8 +35,6 @@ evaluate `(default-value \\='which-key-mode)'.
 
 The mode's hook is called both when the mode is enabled and when
 it is disabled.
-
-\\{which-key-mode-map}
 
 (fn &optional ARG)" t)
 (autoload 'which-key-setup-side-window-right "which-key" "\

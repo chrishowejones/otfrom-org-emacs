@@ -5,14 +5,13 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
+(add-to-list 'load-path (or (and load-file-name (file-name-directory load-file-name)) (car load-path)))
 
 
 
 ;;; Generated autoloads from yaml-mode.el
 
-(let ((loads (get 'yaml 'custom-loads))) (if (member '"yaml-mode" loads) nil (put 'yaml 'custom-loads (cons '"yaml-mode" loads))))
+(let ((loads (get 'yaml 'custom-loads))) (if (member '"yaml-mode" loads) nil (put 'yaml 'custom-loads (cons '"yaml-mode" loads)) (put 'languages 'custom-loads (cons 'yaml (get 'languages 'custom-loads)))))
 (autoload 'yaml-mode "yaml-mode" "\
 Simple mode to edit YAML.
 

@@ -2,6 +2,8 @@
   '((emacs "25.1"))
   :commit "071c1c29bac30351ad338136f2b625e5601365cd" :authors
   '(("Bjarte Johansen <Bjarte dot Johansen at gmail dot com>"))
+  :maintainers
+  '(("Bjarte Johansen <Bjarte dot Johansen at gmail dot com>"))
   :maintainer
   '("Bjarte Johansen <Bjarte dot Johansen at gmail dot com>")
   :url "https://github.com/ljos/jq-mode")

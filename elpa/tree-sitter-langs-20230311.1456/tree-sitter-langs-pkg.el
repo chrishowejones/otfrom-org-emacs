@@ -3,6 +3,8 @@
     (tree-sitter "0.15.0"))
   :commit "ffe9ab0c8ec9e37e70e31d296df3b85bcfc73c5e" :authors
   '(("Tuấn-Anh Nguyễn" . "ubolonton@gmail.com"))
+  :maintainers
+  '(("Tuấn-Anh Nguyễn" . "ubolonton@gmail.com"))
   :maintainer
   '("Tuấn-Anh Nguyễn" . "ubolonton@gmail.com")
   :keywords
