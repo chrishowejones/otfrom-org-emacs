@@ -3339,6 +3339,7 @@ l
 
       #+BEGIN_SRC emacs-lisp
         (add-hook 'cider-mode-hook 'subword-mode)
+        (add-hook 'cider-mode-hook (lambda () (setq lsp-enable-completion-at-point nil)))
       #+END_SRC
 
 ***** compojure indentation rules
@@ -3481,7 +3482,8 @@ l
          (cljr-add-keybindings-with-prefix "C-c C-m")
          (setq cljr-favor-prefix-notation nil)
          (setq cljr-add-ns-to-blank-clj-files nil)
-         (setq cljr-insert-newline-after-require nil))
+         (setq cljr-insert-newline-after-require nil)
+         (setq lsp-ui-doc-enable nil))
 
          (add-hook
            'clojure-mode-hook #'my-clojure-mode-hook)
@@ -3584,12 +3586,16 @@ l
 ** python
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'python)
-     (maybe-install-and-require 'elpy)
+     (require 'python)
+;;     (maybe-install-and-require 'elpy)
      (add-hook 'python-mode-hook 'my-paredit-nonlisp)
-     (setq python-shell-interpreter "/home/chris/anaconda3/bin/ipython"
-           python-shell-interpreter-args "-i --simple-prompt")
-     (elpy-enable)
+     (add-hook 'python-mode-hook 'lsp)
+     (add-hook 'python-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
+     (setq python-shell-interpreter "/home/chris/.pyenv/shims/python")
+     (setq dap-python-executable "python3")
+     (setq dap-python-debugger 'debugpy)
+     (require 'dap-python)
+;;     (elpy-enable)
    #+END_SRC
 
 
@@ -4490,7 +4496,7 @@ l
                 (lsp-mode . flycheck-mode)
                 (lsp-mode . lsp-lens-mode))
          :config
-                (setq lsp-prefer-flymake nil)
+                (setq lsp-prefer-flymake t)
                 (add-to-list 'company-backends 'company-capf)
                 (setq lsp-keep-workspace-alive nil)
                 ;; add paths to your local installation of project mgmt tools, like lein
@@ -4500,8 +4506,6 @@ l
                 (dolist (m '(clojure-mode
                              clojurec-mode
                              clojurescript-mode
-                             typescript-mode
-                             javascript-mode
                              clojurex-mode))
                    (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
                 (setq lsp-keymap-prefix "M-s-l")
@@ -4517,10 +4521,10 @@ l
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
             lsp-lens-enable t
-            lsp-ui-doc-enable nil
+            lsp-ui-doc-enable t
             lsp-signature-auto-activate nil
             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
-            lsp-enable-completion-at-point nil ; set to nil to use cider completion instead of lsp
+            lsp-enable-completion-at-point t ; set to nil to use cider completion instead of lsp
             )
 
       (setq lsp-ui-doc-show-with-cursor t)
@@ -4561,8 +4565,8 @@ l
       ;;     ,(concat "-javaagent:" path-to-lombok)
       ;;     ,(concat "-Xbootclasspath/a:" path-to-lombok)
                      ))
-      ;; (add-hook 'typescript-mode-hook 'lsp-deferred)
-      ;; (add-hook 'javascript-mode-hook 'lsp-deferred)
+      (add-hook 'typescript-mode-hook 'lsp-deferred)
+      (add-hook 'javascript-mode-hook 'lsp-deferred)
       (add-hook 'typescript-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
     #+END_SRC
 
@@ -4775,7 +4779,13 @@ l
      ;; (hyperbole-mode t)
 
    #+END_SRC
+** Command log mode
 
+   Add command log mode.
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'command-log-mode)
+   #+END_SRC
 
 * Misc
 

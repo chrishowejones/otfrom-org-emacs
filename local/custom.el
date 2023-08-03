@@ -20,6 +20,7 @@
    '(company-meghanada company-emacs-eclim company-tern company-bbdb company-css company-semantic company-clang company-xcode company-cmake company-capf company-files
                        (company-dabbrev-code company-gtags company-etags company-keywords)
                        company-oddmuse company-dabbrev))
+ '(compilation-read-command nil)
  '(connection-local-criteria-alist
    '(((:application eshell)
       eshell-connection-default-profile)
@@ -129,8 +130,11 @@
  '(js-indent-level 2)
  '(lsp-java-java-path "/usr/lib/jvm/java-11-openjdk-amd64/bin/java")
  '(lsp-java-server-install-dir "~/emacs-config/eclipse.jdt.ls/server/")
+ '(lsp-log-io t)
+ '(lsp-pylsp-server-command '("pylsp"))
  '(lsp-response-timeout 5)
  '(lsp-signature-auto-activate '(:on-trigger-char :on-server-request))
+ '(lsp-ui-doc-enable t)
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(menu-bar-mode nil)
  '(newsticker-url-list
