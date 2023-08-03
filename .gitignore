@@ -45,3 +45,4 @@ request/curl-cookie-jar
 persist/**
 org-roam.db
 code-review-*
+.dap-breakpoints
