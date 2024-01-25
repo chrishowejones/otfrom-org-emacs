@@ -225,13 +225,6 @@
      (setq exec-path (append exec-path '("/usr/bin")))
    #+END_SRC
 
-** Add exec path from shell
-
-   #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'exec-path-from-shell)
-     (exec-path-from-shell-initialize)
-   #+END_SRC
-
 ** iy-go-to-char
 
    Saw this on magnars episode 4 of emacs rocks
@@ -874,10 +867,10 @@
     Code review to allow me to manage PRs etc.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'code-review)
-      (with-eval-after-load 'magit
-       (require 'code-review))
-      (setq code-review-auth-login-marker 'forge)
+      ;; (maybe-install-and-require 'code-review)
+      ;; (with-eval-after-load 'magit
+      ;;  (require 'code-review))
+      ;; (setq code-review-auth-login-marker 'forge)
     #+END_SRC
 
 *** git-gutter-mode+
@@ -1334,6 +1327,15 @@ l
      (global-set-key (kbd "C-k") 'crux-smart-kill-line)
      #+END_SRC
 * Text Modes
+** paredit
+
+     I *always* want my parens to match (except in text modes).
+
+     #+BEGIN_SRC emacs-lisp
+       (add-hook 'css-mode-hook 'paredit-mode)
+       (add-hook 'css-mode-hook 'my-paredit-nonlisp)
+     #+END_SRC
+
 
 ** Text Mode Basics
 
@@ -2089,15 +2091,6 @@ l
       (global-set-key (kbd "C-c n") 'cleanup-buffer)
     #+end_src
 
-**** paredit
-
-     I *always* want my parens to match (except in text modes).
-
-     #+BEGIN_SRC emacs-lisp
-       (add-hook 'css-mode-hook 'paredit-mode)
-       (add-hook 'css-mode-hook 'my-paredit-nonlisp)
-     #+END_SRC
-
 **** rainbow mode
 
      And I want to see the colours I'm using.
@@ -2767,7 +2760,7 @@ l
      of the reason for having email in emacs anyway.
 
      #+BEGIN_SRC emacs-lisp
-       (require 'org-mu4e)
+;;       (require 'org-mu4e)
      #+END_SRC
 
 **** mu4e and org-contacts
@@ -3600,7 +3593,7 @@ l
 
 
 
-** javascript
+** JavaScript
 
 *** js2 mode
 
@@ -3609,6 +3602,7 @@ l
     #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'js2-mode)
       (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+      (add-to-list 'auto-mode-alist '("\\.mjs\\'" . js2-mode))
       ;; Better imenu
       (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
       (setq js2-basic-offset 2)
@@ -3694,6 +3688,21 @@ l
                 (lambda ()
                   (define-key paredit-mode-map (kbd "M-q") nil)
                   (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
+      (after-load 'js2-mode
+        (add-hook 'js2-mode-hook
+            (lambda()
+              (js-format-setup "standard"))))
+    #+END_SRC
+
+
+*** prettier
+
+    Set up prettier.
+
+    #+BEGIN_SRC emacs-lisp
+      ;; (require 'prettier-js)
+      ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
+      ;; (add-hook 'web-mode-hook 'prettier-js-mode)
     #+END_SRC
 
 *** rjsx-mode
@@ -4566,7 +4575,7 @@ l
       ;;     ,(concat "-Xbootclasspath/a:" path-to-lombok)
                      ))
       (add-hook 'typescript-mode-hook 'lsp-deferred)
-      (add-hook 'javascript-mode-hook 'lsp-deferred)
+      (add-hook 'js2-mode-hook 'lsp-deferred)
       (add-hook 'typescript-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
     #+END_SRC
 
@@ -4597,7 +4606,7 @@ l
         (unless (file-exists-p dap-node-debug-path) (dap-node-setup)))
 
       (add-hook 'typescript-mode-hook 'my-setup-dap-node)
-      (add-hook 'javascript-mode-hook 'my-setup-dap-node)
+      (add-hook 'js2-mode-hook 'my-setup-dap-node)
       (add-hook 'dap-stopped-hook
           (lambda (arg) (call-interactively #'dap-hydra)))
     #+END_SRC
@@ -4854,4 +4863,11 @@ l
 
    #+BEGIN_SRC emacs-lisp
      (server-start)
+   #+END_SRC
+
+** Add exec path from shell
+
+   #+BEGIN_SRC emacs-lisp
+     (maybe-install-and-require 'exec-path-from-shell)
+     (exec-path-from-shell-initialize)
    #+END_SRC
