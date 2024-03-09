@@ -1327,9 +1327,37 @@ l
      (global-set-key (kbd "C-k") 'crux-smart-kill-line)
      #+END_SRC
 * Text Modes
-** paredit
+** paredit-mode
 
-     I *always* want my parens to match (except in text modes).
+     Should I move over to smartparens? Can anyone tell me what is so
+     much better about it?
+
+     paredit-mode is a strange one. When you first use it, you will
+     hate it. You'll hate the way it won't let you do the things
+     you *think* you want to do. Once you get used to it though you
+     wonder how you ever did any programming without it.
+
+     #+BEGIN_SRC emacs-lisp
+       (maybe-install-and-require 'paredit)
+       (diminish 'paredit-mode "()")
+       (add-hook 'prog-mode-hook 'paredit-mode)
+     #+END_SRC
+
+** paredit spaces for non s-expr langs
+
+    Need to stop insertion of spaces between symbols and parens for
+    non s-expr langs
+
+    #+BEGIN_SRC emacs-lisp
+    (defun my-paredit-nonlisp ()
+      "Turn on paredit mode for non-lisps."
+      (interactive)
+      (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+           '((lambda (endp delimiter) nil)))
+        (paredit-mode 1))
+    #+END_SRC
+
+    I *always* want my parens to match (except in text modes).
 
      #+BEGIN_SRC emacs-lisp
        (add-hook 'css-mode-hook 'paredit-mode)
@@ -2994,22 +3022,6 @@ l
        (show-paren-mode +1)
      #+END_SRC
 
-**** paredit-mode
-
-     Should I move over to smartparens? Can anyone tell me what is so
-     much better about it?
-
-     paredit-mode is a strange one. When you first use it, you will
-     hate it. You'll hate the way it won't let you do the things
-     you *think* you want to do. Once you get used to it though you
-     wonder how you ever did any programming without it.
-
-     #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'paredit)
-       (diminish 'paredit-mode "()")
-       (add-hook 'prog-mode-hook 'paredit-mode)
-     #+END_SRC
-
 *** rainbow-delimiters
 
     Make those delimiters glow with wacky colors so we can see what is
@@ -3108,6 +3120,14 @@ l
      #+BEGIN_SRC emacs-lisp
       (maybe-install-and-require 'java-snippets)
      #+END_SRC
+
+
+**** react snippets
+
+     #+begin_src emacs-lisp
+      (maybe-install-and-require 'js-react-redux-yasnippets)
+     #+end_src
+
 *** smartscan
 
     A suggestion from [[http://www.masteringemacs.org/articles/2011/01/14/effective-editing-movement/][Effective Editing]] in [[http://www.masteringemacs.org/][Mastering Emacs]]. This
@@ -3118,20 +3138,6 @@ l
       (maybe-install-and-require 'smartscan)
       (add-hook 'prog-mode-hook
                 '(lambda () (smartscan-mode 1)))
-    #+END_SRC
-
-*** paredit spaces for non s-expr langs
-
-    Need to stop insertion of spaces between symbols and parens for
-    non s-expr langs
-
-    #+BEGIN_SRC emacs-lisp
-    (defun my-paredit-nonlisp ()
-      "Turn on paredit mode for non-lisps."
-      (interactive)
-      (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-           '((lambda (endp delimiter) nil)))
-        (paredit-mode 1))
     #+END_SRC
 
 *** Set line numbers mode in prog modes
@@ -3582,7 +3588,6 @@ l
      (require 'python)
 ;;     (maybe-install-and-require 'elpy)
      (add-hook 'python-mode-hook 'my-paredit-nonlisp)
-     (add-hook 'python-mode-hook 'lsp)
      (add-hook 'python-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
      (setq python-shell-interpreter "/home/chris/.pyenv/shims/python")
      (setq dap-python-executable "python3")
@@ -3677,21 +3682,21 @@ l
     Try js-format instead of prettier as prettier is annoying me atm.
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'js-format)
-      (defun my-statement-format ()
-        (interactive
-          (progn
-            (js-format-mark-statement t)
-            (js-format-region (region-beginning) (region-end))
-            (keyboard-quit))))
-      (add-hook 'js2-mode-hook
-                (lambda ()
-                  (define-key paredit-mode-map (kbd "M-q") nil)
-                  (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
-      (after-load 'js2-mode
-        (add-hook 'js2-mode-hook
-            (lambda()
-              (js-format-setup "standard"))))
+      ;; (maybe-install-and-require 'js-format)
+      ;; (defun my-statement-format ()
+      ;;   (interactive
+      ;;     (progn
+      ;;       (js-format-mark-statement t)
+      ;;       (js-format-region (region-beginning) (region-end))
+      ;;       (keyboard-quit))))
+      ;; (add-hook 'js2-mode-hook
+      ;;           (lambda ()
+      ;;             (define-key paredit-mode-map (kbd "M-q") nil)
+      ;;             (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
+      ;; (eval-after-load 'js2-mode
+      ;;   (add-hook 'js2-mode-hook
+      ;;       (lambda()
+      ;;         (js-format-setup "standard"))))
     #+END_SRC
 
 
@@ -3828,7 +3833,7 @@ l
       (setq company-tooltip-align-annotations t)
 
       ;; formats the buffer before saving
-      (add-hook 'before-save-hook 'tide-format-before-save)
+      ;; (add-hook 'before-save-hook 'tide-format-before-save)
 
       (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
@@ -4480,14 +4485,6 @@ l
 
     I've extracted LSP config to a separate section as I'm using it for loads of different langs.
 
-    Install and require some backends
-    #+BEGIN_SRC emacs-lisp
-     ;; Add metals backend for lsp-mode scala
-     (maybe-install-and-require 'lsp-metals)
-     ;; Install lsp-ui
-     (maybe-install-and-require 'lsp-ui)
-    #+END_SRC
-
     Set up LSP mode.
 
     #+BEGIN_SRC emacs-lisp
@@ -4500,6 +4497,7 @@ l
                 (scala-mode . lsp)
                 (js2-mode . lsp)
                 (typescript-mode . lsp)
+                (python-mode . lsp)
                 ;; if you want which-key integration
                 (lsp-mode . lsp-enable-which-key-integration)
                 (lsp-mode . flycheck-mode)
@@ -4548,7 +4546,6 @@ l
       (setq lsp-idle-delay 0.5)
 
       (use-package lsp-java)
-      (add-hook 'java-mode 'lsp-mode)
 
       ;; Use eclipse 2.1 formatting
       (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
@@ -4560,7 +4557,7 @@ l
       (use-package lsp-treemacs
         :commands lsp-treemacs-errors-list
         :config
-        (lsp-metals-treeview-mode t)
+        ;;(lsp-metals-treeview-mode t)
         (setq lsp-metals-treeview-show-when-views-received t))
 
       ;; add lombok to classpath for lsp

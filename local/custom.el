@@ -7,6 +7,7 @@
    ["#454545" "#d65946" "#6aaf50" "#baba36" "#598bc1" "#ab75c3" "#68a5e9" "#bdbdb3"])
  '(background-color "#202020")
  '(background-mode dark)
+ '(before-save-hook '((lambda nil (delete-trailing-whitespace))))
  '(c-basic-offset 4)
  '(cider-boot-parameters "cider repl -s wait")
  '(cider-path-translations nil)
