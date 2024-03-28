@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (or (and load-file-name (file-name-directory load-file-name)) (car load-path)))
+(add-to-list 'load-path (or (and load-file-name (directory-file-name (file-name-directory load-file-name))) (car load-path)))
 
 
 
@@ -36,6 +36,7 @@ when finished.  See `url-retrieve'.
 
 (fn TOKEN URL CALLBACK &optional CBARGS REQUEST-METHOD REQUEST-DATA REQUEST-EXTRA-HEADERS)")
 (register-definition-prefixes "oauth2" '("oauth"))
+
 
 ;;; End of scraped data
 

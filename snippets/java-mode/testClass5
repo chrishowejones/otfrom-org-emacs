@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: testClass5
+# key: tc5
+# --
+package ${1:`(mapconcat 'identity (split-string (replace-regexp-in-string ".*src\\(/\\(main\\|test\\)\\)?\\(/java\\)?" "" default-directory) "/" t) ".")`};
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+public class ${2:`(let ((fn (file-name-nondirectory
+                            (file-name-sans-extension
+                            (or (buffer-file-name)
+                            (buffer-name (current-buffer)))))))
+           (replace-regexp-in-string "_" "" fn t t))`} {
+
+   @Test
+   public void ${3:testStuff}() {
+           $0
+   }
+}

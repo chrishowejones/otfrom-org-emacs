@@ -130,8 +130,6 @@
  '(ivy-mode t)
  '(jdee-server-dir "/home/chris/jdeejar")
  '(js-indent-level 2)
- '(lsp-java-java-path "/usr/lib/jvm/java-11-openjdk-amd64/bin/java")
- '(lsp-java-server-install-dir "~/emacs-config/eclipse.jdt.ls/server/")
  '(lsp-log-io t)
  '(lsp-pylsp-server-command '("pylsp"))
  '(lsp-response-timeout 5)

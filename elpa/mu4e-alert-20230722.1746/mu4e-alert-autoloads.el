@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (or (and load-file-name (file-name-directory load-file-name)) (car load-path)))
+(add-to-list 'load-path (or (and load-file-name (directory-file-name (file-name-directory load-file-name))) (car load-path)))
 
 
 
@@ -22,6 +22,7 @@ Enable display of unread emails in mode-line." t)
 (autoload 'mu4e-alert-enable-notifications "mu4e-alert" "\
 Enable desktop notifications for unread emails." t)
 (register-definition-prefixes "mu4e-alert" '("mu4e-alert-"))
+
 
 ;;; End of scraped data
 

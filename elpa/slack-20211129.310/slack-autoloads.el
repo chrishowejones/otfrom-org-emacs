@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (or (and load-file-name (file-name-directory load-file-name)) (car load-path)))
+(add-to-list 'load-path (or (and load-file-name (directory-file-name (file-name-directory load-file-name))) (car load-path)))
 
 
 
@@ -413,6 +413,7 @@ Available options (property name, type, default value)
 ;;; Generated autoloads from slack-websocket.el
 
 (register-definition-prefixes "slack-websocket" '("slack-"))
+
 
 ;;; End of scraped data
 

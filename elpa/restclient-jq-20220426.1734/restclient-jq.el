@@ -3,8 +3,6 @@
 ;; Public domain.
 
 ;; URL: https://github.com/pashky/restclient.el
-;; Package-Version: 20220426.1734
-;; Package-Commit: ae79e7dd283890072da69b8f48aeec1afd0d9442
 ;; Author: Cameron Dorrat <cdorrat@gmail.com>
 ;; Maintainer: Cameron Dorrat <cdorrat@gmail.com>
 ;; Created: 26 Apr 2020
