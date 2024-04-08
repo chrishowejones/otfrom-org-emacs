@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/tsi.el/tsi-typescript.test.el
+/Users/chrishowe-jones/.emacs.d/straight/repos/tsi.el/tsi-typescript.test.el

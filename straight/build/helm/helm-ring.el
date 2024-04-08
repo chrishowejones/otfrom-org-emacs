@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/helm-ring.el
+/Users/chrishowe-jones/.emacs.d/straight/repos/helm/helm-ring.el

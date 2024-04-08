@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/emacs-async/dired-async.el
+/Users/chrishowe-jones/.emacs.d/straight/repos/emacs-async/dired-async.el

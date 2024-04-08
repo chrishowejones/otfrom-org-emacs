@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/emacs-helm.sh
+/Users/chrishowe-jones/.emacs.d/straight/repos/helm/emacs-helm.sh

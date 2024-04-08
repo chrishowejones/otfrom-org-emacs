@@ -1568,7 +1568,7 @@ l
       org-gcal-client-secret are all set in [[../local/mellon.el.gpg][mellon.el.gpg]].
 
       #+BEGIN_SRC emacs-lisp
-        (maybe-install-and-require 'org-gcal)
+        ;; (maybe-install-and-require 'org-gcal)
       #+END_SRC
 
 ***** Agenda Windows
@@ -2611,9 +2611,9 @@ l
     files in /usr/local/share/emacs/site-lisp/mu4e/.
 
     #+BEGIN_SRC emacs-lisp
-    (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
-    (require 'mu4e)
-    (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
+      ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/")
+      ;; (require 'mu4e)
+      ;; (setq mu4e-user-mail-address-list (list "chris.howejones@gmail.com"))
     #+END_SRC
 
 **** Don't hog my minibuffer
@@ -2628,7 +2628,7 @@ l
      much even with that.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-hide-index-messages t)
+       ;; (setq mu4e-hide-index-messages t)
      #+END_SRC
 
 **** Fetching mail
@@ -2637,8 +2637,8 @@ l
      minutes.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-get-mail-command "offlineimap -s")
-       (setq mu4e-update-interval (* 5 60))
+       ;; (setq mu4e-get-mail-command "offlineimap -s")
+       ;; (setq mu4e-update-interval (* 5 60))
      #+END_SRC
 
 **** Shortcuts
@@ -2647,11 +2647,11 @@ l
      interested in.
 
      #+BEGIN_SRC emacs-lisp
-       (setq mu4e-maildir-shortcuts
-             '(("/gmail/INBOX" . ?i)
-               (:maildir "/gmail/[Google Mail].Sent Mail"  :key ?s)
-               (:maildir "/gmail/[Google Mail].Trash"      :key ?t)
-               (:maildir "/gmail/[Google Mail].All Mail"   :key ?a)))
+       ;; (setq mu4e-maildir-shortcuts
+       ;;       '(("/gmail/INBOX" . ?i)
+       ;;         (:maildir "/gmail/[Google Mail].Sent Mail"  :key ?s)
+       ;;         (:maildir "/gmail/[Google Mail].Trash"      :key ?t)
+       ;;         (:maildir "/gmail/[Google Mail].All Mail"   :key ?a)))
      #+END_SRC
 
 **** Multiple Accounts
@@ -2664,22 +2664,22 @@ l
       I've defaulted to my gmail account personal.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-refile-folder "/gmail/[Google Mail].All Mail"
-              mu4e-sent-folder "/gmail/[Google Mail].Sent Mail"
-              mu4e-drafts-folder "/gmail/[Google Mail].Drafts"
-              mu4e-trash-folder "/gmail/[Google Mail].Bin"
-              user-mail-address "chris.howejones@gmail.com"
-              message-signature-file "/home/chrishowe-jones/.signature"
-              user-mail-address "chris.howejones@gmail.com"
-              mu4e-inboxes-query "maildir:/gmail/INBOX"
-              smtpmail-queue-dir "~/mail/queue/cur"
-              mail-user-agent 'mu4e-user-agent
-              mu4e-html2text-command 'mu4e-shr2text
-              mu4e-view-show-images t
-              mu4e-index-lazy-check t
-              mu4e-view-show-addresses t
-              message-kill-buffer-on-exit t
-              mu4e-sent-messages-behavior 'delete)
+        ;; (setq mu4e-refile-folder "/gmail/[Google Mail].All Mail"
+        ;;       mu4e-sent-folder "/gmail/[Google Mail].Sent Mail"
+        ;;       mu4e-drafts-folder "/gmail/[Google Mail].Drafts"
+        ;;       mu4e-trash-folder "/gmail/[Google Mail].Bin"
+        ;;       user-mail-address "chris.howejones@gmail.com"
+        ;;       message-signature-file "/home/chrishowe-jones/.signature"
+        ;;       user-mail-address "chris.howejones@gmail.com"
+        ;;       mu4e-inboxes-query "maildir:/gmail/INBOX"
+        ;;       smtpmail-queue-dir "~/mail/queue/cur"
+        ;;       mail-user-agent 'mu4e-user-agent
+        ;;       mu4e-html2text-command 'mu4e-shr2text
+        ;;       mu4e-view-show-images t
+        ;;       mu4e-index-lazy-check t
+        ;;       mu4e-view-show-addresses t
+        ;;       message-kill-buffer-on-exit t
+        ;;       mu4e-sent-messages-behavior 'delete)
       #+END_SRC
 
 ***** The account switching
@@ -2698,20 +2698,20 @@ l
       #+END_QUOTE
 
       #+BEGIN_SRC emacs-lisp
-        (defvar my-mu4e-account-alist
-          '(("gmail"
-             (mu4e-refile-folder "/gmail/[Google Mail].All Mail")
-             (mu4e-sent-folder "/gmail/[Google Mail].Sent Mail")
-             (mu4e-drafts-folder "/gmail/[Google Mail].Drafts")
-             (mu4e-trash-folder "/gmail/[Google Mail].Bin")
-             (user-mail-address "chris.howejones@gmail.com")
-             (message-signature-file "/home/chrishowe-jones/.signature")
-             ;; (smtpmail-smtp-user "gmail")
-             ;; (smtpmail-local-domain "gmail.com")
-             ;; (smtpmail-default-smtp-server "smtp.gmail.com")
-             ;; (smtpmail-smtp-server "smtp.gmail.com")
-             ;; (smtpmail-smtp-service 587)
-             )))
+        ;; (defvar my-mu4e-account-alist
+        ;;   '(("gmail"
+        ;;      (mu4e-refile-folder "/gmail/[Google Mail].All Mail")
+        ;;      (mu4e-sent-folder "/gmail/[Google Mail].Sent Mail")
+        ;;      (mu4e-drafts-folder "/gmail/[Google Mail].Drafts")
+        ;;      (mu4e-trash-folder "/gmail/[Google Mail].Bin")
+        ;;      (user-mail-address "chris.howejones@gmail.com")
+        ;;      (message-signature-file "/home/chrishowe-jones/.signature")
+        ;;      ;; (smtpmail-smtp-user "gmail")
+        ;;      ;; (smtpmail-local-domain "gmail.com")
+        ;;      ;; (smtpmail-default-smtp-server "smtp.gmail.com")
+        ;;      ;; (smtpmail-smtp-server "smtp.gmail.com")
+        ;;      ;; (smtpmail-smtp-service 587)
+        ;;      )))
       #+END_SRC
 
 ***** Add a switch function to the hook
@@ -2721,25 +2721,25 @@ l
       that you can just turn on.
 
       #+BEGIN_SRC emacs-lisp
-        (defun my-mu4e-set-account ()
-               "Set the account for composing a message."
-               (let* ((account
-                       (if mu4e-compose-parent-message
-                           (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                             (string-match "/\\(.*?\\)/" maildir)
-                             (match-string 1 maildir))
-                         (completing-read (format "Compose with account: (%s) "
-                                                  (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
-                                          (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-                                          nil t nil nil (caar my-mu4e-account-alist))))
-                      (account-vars (cdr (assoc account my-mu4e-account-alist))))
-                 (if account-vars
-                     (mapc #'(lambda (var)
-                               (set (car var) (cadr var)))
-                           account-vars)
-                   (error "No email account found"))))
+        ;; (defun my-mu4e-set-account ()
+        ;;        "Set the account for composing a message."
+        ;;        (let* ((account
+        ;;                (if mu4e-compose-parent-message
+        ;;                    (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+        ;;                      (string-match "/\\(.*?\\)/" maildir)
+        ;;                      (match-string 1 maildir))
+        ;;                  (completing-read (format "Compose with account: (%s) "
+        ;;                                           (mapconcat #'(lambda (var) (car var)) my-mu4e-account-alist "/"))
+        ;;                                   (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+        ;;                                   nil t nil nil (caar my-mu4e-account-alist))))
+        ;;               (account-vars (cdr (assoc account my-mu4e-account-alist))))
+        ;;          (if account-vars
+        ;;              (mapc #'(lambda (var)
+        ;;                        (set (car var) (cadr var)))
+        ;;                    account-vars)
+        ;;            (error "No email account found"))))
 
-        (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+        ;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
       #+END_SRC
 
 **** Unicode
@@ -2748,7 +2748,7 @@ l
 
      #+BEGIN_SRC emacs-lisp
        ;; Use fancy chars
-       (setq mu4e-use-fancy-chars t)
+       ;; (setq mu4e-use-fancy-chars t)
      #+END_SRC
 
 **** Gmail quirks and feature simulations
@@ -2759,7 +2759,7 @@ l
       when I'm looking at messages in my inbox.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-headers-include-related t)
+        ;; (setq mu4e-headers-include-related t)
       #+END_SRC
 
 ***** Skip duplicates
@@ -2769,7 +2769,7 @@ l
       to skip the duplicates.
 
       #+BEGIN_SRC emacs-lisp
-        (setq mu4e-headers-skip-duplicates t)
+        ;; (setq mu4e-headers-skip-duplicates t)
       #+END_SRC
 
 **** View html only emails in the browser
@@ -2778,8 +2778,8 @@ l
      hitting aV.
 
      #+BEGIN_SRC emacs-lisp
-       (add-to-list 'mu4e-view-actions
-                    '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+       ;; (add-to-list 'mu4e-view-actions
+       ;;              '("ViewInBrowser" . mu4e-action-view-in-browser) t)
      #+END_SRC
 
 **** mu4e and org-mode capturing
@@ -2811,7 +2811,7 @@ l
      to be the hot key.
 
      #+BEGIN_SRC emacs-lisp
-       (global-set-key [f9] 'mu4e)
+       ;; (global-set-key [f9] 'mu4e)
      #+END_SRC
 
 
@@ -2820,8 +2820,8 @@ l
      Switch on mu4e alert notifications for mu4e
 
      #+BEGIN_SRC emacs-lisp
-       (maybe-install-and-require 'mu4e-alert)
-       (add-hook 'mu4e-mode-hook #'mu4e-alert-enable-notifications)
+       ;; (maybe-install-and-require 'mu4e-alert)
+       ;; (add-hook 'mu4e-mode-hook #'mu4e-alert-enable-notifications)
      #+END_SRC
 ** Web Browsing
 
@@ -2960,26 +2960,26 @@ l
    This is a Slack client.
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'slack)
-     (require 'helm-slack)
-     (slack-register-team
-      :name "clojurians"
-      :token (auth-source-pick-first-password
-              :host "clojurians.slack.com"
-              :user "chris.howejones@gmail.com")
-      :cookie (auth-source-pick-first-password
-               :host "clojurians.slack.com"
-               :user "chris.howejones@gmail.com^cookie")
-      :subscribed-channels '((announcements clojure clojure-europe clojure-uk)))
-     (slack-register-team
-      :name "CTO Craft"
-      :token (auth-source-pick-first-password
-              :host "ctocraft.slack.com"
-              :user "chris.howejones@gmail.com")
-      :cookie (auth-source-pick-first-password
-               :host "ctocraft.slack.com"
-               :user "chris.howejones@gmail.com^cookie")
-      :subscribed-channels '((general introductions)))
+     ;; (maybe-install-and-require 'slack)
+     ;; (require 'helm-slack)
+     ;; (slack-register-team
+     ;;  :name "clojurians"
+     ;;  :token (auth-source-pick-first-password
+     ;;          :host "clojurians.slack.com"
+     ;;          :user "chris.howejones@gmail.com")
+     ;;  :cookie (auth-source-pick-first-password
+     ;;           :host "clojurians.slack.com"
+     ;;           :user "chris.howejones@gmail.com^cookie")
+     ;;  :subscribed-channels '((announcements clojure clojure-europe clojure-uk)))
+     ;; (slack-register-team
+     ;;  :name "CTO Craft"
+     ;;  :token (auth-source-pick-first-password
+     ;;          :host "ctocraft.slack.com"
+     ;;          :user "chris.howejones@gmail.com")
+     ;;  :cookie (auth-source-pick-first-password
+     ;;           :host "ctocraft.slack.com"
+     ;;           :user "chris.howejones@gmail.com^cookie")
+     ;;  :subscribed-channels '((general introductions)))
    #+END_SRC
 
 ** ChatGPT integration

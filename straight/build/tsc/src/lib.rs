@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/elisp-tree-sitter/core/src/lib.rs
+/Users/chrishowe-jones/.emacs.d/straight/repos/elisp-tree-sitter/core/src/lib.rs

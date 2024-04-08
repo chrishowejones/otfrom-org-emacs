@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/helm/helm-adaptive.el
+/Users/chrishowe-jones/.emacs.d/straight/repos/helm/helm-adaptive.el

@@ -1,1 +1,1 @@
-/home/chris/.emacs.d/straight/repos/elisp-tree-sitter/lisp/tree-sitter-cli.el
+/Users/chrishowe-jones/.emacs.d/straight/repos/elisp-tree-sitter/lisp/tree-sitter-cli.el
