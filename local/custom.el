@@ -130,6 +130,7 @@
  '(ivy-mode t)
  '(jdee-server-dir "/home/chris/jdeejar")
  '(js-indent-level 2)
+ '(lsp-completion-enable nil)
  '(lsp-log-io t)
  '(lsp-pylsp-server-command '("pylsp"))
  '(lsp-response-timeout 5)

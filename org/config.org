@@ -97,8 +97,7 @@
    Things in browse-url land seem a bit flaky atm.
 
    #+BEGIN_SRC emacs-lisp
-     (setq browse-url-browser-function 'browse-url-generic
-           browse-url-generic-program "google-chrome")
+     (setq browse-url-browser-function 'browse-url-default-macosx-browser)
    #+END_SRC
 
 ** Undo tree
@@ -390,8 +389,8 @@
    that problem. The # problem is solved with this bit of code below.
 
    #+BEGIN_SRC emacs-lisp
-     ;; (when (memq window-system '(mac ns))
-     ;;   (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#"))))
+     (when (memq window-system '(mac ns))
+       (global-set-key (kbd "s-3") '(lambda () (interactive) (insert "#"))))
    #+END_SRC
 
    We also need to deal with £ being a UTF-8 character so we don't get
@@ -460,6 +459,9 @@
     (setq mac-command-modifier 'super)
     (setq mac-option-modifier 'meta)
    #+END_SRC
+
+   #+RESULTS:
+   : super
 
 * Make it Pretty
 
@@ -1568,7 +1570,7 @@ l
       org-gcal-client-secret are all set in [[../local/mellon.el.gpg][mellon.el.gpg]].
 
       #+BEGIN_SRC emacs-lisp
-        ;; (maybe-install-and-require 'org-gcal)
+        (maybe-install-and-require 'org-gcal)
       #+END_SRC
 
 ***** Agenda Windows
@@ -3629,6 +3631,7 @@ l
              (newmap (make-sparse-keymap)))
         (set-keymap-parent newmap oldmap)
         (define-key newmap (kbd "C-k") nil)
+        (define-key paredit-mode-map (kbd "RET") 'newline-and-indent)
         (make-local-variable 'minor-mode-overriding-map-alist)
         (push `(paredit-mode . ,newmap) minor-mode-overriding-map-alist))
       )
@@ -3803,10 +3806,12 @@ l
     https://github.com/radian-software/apheleia
 
     #+BEGIN_SRC emacs-lisp
-      (use-package apheleia
-        :ensure t
-        :config
-        (apheleia-global-mode +1))
+      ;; (use-package apheleia
+      ;;   :ensure t
+      ;;   :config
+      ;;   (apheleia-global-mode +1))
+      (straight-use-package 'apheleia)
+      (apheleia-global-mode +1)
     #+END_SRC
 
 *** Tide
@@ -4540,8 +4545,8 @@ l
       (setq lsp-ui-doc-show-with-cursor t)
 
       ;; Add metals backend for lsp-mode
-      (use-package lsp-metals
-        :config (setq lsp-metals-treeview-show-when-views-received t))
+      ;; (use-package lsp-metals
+      ;;   :config (setq lsp-metals-treeview-show-when-views-received t))
 
       ;; Scala and Java
       (setq gc-cons-threshold 1000000)
@@ -4566,7 +4571,8 @@ l
         :commands lsp-treemacs-errors-list
         :config
         ;;(lsp-metals-treeview-mode t)
-        (setq lsp-metals-treeview-show-when-views-received t))
+        ;; (setq lsp-metals-treeview-show-when-views-received t)
+        )
 
       ;; add lombok to classpath for lsp
       ;;  (setq path-to-lombok "/home/chris/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
@@ -4795,7 +4801,7 @@ l
    Add command log mode.
 
    #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'command-log-mode)
+     ;; (maybe-install-and-require 'command-log-mode)
    #+END_SRC
 
 * Misc
