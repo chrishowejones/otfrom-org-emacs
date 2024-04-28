@@ -3629,6 +3629,7 @@ l
              (newmap (make-sparse-keymap)))
         (set-keymap-parent newmap oldmap)
         (define-key newmap (kbd "C-k") nil)
+        (define-key newmap (kbd "RET") 'newline-and-indent)
         (make-local-variable 'minor-mode-overriding-map-alist)
         (push `(paredit-mode . ,newmap) minor-mode-overriding-map-alist))
       )
