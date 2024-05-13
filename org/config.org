@@ -32,26 +32,26 @@
    packages without installing them.
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'try)
+     (maybe-install-and-require 'try)
    #+END_SRC
 
 ** Install straight package mgr
 
-#+begin_src emacs-lisp
-  (setq straight-repository-branch "develop")
-  (defvar bootstrap-version)
-  (let ((bootstrap-file
-	 (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-	(bootstrap-version 6))
-    (unless (file-exists-p bootstrap-file)
-      (with-current-buffer
-	  (url-retrieve-synchronously
-	   "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-	   'silent 'inhibit-cookies)
-	(goto-char (point-max))
-	(eval-print-last-sexp)))
-    (load bootstrap-file nil 'nomessage))
-#+end_src
+   #+begin_src emacs-lisp
+     (setq straight-repository-branch "develop")
+     (defvar bootstrap-version)
+     (let ((bootstrap-file
+            (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+           (bootstrap-version 6))
+       (unless (file-exists-p bootstrap-file)
+         (with-current-buffer
+             (url-retrieve-synchronously
+              "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+              'silent 'inhibit-cookies)
+           (goto-char (point-max))
+           (eval-print-last-sexp)))
+       (load bootstrap-file nil 'nomessage))
+   #+end_src
 * Local Config
 
 ** custom.el
@@ -69,6 +69,16 @@
 
 * Globals
 
+
+** plstore
+
+   Set up plstore to use asymetrical keys
+
+   #+begin_src emacs-lisp
+     (require 'plstore)
+     (add-to-list 'plstore-encrypt-to "220EA16443C4070D8FBCFF797C9CA3DEC6A37B67")
+   #+end_src
+
 ** passwords and encrypted things
 
    It is good to store your passwords and things in an encrypted
@@ -82,14 +92,18 @@
    secure).
 
    #+BEGIN_SRC emacs-lisp
+     (require 'epa-file)
+     (custom-set-variables '(epg-gpg-program  "/usr/local/MacGPG2/bin/gpg2"))
+     (epa-file-enable)
      (load-if-exists (concat user-emacs-directory "local/mellon.el.gpg"))
+     (setq plstore-cache-passphrase-for-symmetric-encryption nil)
    #+END_SRC
 
 ** Set initial framesize
 
    #+BEGIN_SRC emacs-lisp
      (setq initial-frame-alist '((top . 0) (left . 0) (width . 140)
-     (height . 45)))
+                                 (height . 45)))
    #+END_SRC
 
 ** Which browser
@@ -106,8 +120,8 @@
    the undo cycle.
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'undo-tree)
-    (undo-tree-mode 1)
+     (maybe-install-and-require 'undo-tree)
+     (undo-tree-mode 1)
    #+END_SRC
 
 ** Auto indent on newline
@@ -247,9 +261,9 @@
    loccur mode hides all lines except those containing matches
 
    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'loccur)
-      (global-set-key (kbd "C-M-o") 'loccur-current)
-      (global-set-key (kbd "C-M-S-o") 'loccur)
+     (maybe-install-and-require 'loccur)
+     (global-set-key (kbd "C-M-o") 'loccur-current)
+     (global-set-key (kbd "C-M-S-o") 'loccur)
    #+END_SRC
 
 ** Tooltips in echo area
@@ -273,7 +287,7 @@
 ** Time in status
 
    #+BEGIN_SRC emacs-lisp
-    (display-time-mode 1)
+     (display-time-mode 1)
    #+END_SRC
 
 ** Set fundamental mode for large files
@@ -295,40 +309,40 @@
 ** Key chord mode
 
    #+BEGIN_SRC emacs-lisp
-    (maybe-install-and-require 'key-chord)
-    (setq key-chord-two-keys-delay 0.1)
-    (setq key-chord-one-key-delay 0.2)
-    (key-chord-mode 1)
+     (maybe-install-and-require 'key-chord)
+     (setq key-chord-two-keys-delay 0.1)
+     (setq key-chord-one-key-delay 0.2)
+     (key-chord-mode 1)
    #+END_SRC
 
 ** Use hide show minor mode everywhere
 
    #+BEGIN_SRC emacs-lisp
-    (add-hook 'prog-mode-hook 'hs-minor-mode)
+     (add-hook 'prog-mode-hook 'hs-minor-mode)
    #+END_SRC
 
 ** require final newline
 
    #+BEGIN_SRC emacs-lisp
-    (setq require-final-newline t)
+     (setq require-final-newline t)
    #+END_SRC
 
 ** Load prefer newer
 
    #+BEGIN_SRC emacs-lisp
-    (setq load-prefer-newer t)
+     (setq load-prefer-newer t)
    #+END_SRC
 
 ** Enable eldoc in minibuffer
 
    #+BEGIN_SRC emacs-lisp
-    (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
+     (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
    #+END_SRC
 
 ** Disable bell
 
    #+BEGIN_SRC emacs-lisp
-    (setq ring-bell-function 'ignore)
+     (setq ring-bell-function 'ignore)
    #+END_SRC
 
 ** Remap transpose sexps
@@ -336,7 +350,7 @@
    Remap transpose sexps as gnome is using C-M-t for terminal
 
    #+BEGIN_SRC emacs-lisp
-    (global-set-key (kbd "C-M-S-T") 'transpose-sexps)
+     (global-set-key (kbd "C-M-S-T") 'transpose-sexps)
    #+END_SRC
 
 ** Mute dialog for safe variables list
@@ -344,9 +358,9 @@
    Add to safe variables list to mute messages from .dir-locals
 
    #+BEGIN_SRC emacs-lisp
-    (defun hack-local-variables-confirm (f &rest args)
-    "Disables annoying dialog 'The local variables list in :x contains values that may not be safe"
-    t)
+     (defun hack-local-variables-confirm (f &rest args)
+       "Disables annoying dialog 'The local variables list in :x contains values that may not be safe"
+       t)
    #+END_SRC
 
 ** Disable pop up windows
@@ -725,9 +739,9 @@
      (maybe-install-and-require 'company)
      (add-hook 'after-init-hook 'global-company-mode)
      (diminish 'company-mode "CA")
-     (global-set-key (kbd "C-M-i") 'company-complete)
+     (global-set-key (kbd "M-<tab>") 'company-complete)
      (setq company-tooltip-flip-when-above t)
-     (setq company-minimum-prefix-length 2)               ; WARNING, probably you will get perfomance issue if min len is 0!
+     (setq company-minimum-prefix-length 1)               ; WARNING, probably you will get perfomance issue if min len is 0!
      (setq company-tooltip-limit 20)                      ; bigger popup window
      (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
      (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
@@ -1289,8 +1303,10 @@ l
      (setq dashboard-projects-switch-function 'projectile-persp-switch-project)
      (setq dashboard-week-agenda nil)
      (setq dashboard-filter-agenda-entry 'dashboard-filter-agenda-by-time)
+     (setq dashboard-agenda-sort-strategy '(time-up))
      (setq dashboard-set-heading-icons t)
      (setq dashboard-set-file-icons t)
+     (setq dashboard-agenda-prefix-format " %-12:c%?-12t% s")
      (setq dashboard-set-navigator t)
      ;; Format: "(icon title help action face prefix suffix)"
      (setq dashboard-navigator-buttons
@@ -1517,12 +1533,10 @@ l
     still b0rken. Yet another reason to go over to linux.
 
     #+BEGIN_SRC emacs-lisp
-      (setq org-reveal-root "file:///home/chris/reveal.js/js/reveal.js")
-      (setq org-reveal-external-plugins '((RevealMenu . "file:///home/chris/reveal.js/plugin/reveal.js-menu-master/menu.js")))
+      ;; (setq org-reveal-root "file:///Users/chrishowe-jones/reveal.js/js/reveal.js")
+      ;; (setq org-reveal-external-plugins '((RevealMenu . "file:///home/chris/reveal.js/plugin/reveal.js-menu-master/menu.js")))
     #+END_SRC
 
-    #+RESULTS:
-    : ((RevealMenu . plugin/reveal.js-menu/menu.js))
 
 
 *** Load markdown backend ox-md
@@ -4512,7 +4526,7 @@ l
                 (lsp-mode . lsp-lens-mode))
          :config
                 (setq lsp-prefer-flymake t)
-                (add-to-list 'company-backends 'company-capf)
+                ;; (add-to-list 'company-backends 'company-capf)
                 (setq lsp-keep-workspace-alive nil)
                 ;; add paths to your local installation of project mgmt tools, like lein
                 (setenv "PATH" (concat
@@ -4536,10 +4550,11 @@ l
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
             lsp-lens-enable t
-            lsp-ui-doc-enable t
+            lsp-ui-doc-enable nil
             lsp-signature-auto-activate nil
             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
             lsp-enable-completion-at-point t ; set to nil to use cider completion instead of lsp
+            create-lockfiles nil
             )
 
       (setq lsp-ui-doc-show-with-cursor t)
@@ -4628,6 +4643,23 @@ l
       (maybe-install-and-require 'tree-sitter-langs)
       (maybe-install-and-require 'tree-sitter)
 
+      ;; (setq treesit-language-source-alist
+      ;;       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+      ;;         (cmake "https://github.com/uyha/tree-sitter-cmake")
+      ;;         (css "https://github.com/tree-sitter/tree-sitter-css")
+      ;;         (go "https://github.com/tree-sitter/tree-sitter-go")
+      ;;         (html "https://github.com/tree-sitter/tree-sitter-html")
+      ;;         (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+      ;;         (json "https://github.com/tree-sitter/tree-sitter-json")
+      ;;         (make "https://github.com/alemuller/tree-sitter-make")
+      ;;         (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+      ;;         (python "https://github.com/tree-sitter/tree-sitter-python")
+      ;;         (toml "https://github.com/tree-sitter/tree-sitter-toml")
+      ;;         (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+      ;;         (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+      ;;         (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+      ;; (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
+
       (use-package tree-sitter
         :ensure t
         :config
@@ -4641,6 +4673,8 @@ l
         :ensure t
         :after tree-sitter)
     #+END_SRC
+
+    #+RESULTS:
 
 * Data Modes
 
