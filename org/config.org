@@ -4878,6 +4878,18 @@ l
 ;;    (maybe-install-and-require 'speed-type)
    #+END_SRC
 
+
+** XKCD 303
+
+   When compiler is active show XKCD 303
+
+   #+BEGIN_SRC emacs-lisp
+    (use-package xkcd-303-mode
+      :straight (:host github :repo "elizagamedev/xkcd-303-mode.el" :files ("*.el" "compiling.png"))
+      :init
+      (xkcd-303-mode 1))
+   #+END_SRC
+
 * Finishing
 
 ** General Cleanup
