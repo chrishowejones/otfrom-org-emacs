@@ -18,10 +18,6 @@
    '("^cljsns" "^slingshot.test" "^monger.joda-time" "^monger.json" "^clj-time.jdbc"))
  '(clojure-indent-style :always-align)
  '(clojure-toplevel-inside-comment-form nil)
- '(company-backends
-   '(company-meghanada company-emacs-eclim company-tern company-bbdb company-css company-semantic company-clang company-xcode company-cmake company-capf company-files
-                       (company-dabbrev-code company-gtags company-etags company-keywords)
-                       company-oddmuse company-dabbrev))
  '(compilation-read-command nil)
  '(connection-local-criteria-alist
    '(((:application eshell)

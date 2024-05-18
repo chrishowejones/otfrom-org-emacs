@@ -4509,7 +4509,7 @@ l
                 (lsp-mode . lsp-lens-mode))
          :config
                 (setq lsp-prefer-flymake t)
-                (add-to-list 'company-backends 'company-capf)
+                ;;(add-to-list 'company-backends 'company-capf)
                 (setq lsp-keep-workspace-alive nil)
                 ;; add paths to your local installation of project mgmt tools, like lein
                 (setenv "PATH" (concat
