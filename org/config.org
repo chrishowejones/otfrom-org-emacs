@@ -474,9 +474,6 @@
     (setq mac-option-modifier 'meta)
    #+END_SRC
 
-   #+RESULTS:
-   : super
-
 * Make it Pretty
 
 ** color themes
@@ -618,7 +615,7 @@
 *** Default font height
 
     #+BEGIN_SRC emacs-lisp
-      (set-face-attribute 'default nil :height 100)
+      (set-face-attribute 'default nil :height 150)
     #+END_SRC
 
 
@@ -641,7 +638,6 @@
      (column-number-mode 1)
      (menu-bar-mode -1)
      (setq display-line-numbers-type 'absolute)
-     ;; (global-display-line-numbers-mode)
    #+END_SRC
 
 ** Startup Screen
@@ -651,25 +647,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-     ;;(setq inhibit-startup-screen t)
-   #+END_SRC
-
-** alpha alpha alpha
-
-   I don't use this all the time, but sometimes, when I'm hacking
-   only on my diddy 13" laptop I like to have a window tailing a file
-   in the background while I'm writing something in the
-   foreground. This let's us toggle transparency. Who wouldn't like
-   that? I'm pretty sure I got this from [[https://twitter.com/IORayne][Anthony Grimes]].
-
-   #+BEGIN_SRC emacs-lisp
-     (defun toggle-transparency ()
-       (interactive)
-       (let ((param (cadr (frame-parameter nil 'alpha))))
-         (if (and param (/= param 100))
-             (set-frame-parameter nil 'alpha '(100 100))
-           (set-frame-parameter nil 'alpha '(50 50)))))
-     (global-set-key (kbd "C-c t") 'toggle-transparency)
+     (setq inhibit-startup-screen t)
    #+END_SRC
 
 ** Golden ratio
