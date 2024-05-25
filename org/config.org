@@ -2996,6 +2996,19 @@ l
        (setq chatgpt-repo-path "~/.emacs.d/straight/repos/ChatGPT.el/")
        :bind ("C-c q" . chatgpt-query))
    #+END_SRC
+** Github codespaces
+
+   Access github codespaces from emacs
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package use-package-ensure-system-package :ensure t)
+     (use-package codespaces
+       :ensure-system-package gh
+       :config (codespaces-setup)
+       :bind ("C-c S" . #'codespaces-connect))
+     (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+   #+END_SRC
+
 * Programming Modes
 ** shell
 
