@@ -729,7 +729,7 @@
      (setq company-minimum-prefix-length 2)               ; WARNING, probably you will get perfomance issue if min len is 0!
      (setq company-tooltip-limit 20)                      ; bigger popup window
      (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
-     (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+     (setq company-idle-delay 0.3)                        ; decrease delay before autocompletion popup shows
      (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
      (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
    #+END_SRC
@@ -1350,11 +1350,12 @@ l
     non s-expr langs
 
     #+BEGIN_SRC emacs-lisp
-    (defun my-paredit-nonlisp ()
-      "Turn on paredit mode for non-lisps."
-      (interactive)
-      (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-           '((lambda (endp delimiter) nil)))
+      (defun my-paredit-nonlisp ()
+        "Turn on paredit mode for non-lisps."
+        (interactive)
+        (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+             '((lambda (endp delimiter) nil)))
+        (electric-pair-mode 1)
         (paredit-mode 1))
     #+END_SRC
 
@@ -3612,6 +3613,7 @@ l
       ;; Better imenu
       (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
       (setq js2-basic-offset 2)
+      (add-hook 'js2-mode-hook 'electric-pair-mode)
     #+END_SRC
 
     And we can hook it in to run node.js shell scripts as well.
@@ -4533,7 +4535,7 @@ l
             read-process-output-max (* 1024 1024)
             treemacs-space-between-root-nodes nil
             lsp-lens-enable t
-            lsp-ui-doc-enable t
+            lsp-ui-doc-enable nil
             lsp-signature-auto-activate nil
             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
             lsp-enable-completion-at-point t ; set to nil to use cider completion instead of lsp
@@ -4548,7 +4550,7 @@ l
       ;; Scala and Java
       (setq gc-cons-threshold 1000000)
       (setq read-process-output-max (* 1024 1024 2))
-      (setq lsp-idle-delay 0.5)
+      (setq lsp-idle-delay 0.3)
 
       (use-package lsp-java
         :config (define-key lsp-mode-map (kbd "M-s-l t t") 'dap-java-run-test-method)
