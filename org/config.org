@@ -702,6 +702,18 @@
 
    #+END_SRC
 
+
+**  Editor Config
+
+   Set up editor config for consistency. See https://editorconfig.org/
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package editorconfig
+       :ensure t
+       :config
+       (editorconfig-mode 1))
+   #+END_SRC
+
 * Tool Configuration
 
 ** ediff
