@@ -734,6 +734,18 @@
       (company-quickhelp-mode)
     #+END_SRC
 
+
+** Editorconfig
+
+   Use editorconfig to standardise across a project.
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package editorconfig
+       :ensure t
+       :config
+       (editorconfig-mode 1))
+   #+END_SRC
+
 ** Base64 (add prefix command)
 
    #+BEGIN_SRC emacs-lisp
