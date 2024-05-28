@@ -4615,9 +4615,11 @@ l
         :after lsp-mode
         :hook ((lsp-mode . dap-mode)
                (lsp-mode . dap-ui-mode))
-        :config (dap-auto-configure-mode))
+               )
+      :config (dap-auto-configure-mode))
       ;; (use-package dap-java :ensure nil)
       (require 'dap-java)
+      (require 'dap-chrome)
       (setq package-list '(dap-mode typescript-mode))
       (defun my-setup-dap-node ()
         "Require dap-node feature and run dap-node-setup if VSCode module isn't already installed"
