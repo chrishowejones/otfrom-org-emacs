@@ -4332,15 +4332,17 @@ l
     Use ruby test mode
 
     #+BEGIN_SRC emacs-lisp
-     (maybe-install-and-require 'ruby-test-mode)
-     (add-hook 'ruby-mode 'ruby-test-mode)
-     (add-hook 'compilation-finish-functions
-          (lambda (buf strg)
-            (switch-to-buffer-other-window "*compilation*")
-            (read-only-mode)
-            (goto-char (point-max))
-            (local-set-key (kbd "q")
-                           (lambda () (interactive) (quit-restore-window)))))
+      (maybe-install-and-require 'ruby-test-mode)
+      (add-hook 'ruby-mode 'ruby-test-mode)
+      ;; (add-hook 'compilation-finish-functions
+      ;;      (lambda (buf strg)
+      ;;        (switch-to-buffer-other-window "*compilation*")
+      ;;        (read-only-mode)
+      ;;        (goto-char (point-max))
+      ;;        (local-set-key (kbd "q")
+      ;;                       (lambda () (interactive) (quit-restore-window)))))
+
+      (add-hook 'compilation-finish-functions nil)
     #+END_SRC
 
 *** Use company mode for Ruby inf buffers
@@ -4533,7 +4535,7 @@ l
             lsp-signature-auto-activate nil
             lsp-enable-indentation nil ; set to nil to use cider indentation instead of lsp
             lsp-enable-completion-at-point t ; set to nil to use cider completion instead of lsp
-            create-lockfiles nil
+            create-lockfiles nil ;; lock files will kill 'npm start'
             )
 
       (setq lsp-ui-doc-show-with-cursor t)
