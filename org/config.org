@@ -4586,6 +4586,10 @@ l
       (add-hook 'typescript-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
     #+END_SRC
 
+    #+BEGIN_SRC emacs-lisp
+      (use-package helm-xref)
+    #+END_SRC
+
 *** DAP mode
 
     DAP mode for debugging using LSP.
