@@ -3746,6 +3746,17 @@ l
     #+END_SRC
 
 
+*** Jest Test mode
+
+    Run Jest tests
+
+    #+BEGIN_SRC emacs-lisp
+        (use-package jest-test-mode
+          :ensure t
+          :commands jest-test-mode
+          :hook (typescript-mode js-mode typescript-tsx-mode))
+    #+END_SRC
+
 
 ** typescript
 
