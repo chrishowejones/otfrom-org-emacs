@@ -1357,11 +1357,12 @@ l
     non s-expr langs
 
     #+BEGIN_SRC emacs-lisp
-    (defun my-paredit-nonlisp ()
-      "Turn on paredit mode for non-lisps."
-      (interactive)
-      (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-           '((lambda (endp delimiter) nil)))
+      (defun my-paredit-nonlisp ()
+        "Turn on paredit mode for non-lisps."
+        (interactive)
+        (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+             '((lambda (endp delimiter) nil)))
+        (electric-pair-mode 1)
         (paredit-mode 1))
     #+END_SRC
 
@@ -3095,6 +3096,8 @@ l
       (maybe-install-and-require 'yasnippet)
       (key-chord-define-global "yy" 'yas-expand-from-trigger-key)
       (define-key yas-minor-mode-map (kbd "C-c C-y") 'yas-visit-snippet-file)
+      (require 'company-yasnippet)
+      (define-key yas-minor-mode-map (kbd "C-c y") 'company-yasnippet)
     #+END_SRC
 
 **** yasnippet-snippets
@@ -4515,40 +4518,40 @@ l
 
     #+BEGIN_SRC emacs-lisp
       (use-package lsp-mode
-         :ensure t
-         :hook ((clojure-mode . lsp)
-                (clojurec-mode . lsp)
-                (clojurescript-mode . lsp)
-                (java-mode . lsp)
-                (scala-mode . lsp)
-                (js2-mode . lsp)
-                (typescript-mode . lsp)
-                (python-mode . lsp)
-                ;; if you want which-key integration
-                (lsp-mode . lsp-enable-which-key-integration)
-                (lsp-mode . flycheck-mode)
-                (lsp-mode . lsp-lens-mode))
-         :config
-                (setq lsp-prefer-flymake t)
-                ;; (add-to-list 'company-backends 'company-capf)
-                (setq lsp-keep-workspace-alive nil)
-                ;; add paths to your local installation of project mgmt tools, like lein
-                (setenv "PATH" (concat
-                                 "/usr/local/bin" path-separator
-                                 (getenv "PATH")))
-                (dolist (m '(clojure-mode
-                             clojurec-mode
-                             clojurescript-mode
-                             clojurex-mode))
-                   (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
-                (setq lsp-keymap-prefix "M-s-l")
-                (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
-                (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
-          :commands lsp)
+        :ensure t
+        :hook ((clojure-mode . lsp)
+               (clojurec-mode . lsp)
+               (clojurescript-mode . lsp)
+               (java-mode . lsp)
+               (scala-mode . lsp)
+               (js2-mode . lsp)
+               (typescript-mode . lsp)
+               (python-mode . lsp)
+               ;; if you want which-key integration
+               (lsp-mode . lsp-enable-which-key-integration)
+               (lsp-mode . flycheck-mode)
+               (lsp-mode . lsp-lens-mode))
+        :config
+        (setq lsp-prefer-flymake t)
+        (add-to-list 'company-backends '(company-capf :with company-yasnippet))
+        (setq lsp-keep-workspace-alive nil)
+        ;; add paths to your local installation of project mgmt tools, like lein
+        (setenv "PATH" (concat
+                        "/usr/local/bin" path-separator
+                        (getenv "PATH")))
+        (dolist (m '(clojure-mode
+                     clojurec-mode
+                     clojurescript-mode
+                     clojurex-mode))
+          (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+        (setq lsp-keymap-prefix "M-s-l")
+        (define-key lsp-mode-map (kbd "M-s-l") lsp-command-map)
+        (setq lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
+        :commands lsp)
 
       (use-package lsp-ui
-         :ensure t
-         :commands lsp-ui-mode)
+        :ensure t
+        :commands lsp-ui-mode)
 
       (setq gc-cons-threshold (* 100 1024 1024)
             read-process-output-max (* 1024 1024)
@@ -4574,10 +4577,10 @@ l
 
       (use-package lsp-java
         :config (define-key lsp-mode-map (kbd "M-s-l t t") 'dap-java-run-test-method)
-                (define-key lsp-mode-map (kbd "M-s-l t b") 'lsp-jt-browser)
-                (define-key lsp-mode-map (kbd "M-s-l t r") 'lsp-jt-report-open)
-                (define-key lsp-mode-map (kbd "M-s-l t d") 'dap-java-debug-test-method)
-                (define-key lsp-mode-map (kbd "M-s-l t l") 'lsp-jt-lens-mode))
+        (define-key lsp-mode-map (kbd "M-s-l t b") 'lsp-jt-browser)
+        (define-key lsp-mode-map (kbd "M-s-l t r") 'lsp-jt-report-open)
+        (define-key lsp-mode-map (kbd "M-s-l t d") 'dap-java-debug-test-method)
+        (define-key lsp-mode-map (kbd "M-s-l t l") 'lsp-jt-lens-mode))
 
       ;; Use eclipse 2.1 formatting
       ;; (setq lsp-java-format-settings-url "file:///home/chris/eclipse/myeclipse21formatter.xml")
@@ -4598,12 +4601,12 @@ l
 
       (setq lsp-java-vmargs
             `("-noverify"
-             "-Xmx1G"
-      ;;     "-XX:+UseG1GC"
-      ;;     "-XX:+UseStringDeduplication"
-      ;;     ,(concat "-javaagent:" path-to-lombok)
-      ;;     ,(concat "-Xbootclasspath/a:" path-to-lombok)
-                     ))
+              "-Xmx1G"
+              ;;     "-XX:+UseG1GC"
+              ;;     "-XX:+UseStringDeduplication"
+              ;;     ,(concat "-javaagent:" path-to-lombok)
+              ;;     ,(concat "-Xbootclasspath/a:" path-to-lombok)
+              ))
       (add-hook 'typescript-mode-hook 'lsp-deferred)
       (add-hook 'js2-mode-hook 'lsp-deferred)
       (add-hook 'typescript-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
@@ -4627,8 +4630,7 @@ l
         :after lsp-mode
         :hook ((lsp-mode . dap-mode)
                (lsp-mode . dap-ui-mode))
-               )
-      :config (dap-auto-configure-mode))
+        :config (dap-auto-configure-mode))
       ;; (use-package dap-java :ensure nil)
       (require 'dap-java)
       (require 'dap-chrome)
