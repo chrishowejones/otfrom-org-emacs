@@ -758,8 +758,8 @@
     Company frontend with icons.
 
     #+BEGIN_SRC emacs-lisp
-    ;;  (use-package company-box
-    ;;    :hook (company-mode . company-box-mode))
+      (use-package company-box
+        :hook (company-mode . company-box-mode))
     #+END_SRC
 
 ** Base64 (add prefix command)
