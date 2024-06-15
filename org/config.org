@@ -3634,7 +3634,6 @@ l
    #+END_SRC
 
 
-
 ** JavaScript
 
 *** js2 mode
@@ -3704,59 +3703,6 @@ l
       (autoload 'tern-mode "tern.el" nil t)
     #+END_SRC
 
-*** company-tern
-
-    #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'company-tern)
-      ;; (add-to-list 'company-backends 'company-tern)
-      ;; (add-hook 'js2-mode-hook
-      ;;  (lambda ()
-      ;;    (tern-mode)
-      ;;    (company-mode)))
-      ;; ;; Disable completion keybindings, as we use xref-js2 instead
-      ;; (define-key tern-mode-keymap (kbd "M-.") nil)
-      ;; (define-key tern-mode-keymap (kbd "M-,") nil)
-    #+END_SRC
-
-*** tern project dialog
-
-    #+BEGIN_SRC emacs-lisp
-      ;; (require 'tern-project-dialog)
-    #+END_SRC
-
-*** js-format
-
-    Try js-format instead of prettier as prettier is annoying me atm.
-
-    #+BEGIN_SRC emacs-lisp
-      ;; (maybe-install-and-require 'js-format)
-      ;; (defun my-statement-format ()
-      ;;   (interactive
-      ;;     (progn
-      ;;       (js-format-mark-statement t)
-      ;;       (js-format-region (region-beginning) (region-end))
-      ;;       (keyboard-quit))))
-      ;; (add-hook 'js2-mode-hook
-      ;;           (lambda ()
-      ;;             (define-key paredit-mode-map (kbd "M-q") nil)
-      ;;             (define-key js2-mode-map (kbd "M-q") 'my-statement-format)))
-      ;; (eval-after-load 'js2-mode
-      ;;   (add-hook 'js2-mode-hook
-      ;;       (lambda()
-      ;;         (js-format-setup "standard"))))
-    #+END_SRC
-
-
-*** prettier
-
-    Set up prettier.
-
-    #+BEGIN_SRC emacs-lisp
-      ;; (require 'prettier-js)
-      ;; (add-hook 'js2-mode-hook 'prettier-js-mode)
-      ;; (add-hook 'web-mode-hook 'prettier-js-mode)
-    #+END_SRC
-
 *** rjsx-mode
 
     Add rjsx mode.
@@ -3795,7 +3741,6 @@ l
             (define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
             (define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
     #+END_SRC
-
 
 
 ** typescript
@@ -4156,7 +4101,6 @@ l
     : ide-panes
 
 
-
 ** Java
 *** Fix paredit for Java
 
@@ -4456,11 +4400,7 @@ l
      (maybe-install-and-require 'cargo)
     #+END_SRC
 
-
 ** Golang
-
-**
-
 *** Go-mode
 
     Add go-mode
@@ -4527,7 +4467,6 @@ l
     (maybe-install-and-require 'graphql-mode)
     (maybe-install-and-require 'ob-graphql)
     #+END_SRC
-
 
 ** LSP config (many langs)
 
