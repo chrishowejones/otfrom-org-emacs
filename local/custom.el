@@ -10,6 +10,7 @@
  '(before-save-hook '((lambda nil (delete-trailing-whitespace))))
  '(c-basic-offset 4)
  '(cider-boot-parameters "cider repl -s wait")
+ '(cider-injected-nrepl-version "1.1.0")
  '(cider-path-translations nil)
  '(cider-print-fn 'pprint)
  '(cider-repl-use-pretty-printing nil)

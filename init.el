@@ -15,7 +15,6 @@
 
 ;;; Code:
 (setq package-archives '(;;("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
                          ("melpa-stable" . "http://stable.melpa.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
@@ -42,8 +41,8 @@
 (defvar native-comp-deferred-compilation-deny-list nil)
 
 ;; org-mode always needs to be installed in an emacs where it isn't loaded.
-;; (when (not (package-installed-p 'gnu))
-;;   (package-install 'org))
+(when (not (package-installed-p 'gnu))
+  (package-install 'org))
 (require 'org)
 
 (org-babel-load-file (concat user-emacs-directory "org/config.org"))
