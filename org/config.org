@@ -758,8 +758,8 @@
     Company frontend with icons.
 
     #+BEGIN_SRC emacs-lisp
-      (use-package company-box
-        :hook (company-mode . company-box-mode))
+    ;;  (use-package company-box
+    ;;    :hook (company-mode . company-box-mode))
     #+END_SRC
 
 ** Base64 (add prefix command)
@@ -1489,16 +1489,6 @@ l
       (maybe-install-and-require 'helm-orgcard)
       (add-hook 'org-mode-hook
                        (lambda () (local-set-key [s-f1] 'helm-orgcard)))
-    #+END_SRC
-
-*** org and magit
-
-    Because sometimes you want to link to that particular commit.
-
-    I added this functionality with this commit: [[magit:~/emacs-configs/otfrom-org-emacs/::commit@1dd7516][1dd7516]]
-
-    #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'org-magit)
     #+END_SRC
 
 *** org-feed
@@ -3022,7 +3012,6 @@ l
    Access github codespaces from emacs
 
    #+BEGIN_SRC emacs-lisp
-     (use-package use-package-ensure-system-package :ensure t)
      (use-package codespaces
        :ensure-system-package gh
        :config (codespaces-setup)
