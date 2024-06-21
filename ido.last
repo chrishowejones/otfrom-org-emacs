@@ -17,6 +17,10 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/chrishowe-jones/" (26223 63072 85041 488000) "otfrom-org-emacs/" "tr" ".zsh_sessions/" ".viminfo" ".bash_history" "clojure-cookbook/" "mutant/" ".zcompdump-F124236Y7M-5.9" ".zcompdump-F124236Y7M-5.9.zwc" ".cache/" "Downloads/" ".oh-my-zsh/" "fonts/" ".m2/" ".vscode/" ".sbt-hydra-history" "Documents/" ".npm/" ".scala_history" "cacerts" ".Trash/" ".jenv/" ".profile" "Applications/" "emacsmetals/" "Movies/" ".ssh/" "clojure-101/" "vscode-node-debug2/" "apache-maven-3.9.6/" "JavaScriptProjects/" ".keystore" "context-practice/" "Public/" ".iterm2/" "presentations/" ".emacs.d.old/" ".lein/" ".sbt/" ".cups/" ".p10k.zsh" "project/" ".node_repl_history" ".emacs.d/" "-J_Djavax.net.ssl.trustStorePassword=changeit" "vscode-js-debug/" "#.saves#" ".lesshst" "Library/" "Desktop/" ".iterm2_shell_integration.zsh" ".zsh_history" ".clojure_history" ".nvm/" ".authinfo" ".zprofile" "cs" "Pictures/" ".bsp/" ".mongodb/" "clojure-oidc-demo/" ".local/" "Learning/" "target/" "org/" ".zshrc" "react-hooks-practice/" "flappy-bird-demo/" ".hawtjni/" ".wget-hsts" ".CFUserTextEncoding" ".gnupg/" ".emacs.keyfreq" ".DS_Store" "temp/" ".gnupg_pre_2.1/" ".ivy2/" ".docker/" ".clojure/" "Music/" ".config/" "../" "./")
+
+ ("/Users/" (26179 13765 212870 744000) "Shared/" "chrishowe-jones/" ".localized" "../" "./")
+
  ("/home/chris/emacs-config/org/" (24663 23681 174668 861000) "config.el" "./" "../" "config.org" ".#config.org")
 
  ("/home/chris/clojure-101/" (24657 5911 524678 908000) ".lein-failures" ".git/" "target/" "project.clj" "test/" "LICENSE" "README.md" "resources/" "env/" "./" "../" "system.properties" "src/" ".lsp/" ".gitignore" ".lein-repl-history" ".flooignore" "figwheel_server.log" "api.http" "Procfile" ".lein-env" ".floo" ".clj-kondo/" "#api.http#")

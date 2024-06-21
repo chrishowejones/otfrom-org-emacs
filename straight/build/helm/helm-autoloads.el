@@ -826,7 +826,9 @@ When installing or upgrading ensure to refresh the package list
 to avoid errors with outdated packages no more availables.
 
 (fn &optional ARG)" t)
-(register-definition-prefixes "helm-packages" '("helm-packages-"))
+(autoload 'helm-finder "helm-packages" "\
+Helm interface to find packages by keywords with `finder'." t)
+(register-definition-prefixes "helm-packages" '("helm-"))
 
 
 ;;; Generated autoloads from helm-regexp.el
@@ -910,7 +912,10 @@ it is disabled.
 
 (fn &optional ARG)" t)
 (autoload 'helm-top "helm-sys" "\
-Preconfigured `helm' for top command." t)
+Preconfigured `helm' for top command.
+When prefix arg ARG is non nil toggle auto updating mode `helm-top-poll-mode'.
+
+(fn &optional ARG)" t)
 (autoload 'helm-list-emacs-process "helm-sys" "\
 Preconfigured `helm' for Emacs process." t)
 (autoload 'helm-xrandr-set "helm-sys" "\

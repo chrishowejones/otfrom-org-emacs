@@ -19,6 +19,7 @@
  '(clojure-indent-style :always-align)
  '(clojure-toplevel-inside-comment-form nil)
  '(compilation-read-command nil)
+ '(completions-group-sort 'alphabetical)
  '(connection-local-criteria-alist
    '(((:application eshell)
       eshell-connection-default-profile)

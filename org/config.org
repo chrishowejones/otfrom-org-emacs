@@ -719,10 +719,10 @@
      (diminish 'company-mode "CA")
      (global-set-key (kbd "M-<tab>") 'company-complete)
      (setq company-tooltip-flip-when-above t)
-     (setq company-minimum-prefix-length 1)               ; WARNING, probably you will get perfomance issue if min len is 0!
+     (setq company-minimum-prefix-length 2)               ; WARNING, probably you will get perfomance issue if min len is 0!
      (setq company-tooltip-limit 20)                      ; bigger popup window
      (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
-     (setq company-idle-delay .2)                         ; decrease delay before autocompletion popup shows
+     (setq company-idle-delay 0.4)                         ; decrease delay before autocompletion popup shows
      (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
      (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
    #+END_SRC
@@ -734,6 +734,15 @@
       (company-quickhelp-mode)
     #+END_SRC
 
+*** Company box frontend
+
+    Add company box as a frontend. It's got great icon support that helps differentiate between backends and also
+    supports some ui docs enhancements.
+
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package company-box
+      ;;  :hook (company-mode . company-box-mode))
+    #+END_SRC
 
 ** Editorconfig
 
@@ -1374,6 +1383,17 @@ l
      #+END_SRC
 
 
+** Suppress paredit reindent defun for some modes
+
+   Sometimes paredit-reindent-defun messes up formatting for modes like JS and TS.
+
+   #+BEGIN_SRC emacs-lisp
+     (defun suppress-paredit-reindent-defun ()
+       (interactive)
+       (define-key paredit-mode-map (kbd "M-q") nil))
+   #+END_SRC
+
+
 ** Text Mode Basics
 
    If we are in a text mode we want flyspell and auto-fill-mode.
@@ -1412,6 +1432,35 @@ l
      (setq sentence-end-double-space nil)
     #+END_SRC
 
+
+*** Fix bracket and quote mismatches in src blocks
+
+    #+BEGIN_SRC emacs-lisp
+
+      (defun org-mode-<>-syntax-fix (start end)
+        "Change syntax of characters ?< and ?> to symbol within source code blocks."
+        (let ((case-fold-search t))
+          (when (eq major-mode 'org-mode)
+            (save-excursion
+              (goto-char start)
+              (while (re-search-forward "<\\|>" end t)
+                (when (save-excursion
+                        (and
+                         (re-search-backward "[[:space:]]*#\\+\\(begin\\|end\\)_src\\_>" nil t)
+                         (string-equal (downcase (match-string 1)) "begin")))
+                  ;; This is a < or > in an org-src block
+                  (put-text-property (point) (1- (point))
+                                     'syntax-table (string-to-syntax "_"))))))))
+
+      (defun org-setup-<>-syntax-fix ()
+        "Setup for characters ?< and ?> in source code blocks.
+      Add this function to `org-mode-hook'."
+        (make-local-variable 'syntax-propertize-function)
+        (setq syntax-propertize-function 'org-mode-<>-syntax-fix)
+        (syntax-propertize (point-max)))
+
+      (add-hook 'org-mode-hook #'org-setup-<>-syntax-fix)
+    #+END_SRC
 
 *** Adapt indentation
 
@@ -3599,9 +3648,9 @@ l
      (add-hook 'python-mode-hook 'my-paredit-nonlisp)
      (add-hook 'python-mode-hook (lambda () (setq lsp-ui-doc-enable t)))
      (setq python-shell-interpreter "/home/chris/.pyenv/shims/python")
-     (setq dap-python-executable "python3")
-     (setq dap-python-debugger 'debugpy)
-     (require 'dap-python)
+;;   (setq dap-python-executable "python3")
+;;   (setq dap-python-debugger 'debugpy)
+;;   (require 'dap-python)
 ;;     (elpy-enable)
    #+END_SRC
 
@@ -3645,6 +3694,7 @@ l
       (add-hook 'js2-mode-hook 'my-js2-mode-hook)
       (add-hook 'js2-mode-hook #'js2-refactor-mode)
       (add-hook 'js2-mode-hook 'my-paredit-nonlisp)
+      (add-hook 'js2-mode-hook 'suppress-paredit-reindent-defun)
       (js2r-add-keybindings-with-prefix "C-c C-m")
       (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
     #+END_SRC
@@ -3783,6 +3833,7 @@ l
 
       ;; make sure paredit doesn't add space before parens
       (add-hook 'typescript-mode-hook 'my-paredit-nonlisp)
+      (add-hook 'js2-mode-hook 'suppress-paredit-reindent-defun)
       (use-package typescript-mode
        :after tree-sitter
        :config
@@ -4508,6 +4559,15 @@ l
     #+END_SRC
 
 
+** Coverage
+
+   Test coverage display for Jest
+
+   #+BEGIN_SRC emacs-lisp
+     (use-package coverage-mode
+      :straight (:host github :repo "jcubic/coverage.el" :files ("*.el")))
+   #+END_SRC
+
 ** LSP config (many langs)
 
 *** LSP config
@@ -4515,6 +4575,10 @@ l
     I've extracted LSP config to a separate section as I'm using it for loads of different langs.
 
     Set up LSP mode.
+
+    #+BEGIN_SRC emacs-lisp
+   ()
+    #+END_SRC
 
     #+BEGIN_SRC emacs-lisp
       (use-package lsp-mode
@@ -4634,14 +4698,16 @@ l
       ;; (use-package dap-java :ensure nil)
       (require 'dap-java)
       (require 'dap-chrome)
-      (setq package-list '(dap-mode typescript-mode))
-      (defun my-setup-dap-node ()
-        "Require dap-node feature and run dap-node-setup if VSCode module isn't already installed"
-        (require 'dap-node)
-        (unless (file-exists-p dap-node-debug-path) (dap-node-setup)))
+      (require 'dap-js)
+      (require 'dap-node)
+      ;; (setq package-list '(dap-mode typescript-mode))
+      ;; (defun my-setup-dap-node ()
+      ;;   "Require dap-node feature and run dap-node-setup if VSCode module isn't already installed"
+      ;;   (require 'dap-node)
+      ;;   (unless (file-exists-p dap-node-debug-path) (dap-node-setup)))
 
-      (add-hook 'typescript-mode-hook 'my-setup-dap-node)
-      (add-hook 'js2-mode-hook 'my-setup-dap-node)
+      ;; (add-hook 'typescript-mode-hook 'my-setup-dap-node)
+      ;; (add-hook 'js2-mode-hook 'my-setup-dap-node)
       (add-hook 'dap-stopped-hook
           (lambda (arg) (call-interactively #'dap-hydra)))
     #+END_SRC
@@ -4853,43 +4919,6 @@ l
 * Misc
 
   Miscellaneous stuff.
-
-** clojure cookbook next recipe
-
-   This is a fn to 'turn the page' to the next recipe in the Clojure
-   Cookbook
-
-   #+BEGIN_SRC emacs-lisp
-     (defun increment-clojure-cookbook ()
-       "When reading the Clojure cookbook, find the next section, and
-       close the buffer. If the next section is a sub-directory or in
-       the next chapter, open Dired so you can find it manually."
-       (interactive)
-       (let* ((cur (buffer-name))
-              (split-cur (split-string cur "[-_]"))
-              (chap (car split-cur))
-              (rec (car (cdr split-cur)))
-              (rec-num (string-to-number rec))
-              (next-rec-num (1+ rec-num))
-              (next-rec-s (number-to-string next-rec-num))
-              (next-rec (if (< next-rec-num 10)
-                            (concat "0" next-rec-s)
-                          next-rec-s))
-              (target (file-name-completion (concat chap "-" next-rec) "")))
-         (progn
-           (if (equal target nil)
-               (dired (file-name-directory (buffer-file-name)))
-             (find-file target))
-           (kill-buffer cur))))
-      (define-key adoc-mode-map (kbd "C->") 'increment-clojure-cookbook)
-   #+END_SRC
-
-** Typing tutor
-
-   #+BEGIN_SRC emacs-lisp
-;;    (maybe-install-and-require 'speed-type)
-   #+END_SRC
-
 
 ** XKCD 303
 
