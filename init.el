@@ -19,8 +19,15 @@
                          ("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 
+(setq load-prefer-newer t)
 ;; This means we prefer things from ~/.emacs.d/elpa over the standard packages.
 (package-initialize)
+
+(when (not (package-installed-p 'auto-compile))
+  (package-install 'auto-compile))
+(require 'auto-compile)
+(auto-compile-on-load-mode)
+(auto-compile-on-save-mode)
 
 ;; This bootstraps us if we don't have anything
 (when (not package-archive-contents)

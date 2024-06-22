@@ -410,10 +410,9 @@
    using META-n where n is the windows number.
 
    #+BEGIN_SRC emacs-lisp
-       (progn
          (maybe-install-and-require 'window-number)
          (window-number-mode 1)
-         (window-number-meta-mode 1))
+         (window-number-meta-mode 1)
    #+END_SRC
 
 ** $PATH is broken
@@ -758,8 +757,8 @@
     Company frontend with icons.
 
     #+BEGIN_SRC emacs-lisp
-      (use-package company-box
-        :hook (company-mode . company-box-mode))
+      ;; (use-package company-box
+      ;;   :hook (company-mode . company-box-mode))
     #+END_SRC
 
 ** Base64 (add prefix command)
