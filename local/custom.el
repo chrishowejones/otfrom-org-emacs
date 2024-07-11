@@ -18,6 +18,8 @@
    '("^cljsns" "^slingshot.test" "^monger.joda-time" "^monger.json" "^clj-time.jdbc"))
  '(clojure-indent-style :always-align)
  '(clojure-toplevel-inside-comment-form nil)
+ '(company-frontends
+   '(company-pseudo-tooltip-unless-just-one-frontend company-preview-if-just-one-frontend))
  '(compilation-read-command nil)
  '(completions-group-sort 'alphabetical)
  '(connection-local-criteria-alist

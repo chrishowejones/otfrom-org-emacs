@@ -3,7 +3,6 @@
 #+OPTIONS: toc:nil
 #+auto_tangle: t
 
-
 * Helpers
 
   There are a number of helper functions that we'll need through the
@@ -301,7 +300,8 @@
        (when (> (buffer-size) (* 1024 1024))
          (setq buffer-read-only t)
          (buffer-disable-undo)
-         (fundamental-mode)))
+         (fundamental-mode))
+       )
      (add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
      (add-hook 'helm-find-files-hook 'my-find-file-check-make-large-file-read-only-hook)
    #+END_SRC
@@ -470,8 +470,8 @@
 ** command key as meta
 
    #+BEGIN_SRC emacs-lisp
-    (setq mac-command-modifier 'super)
-    (setq mac-option-modifier 'meta)
+     ;; (setq mac-command-modifier 'meta)
+     ;; (setq mac-option-modifier 'super)
    #+END_SRC
 
 * Make it Pretty
@@ -723,15 +723,15 @@
      (setq company-tooltip-limit 20)                      ; bigger popup window
      (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
      (setq company-idle-delay 0.4)                         ; decrease delay before autocompletion popup shows
-     (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+     ;;(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
      (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
    #+END_SRC
 
 *** Company-quickhelp
 
     #+BEGIN_SRC emacs-lisp
-      (maybe-install-and-require 'company-quickhelp)
-      (company-quickhelp-mode)
+      ;; (maybe-install-and-require 'company-quickhelp)
+      ;; (company-quickhelp-mode)
     #+END_SRC
 
 *** Company box frontend
@@ -1010,7 +1010,7 @@
    #+BEGIN_SRC emacs-lisp
      (mouse-avoidance-mode 'banish)
    #+END_SRC
-
+   
 ** window and buffer tweaking
 
 *** window movement
@@ -1584,7 +1584,7 @@ l
     Load the md backend for org-mode so that I can export to markdown.
 
     #+BEGIN_SRC emacs-lisp
-   (require 'ox-md)
+      (require 'ox-md)
     #+END_SRC
 
 *** Scheduling, Project Management, Time Keeping
@@ -1950,8 +1950,8 @@ l
                (org-agenda-files :maxlevel . 9)
                ("~/org/refile.org" :maxlevel . 9)))
        (advice-add 'org-refile :after 'org-save-all-org-buffers)
-     #+END_SRC
-
+ #+END_SRC
+ 
 *** org and the pomodoro technique
 
     When I need to just grind through something or find a way to keep
@@ -2109,9 +2109,9 @@ l
       (setq web-mode-css-markup-indent-offset 2)
       (setq web-mode-code-indent-offset 2)
       (add-hook 'web-mode-hook 'my-paredit-nonlisp)
-      (maybe-install-and-require 'company-web)
-      (eval-after-load 'web-mode
-        '(add-to-list 'company-backends 'company-web))
+      ;; (maybe-install-and-require 'company-web)
+      ;; (eval-after-load 'web-mode
+      ;;   '(add-to-list 'company-backends 'company-web))
 
       ;; (add-hook 'web-mode-hook
       ;;           (lambda ()
@@ -3329,10 +3329,11 @@ l
     Most of the clojure emacs goodness if available in the github
     repo called [[https://github.com/clojure-emacs][clojure-emacs]].
 **** boot
-***** treat .boot files as clojure source
+***** treat .boot  and repl files as clojure source
 
       #+BEGIN_SRC emacs-lisp
         (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+        (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
       #+END_SRC
 
 ***** treat boot scripts files as clojure
@@ -3901,7 +3902,7 @@ l
           ;; company is an optional dependency. You have to
           ;; install it separately via package-install
           ;; `M-x package-install [ret] company`
-          (company-mode +1)
+          ;; (company-mode )
           )
 
       ;; aligns annotation to the right hand side
@@ -3910,7 +3911,7 @@ l
       ;; formats the buffer before saving
       ;; (add-hook 'before-save-hook 'tide-format-before-save)
 
-      (add-hook 'typescript-mode-hook #'setup-tide-mode)
+      ;;(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
       ;; format
       (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions nil :placeOpenBraceOnNewLineForFunctions nil))
@@ -4577,10 +4578,6 @@ l
     Set up LSP mode.
 
     #+BEGIN_SRC emacs-lisp
-   ()
-    #+END_SRC
-
-    #+BEGIN_SRC emacs-lisp
       (use-package lsp-mode
         :ensure t
         :hook ((clojure-mode . lsp)
@@ -4591,13 +4588,14 @@ l
                (js2-mode . lsp)
                (typescript-mode . lsp)
                (python-mode . lsp)
+               (terraform-mode . lsp-deferred)
                ;; if you want which-key integration
                (lsp-mode . lsp-enable-which-key-integration)
                (lsp-mode . flycheck-mode)
                (lsp-mode . lsp-lens-mode))
         :config
         (setq lsp-prefer-flymake t)
-        (add-to-list 'company-backends '(company-capf :with company-yasnippet))
+        ;; (add-to-list 'company-backends '(company-capf :with company-yasnippet))
         (setq lsp-keep-workspace-alive nil)
         ;; add paths to your local installation of project mgmt tools, like lein
         (setenv "PATH" (concat
