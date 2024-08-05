@@ -68,7 +68,6 @@
 
 * Globals
 
-
 ** plstore
 
    Set up plstore to use asymetrical keys
@@ -763,6 +762,7 @@
       (interactive "r\nP"))
     (advice-add 'base64-encode-region :before #'base64-encode-region-prefix-arg)
    #+END_SRC
+
 * directories, navigation, searching, movement
 ** dired
 
@@ -3822,7 +3822,6 @@ l
           :commands jest-test-mode
           :hook (typescript-mode js-mode typescript-tsx-mode))
     #+END_SRC
-
 
 ** typescript
 
